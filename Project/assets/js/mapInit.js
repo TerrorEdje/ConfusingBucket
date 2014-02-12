@@ -15,7 +15,7 @@ function initialize() {
 	var marker = new google.maps.Marker({
       position: avansLatlng,
       map: map,
-      title: 'Hello World!'
+      title: 'Avans Hogeschool'
   });
   
 }
