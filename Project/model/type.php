@@ -1,12 +1,9 @@
 <?php
-	class Student
+	class Type
 	{
 		private $id;
-		private $voornaam;
-		private $tussenvoegsel;
-		private $achternaam;
-		private $email;
-		private $gebruiker_id;
+		private $naam;
+		private $omschrijving;
 		
 		public function _get($property)
 		{
