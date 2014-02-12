@@ -31,7 +31,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`opleiding` (
   `organisatie_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `organisatie_organisatie_id_idx` (`organisatie_id` ASC) ,
-  CONSTRAINT `organisatie_organisatie_id`
+  CONSTRAINT `organisatie-opleiding`
     FOREIGN KEY (`organisatie_id` )
     REFERENCES `mydb`.`organisatie` (`id` )
     ON DELETE NO ACTION
@@ -68,7 +68,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`student` (
   `gebruiker_id` INT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_student_gebruiker1_idx` (`gebruiker_id` ASC) ,
-  CONSTRAINT `fk_student_gebruiker1`
+  CONSTRAINT `gebruiker-student`
     FOREIGN KEY (`gebruiker_id` )
     REFERENCES `mydb`.`gebruiker` (`id` )
     ON DELETE NO ACTION
@@ -91,7 +91,7 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`locatie` (
   `organisatie_id` INT NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_locatie_organisatie1_idx` (`organisatie_id` ASC) ,
-  CONSTRAINT `fk_locatie_organisatie1`
+  CONSTRAINT `organisatie-locatie`
     FOREIGN KEY (`organisatie_id` )
     REFERENCES `mydb`.`organisatie` (`id` )
     ON DELETE NO ACTION
@@ -129,12 +129,12 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`story` (
   INDEX `organisatie_organisatie_id_idx` (`organisatie_id` ASC) ,
   INDEX `type_type_id_idx` (`type_id` ASC) ,
   PRIMARY KEY (`id`) ,
-  CONSTRAINT `organisatie_organisatie_id`
+  CONSTRAINT `organisatie-story`
     FOREIGN KEY (`organisatie_id` )
     REFERENCES `mydb`.`organisatie` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `type_type_id`
+  CONSTRAINT `type-story`
     FOREIGN KEY (`type_id` )
     REFERENCES `mydb`.`type` (`id` )
     ON DELETE NO ACTION
@@ -155,17 +155,17 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`opleiding_has_student` (
   INDEX `fk_opleiding_has_student_student1_idx` (`student_id` ASC) ,
   INDEX `fk_opleiding_has_student_opleiding1_idx` (`opleiding_id` ASC) ,
   INDEX `fk_opleiding_has_student_story1_idx` (`story_id` ASC) ,
-  CONSTRAINT `fk_opleiding_has_student_opleiding1`
+  CONSTRAINT `opleiding-ohs`
     FOREIGN KEY (`opleiding_id` )
     REFERENCES `mydb`.`opleiding` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_opleiding_has_student_student1`
+  CONSTRAINT `student-ohs`
     FOREIGN KEY (`student_id` )
     REFERENCES `mydb`.`student` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_opleiding_has_student_story1`
+  CONSTRAINT `story-ohs`
     FOREIGN KEY (`story_id` )
     REFERENCES `mydb`.`story` (`id` )
     ON DELETE NO ACTION
@@ -196,12 +196,12 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`gebruiker_has_rechten` (
   PRIMARY KEY (`gebruiker_gebruikersnaam`, `rechten_id`) ,
   INDEX `fk_gebruiker_has_rechten_rechten1_idx` (`rechten_id` ASC) ,
   INDEX `fk_gebruiker_has_rechten_gebruiker1_idx` (`gebruiker_gebruikersnaam` ASC) ,
-  CONSTRAINT `fk_gebruiker_has_rechten_gebruiker1`
+  CONSTRAINT `gebruiker-ghr`
     FOREIGN KEY (`gebruiker_gebruikersnaam` )
     REFERENCES `mydb`.`gebruiker` (`gebruikersnaam` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_gebruiker_has_rechten_rechten1`
+  CONSTRAINT `rechten-ghr`
     FOREIGN KEY (`rechten_id` )
     REFERENCES `mydb`.`rechten` (`id` )
     ON DELETE NO ACTION
