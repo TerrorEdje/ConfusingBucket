@@ -1,14 +1,13 @@
 <?php
-	class Locatie
+	class Story
 	{
 		private $id;
-		private $land;
-		private $plaats;
-		private $straatnaam;
-		private $huisnummer;
-		private $postcode;
-		private $latitude;
-		private $longitude;
+		private $type_id;
+		private $begin_datum;
+		private $eind_datum;
+		private $beschrijving;
+		private $link;
+		private $leerjaar;
 	
 		public function _get($property) {
             if (property_exists($this, $property)) {
