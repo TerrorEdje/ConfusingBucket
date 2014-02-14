@@ -1,5 +1,5 @@
-<?php include 'shared/head.php' ?>
-	<?php include 'shared/header.php' ?>
+<?php include 'view/shared/head.php' ?>
+	<?php include 'view/shared/header.php' ?>
 	
 
-<?php include 'shared/footer.php' ?>
+<?php include 'view/shared/footer.php' ?>
