@@ -7,6 +7,8 @@
 		private $achternaam;
 		private $email;
 		private $gebruiker_id;
+        private $opleiding_ids;
+        private $story_ids;
 		
 		public function _get($property)
 		{

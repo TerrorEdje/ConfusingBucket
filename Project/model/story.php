@@ -8,6 +8,8 @@
 		private $beschrijving;
 		private $link;
 		private $leerjaar;
+        private $opleiding_ids;
+        private $student_ids;
 	
 		public function _get($property) {
             if (property_exists($this, $property)) {
