@@ -1,10 +1,10 @@
 <?php
-	class Gebruikler
+	class Gebruiker
 	{
-		private $id;
-		private $gebruikersNaam
-		private $wachtwoord
-		private $email
+		private $gebruikersNaam;
+		private $wachtwoord;
+		private $email;
+        private $rechten_ids;
 		
 		public function _get($property) {
 			if (property_exists($this, $property)) {
