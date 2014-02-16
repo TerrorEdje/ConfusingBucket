@@ -27,4 +27,27 @@
 		
 		return $type;
 	}
+    
+    function getTypeByID($typeID, $connection)
+	{
+		$query = "SELECT * FROM type WHERE id = '".$typeID."'";
+		$result =$connection->query($query);
+		
+		$type = new Type();
+		
+		while ($row =$result->fetch_assoc())
+		{
+			$id = $row["id"];
+			$naam = $row["naam"];
+			$omschrijving = $row["omschrijving"];
+						
+			$type -> _set("id",$id);
+			$type -> _set("naam",$naam);
+			$type -> _set("omschrijving",$omschrijving);
+		}
+		
+		$result->close();
+		
+		return $type;
+	}
 ?>

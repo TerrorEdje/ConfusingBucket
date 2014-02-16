@@ -52,4 +52,52 @@
 		
 		return $story;
 	}
+    
+    function getStoryByID($storyID, $connection)
+    {
+        $query = "SELECT * FROM story where id = '".$storyID."'";
+		$result =$connection->query($query);
+		
+		$story = new Story();
+		
+		while ($row =$result->fetch_assoc())
+		{
+			$id = $row["id"];
+			$organisatie_id = $row["organisatie_id"];
+			$type_id = $row["type_id"];
+			$begin_datum = $row["begin_datum"];
+			$eind_datum = $row["eind_datum"];
+			$beschrijving = $row["beschrijving"];
+			$link = $row["link"];
+			$leerjaar = $row["leerjaar"];
+            $opleiding_ids = array();
+            $student_ids = array();
+            
+            $query2 = "SELECT * FROM opleiding_has_student WHERE story_id='".$id."'";
+            $result2 = $connection->query($query2);
+            
+            $j = 0;
+            
+            while ($row =$result2->fetch_assoc())
+            {
+                $opleiding_ids[$j] = $row["opleiding_id"];
+                $student_ids[$j] = $row["student_id"];
+            }
+			
+			$story -> _set("id",$id);
+			$story -> _set("organisatie_id",$organisatie_id);
+			$story -> _set("type_id",$type_id);
+			$story -> _set("begin_datum",$begin_datum);
+			$story -> _set("eind_datum",$eind_datum);
+			$story -> _set("beschrijving",$beschrijving);
+			$story -> _set("link",$link);
+			$story -> _set("leerjaar",$leerjaar);
+            $story -> _set("opleiding_ids",$opleiding_ids);
+            $story -> _set("student_ids",$student_ids);
+		}
+		
+		$result->close();
+		
+		return $story;
+    }
 ?>
