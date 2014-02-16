@@ -13,7 +13,7 @@
 		{
 			$id = $row["id"];
 			$organisatie_id = $row["organisatie_id"];
-			$type_id = $row["typr_id"];
+			$type_id = $row["type_id"];
 			$begin_datum = $row["begin_datum"];
 			$eind_datum = $row["eind_datum"];
 			$beschrijving = $row["beschrijving"];
