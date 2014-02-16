@@ -3,6 +3,7 @@
 	{
 		private $id;
 		private $omschrijving;
+        private $gebruiker_gebruikersnamen;
 		
 		public function _get($property)
 		{

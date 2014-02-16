@@ -5,6 +5,8 @@
 		private $naam;
 		private $omschrijving;
 		private $organisatie_id;
+        private $story_ids;
+        private $student_ids;
 		
 		public function _get($property) {
 			if (property_exists($this, $property)) {

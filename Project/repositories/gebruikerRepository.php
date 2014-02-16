@@ -11,16 +11,27 @@
 		
 		while ($row =$result->fetch_assoc())
 		{
-			$id = $row["id"];
 			$gebruikersnaam = $row["gebruikersnaam"];
 			$wachtwoord = $row["wachtwoord"];
 			$email = $row["email"];
-						
+            $rechten_ids = array();
+            
+            $query2 = "SELECT * FROM gebruiker_has_rechten WHERE gebruiker_gebruikersnaam='".$gebruikersnaam."'";
+            $result2 = $connection->query($query2);
+            
+            $j = 0;
+            
+            while ($row =$result2->fetch_assoc())
+            {
+                $rechten_ids[$j] = $row["rechten_id"];
+            }
+			
 			$gebruiker[$i] = new Gebruiker();
 			$gebruiker[$i] -> _set("id",$id);
 			$gebruiker[$i] -> _set("gebruikersnaam",$gebruikersnaam);
 			$gebruiker[$i] -> _set("wachtwoord",$wachtwoord);
 			$gebruiker[$i] -> _set("email",$email);
+            $gebruiker[$i] -> _set("rechten_ids",$rechten_ids);
 			
 			$i++;
 		}

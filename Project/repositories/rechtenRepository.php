@@ -13,10 +13,22 @@
 		{
 			$id = $row["id"];
 			$omschrijving = $row["omschrijving"];
-						
+            $gebruiker_gebruikersnamen = array();
+            
+            $query2 = "SELECT * FROM gebruiker_has_rechten WHERE rechten_id='".$id."'";
+            $result2 = $connection->query($query2);
+			
+            $j = 0;
+            
+            while ($row =$result2->fetch_assoc())
+            {
+                $gebruiker_gebruikersnamen[$j] = $row["gebruiker_gebruikersnaam"];
+            }
+            
 			$rechten[$i] = new Rechten();
 			$rechten[$i] -> _set("id",$id);
 			$rechten[$i] -> _set("omschrijving",$omschrijving);
+            $rechten[$i] -> _set("gebruiker_gebruikersnamen",$gebruiker_gebruikersnamen);
 			
 			$i++;
 		}
