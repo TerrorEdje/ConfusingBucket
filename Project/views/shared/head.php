@@ -17,6 +17,6 @@
 		locations.push( {  id:"1", lat:"51.688946", lng:"5.287256", title:"Avans hogeschool" } );
 	</script>
 	
-	<script type="text/javavascript" src="../assets/js/mapInit.js"></script>
+	<script type="text/javavascript" src="assets/js/mapInit.js"></script>
 </head>
 	<body>
