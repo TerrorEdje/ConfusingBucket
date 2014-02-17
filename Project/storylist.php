@@ -26,6 +26,7 @@
 		{
 			if ($story_id == $story -> _get("id"))
 			{
+				$id = $story -> _get("id");
 				$begin_datum = $story -> _get("begin_datum");
 				$eind_datum = $story -> _get("eind_datum");
 				$beschrijving = $story -> _get("beschrijving");
@@ -53,6 +54,7 @@
 		echo "<td>$beschrijving</td>";
 		echo "<td>$link</td>";
 		echo "<td>$leerjaar</td>";
+		echo "<td onClick=\"window.location.href='storylist_detail.php?storyid=$id'\">Details</td>";
 		echo "</tr>";
 		
 	}
