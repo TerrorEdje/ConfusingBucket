@@ -1,5 +1,4 @@
 var map;
-var avansLatlng = new google.maps.LatLng(51.688946, 5.287256);
 var centerLatlng = new google.maps.LatLng(0,0);
 
 function initialize() {
