@@ -12,11 +12,14 @@ function initialize() {
 	
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	
-	var marker = new google.maps.Marker({
-      position: avansLatlng,
-      map: map,
-      title: 'Avans Hogeschool'
-  });
+	for( i = 0; i < locations.length; ++i)
+	{
+		new google.maps.Marker({
+		position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+		map: map,
+		title: locations[i].title
+		});
+	}
   
 }
 
