@@ -8,8 +8,9 @@
 	<link rel="stylesheet" href="../assets/css/style.css?version=1.001" type="text/css" />
 
 	
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false" />
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-	<script src="../assets/js/mapInit.js"></script>
+	<script type="text/javavascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script type="text/javavascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	
+	<script type="text/javavascript" src="../assets/js/mapInit.js"></script>
 </head>
 	<body>
