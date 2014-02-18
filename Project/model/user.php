@@ -1,10 +1,10 @@
 <?php
-	class Organisatie
+	class User
 	{
 		private $id;
-		private $naam;
-		private $omschrijving;
-		private $website;
+		private $username;
+		private $password;
+        private $email;
 		
 		public function _get($property) {
 			if (property_exists($this, $property)) {

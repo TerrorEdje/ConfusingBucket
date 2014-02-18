@@ -1,10 +1,10 @@
 <?php
-	class Opleiding
+	class Study
 	{
 		private $id;
-		private $naam;
-		private $omschrijving;
-		private $organisatie_id;
+		private $name;
+		private $description;
+		private $school_id;
         private $story_ids;
         private $student_ids;
 		

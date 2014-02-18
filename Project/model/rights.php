@@ -1,8 +1,8 @@
 <?php
-	class Rechten
+	class Rights
 	{
 		private $id;
-		private $omschrijving;
+		private $description;
         private $gebruiker_gebruikersnamen;
 		
 		public function _get($property)
