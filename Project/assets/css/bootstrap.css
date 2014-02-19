@@ -3465,6 +3465,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: white;
   text-align: center;
   font-size: 12pt;
+  margin: 20px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {

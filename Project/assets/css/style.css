@@ -1,9 +1,8 @@
-html { height: 100% }
-body { height: 100%; margin: 0; padding: 0; background-color: rgb(10, 30, 30);  overflow-y: auto;}
+body { height: 100%; margin: 0; padding: 0; background-color: rgb(10, 30, 30);  overflow-y: auto; }
 
-header{
-
- }
+nav > img{
+	float: left;
+}
  
 nav
 {

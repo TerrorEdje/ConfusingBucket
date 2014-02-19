@@ -1,5 +1,6 @@
 <header>
 	<nav>
+		<img src="images/Avans_globe.png" alt="avans_globe" />
 		<ul class="nav">
 			<li><a href="index.php">Home</a></li>
 			
