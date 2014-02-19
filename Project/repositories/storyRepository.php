@@ -62,7 +62,13 @@
 		
 		while ($row =$result->fetch_assoc())
 		{
-			$id = $row["id"];
+
+			//alle waardes van tabel story zetten
+			foreach ($row as $key => $value) {
+				$story -> _set($key, $value);
+			}
+
+			/*$id = $row["id"];
 			$organisatie_id = $row["organisatie_id"];
 			$type_id = $row["type_id"];
 			$begin_datum = $row["begin_datum"];
@@ -71,27 +77,23 @@
 			$link = $row["link"];
 			$leerjaar = $row["leerjaar"];
             $opleiding_ids = array();
-            $student_ids = array();
+            $student_ids = array();*/
             
-            $query2 = "SELECT * FROM opleiding_has_student WHERE story_id='".$id."'";
+            $query2 = "SELECT * FROM study_has_student WHERE story_id='".$row["id"]."'";
             $result2 = $connection->query($query2);
+
+            $opleiding_ids = array();
+            $student_ids = array();
             
             $j = 0;
             
             while ($row =$result2->fetch_assoc())
             {
-                $opleiding_ids[$j] = $row["opleiding_id"];
+                $opleiding_ids[$j] = $row["study_id"];
                 $student_ids[$j] = $row["student_id"];
+                $j = $j+1;
             }
 			
-			$story -> _set("id",$id);
-			$story -> _set("organisatie_id",$organisatie_id);
-			$story -> _set("type_id",$type_id);
-			$story -> _set("begin_datum",$begin_datum);
-			$story -> _set("eind_datum",$eind_datum);
-			$story -> _set("beschrijving",$beschrijving);
-			$story -> _set("link",$link);
-			$story -> _set("leerjaar",$leerjaar);
             $story -> _set("opleiding_ids",$opleiding_ids);
             $story -> _set("student_ids",$student_ids);
 		}

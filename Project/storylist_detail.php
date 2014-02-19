@@ -10,9 +10,9 @@
 		
 		if($story != null)
 		{
-			echo "<h2>Stage gelopen van ".$story -> _get("begin_datum")." tot ".$story -> _get("eind_datum")."</h2>";
-			echo "<h3>".$story -> _get("beschrijving")."</h3>";
-			echo "<h3>Ik heb dit gedaan in leerjaar ".$story -> _get("leerjaar")."</h3>";
+			echo "<h2>Stage gelopen van ".$story -> _get("startdate")." tot ".$story -> _get("enddate")."</h2>";
+			echo "<h3>".$story -> _get("description")."</h3>";
+			echo "<h3>Ik heb dit gedaan in leerjaar ".$story -> _get("schoolyear")."</h3>";
 			echo "<h4><a href='".$story -> _get("link")."'>".$story -> _get("link")."</a></h4>";
 		}
 		else
