@@ -5,6 +5,7 @@
 		private $username;
 		private $password;
         private $email;
+		private $rights_ids
 		
 		public function _get($property) {
 			if (property_exists($this, $property)) {
