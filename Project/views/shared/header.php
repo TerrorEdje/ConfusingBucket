@@ -15,3 +15,4 @@
 		</ul>
 	</nav>
 </header>
+<div id="map_button"><a href="#">Click to view map</a></div>

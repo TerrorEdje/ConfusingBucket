@@ -3,6 +3,5 @@
 	<section>
 		<?php include 'views/shared/header.php' ?>
 		
-	
+		<?php include 'views/shared/footer.php' ?>
 	</section>
-<?php include 'views/shared/footer.php' ?>
