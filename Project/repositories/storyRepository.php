@@ -1,13 +1,13 @@
 <?php
 	include 'model/story.php';
 		
-	function getAllStorys($connection)
+	function getAllStories($connection)
 	{
 		$query = "SELECT * FROM story";
 		$result =$connection->query($query);
 		
 		$i = 0;
-		$story = array();
+		$stories = array();
 		
 		while ($row =$result->fetch_assoc())
 		{
@@ -39,7 +39,7 @@
 		
 		$result->close();
 		
-		return $story;
+		return $stories;
 	}
     
     function getStoryByID($storyID, $connection)
