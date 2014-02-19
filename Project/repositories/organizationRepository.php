@@ -21,19 +21,25 @@
 			$result2 = $connection->query($query);
 			
 			$j = 0;
-			$story__ids = new array();
+			$story_ids = new array();
+			$location_ids = new array();
 			
 			while ($row = $result->fetch_assoc())
 			{
-				
+				$story_ids[$j] = $row["story_id"];
+				$location_ids[$j] = $row["location_id"];
+				$j++;
 			}
 			
+			$organizations[$i] -> _set("story_ids",$story_ids);
+			$organizations[$i] -> _set("location_id",$location_ids);
 			
 			
 			$i++;
 		}
 		
 		$result->close();
+		
 		
 		return $organizations;
 	}
@@ -51,6 +57,23 @@
 			{
 				$organization[$i] -> _set($key, $value);
 			}
+			
+			$query2 = "SELECT * FROM organization_location WHERE organization_id='".$row["id"]."'";
+			$result2 = $connection->query($query);
+			
+			$j = 0;
+			$story_ids = new array();
+			$location_ids = new array();
+			
+			while ($row = $result->fetch_assoc())
+			{
+				$story_ids[$j] = $row["story_id"];
+				$location_ids[$j] = $row["location_id"];
+				$j++;
+			}
+			
+			$organization -> _set("story_ids",$story_ids);
+			$organization -> _set("location_id",$location_ids);
 		}
 		
 		$result->close();
