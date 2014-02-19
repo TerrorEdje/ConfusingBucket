@@ -13,13 +13,23 @@ function initialize() {
 	
 	for( i = 0; i < locations.length; ++i)
 	{
+		//var contentstring = '<p><a href="storylist_detail.php?'.locations[i].id</p>';
+	
+		var infowindow = new google.maps.InfoWindow({
+			//content: contentstring
+		});
+		
 		new google.maps.Marker({
-		position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-		map: map,
-		title: locations[i].title
+			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+			map: map,
+			title: locations[i].title
+		});
+		
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map,marker);
 		});
 	}
-  
+	
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
