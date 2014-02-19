@@ -2,12 +2,12 @@
 	class Student
 	{
 		private $id;
-		private $voornaam;
-		private $tussenvoegsel;
-		private $achternaam;
+		private $firstname;
+		private $insertion;
+		private $surname;
 		private $email;
-		private $gebruiker_id;
-        private $opleiding_ids;
+		private $user_id;
+        private $study_ids;
         private $story_ids;
 		
 		public function _get($property)

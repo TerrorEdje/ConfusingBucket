@@ -1,7 +1,7 @@
 <?php
 	include 'model/story.php';
 		
-	function getAllStory($connection)
+	function getAllStorys($connection)
 	{
 		$query = "SELECT * FROM story";
 		$result =$connection->query($query);
@@ -17,7 +17,7 @@
 				$story[$i] -> _set($key, $value);
 			}
             
-            $query2 = "SELECT * FROM study_has_student WHERE story_id='".$id."'";
+            $query2 = "SELECT * FROM study_has_student WHERE story_id='".$row["id"]."'";
             $result2 = $connection->query($query2);
             
             $j = 0;

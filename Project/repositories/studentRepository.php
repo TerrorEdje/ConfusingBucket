@@ -12,33 +12,33 @@
 		while ($row =$result->fetch_assoc())
 		{
 			$id = $row["id"];
-			$voornaam = $row["voornaam"];
-			$tussenvoegsel = $row["tussenvoegsel"];
-			$achternaam = $row["achternaam"];
+			$firstname = $row["firstname"];
+			$insertion = $row["insertion"];
+			$surname = $row["surname"];
 			$email = $row["email"];
-			$gebruiker_id = $row["gebruiker_id"];
-            $opleiding_ids = array();
+			$user_id = $row["user_id"];
+            $study_ids = array();
             $story_ids = array();
             
-            $query2 = "SELECT * FROM opleiding_has_student WHERE student_id='".$id."'";
+            $query2 = "SELECT * FROM study_has_student WHERE student_id='".$id."'";
             $result2 = $connection->query($query2);
             
             $j = 0;
             
             while ($row =$result2->fetch_assoc())
             {
-                $opleiding_ids[$j] = $row["opleiding_id"];
+                $study_ids[$j] = $row["study_id"];
                 $story_ids[$j] = $row["story_id"];
             }
 			
 			$students[$i] = new Student();
 			$students[$i] -> _set("id",$id);
-			$students[$i] -> _set("voornaam",$voornaam);
-			$students[$i] -> _set("tussenvoegsel",$tussenvoegsel);
-			$students[$i] -> _set("achternaam",$achternaam);
+			$students[$i] -> _set("firstname",$firstname);
+			$students[$i] -> _set("insertion",$insertion);
+			$students[$i] -> _set("surname",$surname);
 			$students[$i] -> _set("email",$email);
-			$students[$i] -> _set("gebruiker_id",$gebruiker_id);
-            $students[$i] -> _set("opleiding_ids",$opleiding_ids);
+			$students[$i] -> _set("user_id",$user_id);
+            $students[$i] -> _set("study_ids",$study_ids);
             $students[$i] -> _set("story_ids",$story_ids);
 			
 			$i++;
@@ -59,33 +59,33 @@
 		while ($row =$result->fetch_assoc())
 		{
 			$id = $row["id"];
-			$voornaam = $row["voornaam"];
-			$tussenvoegsel = $row["tussenvoegsel"];
-			$achternaam = $row["achternaam"];
+			$firstname = $row["firstname"];
+			$insertion = $row["insertion"];
+			$surname = $row["surname"];
 			$email = $row["email"];
-			$gebruiker_id = $row["gebruiker_id"];
-            $opleiding_ids = array();
+			$user_id = $row["user_id"];
+            $study_ids = array();
             $story_ids = array();
             
-            $query2 = "SELECT * FROM opleiding_has_student WHERE student_id='".$id."'";
+            $query2 = "SELECT * FROM study_has_student WHERE student_id='".$id."'";
             $result2 = $connection->query($query2);
             
             $j = 0;
             
             while ($row =$result2->fetch_assoc())
             {
-                $opleiding_ids[$j] = $row["opleiding_id"];
+                $study_ids[$j] = $row["study_id"];
                 $story_ids[$j] = $row["story_id"];
             }
 			
 			$student = new Student();
 			$student -> _set("id",$id);
-			$student -> _set("voornaam",$voornaam);
-			$student -> _set("tussenvoegsel",$tussenvoegsel);
-			$student -> _set("achternaam",$achternaam);
+			$student -> _set("firstname",$firstname);
+			$student -> _set("insertion",$insertion);
+			$student -> _set("surname",$surname);
 			$student -> _set("email",$email);
-			$student -> _set("gebruiker_id",$gebruiker_id);
-            $student -> _set("opleiding_ids",$opleiding_ids);
+			$student -> _set("user_id",$user_id);
+            $student -> _set("study_ids",$study_ids);
             $student -> _set("story_ids",$story_ids);
 		}
 		
