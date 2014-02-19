@@ -9,6 +9,7 @@
 	<link href="assets/css/bootstrap.css" type="text/css" rel = "stylesheet" />
 
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+	<script type="text/javascript" src="assets/js/functions.js"></script>
 </head>
 	<body>
