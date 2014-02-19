@@ -13,7 +13,7 @@
 		{
 			$locations[$i] = new Location();
 			foreach ($row as $key => $value) {
-				$location[$i] -> _set($key, $value);
+				$locations[$i] -> _set($key, $value);
 			}			
 			$i++;
 		}

@@ -19,7 +19,7 @@ function initialize() {
 			//content: contentstring
 		});
 		
-		new google.maps.Marker({
+		var marker = new google.maps.Marker({
 			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
 			map: map,
 			title: locations[i].title
@@ -29,7 +29,6 @@ function initialize() {
 			infowindow.open(map,marker);
 		});
 	}
-	
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
