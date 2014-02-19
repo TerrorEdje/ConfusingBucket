@@ -1,13 +1,35 @@
 html { height: 100% }
-body { height: 100%; margin: 0; padding: 0 }
+body { height: 100%; margin: 0; padding: 0; background-color: rgb(10, 30, 30);  overflow-y: auto;}
 
 header{
-	height: 80%;
-	width: 100%;
+
  }
  
+nav
+{
+	margin: 30px 30px;
+	margin-bottom: 0;
+	height: auto;
+	width: auto;
+	font-family: Arial, 'Opens Sans';
+}
+ 
  #map-canvas{
-	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 10%;
+	left: 0;
 	width: 100%;
-	position: relative;
+	z-index: 0;
+ }
+ 
+section{
+	position: absolute;
+	top: 0%;  /* 90% onder de kaart */
+	left: 10%;
+	right: 10%;
+	background-color: rgba(0, 0, 0, .7);
+	height: 500px;
+	width: auto;
+	z-index: 1;
  }
