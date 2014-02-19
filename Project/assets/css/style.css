@@ -1,4 +1,4 @@
-body { height: 100%; margin: 0; padding: 0; background-color: rgb(10, 30, 30);  overflow-y: auto; }
+body { height: 100%; margin: 0; padding: 0; background-color: rgb(10, 30, 30); overflow: hidden;}
 
 nav > img{
 	float: left;
@@ -22,7 +22,7 @@ header{
 
 #map_button > a{
 	padding: 20px 60px;
-	background-color: #33b4ff;
+	background-color: #33b3ff;
 	color: white;
 }
 #map_button > a:hover,
@@ -52,7 +52,7 @@ nav
  
 section{
 	position: absolute;
-	top: 0%;  /* 90% onder de kaart */
+	top: 0%;  /* 83% onder de kaart, 0% bovenop de map*/
 	left: 10%;
 	right: 10%;
 	background-color: rgba(0, 0, 0, .8);
