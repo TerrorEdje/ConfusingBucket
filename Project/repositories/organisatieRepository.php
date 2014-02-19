@@ -1,57 +1,60 @@
 <?php
-	include 'model/organisatie.php';
+	include 'model/organisation.php';
 		
-	function getAllOrganisatie($connection)
+	function getAllOrganizations($connection)
 	{
-		$query = "SELECT * FROM organisatie";
+		$query = "SELECT * FROM organization";
 		$result =$connection->query($query);
 		
 		$i = 0;
-		$organisatie = array();
+		$organizations = array();
 		
 		while ($row =$result->fetch_assoc())
 		{
-			$id = $row["id"];
-			$naam = $row["naam"];
-			$omschrijving = $row["omschrijving"];
-			$website = $row["website"];
+			$organizations[$i] = new Organization();
+			foreach($row as $key => $value)
+			{
+				$organizations[$i] -> _set($key, $value);
+			}
 			
-			$organisatie[$i] = new Organisatie();
-			$organisatie[$i] -> _set("id",$id);
-			$organisatie[$i] -> _set("naam",$voornaam);
-			$organisatie[$i] -> _set("omschrijving",$omschrijving);
-			$organisatie[$i] -> _set("website",$website);
+			$query2 = "SELECT * FROM organization_location WHERE organization_id='".$row["id"]."'";
+			$result2 = $connection->query($query);
+			
+			$j = 0;
+			$story__ids = new array();
+			
+			while ($row = $result->fetch_assoc())
+			{
+				
+			}
+			
+			
 			
 			$i++;
 		}
 		
 		$result->close();
 		
-		return $organisatie;
+		return $organizations;
 	}
     
-    function getOrganisatieByID($organisatieID, $connection)
+    function getOrganizationByID($organizationID, $connection)
 	{
-		$query = "SELECT * FROM organisatie WHERE id = '".$organisatieID."'";
+		$query = "SELECT * FROM organization WHERE id = '".$organizationID."'";
 		$result =$connection->query($query);
 		
-		$organisatie = new Organisatie();
+		$organization = new Organization();
 		
 		while ($row =$result->fetch_assoc())
 		{
-			$id = $row["id"];
-			$naam = $row["naam"];
-			$omschrijving = $row["omschrijving"];
-			$website = $row["website"];
-            
-			$organisatie -> _set("id",$id);
-			$organisatie -> _set("naam",$voornaam);
-			$organisatie -> _set("omschrijving",$omschrijving);
-			$organisatie -> _set("website",$website);
+			foreach($row as $key => $value)
+			{
+				$organization[$i] -> _set($key, $value);
+			}
 		}
 		
 		$result->close();
 		
-		return $organisatie;
+		return $organization;
 	}
 ?>

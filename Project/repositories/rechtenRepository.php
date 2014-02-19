@@ -11,24 +11,21 @@
 		
 		while ($row =$result->fetch_assoc())
 		{
-			$id = $row["id"];
-			$omschrijving = $row["omschrijving"];
-            $gebruiker_gebruikersnamen = array();
+			foreach ($row as $key => $value) {
+				$story[$i] -> _set($key, $value);
+			}
             
-            $query2 = "SELECT * FROM gebruiker_has_rechten WHERE rechten_id='".$id."'";
+            $query2 = "SELECT * FROM gebruiker_has_rechten WHERE rechten_id='".$row["id"]."'";
             $result2 = $connection->query($query2);
 			
             $j = 0;
+            $gebruiker_gebruikersnamen = array();
             
             while ($row =$result2->fetch_assoc())
             {
                 $gebruiker_gebruikersnamen[$j] = $row["gebruiker_gebruikersnaam"];
+                $j++;
             }
-            
-			$rechten[$i] = new Rechten();
-			$rechten[$i] -> _set("id",$id);
-			$rechten[$i] -> _set("omschrijving",$omschrijving);
-            $rechten[$i] -> _set("gebruiker_gebruikersnamen",$gebruiker_gebruikersnamen);
 			
 			$i++;
 		}
@@ -47,24 +44,22 @@
 		
 		while ($row =$result->fetch_assoc())
 		{
-			$id = $row["id"];
-			$omschrijving = $row["omschrijving"];
-            $gebruiker_gebruikersnamen = array();
+			foreach ($row as $key => $value) {
+				$story[$i] -> _set($key, $value);
+			}
             
-            $query2 = "SELECT * FROM gebruiker_has_rechten WHERE rechten_id='".$id."'";
+            $query2 = "SELECT * FROM gebruiker_has_rechten WHERE rechten_id='". $row["id"]."'";
             $result2 = $connection->query($query2);
 			
             $j = 0;
+
+            $gebruiker_gebruikersnamen = array();
             
             while ($row =$result2->fetch_assoc())
             {
                 $gebruiker_gebruikersnamen[$j] = $row["gebruiker_gebruikersnaam"];
+                $j++;
             }
-            
-			$rechten = new Rechten();
-			$rechten -> _set("id",$id);
-			$rechten -> _set("omschrijving",$omschrijving);
-            $rechten -> _set("gebruiker_gebruikersnamen",$gebruiker_gebruikersnamen);
 		}
 		
 		$result->close();

@@ -7,7 +7,7 @@
 		private $enddate;
 		private $description;
 		private $schoolyear;
-        private $opleiding_ids;
+        private $study_ids;
         private $student_ids;
 		private $organization_location_id;
 	
