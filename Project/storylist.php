@@ -8,7 +8,7 @@
 	$students = getAllStudents($connection);
 	$storys = getAllStory($connection);
 	
-	$query = "SELECT * FROM opleiding_has_student";
+	$query = "SELECT * FROM study_has_student";
 	
 	$result = $connection->query($query);
 	
@@ -27,11 +27,11 @@
 			if ($story_id == $story -> _get("id"))
 			{
 				$id = $story -> _get("id");
-				$begin_datum = $story -> _get("begin_datum");
-				$eind_datum = $story -> _get("eind_datum");
-				$beschrijving = $story -> _get("beschrijving");
+				$startdate = $story -> _get("startdate");
+				$enddate = $story -> _get("enddate");
+				$description = $story -> _get("description");
 				$link = $story -> _get("link");
-				$leerjaar = $story -> _get("leerjaar");
+				$schoolyear = $story -> _get("schoolyear");
 			}
 		}
 		
@@ -39,9 +39,9 @@
 		{
 			if ($student_id == $student -> _get("id"))
 			{
-				$voornaam = $student -> _get("voornaam");
-				$tussenvoegsel = $student -> _get("tussenvoegsel");
-				$achternaam = $student -> _get("achternaam");
+				$firstname = $student -> _get("firstname");
+				$insertion = $student -> _get("insertion");
+				$surname = $student -> _get("surname");
 				$email = $student -> _get("email");
 			}			
 		}
