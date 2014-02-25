@@ -35,6 +35,7 @@
 			foreach ($row as $key => $value) {
 				$school -> _set($key, $value);
 			}
+		}
 		
 		$result->close();
 		
