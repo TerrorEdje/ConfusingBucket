@@ -6,6 +6,7 @@
 		private $user_id;
 		private $page;
         private $crud;
+        private $item_id;
         private $release;
 		private $end;
 		
