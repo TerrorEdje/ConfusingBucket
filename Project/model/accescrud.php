@@ -15,7 +15,7 @@
 
 		public function _set($property, $value)
 		{
-			else if (property_exists($this, $property))
+			if (property_exists($this, $property))
 			{
 				$this->$property = $value;
 			}
