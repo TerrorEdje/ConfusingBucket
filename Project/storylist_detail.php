@@ -26,6 +26,9 @@
 			echo "Begindatum: " .$story -> _get("startdate"). "<br/>";
 			echo "Einddatum: " .$story -> _get("startdate"). "<br/>";
 			echo "Omschrijving: " .$story -> _get("description"). "<br/>";
+			echo "</p>";
+			
+			echo "<p>";
 			echo "Student: " .$student -> _get("firstname"). " " .$student -> _get("insertion"). " " .$student -> _get("surname"). "<br/>";
 			echo "Opleiding: " .$study -> _get("name"). "<br/>";
 			echo "Schooljaar: " .$story -> _get("schoolyear"). "<br/>";
@@ -45,16 +48,36 @@
 			foreach($location_ids as &$location_id)
 			{
 				$location = getLocationByID($location_id, $con);
-				echo "Locatie(s) story: " .$location -> _get("description"). "<br/>";
+				echo "Locatie(s) story: <br/>";
 				echo $location -> _get("streetname"). " " .$location -> _get("number"). "<br/>";
 				echo $location -> _get("zipcode"). " " .$location -> _get("city"). "<br/>";
 				echo $location -> _get("country"). "<br/>";
 			}
 			echo "</p>";
 			
-			// Moet nog afgemaakt worden (Verblijfplaats(en) en link(s) weergeven)
-			echo "Verblijf: <br/>";
-			echo "<h4><a href='".$story -> _get("link")."'>".$story -> _get("link")."</a></h4>";
+			echo "<p>";
+			$residence_location_ids = $story -> _get("residence_location_ids");
+			if ($residence_location_ids !=null)
+			{
+				echo "Verblijf locatie(s): <br/>";
+				foreach ($residence_location_ids as &$residence_location_id) {
+					$location = getLocationByID($residence_location_id, $con);
+					echo $location -> _get("streetname"). " " .$location -> _get("number"). "<br/>";
+					echo $location -> _get("zipcode"). " " .$location -> _get("city"). "<br/>";
+					echo $location -> _get("country"). "<br/>";
+				}
+			}
+			echo "</p>";
+			
+			echo "<p>";
+			$links = $story -> _get("links");
+			if ($story -> _get("links") != null) {
+				echo "Links: <br/>";
+				foreach ($links as &$link) {
+					echo "<a href='".$link."'>".$link."</a><br/>";
+				}
+			}
+			echo "</p>";
 		}
 		else
 		{
