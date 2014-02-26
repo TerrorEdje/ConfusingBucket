@@ -7,7 +7,7 @@
 	#echo '<pre>'.print_r($error).'</pre>';
 
 	if($error['bool'] == 'true'){
-		echo 'Hello, acces granted';
+		echo 'Hello, access granted';
 	}
 	else
 	{

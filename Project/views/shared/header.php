@@ -26,6 +26,11 @@
 									Story Detail
 								</a>
 							</li>
+							<li id="authtestmenu">
+								<a href="#" onclick="load('authtest.php');">
+									Admin
+								</a>
+							</li>
 							
 						</ul>
 					</div>

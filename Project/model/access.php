@@ -1,7 +1,7 @@
 <?php
-	include 'model/accescrud.php';
+	include 'model/accesscrud.php';
 
-	class Acces
+	class Access
 	{
 		private $user_id;
 		private $page;
