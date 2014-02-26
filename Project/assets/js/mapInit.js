@@ -27,7 +27,7 @@ function initialize() {
 		});
 		
 		google.maps.event.addListener(marker,'click',function() {
-			load('storylist.php?locationID='+this.id);
+			load('storylist.php?locationid='+this.id);
 		});
 		
 
