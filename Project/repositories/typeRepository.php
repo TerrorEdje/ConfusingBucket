@@ -10,15 +10,11 @@
 		$type = array();
 		
 		while ($row =$result->fetch_assoc())
-		{
-			$id = $row["id"];
-			$name = $row["name"];
-			$description = $row["description"];
-						
+		{						
 			$type[$i] = new Type();
-			$type[$i] -> _set("id",$id);
-			$type[$i] -> _set("name",$name);
-			$type[$i] -> _set("description",$description);
+			foreach ($row as $key => $value) {
+				$type[$i] -> _set($key, $value);
+			}
 			
 			$i++;
 		}
@@ -37,13 +33,9 @@
 		
 		while ($row =$result->fetch_assoc())
 		{
-			$id = $row["id"];
-			$name = $row["name"];
-			$description = $row["description"];
-						
-			$type -> _set("id",$id);
-			$type -> _set("name",$name);
-			$type -> _set("description",$description);
+			foreach ($row as $key => $value) {
+				$type -> _set($key, $value);
+			}
 		}
 		
 		$result->close();

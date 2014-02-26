@@ -2,8 +2,8 @@
 	class Type
 	{
 		private $id;
-		private $naam;
-		private $omschrijving;
+		private $name;
+		private $description;
 		
 		public function _get($property)
 		{
