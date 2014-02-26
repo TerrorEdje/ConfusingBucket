@@ -30,6 +30,8 @@ function hide()
 	$('#showhide').css("-ms-transform","rotate(0deg)");
 	$('#showhide').css("-webkit-transform","rotate(0deg)");
 	
+	$('#mapClick').css("top", getHeight() + "px");
+	
 	$('#map_button').unbind("click");
 	$('#map_button').one("click", function() { show() });
 }
@@ -45,6 +47,8 @@ function show()
 	$('#showhide').css("transform","rotate(180deg)");
 	$('#showhide').css("-ms-transform","rotate(180deg)");
 	$('#showhide').css("-webkit-transform","rotate(180deg)");
+	
+	$('#mapClick').css("top", '0px');
 	
 	$('#map_button').unbind("click");
 	$('#map_button').one("click", function() { hide() });
