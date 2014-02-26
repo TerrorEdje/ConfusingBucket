@@ -1,9 +1,13 @@
 <?php
-	class Rights
+	include 'model/accescrud.php';
+
+	class Acces
 	{
-		private $id;
-		private $description;
-        private $gebruiker_gebruikersnamen;
+		private $user_id;
+		private $page;
+        private $crud;
+        private $release;
+		private $end;
 		
 		public function _get($property)
 		{
