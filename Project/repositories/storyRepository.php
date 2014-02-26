@@ -17,7 +17,7 @@
 				$stories[$i] -> _set($key, $value);
 			}
             
-            $query2 = "SELECT * FROM study_has_student WHERE story_id='".$row["id"]."'";
+            $query2 = "SELECT * FROM study_has_student WHERE story_id='".$stories[$i]->_get("id")."'";
             $result2 = $connection->query($query2);
             $j = 0;
             $study_ids = array();
@@ -31,7 +31,7 @@
             $stories[$i] -> _set("study_id",$study_ids);
             $stories[$i] -> _set("student_ids",$student_ids);
 			
-			$query3 = "SELECT * FROM organization_location WHERE story_id='".$row["id"]."'";
+			$query3 = "SELECT * FROM organization_location WHERE story_id='".$stories[$i]->_get("id")."'";
             $result3 = $connection->query($query3);
             $k = 0;
             $organization_ids = array();
@@ -94,7 +94,7 @@
 				$story -> _set($key, $value);
 			}
             
-            $query2 = "SELECT * FROM study_has_student WHERE story_id='".$row["id"]."'";
+            $query2 = "SELECT * FROM study_has_student WHERE story_id='".$story->_get("id")."'";
             $result2 = $connection->query($query2);
 
             $study_ids = array();
