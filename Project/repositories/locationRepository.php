@@ -23,9 +23,9 @@
 		return $locations;
 	}
     
-    function getLocatieByID($locationID, $connection)
+    function getLocationByID($locationID, $connection)
 	{
-		$query = "SELECT * FROM locatie where id = '".$locationID."'";
+		$query = "SELECT * FROM location WHERE id = '".$locationID."'";
 		$result =$connection->query($query);
 		
 		$location = new Location();

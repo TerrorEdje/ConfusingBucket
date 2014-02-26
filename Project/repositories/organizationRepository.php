@@ -1,5 +1,5 @@
 <?php
-	include 'model/organisation.php';
+	include 'model/organization.php';
 		
 	function getAllOrganizations($connection)
 	{
@@ -21,8 +21,8 @@
 			$result2 = $connection->query($query);
 			
 			$j = 0;
-			$story_ids = new array();
-			$location_ids = new array();
+			$story_ids = array();
+			$location_ids = array();
 			
 			while ($row = $result->fetch_assoc())
 			{
@@ -55,23 +55,20 @@
 		{
 			foreach($row as $key => $value)
 			{
-				$organization[$i] -> _set($key, $value);
+				$organization -> _set($key, $value);
 			}
 			
 			$query2 = "SELECT * FROM organization_location WHERE organization_id='".$row["id"]."'";
 			$result2 = $connection->query($query);
-			
 			$j = 0;
-			$story_ids = new array();
-			$location_ids = new array();
-			
+			$story_ids = array();
+			$location_ids = array();
 			while ($row = $result->fetch_assoc())
 			{
 				$story_ids[$j] = $row["story_id"];
 				$location_ids[$j] = $row["location_id"];
 				$j++;
 			}
-			
 			$organization -> _set("story_ids",$story_ids);
 			$organization -> _set("location_id",$location_ids);
 		}
