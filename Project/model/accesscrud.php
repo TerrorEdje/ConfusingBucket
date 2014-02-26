@@ -1,5 +1,5 @@
 <?php
-	class accescrud
+	class accesscrud
 	{
 		private $crud;
 		private $release;
