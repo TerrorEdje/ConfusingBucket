@@ -9,6 +9,7 @@
 		private $zipcode;
 		private $latitude;
 		private $longitude;
+		private $story_ids;
 	
 		public function _get($property) {
             if (property_exists($this, $property)) {
