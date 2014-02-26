@@ -10,25 +10,34 @@ header{
 }
 
 #avans_globe{
-	height: 35px;
+	height: 40px;
+}
+
+#menu_bar{
+	float: left;
+	width: 80%
 }
 
 #map_bar{
-	background-color: rgba(0, 0, 0, .8);
-	width: 100%;
 	height: 50px;
-	text-align: center;
-	padding-top: 0px;
-	font-family: Arial, 'Opens Sans';
-	font-size: 12pt;
-	text-transform: uppercase;
 }
 
 #map_button{
 	float: right;
 	height: 100%;
-	width: 60px;
+	width: 20%;
+	color:white;
 	background-color: #33b3ff;
+}
+
+#showhide{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 15px;
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg); /* IE 9 */
+	-webkit-transform:rotate(180deg); /* Opera, Chrome, and Safari */
 }
 
 /*nav

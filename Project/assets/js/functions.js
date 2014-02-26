@@ -15,7 +15,7 @@ function getHeight() {
 
 function getMaxHeight()
 {
-    return getHeight() - 60;
+    return getHeight() - 50;
 }
 
 function hide()
@@ -25,6 +25,10 @@ function hide()
 	$('#section').animate({
 		top: getMaxHeight() + "px"
 	}, 1500);
+	
+	$('#showhide').css("transform","rotate(0deg)");
+	$('#showhide').css("-ms-transform","rotate(0deg)");
+	$('#showhide').css("-webkit-transform","rotate(0deg)");
 	
 	$('#map_button').unbind("click");
 	$('#map_button').one("click", function() { show() });
@@ -38,29 +42,21 @@ function show()
 		top: "0px"
 	}, 1500);
 	
+	$('#showhide').css("transform","rotate(180deg)");
+	$('#showhide').css("-ms-transform","rotate(180deg)");
+	$('#showhide').css("-webkit-transform","rotate(180deg)");
+	
 	$('#map_button').unbind("click");
 	$('#map_button').one("click", function() { hide() });
 }
 
-//hideshow = function()
-//{	
-//	if ($('#section').css('top') == "0px" || ($('#section').css('top') == ""))
-//	{
-//        $('section').animate({
-//            top: getMaxHeight() + "px"
-//          }, 1500);
-//        
-//		$('#map_button_link').html("Click to hide map");
-//	}
-//	else
-//	{
-//        $('section').animate({
-//            top: "0px"
-//          }, 1500);
-//        
-//		$('#map_button_link').html("Click to show map");
-//	}
-//}
+function load(page)
+{
+	$('#content').load(page);
+	$('.active').removeClass("active");
+	$('#'+page.split('.')[0]+'menu').addClass("active");
+	show()
+}
 
 $(window).on('resize', function(){
 	var maxHeight = getMaxHeight();
@@ -72,5 +68,4 @@ $(window).on('resize', function(){
 			$('#section').css('top', maxHeight + "px");
 		}
 	}
-	
 });
