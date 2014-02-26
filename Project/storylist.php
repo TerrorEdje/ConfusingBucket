@@ -17,6 +17,11 @@
 		$stories = getAllStories($connection);
 	}
 	
+	if (count($stories) == 1)
+	{
+		echo "<script type=\"text/javascript\">load('storylist_detail.php?storyid=".$stories[0]->_get("id")."')</script>";
+	}
+	
 	echo "<table id='tblUserStory' rules='cols'>";
 	echo "<tr id='firstrow' ><th>Type</th><th>Country</th><th>City</th><th>Startdate</th><th>Enddate</th><th>Name</th></tr>";
 
