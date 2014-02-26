@@ -7,12 +7,20 @@
 	
 	$connection = openDB();
 	
-	$storys = getAllStories($connection);
+	if(isset($_GET['locationid']))
+	{
+		$locationID = $_GET['locationid'];
+		$stories = getStoriesByLocationID($locationID,$connection);
+	}
+	else
+	{
+		$stories = getAllStories($connection);
+	}
 	
 	echo "<table id='tblUserStory' rules='cols'>";
 	echo "<tr id='firstrow' ><th>Type</th><th>Country</th><th>City</th><th>Startdate</th><th>Enddate</th><th>Name</th></tr>";
 
-		foreach($storys as &$story)
+		foreach($stories as &$story)
 		{
 			echo "<tr>";
 			$id = $story -> _get("id");
