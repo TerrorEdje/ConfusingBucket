@@ -3581,6 +3581,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: #428bca;
 }
 .nav-stacked > li {
+  margin-top: 2px;
   float: none;
 }
 .nav-stacked > li + li {
