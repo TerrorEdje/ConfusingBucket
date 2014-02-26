@@ -12,13 +12,13 @@
 		while ($row =$result->fetch_assoc())
 		{
 			$id = $row["id"];
-			$naam = $row["naam"];
-			$omschrijving = $row["omschrijving"];
+			$name = $row["name"];
+			$description = $row["description"];
 						
 			$type[$i] = new Type();
 			$type[$i] -> _set("id",$id);
-			$type[$i] -> _set("naam",$naam);
-			$type[$i] -> _set("omschrijving",$omschrijving);
+			$type[$i] -> _set("name",$name);
+			$type[$i] -> _set("description",$description);
 			
 			$i++;
 		}
@@ -38,12 +38,12 @@
 		while ($row =$result->fetch_assoc())
 		{
 			$id = $row["id"];
-			$naam = $row["naam"];
-			$omschrijving = $row["omschrijving"];
+			$name = $row["name"];
+			$description = $row["description"];
 						
 			$type -> _set("id",$id);
-			$type -> _set("naam",$naam);
-			$type -> _set("omschrijving",$omschrijving);
+			$type -> _set("name",$name);
+			$type -> _set("description",$description);
 		}
 		
 		$result->close();

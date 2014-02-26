@@ -1,13 +1,13 @@
 <?php
-	include 'model/rechten.php';
+	include 'model/rights.php';
 		
-	function getAllRechten($connection)
+	function getAllRights($connection)
 	{
-		$query = "SELECT * FROM rechten";
+		$query = "SELECT * FROM rights";
 		$result =$connection->query($query);
 		
 		$i = 0;
-		$rechten = array();
+		$rights = array();
 		
 		while ($row =$result->fetch_assoc())
 		{
@@ -15,15 +15,15 @@
 				$story[$i] -> _set($key, $value);
 			}
             
-            $query2 = "SELECT * FROM gebruiker_has_rechten WHERE rechten_id='".$row["id"]."'";
+            $query2 = "SELECT * FROM user_has_rights WHERE rights_id='".$row["id"]."'";
             $result2 = $connection->query($query2);
 			
             $j = 0;
-            $gebruiker_gebruikersnamen = array();
+            $user_usersnames = array();
             
             while ($row =$result2->fetch_assoc())
             {
-                $gebruiker_gebruikersnamen[$j] = $row["gebruiker_gebruikersnaam"];
+                $user_usersnames[$j] = $row["user_usersname"];
                 $j++;
             }
 			
@@ -32,15 +32,15 @@
 		
 		$result->close();
 		
-		return $rechten;
+		return $rights;
 	}
     
-    function getRechtenByID($rechtenID, $connection)
+    function getRightsByID($rightsID, $connection)
 	{
-		$query = "SELECT * FROM rechten WHERE id = '".$rechtenID."'";
+		$query = "SELECT * FROM rights WHERE id = '".$rightsID."'";
 		$result =$connection->query($query);
 		
-		$rechten = array();
+		$rights = array();
 		
 		while ($row =$result->fetch_assoc())
 		{
@@ -48,22 +48,22 @@
 				$story[$i] -> _set($key, $value);
 			}
             
-            $query2 = "SELECT * FROM gebruiker_has_rechten WHERE rechten_id='". $row["id"]."'";
+            $query2 = "SELECT * FROM user_has_rights WHERE rights_id='". $row["id"]."'";
             $result2 = $connection->query($query2);
 			
             $j = 0;
 
-            $gebruiker_gebruikersnamen = array();
+            $user_usersnames = array();
             
             while ($row =$result2->fetch_assoc())
             {
-                $gebruiker_gebruikersnamen[$j] = $row["gebruiker_gebruikersnaam"];
+                $user_usersnames[$j] = $row["user_usersname"];
                 $j++;
             }
 		}
 		
 		$result->close();
 		
-		return $rechten;
+		return $rights;
 	}
 ?>

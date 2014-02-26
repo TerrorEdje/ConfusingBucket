@@ -1,3 +1,3 @@
-	<footer>&copy; - Confusing Bucket</footer>
+	<footer><p>&copy; - Confusing Bucket</p></footer>
 </body>
 </html>
