@@ -43,13 +43,38 @@
                 $k++;
             }
             $stories[$i] -> _set("organization_ids",$organization_ids);
-            $stories[$i] -> _set("location_ids",$location_ids);			
+            $stories[$i] -> _set("location_ids",$location_ids);
+			
+			$query4 = "SELECT * FROM residence_location WHERE story_id='".$stories[$i]->_get("id")."'"; 
+			$result4 = $connection->query($query4);
+			$l = 0;
+			$residence_location_ids = array();
+			while ($row =$result4->fetch_assoc())
+			{
+				$residence_location_ids[$l] = $row["location_id"];
+				$l++;
+			}
+			$stories[$i] -> _set("residence_location_ids",$residence_location_ids);
+			
+			$query5 = "SELECT * FROM story_link WHERE story_id='".$stories[$i]->_get("id")."'"; 
+			$result5 = $connection->query($query5);
+			$m = 0;
+			$links = array();
+			while ($row =$result5->fetch_assoc())
+			{
+				$links[$m] = $row["link"];
+				$m++;
+			}
+			$stories[$i] -> _set("links",$links);
+			
 			$i++;
 		}
 		
 		$result->close();
 		$result2->close();
 		$result3->close();
+		$result4->close();
+		$result5->close();
 		
 		return $stories;
 	}
@@ -98,11 +123,36 @@
             }
             $story -> _set("organization_ids",$organization_ids);
             $story -> _set("location_ids",$location_ids);
+			
+			$query4 = "SELECT * FROM residence_location WHERE story_id='".$story->_get("id")."'"; 
+			$result4 = $connection->query($query4);
+			$l = 0;
+			$residence_location_ids = array();
+			while ($row =$result4->fetch_assoc())
+			{
+				$residence_location_ids[$l] = $row["location_id"];
+				$l++;
+			}
+			$story -> _set("residence_location_ids",$residence_location_ids);
+			
+			$query5 = "SELECT * FROM story_link WHERE story_id='".$story->_get("id")."'"; 
+			$result5 = $connection->query($query5);
+			$m = 0;
+			$links = array();
+			while ($row =$result5->fetch_assoc())
+			{
+				$links[$l] = $row["link"];
+				$m++;
+			}
+			$story -> _set("links",$links);
+			
 		}
 		
 		$result->close();
 		$result2->close();
 		$result3->close();
+		$result4->close();
+		$result5->close();
 		
 		return $story;
     }

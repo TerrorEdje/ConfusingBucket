@@ -11,6 +11,8 @@
         private $student_ids;
 		private $organization_ids;
 		private $location_ids;
+		private $residence_location_ids;
+		private $links;
 	
 		public function _get($property) {
             if (property_exists($this, $property)) {
