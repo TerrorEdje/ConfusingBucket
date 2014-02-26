@@ -29,7 +29,7 @@
 			echo "<td >$startdate</td>";
 			echo "<td >$enddate</td>";
 			echo "<td >name</td>";
-			echo "<td onClick=\"window.location.href='storylist_detail.php?storyid=$id'\">Details</td>";
+			echo "<td><a href='#' onClick=\"load('storylist_detail.php?storyid=$id')\">Details</a></td>";
 			echo "</tr>";
 		}
 	
