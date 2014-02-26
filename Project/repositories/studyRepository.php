@@ -44,17 +44,15 @@
     
     function getStudyByID($studyID, $connection)
 	{
-		$query = "SELECT * FROM opleiding WHERE id = '".$studyID."'";
+		$query = "SELECT * FROM study WHERE id = '".$studyID."'";
 		$result =$connection->query($query);
 		
 		$study = new Study();
 		
 		while ($row =$result->fetch_assoc())
-		{
-		
-		
+		{		
 			foreach ($row as $key => $value) {
-				$story -> _set($key, $value);
+				$study -> _set($key, $value);
 			}
             
             $query2 = "SELECT * FROM study_has_student WHERE study_id='".$row["id"]."'";

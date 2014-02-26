@@ -5,7 +5,7 @@
 	include 'repositories/studentRepository.php';
 	include 'repositories/studyRepository.php';
 	include 'repositories/schoolRepository.php';
-	include 'repositories/organisatieRepository.php';
+	include 'repositories/organizationRepository.php';
 	include 'repositories/locationRepository.php';
 	
 	$con = openDB();
@@ -15,29 +15,15 @@
 		$story = getStoryByID($_GET['storyid'], $con);
 		$type = getTypeByID($story -> _get("type_id"), $con);
 		
-		# Moet in een repository
-		$query = "SELECT * FROM study_has_student WHERE story_id =". $_GET['storyid'];
-		$result = $con->query($query);
-		$row = $result->fetch_assoc();
-        $study_id = $row["study_id"];
-        $student_id = $row["student_id"];
-		
-		# Moet in een repository
-		$query = "SELECT * FROM study_has_student WHERE story_id =". $_GET['storyid'];
-		$result = $con->query($query);
-		$row = $result->fetch_assoc();
-        $location_id = $row["location_id"];
-        $organization_id = $row["organization_id"];
-		
-		$student = getStudentByID($student_id, $con);
-		$study = getStudyByID($study_id, $con);
+		$student = getStudentByID($story->_get("student_ids")[0], $con);
+		$study = getStudyByID($story->_get("study_ids")[0], $con);
 		$school = getSchoolByID($study -> _get("school_id"), $con);
-		$organization = getOrganizationByID($organization_id, $con);
-		$location = getLocationByID($location_id, $con);
+		$organization = getOrganizationByID($story -> _get("organization_ids")[0], $con);
+		$location = getLocationByID($story -> _get("location_ids")[0], $con);
 		
 		if($story != null)
 		{
-			echo "Type: " .$type -> _get("name"). "<br/>";
+			//echo "Type: " .$type -> _get("name"). "<br/>";
 			echo "Begindatum: " .$story -> _get("startdate"). "<br/>";
 			echo "Einddatum: " .$story -> _get("startdate"). "<br/>";
 			echo "Omschrijving: " .$story -> _get("description"). "<br/>";
@@ -48,7 +34,7 @@
 			echo "School: " .$school -> _get("name"). "<br/>";
 			echo "Email: " .$student -> _get("email"). "<br/>";
 			
-			echo "Organisatie: " .$organiztion -> _get("name"). "<br/>";
+			echo "Organisatie: " .$organization -> _get("name"). "<br/>";
 			echo "Omschrijving organisatie: " .$organization -> _get("description"). "<p/>";
 			echo "Locatie organisatie: " .$location -> _get("description"). "<br/>";
 			echo $location -> _get("streetname"). " " .$location -> _get("number"). "<br/>";

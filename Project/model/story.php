@@ -9,7 +9,8 @@
 		private $schoolyear;
         private $study_ids;
         private $student_ids;
-		private $organization_location_id;
+		private $organization_ids;
+		private $location_ids;
 	
 		public function _get($property) {
             if (property_exists($this, $property)) {
