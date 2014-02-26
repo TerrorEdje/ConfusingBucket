@@ -15,7 +15,7 @@
 		{
 			if (($location->_get("latitude") != null) && ($location->_get("longitude") != null))
 			{
-				echo("locations.push( {  id:\"".$location->_get("id")."\", lat:".$location->_get("latitude").", lng:".$location->_get("longitude").", title:\"".$location->_get("streetname")." ".$location->_get("number")."\" }); ");
+				echo("locations.push( {  id:".$location->_get("id").", lat:".$location->_get("latitude").", lng:".$location->_get("longitude").", title:\"".$location->_get("streetname")." ".$location->_get("number")."\" }); ");
 			}
 		}
 	?>
