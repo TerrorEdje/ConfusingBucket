@@ -51,7 +51,33 @@
 		echo '</form>';
 	}
 	else {
+		echo '<p>';
 		echo 'Story is geüpload';
+		echo '</p>';
+		
+		echo '<p>';
+		echo "Type: " .$_POST["type"]. "<br>";
+		echo "Begindatum: " .$_POST["startdate"]. "<br>";
+		echo "Einddatum: " .$_POST["enddate"]. "<br>";
+                
+		echo "Naam: " .$_POST["name"]. "<br>";
+		echo "Omschrijving: " .$_POST["description"]. "<br>";
+		echo "Straat: " .$_POST["streetname"]. "<br>";
+		echo "Huisnummer: " .$_POST["number"]. "<br>";
+		echo "Postcode: " .$_POST["zipcode"]. "<br>";
+		echo "Woonplaats: " .$_POST["city"]. "<br>";
+		echo "Land: " .$_POST["country"]. "<br>";
+		echo "Website: " .$_POST["website"]. "<br>";
+                
+		echo "Story: " .$_POST["story"]. "<br>";
+		echo "Link: " .$_POST["link"]. "<br>";
+                
+		echo "Straat: " .$_POST["recidence_streetname"]. "<br>";
+		echo "Huisnummer: " .$_POST["recidence_number"]. "<br>";
+		echo "Postcode: " .$_POST["recidence_zipcode"]. "<br>";
+		echo "Woonplaats: " .$_POST["recidence_city"]. "<br>";
+		echo "Land: " .$_POST["recidence_country"];
+		echo '</p>';	
 	}
 
 ?>
