@@ -2,8 +2,9 @@
 
 	# Moet een student ook zijn/haar gegevens (zoals naam, opleiding, leerjaar, school) invullen of gaat dat met inloggen?
 
-	if (!isset($_POST['upload'])) {
-		echo '<form action="upload_story.php" method="POST">'; 
+	if (!isset($_POST['name'])) {
+		echo '<form id="upload-form" action="upload_story.php" method="POST">'; 
+        echo '<input type="hidden" name="usingAJAX" value="false" />';
 		
 		echo '<p>';
 		echo '* Verplicht veld';
@@ -49,10 +50,30 @@
 		echo '</p>';	
 		
 		echo '</form>';
+        
+        echo "<script type=\"text/javascript\">$('#upload-form').submit(function(event){
+                event.preventDefault();
+                $('input[name=\"usingAJAX\"]',this).val( 'true' );
+                
+                var form = $(this);
+                var url = form.attr('action')
+                var data = form.serialize();
+                var callback = function(response){
+                    $('#content').html(response);
+                };
+                
+                var dataType = 'html';
+                
+                $.post(url, data, callback, dataType)
+                
+                
+                return false;
+            });
+            </script>";
 	}
 	else {
 		echo '<p>';
-		echo 'Story is geüpload';
+		echo 'Story is ge&uuml;pload';
 		echo '</p>';
 		
 		echo '<p>';
