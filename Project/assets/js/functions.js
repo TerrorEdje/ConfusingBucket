@@ -59,7 +59,7 @@ function load(page)
 	console.log('Loading page:' + page);
 	$('#content').load(page);
 	$('.active').removeClass("active");
-	$('#'+page.split('.')[0]+'menu').addClass("active");
+	$('.'+page.split('.')[0]+'menu').addClass("active");
 	show()
 }
 
