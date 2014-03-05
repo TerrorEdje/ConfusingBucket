@@ -66,4 +66,11 @@
 		
 		return $location;
 	}
+	
+	function addLocation($location, $connection)
+	{
+		$query = 'INSERT INTO location (country,city,streetname, number, zipcode,latitude,longitude) VALUES (' .$location->_get("country"). ',' .$location->_get("city"). ',' .$location->_get("streetname"). ',' .$location->_get("number"). ',' .$location->_get("zipcode"). ',' .$location->_get("latitude"). ',' .$location->_get("longitude"). ')';
+		$result = $connection->query($query);
+		$result->close();
+	}
 ?>

@@ -234,4 +234,11 @@
 		
 		return $story;
     }
+	
+	function addStory($story, $connection)
+	{
+		$query = 'INSERT INTO story (type_id,startdate,enddate,description,schoolyear) VALUES (' .$story->_get("type_id"). ',' .$story->_get("startdate"). ',' .$story->_get("enddate"). ',' .$story->_get("description"). ',' .$story->_get("schoolyear"). ')';
+		$result = $connection->query($query);
+		$result->close();
+	}
 ?>

@@ -93,4 +93,11 @@
 		
 		return $student;
 	}
+	
+	function addStudent($student, $connection)
+	{
+		$query = 'INSERT INTO student (firstname,insertion,surname,email,user_id) VALUES (' .$student->_get("firstname"). ',' .$student->_get("insertion"). ',' .$student->_get("surname"). ',' .$student->_get("email"). ',' .$student->_get("user_id"). ')';
+		$result = $connection->query($query);
+		$result->close();
+	}
 ?>

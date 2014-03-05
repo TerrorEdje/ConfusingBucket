@@ -78,4 +78,11 @@
 		
 		return $study;
 	}
+	
+	function addStudy($study, $connection)
+	{
+		$query = 'INSERT INTO study (school_id,name,description) VALUES (' .$study->_get("school_id"). ',' .$study->_get("name"). ',' .$study->_get("description"). ')';
+		$result = $connection->query($query);
+		$result->close();
+	}
 ?>

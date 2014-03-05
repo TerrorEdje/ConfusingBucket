@@ -1,5 +1,12 @@
 <?php
-
+	
+	include 'db/connection.php';
+	include 'repositories/typeRepository.php';
+	
+	$connection = openDB();
+	
+	$types = getAllType($connection);
+	
 	# Moet een student ook zijn/haar gegevens (zoals naam, opleiding, leerjaar, school) invullen of gaat dat met inloggen?
 
 	if (!isset($_POST['name'])) {
@@ -11,7 +18,11 @@
 		echo '</p>';
 
 		echo '<p>';
-		echo 'Type: <input type="text" name="type"> *'; # Misschien selectbox als je maar uit een aantal kan kiezen
+		echo 'Type: <select name="type">';
+			foreach ($types as $type) {
+				echo '<option value ="' .$type->_get("id"). '">' .$type->_get("name"). '</option>';
+			}
+		echo '</select> *';
 		echo 'Begindatum: <input type="text" name="startdate"> *'; # Moet datepicker worden
 		echo 'Einddatum: <input type="text" name="enddate"> *'; # Moet datepicker worden
 		echo '</p>';
@@ -76,6 +87,18 @@
 		echo 'Story is ge&uuml;pload';
 		echo '</p>';
 		
+		/*$organization = new Organization();
+		$organization->_set("name", $_POST["name"]);
+		$organization->_set("description", $_POST["description"]);
+		$organization->_set("website", $_POST["website"]);
+		
+		$location = new Location();
+		$location->_set("streetname", $_POST["streetname"]);
+		$location->_set("number", $_POST["number"]);
+		$location->_set("zipcode", $_POST["zipcode"]);
+		$location->_set("city", $_POST["city"]);
+		$location->_set("country", $_POST["country"]);*/
+		
 		echo '<p>';
 		echo "Type: " .$_POST["type"]. "<br>";
 		echo "Begindatum: " .$_POST["startdate"]. "<br>";
@@ -98,7 +121,7 @@
 		echo "Postcode: " .$_POST["recidence_zipcode"]. "<br>";
 		echo "Woonplaats: " .$_POST["recidence_city"]. "<br>";
 		echo "Land: " .$_POST["recidence_country"];
-		echo '</p>';	
+		echo '</p>';
 	}
 
 ?>

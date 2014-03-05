@@ -77,4 +77,11 @@
 		
 		return $organization;
 	}
+	
+	function addOrganization($organization, $connection)
+	{
+		$query = 'INSERT INTO organization (name,description,website) VALUES (' .$organization->_get("name"). ',' .$organization->_get("description"). ',' .$organization->_get("website"). ')';
+		$result = $connection->query($query);
+		$result->close();
+	}
 ?>

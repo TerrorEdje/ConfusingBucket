@@ -90,4 +90,11 @@
 		
 		return $school;
 	}
+	
+	function addSchool($school, $connection)
+	{
+		$query = 'INSERT INTO school (name,website) VALUES (' .$school->_get("name"). ',' .$school->_get("website"). ')';
+		$result = $connection->query($query);
+		$result->close();
+	}
 ?>

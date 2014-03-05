@@ -42,4 +42,11 @@
 		
 		return $type;
 	}
+	
+	function addType($type, $connection)
+	{
+		$query = 'INSERT INTO type (name,description) VALUES (' .$type->_get("name"). ',' .$type->_get("description"). ')';
+		$result = $connection->query($query);
+		$result->close();
+	}
 ?>
