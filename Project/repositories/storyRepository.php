@@ -237,8 +237,62 @@
 	
 	function addStory($story, $connection)
 	{
-		$query = 'INSERT INTO story (type_id,startdate,enddate,description,schoolyear) VALUES (' .$story->_get("type_id"). ',' .$story->_get("startdate"). ',' .$story->_get("enddate"). ',' .$story->_get("description"). ',' .$story->_get("schoolyear"). ')';
-		$result = $connection->query($query);
-		$result->close();
+		$type_id = $story -> _get("type_id");
+		$startdate = $story->_get("startdate");
+		$enddate = $story->_get("enddate");
+		$description = $story->_get("description");
+		$schoolyear = $story->_get("schoolyear");
+		$query = "INSERT INTO story (type_id,startdate,enddate,description,schoolyear) VALUES (?,?,?,?,?)";
+		$stmt = $connection ->prepare($query);
+		$stmt -> bind_param('isssi',$type_id,$startdate,$enddate,$description,$schoolyear);
+		if(!$stmt->execute())
+		{
+			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
+		}
+		//Haal ID op van ingevoegde story
+		$id = mysqli_insert_id($connection);
+		$stmt->close();
+		
+		$organization_id = $story -> _get("organization_ids")[0];
+		$location_ids = $story->_get("location_ids");
+		foreach($location_ids as &$location_id)
+		{
+			$query2 = "INSERT INTO organization_location (location_id,organization_id,story_id) VALUES (?,?,?)";
+			$stmt2 = $connection ->prepare($query2);
+			$stmt2 -> bind_param('iii',$location_id,$organization_id,$id);
+			if(!$stmt2->execute())
+			{
+				echo "Execute failed: (" . $stmt2 -> errno . ") " . $stmt2 -> error;
+			}
+			$stmt2->close();
+		}
+		
+		$residence_location_ids = $story->_get("residence_location_ids");
+		foreach($residence_location_ids as &$residence_location_id)
+		{
+			$query3 = "INSERT INTO residence_location (location_id,story_id) VALUES (?,?)";
+			$stmt3 = $connection ->prepare($query3);
+			$stmt3 -> bind_param('ii',$residence_location_id,$id);
+			if(!$stmt3->execute())
+			{
+				echo "Execute failed: (" . $stmt3 -> errno . ") " . $stmt3 -> error;
+			}
+			$stmt3->close();
+		}
+		
+		$links = $story->_get("links");
+		foreach($links as &$link)
+		{
+			$query4 = "INSERT INTO story_link (story_id,link) VALUES (?,?)";
+			$stmt4 = $connection ->prepare($query4);
+			$stmt4 -> bind_param('is',$id,$link);
+			if(!$stmt4->execute())
+			{
+				echo "Execute failed: (" . $stmt4 -> errno . ") " . $stmt4 -> error;
+			}
+			$stmt4->close();
+		}
+		
+		return $id;
 	}
 ?>
