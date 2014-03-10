@@ -1,6 +1,5 @@
 <?php 
 	function geocode($location){
-		$locationclean = str_replace (" ", "+", $location);
 		$locationclean = str_replace (" ", "+", urlencode($location));
 		$details_url = "http://maps.googleapis.com/maps/api/geocode/json?address=" . $locationclean . "&sensor=false";
 
