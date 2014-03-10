@@ -107,3 +107,7 @@ footer > p{
 	margin-bottom: 0px;
 	margin-top: 0px;
 }
+
+.uploadTable td{
+	border: 2px solid rgba(0,0,0,0);
+}

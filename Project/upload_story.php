@@ -19,36 +19,34 @@
 		echo '* Verplicht veld';
 		echo '</p>';
 
-		echo '<p>';
-		echo 'Type: <select name="type">';
+		echo '<table class="uploadTable">';
+		echo '<tr><td>Type:</td> <td><select name="type">';
 			foreach ($types as $type) {
 				echo '<option value ="' .$type->_get("id"). '">' .$type->_get("name"). '</option>';
 			}
-		echo '</select> *';
-		echo 'Begindatum: <input type="text" name="startdate"> *'; # Moet datepicker worden
-		echo 'Einddatum: <input type="text" name="enddate"> *'; # Moet datepicker worden
-		echo '</p>';
+		echo '</select> *</td></tr>';
+		echo '<tr><td>Begindatum:</td> <td> <input type="text" name="startdate"> *</td></tr>'; # Moet datepicker worden
+		echo '<tr><td>Einddatum:</td> <td> <input type="text" name="enddate"> *</td></tr>'; # Moet datepicker worden
+		echo '<tr><td>&nbsp;</td></tr>';
+		echo '<tr><td>Gegevens over de organisatie:</td></tr>';
+		echo '<tr><td>Naam:</td> <td> <input type="text" name="name"> *</td></tr>';
+		echo '<tr><td>Omschrijving:</td> <td> <textarea name="description" ></textarea></td></tr>';
+		echo '<tr><td>Straat:</td> <td> <input type="text" name="streetname"></td></tr>';
+		echo '<tr><td>Huisnummer:</td> <td> <input type="text" name="number"></td></tr>';
+		echo '<tr><td>Postcode:</td> <td> <input type="text" name="zipcode"></td></tr>';
+		echo '<tr><td>Woonplaats:</td> <td> <input type="text" name="city"> *</td></tr>';
+		echo '<tr><td>Land:</td> <td> <input type="text" name="country"> *</td></tr>';
+		echo '<tr><td>Website:</td> <td> <input type="text" name="website"></td></tr>';
+		echo '<tr><td>&nbsp;</td></tr>';
 		
-		echo '<p>';
-		echo 'Gegevens over de organisatie:<br>';
-		echo 'Naam: <input type="text" name="name"> *<br>';
-		echo 'Omschrijving: <textarea name="description" ></textarea><br>';
-		echo 'Straat: <input type="text" name="streetname">';
-		echo 'Huisnummer: <input type="text" name="number"><br>';
-		echo 'Postcode: <input type="text" name="zipcode">';
-		echo 'Woonplaats: <input type="text" name="city"> *<br>';
-		echo 'Land: <input type="text" name="country"> *<br>';
-		echo 'Website: <input type="text" name="website">';
-		echo '</p>';
-		
-		echo '<p>';
-		echo 'Schrijf hier over je ervaring:<br>';
-		echo '<textarea name="story" rows="10" cols="80"></textarea> *<br>';
-		echo 'Website(s): <input type="text" name="link"><br>'; # Er moeten meerdere links ingevuld kunnen worden
-		echo '</p>';
+		echo '<tr><td>Schrijf hier over je ervaring:</td></tr>';
+		echo '<tr><td colspan="2"><textarea name="story" rows="10" cols="80"></textarea> *</td></tr>';
+		echo '<tr><td>Website(s): <input type="text" name="link"></td></tr>'; # Er moeten meerdere links ingevuld kunnen worden
+		echo '<tr><td>&nbsp;</td></tr>';
 		
 		# Er hoeft geen verblijfplaast ingvuld te worden, maar als je dat wel doet, dan moeten woonplaats en land verplicht zijn
 		# Is het wel logisch om alleen een adres van de verblijfplaats in te vullen??
+<<<<<<< HEAD
 		echo '<p>';
 		echo 'Gegevens over de verblijf locatie:<br>';
 		echo 'Straat: <input type="text" name="residence_streetname">';
@@ -61,6 +59,17 @@
 		echo '<p>';
 		echo '<input type="submit" name="upload" value="Upload story">';
 		echo '</p>';	
+=======
+		echo '<tr><td>Gegevens over de verblijf locatie:</td></tr>';
+		echo '<tr><td>Straat:</td> <td> <input type="text" name="recidence_streetname"></td></tr>';
+		echo '<tr><td>Huisnummer:</td> <td> <input type="text" name="recidence_number"></td></tr>';
+		echo '<tr><td>Postcode:</td> <td> <input type="text" name="recidence_zipcode"></td></tr>';
+		echo '<tr><td>Woonplaats:</td> <td> <input type="text" name="recidence_city"></td></tr>';
+		echo '<tr><td>Land:</td> <td> <input type="text" name="recidence_country"></td></tr>';
+
+		echo '<tr><td><input type="submit" name="upload" value="Upload story"></td></tr>';
+	
+>>>>>>> e4b3e4656edf7d9b4a3d7e682c1f93b4f1f30546
 		
 		echo '</form>';
         

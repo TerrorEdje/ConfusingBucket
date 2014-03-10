@@ -17,17 +17,17 @@
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav nav-stacked">
 							<li class="storylistmenu storylist_detailmenu">
-								<a href="#" onclick="load('storylist.php');">
+								<a href="#" onclick="load('storylist.php'); return false;">
 									Stories
 								</a>
 							</li>
 							<li class="upload_storymenu">
-								<a href="#" onclick="load('upload_story.php');">
+								<a href="#" onclick="load('upload_story.php'); return false;">
 									Upload Story
 								</a>
 							</li>
 							<li class="authtestmenu">
-								<a href="#" onclick="load('authtest.php');">
+								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin
 								</a>
 							</li>
