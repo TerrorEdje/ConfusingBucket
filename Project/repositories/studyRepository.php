@@ -78,4 +78,24 @@
 		
 		return $study;
 	}
+	
+	function addStudy($study, $connection)
+	{
+		$school_id = $study -> _get("school_id");
+		$name = $study -> _get("name");
+		$description = $study-> _get("description");	
+		$query = 'INSERT INTO study (school_id,name,description) VALUES (?,?,?)';
+		$stmt = $connection ->prepare($query);
+		$stmt -> bind_param('iss',$school_id,$name,$description);
+		if(!$stmt->execute())
+		{
+			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
+		}
+		
+		//Haal ID op van ingevoegde study
+		$id = mysqli_insert_id($connection);
+		$stmt->close();
+		
+		return $id;	
+	}
 ?>

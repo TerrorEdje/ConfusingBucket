@@ -33,7 +33,7 @@ function hide()
 	$('#mapClick').css("top", getHeight() + "px");
 	
 	$('#map_button').unbind("click");
-	$('#map_button').one("click", function() { show() });
+	$('#map_button').one("click", function() { show(); return false; });
 }
 
 function show()
@@ -51,7 +51,7 @@ function show()
 	$('#mapClick').css("top", '0px');
 	
 	$('#map_button').unbind("click");
-	$('#map_button').one("click", function() { hide() });
+	$('#map_button').one("click", function() { hide(); return false; });
 }
 
 function load(page)
@@ -59,7 +59,7 @@ function load(page)
 	console.log('Loading page:' + page);
 	$('#content').load(page);
 	$('.active').removeClass("active");
-	$('#'+page.split('.')[0]+'menu').addClass("active");
+	$('.'+page.split('.')[0]+'menu').addClass("active");
 	show()
 }
 
@@ -70,7 +70,7 @@ $(window).on('resize', function(){
 	{
 		if (maxHeight > 50)
 		{
-			$('#section').css('top', maxHeight + "px");
+			$('#section').finish().css('top', maxHeight + "px");
 		}
 	}
 });

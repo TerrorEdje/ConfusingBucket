@@ -15,11 +15,11 @@ header{
 
 #menu_bar{
 	float: left;
-	width: 80%
+	width: 80%;
 }
 
 #map_bar{
-	height: 50px;
+	height: 52px;
 }
 
 #map_button{
@@ -57,11 +57,19 @@ header{
 	width: 100%;
 	z-index: 0;
 }
+
+input, select, textarea{
+    color: #000000 !important;
+}
  
 #content{
 	color: white;
-	margin-top: 205px;
-	margin: 75px;
+    position: absolute;
+	top: 107px;
+	left: 75px;
+    right: 75px;
+    bottom: 75px;
+    overflow: auto;
 }
 
 #mapClick{
@@ -83,8 +91,8 @@ section{
 	height: 100%;
 	width: auto;
 	z-index: 2;
- }
- 
+}
+
 footer{
 	position: absolute;
 	bottom: 0px;
@@ -98,4 +106,8 @@ footer{
 footer > p{
 	margin-bottom: 0px;
 	margin-top: 0px;
+}
+
+.uploadTable td{
+	border: 2px solid rgba(0,0,0,0);
 }

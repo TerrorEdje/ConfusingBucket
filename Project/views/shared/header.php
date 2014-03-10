@@ -16,18 +16,18 @@
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav nav-stacked">
-							<li id="storylistmenu">
-								<a href="#" onclick="load('storylist.php');">
-									Story List
+							<li class="storylistmenu storylist_detailmenu">
+								<a href="#" onclick="load('storylist.php'); return false;">
+									Stories
 								</a>
 							</li>
-							<li id="storylist_detailmenu">
-								<a href="#" onclick="load('storylist_detail.php?storyid=1');">
-									Story Detail
+							<li class="upload_storymenu">
+								<a href="#" onclick="load('upload_story.php'); return false;">
+									Upload Story
 								</a>
 							</li>
-							<li id="authtestmenu">
-								<a href="#" onclick="load('authtest.php');">
+							<li class="authtestmenu">
+								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin
 								</a>
 							</li>
