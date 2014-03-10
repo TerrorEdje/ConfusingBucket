@@ -1,5 +1,5 @@
 <?php 
-	echo("<form action='Geocode.php' method='POST'>");
+	echo("<form action='FirstGeocode.php' method='POST'>");
 	echo("<input type='text' name='location'></input>");
 	echo("<input type='submit' value='verstuur' />");
 	echo("</form>");
