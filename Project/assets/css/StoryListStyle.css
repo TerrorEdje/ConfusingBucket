@@ -1,9 +1,14 @@
-#tblUserStory td,th
+.tblUserStory td,th
 {
 	padding-right: 10px;
 }
 
-#otherTDTH
+.otherTDTH
 {
 	padding-left: 5px;
+}
+
+.tdTop
+{
+	vertical-align: top;
 }
