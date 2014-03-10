@@ -19,7 +19,7 @@
 		echo '* Verplicht veld';
 		echo '</p>';
 
-		echo '<table>';
+		echo '<table class="uploadTable">';
 		echo '<tr><td>Type:</td> <td><select name="type">';
 			foreach ($types as $type) {
 				echo '<option value ="' .$type->_get("id"). '">' .$type->_get("name"). '</option>';
