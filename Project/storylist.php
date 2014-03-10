@@ -22,8 +22,8 @@
 		echo "<script type=\"text/javascript\">load('storylist_detail.php?storyid=".$stories[0]->_get("id")."')</script>";
 	}
 	
-	echo "<table id='tblUserStory' rules='cols'>";
-	echo "<tr id='firstrow' ><th>Type</th><th>Country</th><th>City</th><th>Startdate</th><th>Enddate</th><th>Name</th></tr>";
+	echo "<table id=\"tblUserStory\" rules='cols'>";
+	echo "<tr ><th>Type</th><th id=\"otherTDTH\">Country</th><th id=\"otherTDTH\">City</th><th id=\"otherTDTH\">Startdate</th><th id=\"otherTDTH\">Enddate</th><th id=\"otherTDTH\">Name</th></tr>";
 
 		foreach($stories as &$story)
 		{
@@ -38,12 +38,12 @@
 			$country = $location -> _get("country");
 			$city = $location -> _get("city");
 			echo "<td >".$type->_get("name")."</td>";
-			echo "<td >$country</td>";
-			echo "<td >$city</td>";
-			echo "<td >$startdate</td>";
-			echo "<td >$enddate</td>";
-			echo "<td >$name</td>";
-			echo "<td><a href='#' onClick=\"load('storylist_detail.php?storyid=$id')\">Details</a></td>";
+			echo "<td id=\"otherTDTH\">$country</td>";
+			echo "<td id=\"otherTDTH\">$city</td>";
+			echo "<td id=\"otherTDTH\">$startdate</td>";
+			echo "<td id=\"otherTDTH\">$enddate</td>";
+			echo "<td id=\"otherTDTH\">$name</td>";
+			echo "<td id=\"otherTDTH\"><a href='#' onClick=\"load('storylist_detail.php?storyid=$id')\">Details</a></td>";
 			echo "</tr>";
 		}
 
