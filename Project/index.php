@@ -6,5 +6,5 @@
 		<div id="content">
 			<?php include 'home.php' ?>
 		</div>
-		<?php include 'views/shared/footer.php' ?>
 	</section>
+<?php include 'views/shared/footer.php' ?>

@@ -21,63 +21,62 @@
 		
 		if($story != null)
 		{
-			echo "<p>";
-			echo "Type: " .$type -> _get("name"). "<br/>";
-			echo "Begindatum: " .$story -> _get("startdate"). "<br/>";
-			echo "Einddatum: " .$story -> _get("startdate"). "<br/>";
-			echo "Omschrijving: " .$story -> _get("description"). "<br/>";
-			echo "</p>";
-			
-			echo "<p>";
-			echo "Student: " .$student -> _get("firstname"). " " .$student -> _get("insertion"). " " .$student -> _get("surname"). "<br/>";
-			echo "Opleiding: " .$study -> _get("name"). "<br/>";
-			echo "Schooljaar: " .$story -> _get("schoolyear"). "<br/>";
-			echo "School: " .$school -> _get("name"). "<br/>";
-			echo "Email: " .$student -> _get("email"). "<br/>";
-			echo "</p>";
-			
-			echo "<p>"; 
+			echo "<table>";
+			echo "<tr><td>Type: </td><td> " .$type -> _get("name"). "</td></tr>";
+			echo "<tr><td>Begindatum: </td><td> " .$story -> _get("startdate"). "</td></tr>";
+			echo "<tr><td>Einddatum: </td><td> " .$story -> _get("startdate"). "</td></tr>";
+			echo "<tr><td>Omschrijving: </td><td> " .$story -> _get("description"). "</td></tr>";
+			echo "<tr><td>&nbsp;</td></tr>";
+
+			echo "<tr><td>Student: </td><td> " .$student -> _get("firstname"). " " .$student -> _get("insertion"). " " .$student -> _get("surname"). "</td></tr>";
+			echo "<tr><td>Opleiding: </td><td> " .$study -> _get("name"). "</td></tr>";
+			echo "<tr><td>Schooljaar: </td><td> " .$story -> _get("schoolyear"). "</td></tr>";
+			echo "<tr><td>School: </td><td> " .$school -> _get("name"). "</td></tr>";
+			echo "<tr><td>Email: </td><td> " .$student -> _get("email"). "</td></tr>";
+			echo "<tr><td>&nbsp;</td></tr>";
+
 			$organization_ids = $story->_get("organization_ids");
 			foreach($organization_ids as &$organization_id)
 			{
 				$organization = getOrganizationByID($organization_id, $con);
-				echo "Organisatie: " .$organization -> _get("name"). "<br/>";
-				echo "Omschrijving organisatie: " .$organization -> _get("description")."<br/>";
+				echo "<tr><td>Organisatie: </td><td> " .$organization -> _get("name")."</td></tr>";
+				echo "<tr><td>Omschrijving organisatie: &nbsp; </td><td> " .$organization -> _get("description")."</td></tr>";
 			}
 			$location_ids = $story -> _get("location_ids");
+			echo "<tr><td class=\"tdTop\">Locatie(s) story: </td><td><ul>";
 			foreach($location_ids as &$location_id)
 			{
 				$location = getLocationByID($location_id, $con);
-				echo "Locatie(s) story: <br/>";
-				echo $location -> _get("streetname"). " " .$location -> _get("number"). "<br/>";
-				echo $location -> _get("zipcode"). " " .$location -> _get("city"). "<br/>";
-				echo $location -> _get("country"). "<br/>";
+				
+				echo "<li>".$location -> _get("streetname"). " " .$location -> _get("number"). "<br />";
+				echo $location -> _get("zipcode"). " " .$location -> _get("city"). "<br />";
+				echo $location -> _get("country"). "</li>";
+				
 			}
-			echo "</p>";
+			echo "</ul></td></tr>";
 			
-			echo "<p>";
 			$residence_location_ids = $story -> _get("residence_location_ids");
 			if ($residence_location_ids !=null)
 			{
-				echo "Verblijf locatie(s): <br/>";
+				echo "<tr><td class=\"tdTop\">Verblijf locatie(s): </td><td><ul>";
 				foreach ($residence_location_ids as &$residence_location_id) {
 					$location = getLocationByID($residence_location_id, $con);
-					echo $location -> _get("streetname"). " " .$location -> _get("number"). "<br/>";
-					echo $location -> _get("zipcode"). " " .$location -> _get("city"). "<br/>";
-					echo $location -> _get("country"). "<br/>";
+					echo "<li>".$location -> _get("streetname"). " " .$location -> _get("number"). "<br />";
+					echo $location -> _get("zipcode"). " " .$location -> _get("city"). "<br />";
+					echo $location -> _get("country"). "</li>";
 				}
+				echo "</ul></td></tr>";
 			}
-			echo "</p>";
 			
-			echo "<p>";
 			$links = $story -> _get("links");
 			if ($story -> _get("links") != null) {
-				echo "Links: <br/>";
+				echo "<tr><td>Links: </td><td>";
 				foreach ($links as &$link) {
-					echo "<a href='".$link."'>".$link."</a><br/>";
+					echo "<a href='".$link."'>".$link."</a><br />";
 				}
+				echo "</td></tr>";
 			}
-			echo "</p>";
+			echo "</table>";
 		}
 		else
 		{
