@@ -72,7 +72,7 @@
 			if ($story -> _get("links") != null) {
 				echo "<tr><td>Links: </td><td>";
 				foreach ($links as &$link) {
-					echo "<a href='".$link."'>".$link."</a><br />";
+					echo "<a target=\"_blank\" href='".$link."'>".$link."</a><br />";
 				}
 				echo "</td></tr>";
 			}
