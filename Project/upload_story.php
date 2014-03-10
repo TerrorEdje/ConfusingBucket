@@ -46,30 +46,15 @@
 		
 		# Er hoeft geen verblijfplaast ingvuld te worden, maar als je dat wel doet, dan moeten woonplaats en land verplicht zijn
 		# Is het wel logisch om alleen een adres van de verblijfplaats in te vullen??
-<<<<<<< HEAD
-		echo '<p>';
-		echo 'Gegevens over de verblijf locatie:<br>';
-		echo 'Straat: <input type="text" name="residence_streetname">';
-		echo 'Huisnummer: <input type="text" name="residence_number"><br>';
-		echo 'Postcode: <input type="text" name="residence_zipcode">';
-		echo 'Woonplaats: <input type="text" name="residence_city"><br>';
-		echo 'Land: <input type="text" name="residence_country"><br>';
-		echo '</p>';
-		
-		echo '<p>';
-		echo '<input type="submit" name="upload" value="Upload story">';
-		echo '</p>';	
-=======
+	
 		echo '<tr><td>Gegevens over de verblijf locatie:</td></tr>';
-		echo '<tr><td>Straat:</td> <td> <input type="text" name="recidence_streetname"></td></tr>';
-		echo '<tr><td>Huisnummer:</td> <td> <input type="text" name="recidence_number"></td></tr>';
-		echo '<tr><td>Postcode:</td> <td> <input type="text" name="recidence_zipcode"></td></tr>';
-		echo '<tr><td>Woonplaats:</td> <td> <input type="text" name="recidence_city"></td></tr>';
-		echo '<tr><td>Land:</td> <td> <input type="text" name="recidence_country"></td></tr>';
+		echo '<tr><td>Straat:</td> <td> <input type="text" name="residence_streetname"></td></tr>';
+		echo '<tr><td>Huisnummer:</td> <td> <input type="text" name="residence_number"></td></tr>';
+		echo '<tr><td>Postcode:</td> <td> <input type="text" name="residence_zipcode"></td></tr>';
+		echo '<tr><td>Woonplaats:</td> <td> <input type="text" name="residence_city"></td></tr>';
+		echo '<tr><td>Land:</td> <td> <input type="text" name="residence_country"></td></tr>';
 
 		echo '<tr><td><input type="submit" name="upload" value="Upload story"></td></tr>';
-	
->>>>>>> e4b3e4656edf7d9b4a3d7e682c1f93b4f1f30546
 		
 		echo '</form>';
         
