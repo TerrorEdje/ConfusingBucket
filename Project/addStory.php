@@ -1,7 +1,6 @@
 <?php
 
 	include 'db/connection.php';
-	include 'repositories/typeRepository.php';
 	include 'repositories/organizationRepository.php';
 	include 'repositories/locationRepository.php';
 	include 'repositories/storyRepository.php';
@@ -30,21 +29,44 @@
 		#$location->_set("longitude",);
 		
 		// Id van de laatst toegevoegde locatie
-		$locationID = addLocation($location, $connection)
+		$locationID = addLocation($location, $connection);
 		
+		$residence_location = new Location();
+		$residence_location->_set("streetname", $_POST["residence_streetname"]);
+		$residence_location->_set("number", $_POST["residence_number"]);
+		$residence_location->_set("zipcode", $_POST["residence_zipcode"]);
+		$residence_location->_set("city", $_POST["residence_city"]);
+		$residence_location->_set("country", $_POST["residence_country"]);
+		#$residence_location->_set("latitude",);
+		#$residence_location->_set("longitude",);
+		
+		// Id van de laatst toegevoegde residence_locatie
+		$residence_locationID = addLocation($residence_location, $connection);
+
 		$story = new Story();
 		$story->_set("type_id", $_POST["type"]);
 		$story->_set("startdate", $_POST["startdate"]);
 		$story->_set("enddate", $_POST["enddate"]);
 		$story->_set("description", $_POST["description"]);
-		$story->_set("schoolyear", $_POST["schoolyear"]);
+		#$story->_set("schoolyear", $_POST["schoolyear"]);
 		
-		$story->_set("organization_ids", );
-		$story->_set("location_ids", );
-		$story->_set("residence_location_ids", );
+		$organization_ids = array();
+		$organization_ids[0] = $organizationID;
+		$story->_set("organization_ids", $organization_ids);
+		
+		$location_ids = array();
+		$location_ids[0] = $locationID;
+		$story->_set("location_ids", $location_ids);
+		
+		$residence_location_ids = array();
+		$residence_location_ids[0] = $residence_locationID;
+		$story->_set("residence_location_ids", $residence_location_ids);
+		
 		$links = array();
-		$links[0] = $
+		$links[0] = $_POST["link"];
 		$story->_set("links",$links );
+		
+		addStory($story,$connection);
 		
 		echo '<p>';
 		echo "Type: " .$_POST["type"]. "<br>";
@@ -63,13 +85,11 @@
 		echo "Story: " .$_POST["story"]. "<br>";
 		echo "Link: " .$_POST["link"]. "<br>";
                 
-		echo "Straat: " .$_POST["recidence_streetname"]. "<br>";
-		echo "Huisnummer: " .$_POST["recidence_number"]. "<br>";
-		echo "Postcode: " .$_POST["recidence_zipcode"]. "<br>";
-		echo "Woonplaats: " .$_POST["recidence_city"]. "<br>";
-		echo "Land: " .$_POST["recidence_country"];
+		echo "Straat: " .$_POST["residence_streetname"]. "<br>";
+		echo "Huisnummer: " .$_POST["residence_number"]. "<br>";
+		echo "Postcode: " .$_POST["residence_zipcode"]. "<br>";
+		echo "Woonplaats: " .$_POST["residence_city"]. "<br>";
+		echo "Land: " .$_POST["residence_country"];
 		echo '</p>';
-
-
 
 ?>

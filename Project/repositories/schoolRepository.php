@@ -93,8 +93,20 @@
 	
 	function addSchool($school, $connection)
 	{
-		$query = 'INSERT INTO school (name,website) VALUES (' .$school->_get("name"). ',' .$school->_get("website"). ')';
-		$result = $connection->query($query);
-		$result->close();
+		$name = $school -> _get("name");
+		$website = $school -> _get("website");	
+		$query = 'INSERT INTO school (name,website) VALUES (?,?)';
+		$stmt = $connection ->prepare($query);
+		$stmt -> bind_param('ss',$name,$website);
+		if(!$stmt->execute())
+		{
+			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
+		}
+		
+		//Haal ID op van ingevoegde school
+		$id = mysqli_insert_id($connection);
+		$stmt->close();
+		
+		return $id;
 	}
 ?>

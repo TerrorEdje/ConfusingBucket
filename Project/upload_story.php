@@ -12,7 +12,7 @@
 	
 	# Moet een student ook zijn/haar gegevens (zoals naam, opleiding, leerjaar, school) invullen of gaat dat met inloggen?
 
-		echo '<form id="upload-form" action="upload_story.php" method="POST">'; 
+		echo '<form id="upload-form" action="addStory.php" method="POST">'; 
         echo '<input type="hidden" name="usingAJAX" value="false" />';
 		
 		echo '<p>';
@@ -51,11 +51,11 @@
 		# Is het wel logisch om alleen een adres van de verblijfplaats in te vullen??
 		echo '<p>';
 		echo 'Gegevens over de verblijf locatie:<br>';
-		echo 'Straat: <input type="text" name="recidence_streetname">';
-		echo 'Huisnummer: <input type="text" name="recidence_number"><br>';
-		echo 'Postcode: <input type="text" name="recidence_zipcode">';
-		echo 'Woonplaats: <input type="text" name="recidence_city"><br>';
-		echo 'Land: <input type="text" name="recidence_country"><br>';
+		echo 'Straat: <input type="text" name="residence_streetname">';
+		echo 'Huisnummer: <input type="text" name="residence_number"><br>';
+		echo 'Postcode: <input type="text" name="residence_zipcode">';
+		echo 'Woonplaats: <input type="text" name="residence_city"><br>';
+		echo 'Land: <input type="text" name="residence_country"><br>';
 		echo '</p>';
 		
 		echo '<p>';

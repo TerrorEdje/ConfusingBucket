@@ -96,8 +96,21 @@
 	
 	function addStudent($student, $connection)
 	{
-		$query = 'INSERT INTO student (firstname,insertion,surname,email,user_id) VALUES (' .$student->_get("firstname"). ',' .$student->_get("insertion"). ',' .$student->_get("surname"). ',' .$student->_get("email"). ',' .$student->_get("user_id"). ')';
-		$result = $connection->query($query);
-		$result->close();
+		$firstname = $student -> _get("firstname");
+		$insertion = $student -> _get("insertion");
+		$surname = $student -> _get("surname");
+		$email = $student -> _get("email");
+		$user_id = $student -> _get("user_id");
+		$query = 'INSERT INTO student (firstname,insertion,surname,email,user_id) VALUES (?,?,?,?,?)';
+		$stmt = $connection ->prepare($query);
+		$stmt -> bind_param('ssssi',$firstname,$insertion,$surname,$email,$user_id);
+		if(!$stmt->execute())
+		{
+			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
+		}
+		
+		//Haal ID op van ingevoegde student
+		$id = mysqli_insert_id($connection);
+		$stmt->close();
 	}
 ?>

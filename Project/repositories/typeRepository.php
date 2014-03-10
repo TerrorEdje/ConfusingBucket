@@ -45,8 +45,20 @@
 	
 	function addType($type, $connection)
 	{
-		$query = 'INSERT INTO type (name,description) VALUES (' .$type->_get("name"). ',' .$type->_get("description"). ')';
-		$result = $connection->query($query);
-		$result->close();
+		$name = $type -> _get("name");
+		$description = $type-> _get("description");	
+		$query = 'INSERT INTO type (name,description) VALUES (?,?)';
+		$stmt = $connection ->prepare($query);
+		$stmt -> bind_param('ss',$name,$description);
+		if(!$stmt->execute())
+		{
+			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
+		}
+		
+		//Haal ID op van ingevoegde type
+		$id = mysqli_insert_id($connection);
+		$stmt->close();
+		
+		return $id;
 	}
 ?>
