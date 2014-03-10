@@ -80,8 +80,21 @@
 	
 	function addOrganization($organization, $connection)
 	{
-		$query = 'INSERT INTO organization (name,description,website) VALUES (' .$organization->_get("name"). ',' .$organization->_get("description"). ',' .$organization->_get("website"). ')';
-		$result = $connection->query($query);
-		$result->close();
+		$name = $organization -> _get("name");
+		$description = $organization -> _get("description");
+		$website = $organization -> _get("website");	
+		$query = 'INSERT INTO organization (name,description,website) VALUES (?,?,?)';
+		$stmt = $connection ->prepare($query);
+		$stmt -> bind_param('sss',$name,$description,$website);
+		if(!$stmt->execute())
+		{
+			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
+		}
+		
+		//Haal ID op van ingevoegde organization
+		$id = mysqli_insert_id($connection);
+		$stmt->close();
+		
+		return $id;	
 	}
 ?>

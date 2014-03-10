@@ -2,6 +2,9 @@
 	
 	include 'db/connection.php';
 	include 'repositories/typeRepository.php';
+	include 'repositories/organizationRepository.php';
+	include 'repositories/locationRepository.php';
+	include 'repositories/storyRepository.php';
 	
 	$connection = openDB();
 	
@@ -9,7 +12,6 @@
 	
 	# Moet een student ook zijn/haar gegevens (zoals naam, opleiding, leerjaar, school) invullen of gaat dat met inloggen?
 
-	if (!isset($_POST['name'])) {
 		echo '<form id="upload-form" action="upload_story.php" method="POST">'; 
         echo '<input type="hidden" name="usingAJAX" value="false" />';
 		
@@ -81,47 +83,5 @@
                 return false;
             });
             </script>";
-	}
-	else {
-		echo '<p>';
-		echo 'Story is ge&uuml;pload';
-		echo '</p>';
-		
-		/*$organization = new Organization();
-		$organization->_set("name", $_POST["name"]);
-		$organization->_set("description", $_POST["description"]);
-		$organization->_set("website", $_POST["website"]);
-		
-		$location = new Location();
-		$location->_set("streetname", $_POST["streetname"]);
-		$location->_set("number", $_POST["number"]);
-		$location->_set("zipcode", $_POST["zipcode"]);
-		$location->_set("city", $_POST["city"]);
-		$location->_set("country", $_POST["country"]);*/
-		
-		echo '<p>';
-		echo "Type: " .$_POST["type"]. "<br>";
-		echo "Begindatum: " .$_POST["startdate"]. "<br>";
-		echo "Einddatum: " .$_POST["enddate"]. "<br>";
-                
-		echo "Naam: " .$_POST["name"]. "<br>";
-		echo "Omschrijving: " .$_POST["description"]. "<br>";
-		echo "Straat: " .$_POST["streetname"]. "<br>";
-		echo "Huisnummer: " .$_POST["number"]. "<br>";
-		echo "Postcode: " .$_POST["zipcode"]. "<br>";
-		echo "Woonplaats: " .$_POST["city"]. "<br>";
-		echo "Land: " .$_POST["country"]. "<br>";
-		echo "Website: " .$_POST["website"]. "<br>";
-                
-		echo "Story: " .$_POST["story"]. "<br>";
-		echo "Link: " .$_POST["link"]. "<br>";
-                
-		echo "Straat: " .$_POST["recidence_streetname"]. "<br>";
-		echo "Huisnummer: " .$_POST["recidence_number"]. "<br>";
-		echo "Postcode: " .$_POST["recidence_zipcode"]. "<br>";
-		echo "Woonplaats: " .$_POST["recidence_city"]. "<br>";
-		echo "Land: " .$_POST["recidence_country"];
-		echo '</p>';
-	}
 
 ?>

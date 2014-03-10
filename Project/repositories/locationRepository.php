@@ -69,8 +69,25 @@
 	
 	function addLocation($location, $connection)
 	{
-		$query = 'INSERT INTO location (country,city,streetname, number, zipcode,latitude,longitude) VALUES (' .$location->_get("country"). ',' .$location->_get("city"). ',' .$location->_get("streetname"). ',' .$location->_get("number"). ',' .$location->_get("zipcode"). ',' .$location->_get("latitude"). ',' .$location->_get("longitude"). ')';
-		$result = $connection->query($query);
-		$result->close();
+		$country = $location -> _get("country");
+		$city = $location -> _get("city");
+		$streetname = $location -> _get("streetname");
+		$number = $location -> _get("number");
+		$zipcode = $location -> _get("zipcode");
+		$latitude = $location -> _get("latitude");
+		$longitude = $location -> _get("longitude");	
+		$query = 'INSERT INTO location (country,city,streetname,number,zipcode,latitude,longitude) VALUES (?,?,?,?,?,?,?)';
+		$stmt = $connection ->prepare($query);
+		$stmt -> bind_param('sssssdd',$country,$city,$streetname,$number,$zipcode,$latitude,$longitude);
+		if(!$stmt->execute())
+		{
+			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
+		}
+		
+		//Haal ID op van ingevoegde location
+		$id = mysqli_insert_id($connection);
+		$stmt->close();
+		
+		return $id;	
 	}
 ?>
