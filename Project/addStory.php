@@ -7,12 +7,15 @@
 
 	$connection = openDB();
 		
-	if(isset($_SESSION["id"]))
+	//if(isset($_SESSION["id"]))
+	if(true)
 	{
-		$check = new Check();
-		$error = $check->checkView($_SESSION["id"], 'upload_story');
+		//$check = new Check();
+		//$error = $check->checkView($_SESSION["id"], 'upload_story');
 
-		if($error['bool'] == 'true'){
+		//if($error['bool'] == 'true')
+		if(true)
+		{
 		
 			echo '<p>';
 			echo 'Story is ge&uuml;pload';

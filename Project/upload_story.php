@@ -8,12 +8,15 @@
 	
 	$connection = openDB();
 	
-	if(isset($_SESSION["id"]))
+	//if(isset($_SESSION["id"]))
+	if(true)
 	{
-		$check = new Check();
-		$error = $check->checkView($_SESSION["id"], 'upload_story');
+		//$check = new Check();
+		//$error = $check->checkView($_SESSION["id"], 'upload_story');
 
-		if($error['bool'] == 'true'){
+		//if($error['bool'] == 'true')
+		if(true)
+		{
 		
 			$types = getAllType($connection);
 			
@@ -87,14 +90,12 @@
 		}
 		else
 		{
-			header('Location: index.php');
-			die();
+			echo("Access for this page is denied. sfahg");
 		}
 	}
 	else
 	{
-		header('Location: index.php');
-		die();
+		echo("Access for this page is denied.");
 	}
 
 ?>
