@@ -32,7 +32,7 @@
 			<div class="form-group">
 				<label for="password" class="col-sm-3 control-label"></label>
 				<div class="col-sm-6">
-					<input type="submit">
+					<input type="submit" value="Inloggen">
 				</div>
 			</div>
 			
