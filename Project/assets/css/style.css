@@ -109,5 +109,5 @@ footer > p{
 }
 
 .uploadTable td{
-	border: 2px solid rgba(0,0,0,0);
+	padding: 3px;
 }
