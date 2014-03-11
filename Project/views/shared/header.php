@@ -26,11 +26,11 @@
 									Upload Story
 								</a>
 							</li>
-							<li class="authtestmenu">
+							<!--<li class="authtestmenu">
 								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin
 								</a>
-							</li>
+							</li>-->
 							<li class="loginmenu logoutmenu" id="loginButton">
 								<a href="#" onclick="load('login.php'); return false;">
 									<span class="text-primary">Login</span>
