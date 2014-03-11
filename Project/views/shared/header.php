@@ -31,11 +31,22 @@
 									Admin
 								</a>
 							</li>
-							<li class="loginmenu">
-								<a href="#" onclick="load('login.php'); return false;">
-									<span class="text-primary">Login</span>
-								</a>
-							</li>
+							<?php
+							if(!isset($_SESSION['id']))
+							{						
+								echo '<li class="loginmenu">
+									<a href="#" onclick="load(\'login.php\'); return false;">
+										<span class="text-primary">Login</span>
+									</a>
+								</li>';
+							}else{
+								echo '<li class="logoutmenu">
+									<a href="#" onclick="load(\'logout.php\'); return false;">
+										<span class="text-danger">Login</span>
+									</a>
+								</li>';
+							}
+							?>
 							
 						</ul>
 					</div>
