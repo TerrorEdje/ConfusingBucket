@@ -1,9 +1,14 @@
 <?php
-	class Rechten
+	include 'model/accesscrud.php';
+
+	class Access
 	{
-		private $id;
-		private $omschrijving;
-        private $gebruiker_gebruikersnamen;
+		private $user_id;
+		private $page;
+        private $crud;
+        private $item_id;
+        private $release;
+		private $end;
 		
 		public function _get($property)
 		{

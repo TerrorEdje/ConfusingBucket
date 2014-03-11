@@ -10,15 +10,11 @@
 		$type = array();
 		
 		while ($row =$result->fetch_assoc())
-		{
-			$id = $row["id"];
-			$naam = $row["naam"];
-			$omschrijving = $row["omschrijving"];
-						
+		{						
 			$type[$i] = new Type();
-			$type[$i] -> _set("id",$id);
-			$type[$i] -> _set("naam",$naam);
-			$type[$i] -> _set("omschrijving",$omschrijving);
+			foreach ($row as $key => $value) {
+				$type[$i] -> _set($key, $value);
+			}
 			
 			$i++;
 		}
@@ -37,17 +33,32 @@
 		
 		while ($row =$result->fetch_assoc())
 		{
-			$id = $row["id"];
-			$naam = $row["naam"];
-			$omschrijving = $row["omschrijving"];
-						
-			$type -> _set("id",$id);
-			$type -> _set("naam",$naam);
-			$type -> _set("omschrijving",$omschrijving);
+			foreach ($row as $key => $value) {
+				$type -> _set($key, $value);
+			}
 		}
 		
 		$result->close();
 		
 		return $type;
+	}
+	
+	function addType($type, $connection)
+	{
+		$name = $type -> _get("name");
+		$description = $type-> _get("description");	
+		$query = 'INSERT INTO type (name,description) VALUES (?,?)';
+		$stmt = $connection ->prepare($query);
+		$stmt -> bind_param('ss',$name,$description);
+		if(!$stmt->execute())
+		{
+			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
+		}
+		
+		//Haal ID op van ingevoegde type
+		$id = mysqli_insert_id($connection);
+		$stmt->close();
+		
+		return $id;
 	}
 ?>

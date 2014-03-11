@@ -1,64 +1,52 @@
 <?php
 	include 'db/connection.php';
-	include 'repositories/studentRepository.php';
 	include 'repositories/storyRepository.php';
-
+	include 'repositories/studentRepository.php';
+	include 'repositories/typeRepository.php';
+	include 'repositories/locationRepository.php';
+	
 	$connection = openDB();
 	
-	$students = getAllStudents($connection);
-	$storys = getAllStory($connection);
-	
-	$query = "SELECT * FROM opleiding_has_student";
-	
-	$result = $connection->query($query);
-	
-	echo "<table cellpadding=\"2\" border=\"1\">";
-	echo "<tr><th>Voornaam</th><th>Tussenvoegsel</th><th>Achternaam</th><th>Email</th><th>Begin datum</th><th>Eind datum</th><th>Beschrijving</th><th>Link</th><th>Leerjaar</th></tr>";
-	
-	while ($row = $result-> fetch_assoc())
+	if(isset($_GET['locationid']))
 	{
-		echo "<tr>";
-		$story_id = $row["story_id"];
-		$student_id = $row["student_id"];
-		//echo "<td>$story_id</td><td>$student_id</td>";
-		
-		foreach($storys as &$story)
-		{
-			if ($story_id == $story -> _get("id"))
-			{
-				$id = $story -> _get("id");
-				$begin_datum = $story -> _get("begin_datum");
-				$eind_datum = $story -> _get("eind_datum");
-				$beschrijving = $story -> _get("beschrijving");
-				$link = $story -> _get("link");
-				$leerjaar = $story -> _get("leerjaar");
-			}
-		}
-		
-		foreach($students as &$student)
-		{
-			if ($student_id == $student -> _get("id"))
-			{
-				$voornaam = $student -> _get("voornaam");
-				$tussenvoegsel = $student -> _get("tussenvoegsel");
-				$achternaam = $student -> _get("achternaam");
-				$email = $student -> _get("email");
-			}			
-		}
-		echo "<td>$voornaam</td>";
-		echo "<td>$tussenvoegsel</td>";
-		echo "<td>$achternaam</td>";
-		echo "<td>$email</td>";
-		echo "<td>$begin_datum</td>";
-		echo "<td>$eind_datum</td>";
-		echo "<td>$beschrijving</td>";
-		echo "<td>$link</td>";
-		echo "<td>$leerjaar</td>";
-		echo "<td onClick=\"window.location.href='storylist_detail.php?storyid=$id'\">Details</td>";
-		echo "</tr>";
-		
+		$locationID = $_GET['locationid'];
+		$stories = getStoriesByLocationID($locationID,$connection);
+	}
+	else
+	{
+		$stories = getAllStories($connection);
 	}
 	
+	if (count($stories) == 1)
+	{
+		echo "<script type=\"text/javascript\">load('storylist_detail.php?storyid=".$stories[0]->_get("id")."')</script>";
+	}
+	
+	echo "<table class=\"tblUserStory\" rules='cols'>";
+	echo "<tr ><th>Type</th><th class=\"otherTDTH\">Country</th><th class=\"otherTDTH\">City</th><th class=\"otherTDTH\">Startdate</th><th class=\"otherTDTH\">Enddate</th><th class=\"otherTDTH\">Name</th></tr>";
+
+		foreach($stories as &$story)
+		{
+			echo "<tr>";
+			$id = $story -> _get("id");
+			$startdate = $story -> _get("startdate");
+			$enddate = $story -> _get("enddate");
+			$student = getStudentById($id,$connection);
+			$name = $student -> _get("firstname"). " " .$student -> _get("insertion"). " " .$student -> _get("surname");
+			$type = getTypeByID($id, $connection);
+			$location = getLocationByID($story->_get("location_ids")[0],$connection);
+			$country = $location -> _get("country");
+			$city = $location -> _get("city");
+			echo "<td >".$type->_get("name")."</td>";
+			echo "<td class=\"otherTDTH\">$country</td>";
+			echo "<td class=\"otherTDTH\">$city</td>";
+			echo "<td class=\"otherTDTH\">$startdate</td>";
+			echo "<td class=\"otherTDTH\">$enddate</td>";
+			echo "<td class=\"otherTDTH\">$name</td>";
+			echo "<td class=\"otherTDTH\"><a href='#' onClick=\"load('storylist_detail.php?storyid=$id')\">Details</a></td>";
+			echo "</tr>";
+		}
+
 	echo "</table>";
 
 	closeDB($connection);

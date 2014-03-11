@@ -1,10 +1,10 @@
 <?php
-	class Type
+	class accesscrud
 	{
-		private $id;
-		private $name;
-		private $description;
-		
+		private $crud;
+		private $release;
+		private $end;
+
 		public function _get($property)
 		{
 			if (property_exists($this, $property))

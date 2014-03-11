@@ -3,13 +3,16 @@
 	{
 		private $id;
 		private $type_id;
-		private $begin_datum;
-		private $eind_datum;
-		private $beschrijving;
-		private $link;
-		private $leerjaar;
-        private $opleiding_ids;
+		private $startdate;
+		private $enddate;
+		private $description;
+		private $schoolyear;
+        private $study_ids;
         private $student_ids;
+		private $organization_ids;
+		private $location_ids;
+		private $residence_location_ids;
+		private $links;
 	
 		public function _get($property) {
             if (property_exists($this, $property)) {
