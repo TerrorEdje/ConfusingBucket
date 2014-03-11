@@ -1,9 +1,17 @@
 <h1 class="text-primary">Inloggen</h1>
 <h4 class="text-muted">U kunt hier beneden tijdelijk Inloggen</h4>
-<br />
+
+<?php 
+	if(isset($_GET['msg'])){
+		echo '<h3 class="text-warning">'.str_replace("_", " ", $_GET['msg']).'</h3>';
+	}else{
+		echo '<br />';
+	}
+?>
 
 <div class="align-center">
-	<form action="loginsession.php" method="post" class="form-horizontal">
+	<form id="login-form" action="loginsession.php" method="post" class="form-horizontal">
+		<input type="hidden" name="usingAJAX" value="false" />
 
 		<fieldset class="the-fieldset form-margin">
 
@@ -21,9 +29,34 @@
 				</div>
 			</div>
 
-			<input type="submit">
-
+			<div class="form-group">
+				<label for="password" class="col-sm-3 control-label"></label>
+				<div class="col-sm-6">
+					<input type="submit">
+				</div>
+			</div>
+			
 		</fieldset>
 
 	</form>
+
+	<script type="text/javascript">$('#login-form').submit(function(event){
+                event.preventDefault();
+                $('input[name="usingAJAX"]',this).val( 'true' );
+                
+                var form = $(this);
+                var url = form.attr('action')
+                var data = form.serialize();
+                var callback = function(response){
+                    $('#content').html(response);
+                };
+                
+                var dataType = 'html';
+                
+                $.post(url, data, callback, dataType)
+                
+                
+                return false;
+            });
+    </script>
 </div>
