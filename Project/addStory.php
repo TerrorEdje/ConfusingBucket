@@ -31,7 +31,7 @@
 			
 			include_once("assets/functions/geocode.inc.php");
 			$latlong = geocode($_POST["city"] . ", " . $_POST["country"]);
-			echo("Location: ". $_POST["city"] . ", " . $_POST["country"]);
+			
 			
 			$location = new Location();
 			$location->_set("streetname", $_POST["streetname"]);
