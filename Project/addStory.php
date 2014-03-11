@@ -29,14 +29,21 @@
 			// Id van de laatst toevoegde organisatie
 			$organizationID = addOrganization($organization, $connection);
 			
+			include_once("assets/functions/geocode.inc.php");
+			$latlong = geocode($_POST["city"] . ", " . $_POST["country"]);
+			
+			
 			$location = new Location();
 			$location->_set("streetname", $_POST["streetname"]);
 			$location->_set("number", $_POST["number"]);
 			$location->_set("zipcode", $_POST["zipcode"]);
 			$location->_set("city", $_POST["city"]);
 			$location->_set("country", $_POST["country"]);
-			#$location->_set("latitude",);
-			#$location->_set("longitude",);
+			if ($latlong != null)
+			{
+				$location->_set("latitude", $latlong["lat"]);
+				$location->_set("longitude", $latlong["lng"]);
+			}
 			
 			// Id van de laatst toegevoegde locatie
 			$locationID = addLocation($location, $connection);

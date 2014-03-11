@@ -21,21 +21,35 @@
 									Stories
 								</a>
 							</li>
-							<li class="upload_storymenu" style="display: none;">
-								<a href="#" onclick="load('upload_story.php'); return false;">
-									Upload Story
-								</a>
-							</li>
+							<?php 
+								if(isset($_SESSION['id'])){
+								echo '<li class="upload_storymenu">
+									<a href="#" onclick="load(\'upload_story.php\'); return false;">
+										Upload Story
+									</a>
+								</li>';
+								}
+							?>
 							<!--<li class="authtestmenu">
 								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin
 								</a>
 							</li>-->
-							<li class="loginmenu logoutmenu" id="loginButton">
-								<a href="#" onclick="load('login.php'); return false;">
-									<span class="text-primary">Login</span>
-								</a>
-							</li>
+							<?php 
+							if(isset($_SESSION['id'])){
+								echo '<li id="loginButton">
+									<a href="logout.php">
+										<span class="text-danger">Log out</span>
+									</a>
+								</li>';
+							}else{
+								echo '<li class="loginmenu logoutmenu" id="loginButton">
+									<a href="#" onclick="load(\'login.php\'); return false;">
+										<span class="text-primary">Login</span>
+									</a>
+								</li>';
+							}
+							?>
 						</ul>
 					</div>
 				</div>

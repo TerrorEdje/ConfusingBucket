@@ -15,9 +15,15 @@
 		$story = getStoryByID($_GET['storyid'], $con);
 		$type = getTypeByID($story -> _get("type_id"), $con);
 		
-		$student = getStudentByID($story->_get("student_ids")[0], $con);
-		$study = getStudyByID($story->_get("study_ids")[0], $con);
-		$school = getSchoolByID($study -> _get("school_id"), $con);
+		if ($story->_get("student_ids") != null)
+			$student = getStudentByID($story->_get("student_ids")[0], $con);
+		if ($story->_get("study_ids") != null)
+			$study = getStudyByID($story->_get("study_ids")[0], $con);
+		if (isset($study))
+		{
+			if ($study -> _get("school_id") != null)
+				$school = getSchoolByID($study -> _get("school_id"), $con);
+		}
 		
 		if($story != null)
 		{
@@ -27,13 +33,16 @@
 			echo "<tr><td>Einddatum: </td><td> " .$story -> _get("startdate"). "</td></tr>";
 			echo "<tr><td>Omschrijving: </td><td> " .$story -> _get("description"). "</td></tr>";
 			echo "<tr><td>&nbsp;</td></tr>";
-
-			echo "<tr><td>Student: </td><td> " .$student -> _get("firstname"). " " .$student -> _get("insertion"). " " .$student -> _get("surname"). "</td></tr>";
-			echo "<tr><td>Opleiding: </td><td> " .$study -> _get("name"). "</td></tr>";
-			echo "<tr><td>Schooljaar: </td><td> " .$story -> _get("schoolyear"). "</td></tr>";
-			echo "<tr><td>School: </td><td> " .$school -> _get("name"). "</td></tr>";
-			echo "<tr><td>Email: </td><td> " .$student -> _get("email"). "</td></tr>";
-			echo "<tr><td>&nbsp;</td></tr>";
+			
+			if (isset($student) && isset($study))
+			{
+				echo "<tr><td>Student: </td><td> " .$student -> _get("firstname"). " " .$student -> _get("insertion"). " " .$student -> _get("surname"). "</td></tr>";
+				echo "<tr><td>Opleiding: </td><td> " .$study -> _get("name"). "</td></tr>";
+				echo "<tr><td>Schooljaar: </td><td> " .$story -> _get("schoolyear"). "</td></tr>";
+				echo "<tr><td>School: </td><td> " .$school -> _get("name"). "</td></tr>";
+				echo "<tr><td>Email: </td><td> " .$student -> _get("email"). "</td></tr>";
+				echo "<tr><td>&nbsp;</td></tr>";
+			}
 
 			$organization_ids = $story->_get("organization_ids");
 			foreach($organization_ids as &$organization_id)
