@@ -3,8 +3,8 @@
 
 		public function checkView($user_id, $page, $crud_operation='read', $item_id=null)
 		{
-			include 'db/connection.php';
-			include 'repositories/accessRepository.php';
+			include_once 'db/connection.php';
+			include_once 'repositories/accessRepository.php';
 
 			$con = openDB();
 			$accesses = getAccessByID($user_id, $con);

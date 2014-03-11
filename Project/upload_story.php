@@ -1,21 +1,22 @@
 <?php
-	
-	include 'db/connection.php';
-	include 'repositories/typeRepository.php';
-	include 'repositories/organizationRepository.php';
-	include 'repositories/locationRepository.php';
-	include 'repositories/storyRepository.php';
+	session_start();
+
+	include_once 'db/connection.php';
+	include_once 'repositories/typeRepository.php';
+	include_once 'repositories/organizationRepository.php';
+	include_once 'repositories/locationRepository.php';
+	include_once 'repositories/storyRepository.php';
 	
 	$connection = openDB();
 	
-	//if(isset($_SESSION["id"]))
-	if(true)
+	if(isset($_SESSION["id"]))
 	{
-		//$check = new Check();
-		//$error = $check->checkView($_SESSION["id"], 'upload_story');
+		include_once 'auth/check.php';
 
-		//if($error['bool'] == 'true')
-		if(true)
+		$check = new Check();
+		$error = $check->checkView($_SESSION["id"], 'upload_story');
+
+		if($error['bool'] == 'true')
 		{
 		
 			$types = getAllType($connection);
@@ -90,12 +91,12 @@
 		}
 		else
 		{
-			echo("Access for this page is denied. sfahg");
+			echo("Access for this page is denied.");
 		}
 	}
 	else
 	{
-		echo("Access for this page is denied.");
+		echo("Access for this page is denied, you are not logged in yet!");
 	}
 
 ?>
