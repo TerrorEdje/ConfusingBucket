@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 	include 'views/shared/head.php';
 	include 'views/shared/map.php'; ?>
 	<div id="mapClick" onclick="hide()"><span >&nbsp;</span></div>

@@ -11,7 +11,7 @@
 
 <div class="align-center">
 	<form id="login-form" action="loginsession.php" method="post" class="form-horizontal">
-		<input type="hidden" name="usingAJAX" value="false" />
+		<!--<input type="hidden" name="usingAJAX" value="false" />-->
 
 		<fieldset class="the-fieldset form-margin">
 
@@ -40,7 +40,7 @@
 
 	</form>
 
-	<script type="text/javascript">$('#login-form').submit(function(event){
+	<!--<script type="text/javascript">$('#login-form').submit(function(event){
                 event.preventDefault();
                 $('input[name="usingAJAX"]',this).val( 'true' );
                 
@@ -58,5 +58,5 @@
                 
                 return false;
             });
-    </script>
+    </script>-->
 </div>
