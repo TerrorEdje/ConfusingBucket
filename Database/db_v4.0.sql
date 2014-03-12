@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`location` (
   `number` VARCHAR(10) NULL,
   `zipcode` VARCHAR(10) NULL,
   `latitude` FLOAT NOT NULL,
-  `longtitude` FLOAT NOT NULL,
+  `longitude` FLOAT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
