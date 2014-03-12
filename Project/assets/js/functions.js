@@ -67,6 +67,8 @@ function load(page)
 $(window).on('resize', function(){
 	var maxHeight = getMaxHeight();
 	
+    $('#mapClick').css("top", maxHeight + "px");
+    
 	if (!($('#section').css('top') == "0px" || ($('#section').css('top') == "")))
 	{
 		if (maxHeight > 50)
