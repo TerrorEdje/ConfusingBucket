@@ -14,7 +14,7 @@
 	}
 	else if (isset($_GET['locationids']))
 	{
-		$locationIDs = split(",", $_GET['locationids']);
+		$locationIDs = explode(",", $_GET['locationids']);
 		
 		$stories = array();
 		
