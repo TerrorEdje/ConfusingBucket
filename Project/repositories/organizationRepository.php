@@ -1,5 +1,5 @@
 <?php
-	include 'model/organization.php';
+	include_once 'model/organization.php';
 		
 	function getAllOrganizations($connection)
 	{

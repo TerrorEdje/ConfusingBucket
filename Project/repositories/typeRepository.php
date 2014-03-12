@@ -1,5 +1,5 @@
 <?php
-	include 'model/type.php';
+	include_once 'model/type.php';
 		
 	function getAllType($connection)
 	{

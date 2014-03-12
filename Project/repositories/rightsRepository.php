@@ -1,5 +1,5 @@
 <?php
-	include 'model/rights.php';
+	include_once 'model/rights.php';
 		
 	function getAllRights($connection)
 	{
