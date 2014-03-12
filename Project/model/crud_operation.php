@@ -1,12 +1,9 @@
 <?php
-	class Student
+	class Crud_Operation
 	{
-		private $id;
-		private $firstname;
-		private $insertion;
-		private $surname;
-		private $email;
-		
+		private $type;
+	
+	
 		public function _get($property) 
 		{
             if (property_exists($this, $property)) 

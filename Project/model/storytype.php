@@ -1,11 +1,8 @@
 <?php
-	class Student
+	class StoryType
 	{
-		private $id;
-		private $firstname;
-		private $insertion;
-		private $surname;
-		private $email;
+		private $name;
+		private $description;
 		
 		public function _get($property) 
 		{
