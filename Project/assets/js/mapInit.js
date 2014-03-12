@@ -19,7 +19,8 @@ function initialize() {
 		var marker = new google.maps.Marker({
 			id: locations[i].id, 
 			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-			title: locations[i].title
+			title: locations[i].title,
+			icon: 'images/markers/default.png'
 		});
 		
 		markers.push(marker);
