@@ -1,4 +1,6 @@
 var map;
+var mc;
+var markers = [];
 var centerLatlng = new google.maps.LatLng(0,0);
 
 function initialize() {
@@ -10,9 +12,6 @@ function initialize() {
 	};
 	
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-	
-
-	var markers = [];
 	
 	for( i = 0; i < locations.length; ++i)
 	{
@@ -31,8 +30,9 @@ function initialize() {
 	}
 	var mcOptions = {zoomOnClick: false, 
 					gridSize: 41,
-					imagePath: 'images/markers/m'};
-	var mc = new MarkerClusterer(map, markers, mcOptions);
+					imagePath: 'images/markers/m',
+					averageCenter: true};
+	mc = new MarkerClusterer(map, markers, mcOptions);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
