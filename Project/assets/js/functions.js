@@ -63,6 +63,7 @@ function load(page)
 	show()
 }
 
+//Balk goedzetten bij window resize
 $(window).on('resize', function(){
 	var maxHeight = getMaxHeight();
 	
@@ -74,3 +75,21 @@ $(window).on('resize', function(){
 		}
 	}
 });
+
+//Stop scrollen van de pagina (content mag wel gescrolld worden)
+$( document ).ready(function() {
+    $('body').mousedown(function(e){
+		if(e.button==1 && !($('.scroll').has($(e.target)).length))return false
+	});
+	
+	$('html, body').on('touchmove',function(e){
+		if(!$('.scroll').has($(e.target)).length)
+			e.preventDefault();
+	});
+});
+
+//failsafe: toch gescrolld? Zet de pagina weer terug.
+$(window).scroll(function(e){
+    $(this).scrollTop(0);
+});
+

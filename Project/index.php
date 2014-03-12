@@ -6,7 +6,7 @@
 	<div id="mapClick" onclick="hide()"><span >&nbsp;</span></div>
 	<section id="section">
 		<?php include 'views/shared/header.php'; ?>
-		<div id="content">
+		<div id="content" class="scroll">
 			<?php include 'home.php'; ?>
 		</div>
 	</section>
