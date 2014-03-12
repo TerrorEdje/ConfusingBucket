@@ -1,5 +1,5 @@
 <?php
-	include 'model/story.php';
+	include_once 'model/story.php';
 		
 	function getAllStories($connection)
 	{

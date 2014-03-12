@@ -1,5 +1,5 @@
 <?php
-	include 'model/access.php';
+	include_once 'model/access.php';
 		
 	function getaccessByID($user_id, $connection)
 	{

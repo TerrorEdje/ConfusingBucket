@@ -1,5 +1,5 @@
 <?php
-	include 'model/student.php';
+	include_once 'model/student.php';
 		
 	function getAllStudents($connection)
 	{

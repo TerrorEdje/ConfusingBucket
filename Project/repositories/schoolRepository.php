@@ -1,5 +1,5 @@
 <?php
-	include 'model/school.php';
+	include_once 'model/school.php';
 		
 	function getAllSchools($connection)
 	{

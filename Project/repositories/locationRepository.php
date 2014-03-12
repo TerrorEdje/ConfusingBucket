@@ -1,5 +1,5 @@
 <?php
-	include 'model/location.php';
+	include_once 'model/location.php';
 		
 	function getAllLocations($connection)
 	{

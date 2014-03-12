@@ -1,12 +1,12 @@
 <?php
-	include 'db/connection.php';
-	include 'repositories/storyRepository.php';
-	include 'repositories/typeRepository.php';
-	include 'repositories/studentRepository.php';
-	include 'repositories/studyRepository.php';
-	include 'repositories/schoolRepository.php';
-	include 'repositories/organizationRepository.php';
-	include 'repositories/locationRepository.php';
+	include_once 'db/connection.php';
+	include_once 'repositories/storyRepository.php';
+	include_once 'repositories/typeRepository.php';
+	include_once 'repositories/studentRepository.php';
+	include_once 'repositories/studyRepository.php';
+	include_once 'repositories/schoolRepository.php';
+	include_once 'repositories/organizationRepository.php';
+	include_once 'repositories/locationRepository.php';
 	
 	$con = openDB();
 	
