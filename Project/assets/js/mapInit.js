@@ -11,31 +11,25 @@ function initialize() {
 	
 	map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 	
+
+	var markers = [];
+	
 	for( i = 0; i < locations.length; ++i)
 	{
-		//var contentstring = '<p><a href="storylist_detail.php?'.locations[i].id</p>';
-	
-		var infowindow = new google.maps.InfoWindow({
-			//content: contentstring
-		});
-		
 		var marker = new google.maps.Marker({
 			id: locations[i].id, 
 			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-			map: map,
 			title: locations[i].title
 		});
+		
+		markers.push(marker);
 		
 		google.maps.event.addListener(marker,'click',function() {
 			load('storylist.php?locationid='+this.id);
 		});
-		
-
-		
-		//google.maps.event.addListener(marker, 'click', function() {
-		//	infowindow.open(map,marker);
-		//});
 	}
+	var mcOptions = {zoomOnClick: false, gridSize: 35};
+	var mc = new MarkerClusterer(map, markers, mcOptions);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

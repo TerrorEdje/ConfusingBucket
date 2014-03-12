@@ -12,6 +12,18 @@
 		$locationID = $_GET['locationid'];
 		$stories = getStoriesByLocationID($locationID,$connection);
 	}
+	else if (isset($_GET['locationids']))
+	{
+		$locationIDs = split(",", $_GET['locationids']);
+		
+		$stories = array();
+		
+		foreach($locationIDs as $locationID)
+		{
+			$newstories = getStoriesByLocationID(intval($locationID), $connection);
+			$stories = array_merge($stories, $newstories);
+		}
+	}
 	else
 	{
 		$stories = getAllStories($connection);
