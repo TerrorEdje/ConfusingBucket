@@ -146,13 +146,15 @@
 			$stories[$i] -> _set("links",$links);
 			
 			$i++;
+			
+			$result2->close();
+			$result3->close();
+			$result4->close();
+			$result5->close();
 		}
 		
 		$result->close();
-		$result2->close();
-		$result3->close();
-		$result4->close();
-		$result5->close();
+		
 		
 		return $stories;
 	}
