@@ -28,7 +28,7 @@ function initialize() {
 			load('storylist.php?locationid='+this.id);
 		});
 	}
-	var mcOptions = {zoomOnClick: false, gridSize: 35};
+	var mcOptions = {zoomOnClick: false, gridSize: 41};
 	var mc = new MarkerClusterer(map, markers, mcOptions);
 }
 
