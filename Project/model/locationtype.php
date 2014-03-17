@@ -1,12 +1,9 @@
 <?php
-	class Student
+	class LocationType
 	{
-		private $id;
-		private $firstname;
-		private $insertion;
-		private $surname;
-		private $email;
-		
+		private $name;
+		private $description;
+	
 		public function _get($property) 
 		{
             if (property_exists($this, $property)) 
@@ -24,4 +21,5 @@
             return $this;
         }
 	}
+
 ?>
