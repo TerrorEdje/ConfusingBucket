@@ -6,7 +6,16 @@
 	include_once 'repositories/organizationRepository.php';
 	include_once 'repositories/locationRepository.php';
 	include_once 'repositories/storyRepository.php';
+	?>
+
+	<script>   
+		$(function() {
+			$( "#calendar" ).datepicker();
+			$( "#calendar2" ).datepicker();   
+		}); 
+	</script>
 	
+	<?php
 	$connection = openDB();
 	
 	if(isset($_SESSION["id"]))
@@ -35,8 +44,8 @@
 					echo '<option value ="' .$type->_get("id"). '">' .$type->_get("name"). '</option>';
 				}
 			echo '</select> *</td></tr>';
-			echo '<tr><td>Begindatum:</td> <td> <input type="text" name="startdate" class="customtextbox"> *</td></tr>'; # Moet datepicker worden
-			echo '<tr><td>Einddatum:</td> <td> <input type="text" name="enddate" class="customtextbox"> *</td></tr>'; # Moet datepicker worden
+			echo '<tr><td>Begindatum:</td> <td> <input type="text" id="calendar" name="startdate" class="customtextbox"> *</td></tr>'; # Moet datepicker worden
+			echo '<tr><td>Einddatum:</td> <td> <input type="text" id="calendar" name="enddate" class="customtextbox"> *</td></tr>'; # Moet datepicker worden
 			echo '<tr><td>&nbsp;</td></tr>';
 			echo '<tr><td>Gegevens over de organisatie:</td></tr>';
 			echo '<tr><td>Naam:</td> <td> <input type="text" name="name" class="customtextbox"> *</td></tr>';
