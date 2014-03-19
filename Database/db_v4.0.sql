@@ -2,15 +2,15 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `db_develop` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `db_develop` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`location`
+-- Table `db_develop`.`location`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`location` ;
+DROP TABLE IF EXISTS `db_develop`.`location` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`location` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`location` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `country` VARCHAR(100) NOT NULL,
   `city` VARCHAR(100) NOT NULL,
@@ -25,11 +25,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`storytype`
+-- Table `db_develop`.`storytype`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`storytype` ;
+DROP TABLE IF EXISTS `db_develop`.`storytype` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`storytype` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`storytype` (
   `name` VARCHAR(45) NOT NULL,
   `description` VARCHAR(45) NULL,
   PRIMARY KEY (`name`),
@@ -38,11 +38,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`organization`
+-- Table `db_develop`.`organization`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`organization` ;
+DROP TABLE IF EXISTS `db_develop`.`organization` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`organization` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`organization` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
@@ -53,11 +53,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`student`
+-- Table `db_develop`.`student`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`student` ;
+DROP TABLE IF EXISTS `db_develop`.`student` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`student` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`student` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(45) NOT NULL,
   `insertion` VARCHAR(45) NULL,
@@ -69,12 +69,12 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`school`
+-- Table `db_develop`.`school`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`school` ;
+DROP TABLE IF EXISTS `db_develop`.`school` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`school` (
-  `id` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `db_develop`.`school` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `website` VARCHAR(245) NULL,
   PRIMARY KEY (`id`))
@@ -82,11 +82,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`study`
+-- Table `db_develop`.`study`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`study` ;
+DROP TABLE IF EXISTS `db_develop`.`study` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`study` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`study` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
@@ -96,18 +96,18 @@ CREATE TABLE IF NOT EXISTS `mydb`.`study` (
   INDEX `school-study_idx` (`school_id` ASC),
   CONSTRAINT `school-study`
     FOREIGN KEY (`school_id`)
-    REFERENCES `mydb`.`school` (`id`)
+    REFERENCES `db_develop`.`school` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`story`
+-- Table `db_develop`.`story`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`story` ;
+DROP TABLE IF EXISTS `db_develop`.`story` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`story` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`story` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(45) NOT NULL,
   `organization_id` INT NOT NULL,
@@ -125,33 +125,33 @@ CREATE TABLE IF NOT EXISTS `mydb`.`story` (
   INDEX `study-story_idx` (`study_id` ASC),
   CONSTRAINT `storytype-story`
     FOREIGN KEY (`type`)
-    REFERENCES `mydb`.`storytype` (`name`)
+    REFERENCES `db_develop`.`storytype` (`name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `organization-story`
     FOREIGN KEY (`organization_id`)
-    REFERENCES `mydb`.`organization` (`id`)
+    REFERENCES `db_develop`.`organization` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `student-story`
     FOREIGN KEY (`student_id`)
-    REFERENCES `mydb`.`student` (`id`)
+    REFERENCES `db_develop`.`student` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `study-story`
     FOREIGN KEY (`study_id`)
-    REFERENCES `mydb`.`study` (`id`)
+    REFERENCES `db_develop`.`study` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `db_develop`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`user` ;
+DROP TABLE IF EXISTS `db_develop`.`user` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`user` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -162,33 +162,33 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`page`
+-- Table `db_develop`.`page`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`page` ;
+DROP TABLE IF EXISTS `db_develop`.`page` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`page` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`page` (
   `type` VARCHAR(40) NOT NULL,
   PRIMARY KEY (`type`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`crud_operation`
+-- Table `db_develop`.`crud_operation`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`crud_operation` ;
+DROP TABLE IF EXISTS `db_develop`.`crud_operation` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`crud_operation` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`crud_operation` (
   `type` VARCHAR(6) NOT NULL,
   PRIMARY KEY (`type`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`acces`
+-- Table `db_develop`.`access`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`acces` ;
+DROP TABLE IF EXISTS `db_develop`.`access` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`acces` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`access` (
   `user_id` INT NOT NULL,
   `page` VARCHAR(40) NOT NULL,
   `crud_operations` VARCHAR(6) NOT NULL,
@@ -198,48 +198,48 @@ CREATE TABLE IF NOT EXISTS `mydb`.`acces` (
   PRIMARY KEY (`user_id`, `page`, `crud_operations`),
   INDEX `page_idx` (`page` ASC),
   INDEX `crud_operations_idx` (`crud_operations` ASC),
-  CONSTRAINT `page-acces`
+  CONSTRAINT `page-access`
     FOREIGN KEY (`page`)
-    REFERENCES `mydb`.`page` (`type`)
+    REFERENCES `db_develop`.`page` (`type`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `crud_operation-acces`
+  CONSTRAINT `crud_operation-access`
     FOREIGN KEY (`crud_operations`)
-    REFERENCES `mydb`.`crud_operation` (`type`)
+    REFERENCES `db_develop`.`crud_operation` (`type`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `user-acces`
+  CONSTRAINT `user-access`
     FOREIGN KEY (`user_id`)
-    REFERENCES `mydb`.`user` (`id`)
+    REFERENCES `db_develop`.`user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`link`
+-- Table `db_develop`.`link`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`link` ;
+DROP TABLE IF EXISTS `db_develop`.`link` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`link` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`link` (
   `story_id` INT NOT NULL,
   `link` VARCHAR(245) NOT NULL,
   PRIMARY KEY (`link`, `story_id`),
   UNIQUE INDEX `link_UNIQUE` (`link` ASC),
   CONSTRAINT `story-link`
     FOREIGN KEY (`story_id`)
-    REFERENCES `mydb`.`story` (`id`)
+    REFERENCES `db_develop`.`story` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`locationtype`
+-- Table `db_develop`.`locationtype`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`locationtype` ;
+DROP TABLE IF EXISTS `db_develop`.`locationtype` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`locationtype` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`locationtype` (
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
   PRIMARY KEY (`name`),
@@ -248,11 +248,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`storylocation`
+-- Table `db_develop`.`storylocation`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`storylocation` ;
+DROP TABLE IF EXISTS `db_develop`.`storylocation` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`storylocation` (
+CREATE TABLE IF NOT EXISTS `db_develop`.`storylocation` (
   `story_id` INT NOT NULL,
   `location_id` INT NOT NULL,
   `location_type` VARCHAR(45) NOT NULL,
@@ -261,17 +261,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`storylocation` (
   INDEX `locationtype-storylocation_idx` (`location_type` ASC),
   CONSTRAINT `story-storylocation`
     FOREIGN KEY (`story_id`)
-    REFERENCES `mydb`.`story` (`id`)
+    REFERENCES `db_develop`.`story` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `location-storylocation`
     FOREIGN KEY (`location_id`)
-    REFERENCES `mydb`.`location` (`id`)
+    REFERENCES `db_develop`.`location` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `locationtype-storylocation`
     FOREIGN KEY (`location_type`)
-    REFERENCES `mydb`.`locationtype` (`name`)
+    REFERENCES `db_develop`.`locationtype` (`name`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
