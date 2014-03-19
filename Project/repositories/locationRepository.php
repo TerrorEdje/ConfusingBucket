@@ -15,17 +15,6 @@
 			foreach ($row as $key => $value) {
 				$locations[$i] -> _set($key, $value);
 			}
-
-			$query2 = "SELECT * FROM organization_location WHERE location_id='".$locations[$i]->_get("id")."'";
-			$result2 = $connection->query($query2);
-			$j = 0;
-			$story_ids = array();
-			while($row = $result2->fetch_assoc())
-			{
-				$story_ids[$j] = $row["story_id"];
-				$j++;
-			}
-			$locations[$i] -> _set("story_ids",$story_ids);
 			
 			$i++;
 		}
@@ -48,17 +37,6 @@
 			foreach ($row as $key => $value) {
 				$location -> _set($key, $value);
 			}
-			
-			$query2 = "SELECT * FROM organization_location WHERE location_id='".$location->_get("id")."'";
-			$result2 = $connection->query($query2);
-			$j = 0;
-			$story_ids = array();
-			while($row = $result2->fetch_assoc())
-			{
-				$story_ids[$j] = $row["story_id"];
-				$j++;
-			}
-			$location -> _set("story_ids",$story_ids);
 		}
 		
 		$result->close();
