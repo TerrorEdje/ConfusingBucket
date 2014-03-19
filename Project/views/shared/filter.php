@@ -5,6 +5,6 @@
 		</div>
 	</a>
 	<div id="filter_bar" class="rounded-bottomleft scroll">
-		
+		<input type="text" class="form-control" id="filter_input" placeholder="search" name="search">
 	</div>
 </div>

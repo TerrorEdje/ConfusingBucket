@@ -60,7 +60,7 @@ function hideFilter()
 	$('#filter_container').stop();
 	
 	$('#filter_container').animate({
-		right: "-" + $('#filter_bar').width() + "px"
+		right: "-" + ($('#filter_bar').width()+30) + "px"
 	}, 1500);
 	
 	$('#filter_button').unbind("click");
@@ -87,6 +87,31 @@ function load(page)
 	$('.active').removeClass("active");
 	$('.'+page.split('.')[0]+'menu').addClass("active");
 	showContent()
+}
+
+function filterChanged()
+{
+	value = $("#filter_input").val();
+	
+	var filteredMarkers = [];
+	
+	for( i = 0; i < locations.length; ++i)
+	{
+		var newMarker = new google.maps.Marker({
+			id: locations[i].id, 
+			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+			title: locations[i].title,
+			icon: 'images/markers/default.png'
+		});
+		
+		filteredMarkers.push(newMarker);
+		
+		google.maps.event.addListener(newMarker,'click',function() {
+			load('storylist.php?locationid='+this.id);
+		});
+	}
+	
+	filterMarkers(filteredMarkers);
 }
 
 //Balk goedzetten bij window resize
@@ -118,6 +143,9 @@ $( document ).ready(function() {
 	//Knoppen laten werken
 	$('#map_button').one("click", function() { hideContent(); return false; });
 	$('#filter_button').one("click", function() { showFilter(); return false; });
+	
+	//filter
+	$("#filter_input").change(function(){ filterChanged() });
 	
 });
 

@@ -35,5 +35,17 @@ function initialize() {
 	mc = new MarkerClusterer(map, markers, mcOptions);
 }
 
+function resetMarkers()
+{
+	mc.clearMarkers();
+	mc.addMarkers(markers);
+}
+
+function filterMarkers(newMarkers)
+{
+	mc.clearMarkers();
+	mc.addMarkers(newMarkers);
+}
+
 google.maps.event.addDomListener(window, 'load', initialize);
 

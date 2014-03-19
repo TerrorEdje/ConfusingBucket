@@ -42,6 +42,7 @@ header{
 }
 
 #filter_bar {
+	padding: 15px;
 	z-index: 3;
 	float: right;
 	width: 300px;

@@ -17,7 +17,16 @@
 		{
 			if (($location->_get("latitude") != null) && ($location->_get("longitude") != null))
 			{
-				echo("locations.push( {  id:".$location->_get("id").", lat:".$location->_get("latitude").", lng:".$location->_get("longitude").", title:\"".$location->_get("streetname")." ".$location->_get("number")."\" }); ");
+				echo("locations.push( {  id:".$location->_get("id").", ".
+										"country:\"".$location->_get("country")."\", ".
+										"city:\"".$location->_get("city")."\", ".
+										"street:\"".$location->_get("streetname")."\", ".
+										"number:\"".$location->_get("number")."\", ".
+										"zipcode:\"".$location->_get("zipcode")."\", ".
+										"lat:".$location->_get("latitude").", ".
+										"lng:".$location->_get("longitude").", ".
+										"title:\"".$location->_get("streetname")." ".$location->_get("number")."\" }); 
+										");
 			}
 		}
 	?>
