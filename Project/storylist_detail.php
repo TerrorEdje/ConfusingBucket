@@ -1,19 +1,19 @@
 <?php
 	include_once 'db/connection.php';
 	include_once 'repositories/storyRepository.php';
-	include_once 'repositories/typeRepository.php';
 	include_once 'repositories/studentRepository.php';
 	include_once 'repositories/studyRepository.php';
 	include_once 'repositories/schoolRepository.php';
 	include_once 'repositories/organizationRepository.php';
 	include_once 'repositories/locationRepository.php';
+	include_once 'repositories/storylocationRepository.php';
 	
 	$con = openDB();
 	
 	if($_GET['storyid'] != null)
 	{
 		$story = getStoryByID($_GET['storyid'], $con);
-		$type = getTypeByID($story -> _get("type_id"), $con);
+		$type = $story -> _get("type");
 		
 		if ($story->_get("student_ids") != null)
 			$student = getStudentByID($story->_get("student_ids")[0], $con);
@@ -28,7 +28,7 @@
 		if($story != null)
 		{
 			echo "<table>";
-			echo "<tr><td>Type: </td><td> " .$type -> _get("name"). "</td></tr>";
+			echo "<tr><td>Type: </td><td> " .$type . "</td></tr>";
 			echo "<tr><td>Begindatum: </td><td> " .$story -> _get("startdate"). "</td></tr>";
 			echo "<tr><td>Einddatum: </td><td> " .$story -> _get("startdate"). "</td></tr>";
 			echo "<tr><td>Omschrijving: </td><td> " .$story -> _get("description"). "</td></tr>";
@@ -45,37 +45,28 @@
 			}
 
 			$organization_ids = $story->_get("organization_ids");
-			foreach($organization_ids as &$organization_id)
-			{
-				$organization = getOrganizationByID($organization_id, $con);
-				echo "<tr><td>Organisatie: </td><td> " .$organization -> _get("name")."</td></tr>";
-				echo "<tr><td>Omschrijving organisatie: &nbsp; </td><td> " .$organization -> _get("description")."</td></tr>";
-			}
-			$location_ids = $story -> _get("location_ids");
-			echo "<tr><td class=\"tdTop\">Locatie(s) story: </td><td><ul>";
-			foreach($location_ids as &$location_id)
-			{
-				$location = getLocationByID($location_id, $con);
-				
-				echo "<li>".$location -> _get("streetname"). " " .$location -> _get("number"). "<br />";
-				echo $location -> _get("zipcode"). " " .$location -> _get("city"). "<br />";
-				echo $location -> _get("country"). "</li>";
-				
-			}
-			echo "</ul></td></tr>";
+			$organization = getOrganizationByID($story -> _get("organization_id"), $con);
+			echo "<tr><td>Organisatie: </td><td> " .$organization -> _get("name")."</td></tr>";
+			echo "<tr><td>Omschrijving organisatie: &nbsp; </td><td> " .$organization -> _get("description")."</td></tr>";
 			
-			$residence_location_ids = $story -> _get("residence_location_ids");
-			if ($residence_location_ids !=null)
+			
+			$storylocations = getStoryLocationsByStoryID($_GET['storyid'],$con);
+			foreach($storylocations as &$storylocation)
 			{
-				echo "<tr><td class=\"tdTop\">Verblijf locatie(s): </td><td><ul>";
-				foreach ($residence_location_ids as &$residence_location_id) {
-					$location = getLocationByID($residence_location_id, $con);
-					echo "<li>".$location -> _get("streetname"). " " .$location -> _get("number"). "<br />";
-					echo $location -> _get("zipcode"). " " .$location -> _get("city"). "<br />";
-					echo $location -> _get("country"). "</li>";
-				}
-				echo "</ul></td></tr>";
+				$location = getLocationByID($storylocation->_get("location_id"),$con);
+				$country = $location -> _get("country");
+				$city = $location -> _get("city");
+				$type = $storylocation -> _get("location_type");
+				$streetname = $location -> _get("streetname");
+				$zipcode = $location -> _get("zipcode");
+				$number = $location -> _get("number");
+				
+				echo "<tr><td class=\"tdTop\">Locatie(s) story: </td><td><ul>";
+				echo "<li>$type<br/>$streetname $number<br/>$zipcode $city<br/>$country</li>";
+				echo "</ul></td></tr>";				
 			}
+			
+			
 			
 			$links = $story -> _get("links");
 			if ($story -> _get("links") != null) {
