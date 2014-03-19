@@ -19,6 +19,9 @@
 			
 			$query2 = "SELECT * FROM link WHERE story_id='".$stories[$i]->_get("id")."'"; 
 			$result2 = $connection->query($query2);
+			if (!$result2) {
+				throw new Exception("Database Error [{$connection->errno}] {$connection->error}");
+			}
 			$m = 0;
 			$links = array();
 			while ($row =$result2->fetch_assoc())
@@ -90,13 +93,13 @@
 				$story -> _set($key, $value);
 			}
 			
-			$query2 = "SELECT * FROM story_link WHERE story_id='".$story->_get("id")."'"; 
+			$query2 = "SELECT * FROM link WHERE story_id='".$story->_get("id")."'"; 
 			$result2 = $connection->query($query2);
 			$m = 0;
 			$links = array();
 			while ($row =$result2->fetch_assoc())
 			{
-				$links[$l] = $row["link"];
+				$links[$m] = $row["link"];
 				$m++;
 			}
 			$story -> _set("links",$links);

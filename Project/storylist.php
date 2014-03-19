@@ -2,8 +2,8 @@
 	include_once 'db/connection.php';
 	include_once 'repositories/storyRepository.php';
 	include_once 'repositories/studentRepository.php';
-	include_once 'repositories/typeRepository.php';
 	include_once 'repositories/locationRepository.php';
+	include_once 'repositories/storylocationRepository.php';
 	
 	$connection = openDB();
 	
@@ -45,11 +45,18 @@
 			$enddate = $story -> _get("enddate");
 			$student = getStudentById($id,$connection);
 			$name = $student -> _get("firstname"). " " .$student -> _get("insertion"). " " .$student -> _get("surname");
-			$type = getTypeByID($id, $connection);
-			$location = getLocationByID($story->_get("location_ids")[0],$connection);
-			$country = $location -> _get("country");
-			$city = $location -> _get("city");
-			echo "<td >".$type->_get("name")."</td>";
+			$type = $story -> _get("type"); 
+			$storylocations = getStoryLocationsByStoryID($id,$connection);
+			foreach($storylocations as &$storylocation)
+			{
+				if ($storylocation->_get("location_type") == "Organization")
+				{
+					$location = getLocationByID($storylocation->_get("location_id"),$connection);
+					$country = $location -> _get("country");
+					$city = $location -> _get("city");
+				}
+			}
+			echo "<td class=\"otherTDTH\">$type</td>";
 			echo "<td class=\"otherTDTH\">$country</td>";
 			echo "<td class=\"otherTDTH\">$city</td>";
 			echo "<td class=\"otherTDTH\">$startdate</td>";

@@ -6,7 +6,7 @@
 	
 		if (isset($_POST["location"]))
 	{
-		include_once("assets/functions/geocode.inc.php");
+		include_once("../assets/functions/geocode.inc.php");
 		echo("Location: ".$_POST["location"]."<br />");
 
 		$location = geocode($_POST["location"]);
