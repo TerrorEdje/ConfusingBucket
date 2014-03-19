@@ -26,12 +26,11 @@ De kaart moet in het browser venster verschijnen
 Werkt het uitlezen van de markers uit de database.
 
 **Stappen:**
-1. Bekijk wat er in de tabel locations staat in de database.
+1. Vul de database met het vulscript
 2. Open de website.
-3. Vergelijk de markers op de kaart met de locations in de database.
 
 **Verwacht resultaat:**
-De locatie’s en instellingen moeten overeen komen met de data in de database.
+Op de kaart staat een marker in Izmir (Turkije).
 
 ##Testcase 3.1: Data uit de database halen. (Repositories en Models)
 
@@ -39,13 +38,12 @@ De locatie’s en instellingen moeten overeen komen met de data in de database.
 Er wordt data uit de database gehaald.
 
 **Stappen:**
-1. Bekijk wat er in de tabel storys staat in de database.
+1. Vul de database met het vulscript
 2. Open de website.
-3. Klik op Story List.
-4. Vergelijk de markers op de kaart met de locations in de database.
+3. Klik op Stories
 
 **Verwacht resultaat:**
-De data moet in een tabel in het browser venster verschijnen.
+Controleer of de volgende record er staat: Afstudeerstage, Norway, Oslo, 2014-03-02, 2014-03-08, Robin Collard.
 
 ##Testcase 3.2: Data uit de database halen. (Repositories en Models)
 
@@ -53,40 +51,44 @@ De data moet in een tabel in het browser venster verschijnen.
 Wordt data uit de database gehaald.
 
 **Stappen:**
-1. Open de website
-2. Klik op een marker met meer dan 1 story
+1. Vul de database met het vulscript.
+2. Open de website.
+3. Klik op een marker met meer dan 1 story.
 
 **Verwacht resultaat:**
-De data moet in een tabel in het browser venster verschijnen.
+Er wordt een tabel getoont met meerdere stories.
 
-##Testcase 4.1: Detail story weergeven op de website
+##Testcase 4.1: Detail story weergeven op de website (tabel)
 
 **Test:**
 Details van een story worden weergegeven.
 
 **Stappen:**
-1. Open de website
-2. Klik op details in de storylist tabel
+1. Vul de database met het vulscript.
+2. Open de website.
+3. Klik op Stories.
+4. Klik op details bij 1 van de stories.
 
 **Verwacht resultaat:**
-Detail pagina wordt weergegeven van betreffende story.
+Je komt op een pagina met de details van desbetreffende story.
 
-##Testcase 4.2: Detail story weergeven op de website
+##Testcase 4.2: Detail story weergeven op de website (marker)
 
 **Test:**
 Details van een story worden weergegeven
 
 **Stappen:**
-1. Open de website
-2. Klik op een marker met maar 1 story
+1. Vul de database met het vulscript.
+2. Open de website.
+3. Klik op een marker met maar 1 story.
 
 **Verwacht resultaat:**
-Detail pagina wordt weergegeven van betreffende story.
+Je komt op een pagina met de details van desbetreffende story.
 
 ##Testcase 5.1: Auth check
 
 **Test:**
-kijken of de user herkend word
+Kijken of de user herkend wordt
 
 **Stappen:**
 1. Open de website, ga naar /authtest.php
@@ -102,7 +104,7 @@ kijken de pagina en de crud werken
 
 **Stappen:**
 1. Open de website, ga naar /authtest.php
-2. run vul en create script 3.3
+2. Run vul en create script 3.3
 3. Vul gebruiker id 1 in in de code en pagina ‘authtest’
 
 **Verwacht resultaat:**
