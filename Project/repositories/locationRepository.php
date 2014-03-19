@@ -20,7 +20,6 @@
 		}
 		
 		$result->close();
-		$result2->close();
 		
 		return $locations;
 	}
@@ -40,7 +39,6 @@
 		}
 		
 		$result->close();
-		$result2->close();
 		
 		return $location;
 	}
