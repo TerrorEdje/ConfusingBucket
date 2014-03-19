@@ -10,7 +10,7 @@
 		private $enddate;
 		private $description;
 		private $schoolyear;
-		private $link;
+		private $links;
 		
 		public function _get($property) 
 		{
