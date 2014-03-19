@@ -1,9 +1,9 @@
 <?php
-	include_once 'model/type.php';
+	include_once 'model/storytype.php';
 		
 	function getAllType($connection)
 	{
-		$query = "SELECT * FROM type";
+		$query = "SELECT * FROM storytype";
 		$result =$connection->query($query);
 		
 		$i = 0;
@@ -11,7 +11,7 @@
 		
 		while ($row =$result->fetch_assoc())
 		{						
-			$type[$i] = new Type();
+			$type[$i] = new StoryType();
 			foreach ($row as $key => $value) {
 				$type[$i] -> _set($key, $value);
 			}
@@ -24,12 +24,12 @@
 		return $type;
 	}
     
-    function getTypeByID($typeID, $connection)
+    function getTypeByName($typeName, $connection)
 	{
-		$query = "SELECT * FROM type WHERE id = '".$typeID."'";
+		$query = "SELECT * FROM type WHERE name = '".$typeName."'";
 		$result =$connection->query($query);
 		
-		$type = new Type();
+		$type = new StoryType();
 		
 		while ($row =$result->fetch_assoc())
 		{
@@ -43,22 +43,19 @@
 		return $type;
 	}
 	
-	function addType($type, $connection)
+	function addStoryType($type, $connection)
 	{
 		$name = $type -> _get("name");
 		$description = $type-> _get("description");	
-		$query = 'INSERT INTO type (name,description) VALUES (?,?)';
+		$query = 'INSERT INTO storytype (name,description) VALUES (?,?)';
 		$stmt = $connection ->prepare($query);
 		$stmt -> bind_param('ss',$name,$description);
 		if(!$stmt->execute())
 		{
 			echo "Execute failed: (" . $stmt -> errno . ") " . $stmt -> error;
 		}
-		
-		//Haal ID op van ingevoegde type
-		$id = mysqli_insert_id($connection);
+
 		$stmt->close();
 		
-		return $id;
 	}
 ?>
