@@ -18,7 +18,7 @@ function getMaxHeight()
     return getHeight() - 50;
 }
 
-function hide()
+function hideContent()
 {
 	$('#section').stop();
 	
@@ -33,11 +33,12 @@ function hide()
 	$('#mapClick').css("top", getHeight() + "px");
 	
 	$('#map_button').unbind("click");
-	$('#map_button').one("click", function() { show(); return false; });
+	$('#map_button').one("click", function() { showContent(); return false; });
 }
 
-function show()
+function showContent()
 {
+	hideFilter();
 	$('#section').stop();
 	
 	$('#section').animate({
@@ -51,7 +52,32 @@ function show()
 	$('#mapClick').css("top", '0px');
 	
 	$('#map_button').unbind("click");
-	$('#map_button').one("click", function() { hide(); return false; });
+	$('#map_button').one("click", function() { hideContent(); return false; });
+}
+
+function hideFilter()
+{
+	$('#filter_container').stop();
+	
+	$('#filter_container').animate({
+		right: "-" + $('#filter_bar').width() + "px"
+	}, 1500);
+	
+	$('#filter_button').unbind("click");
+	$('#filter_button').one("click", function() { showFilter(); return false; })
+}
+
+function showFilter()
+{
+	hideContent();
+	$('#filter_container').stop();
+	
+	$('#filter_container').animate({
+		right: "0px"
+	}, 1500);
+	
+	$('#filter_button').unbind("click");
+	$('#filter_button').one("click", function() { hideFilter(); return false; })
 }
 
 function load(page)
@@ -60,7 +86,7 @@ function load(page)
 	$('#content').load(page);
 	$('.active').removeClass("active");
 	$('.'+page.split('.')[0]+'menu').addClass("active");
-	show()
+	showContent()
 }
 
 //Balk goedzetten bij window resize
@@ -78,8 +104,8 @@ $(window).on('resize', function(){
 	}
 });
 
-//Stop scrollen van de pagina (content mag wel gescrolld worden)
 $( document ).ready(function() {
+	//Stop scrollen van de pagina (content mag wel gescrolld worden)
     $('body').mousedown(function(e){
 		if(e.button==1 && !($('.scroll').has($(e.target)).length))return false
 	});
@@ -88,6 +114,11 @@ $( document ).ready(function() {
 		if(!$('.scroll').has($(e.target)).length)
 			e.preventDefault();
 	});
+	
+	//Knoppen laten werken
+	$('#map_button').one("click", function() { hideContent(); return false; });
+	$('#filter_button').one("click", function() { showFilter(); return false; });
+	
 });
 
 //failsafe: toch gescrolld? Zet de pagina weer terug.

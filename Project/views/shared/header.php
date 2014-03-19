@@ -1,5 +1,5 @@
 <header>
-	<div id="map_bar">
+	<div id="map_bar" class="rounded-top">
 		<div id="menu_bar">
 			<div class="navbar navbar-inverse" role="navigation">
 				<div class="container">
@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<a href="#">
-			<div id="map_button">
+			<div id="map_button" class="rounded-topright">
 				<span id="showhide" class="glyphicon glyphicon-eject"></span>
 			</div>
 		</a>
