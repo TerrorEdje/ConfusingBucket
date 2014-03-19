@@ -24,7 +24,11 @@ function hideContent()
 	
 	$('#section').animate({
 		top: getMaxHeight() + "px"
-	}, 1500);
+	}, 1500, function(){
+		$('#filter_container').animate({
+			right: "-" + ($('#filter_bar').width()+30) + "px"
+		}, 500)
+	});
 	
 	$('#showhide').css("transform","rotate(0deg)");
 	$('#showhide').css("-ms-transform","rotate(0deg)");
@@ -38,12 +42,16 @@ function hideContent()
 
 function showContent()
 {
-	hideFilter();
 	$('#section').stop();
+	$('filter_container').stop();
 	
-	$('#section').animate({
-		top: "0px"
-	}, 1500);
+	$('#filter_container').animate({
+		right: "-" + ($('#filter_bar').width()+115) + "px"
+	}, 500, function(){
+		$('#section').animate({
+			top: "0px"
+		}, 1500)
+	});
 	
 	$('#showhide').css("transform","rotate(180deg)");
 	$('#showhide').css("-ms-transform","rotate(180deg)");
@@ -53,6 +61,9 @@ function showContent()
 	
 	$('#map_button').unbind("click");
 	$('#map_button').one("click", function() { hideContent(); return false; });
+	
+	$('#filter_button').unbind("click");
+	$('#filter_button').one("click", function() { showFilter(); return false; })
 }
 
 function hideFilter()
@@ -69,7 +80,6 @@ function hideFilter()
 
 function showFilter()
 {
-	hideContent();
 	$('#filter_container').stop();
 	
 	$('#filter_container').animate({
