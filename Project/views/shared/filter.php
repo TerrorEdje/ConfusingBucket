@@ -5,6 +5,11 @@
 		</div>
 	</a>
 	<div id="filter_bar" class="rounded-bottomleft scroll">
-		<input type="text" class="form-control" id="filter_input" placeholder="search" name="search">
+		<input type="text" class="form-control" id="filter_input" placeholder="search" name="search"><br />
+		- type (stage, afstuderen, minor)<br />
+		- land<br />
+		- stad<br />
+		- persoon<br />
+		
 	</div>
 </div>

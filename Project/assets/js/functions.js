@@ -47,11 +47,11 @@ function showContent()
 	
 	$('#filter_container').animate({
 		right: "-" + ($('#filter_bar').width()+115) + "px"
-	}, 500, function(){
+	}, 500).add(
 		$('#section').animate({
 			top: "0px"
 		}, 1500)
-	});
+	);
 	
 	$('#showhide').css("transform","rotate(180deg)");
 	$('#showhide').css("-ms-transform","rotate(180deg)");
@@ -107,18 +107,21 @@ function filterChanged()
 	
 	for( i = 0; i < locations.length; ++i)
 	{
-		var newMarker = new google.maps.Marker({
-			id: locations[i].id, 
-			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-			title: locations[i].title,
-			icon: 'images/markers/default.png'
-		});
-		
-		filteredMarkers.push(newMarker);
-		
-		google.maps.event.addListener(newMarker,'click',function() {
-			load('storylist.php?locationid='+this.id);
-		});
+		if (locations[i].country.toLowerCase().indexOf(value.toLowerCase()) != -1)
+		{
+			var newMarker = new google.maps.Marker({
+				id: locations[i].id, 
+				position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+				title: locations[i].title,
+				icon: 'images/markers/default.png'
+			});
+			
+			filteredMarkers.push(newMarker);
+			
+			google.maps.event.addListener(newMarker,'click',function() {
+				load('storylist.php?locationid='+this.id);
+			});
+		}
 	}
 	
 	filterMarkers(filteredMarkers);
