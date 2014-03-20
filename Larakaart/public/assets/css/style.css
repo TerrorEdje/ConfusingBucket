@@ -1,0 +1,202 @@
+body { height: 100%; margin: 0; padding: 0; background-color: rgb(10, 30, 30); overflow: hidden;}
+
+nav > img{
+	float: left;
+}
+
+header{
+	width: 100%;
+	float: left;
+}
+
+#avans_globe{
+	height: 40px;
+}
+
+#menu_bar{
+	float: left;
+	width: 80%;
+}
+
+#map_bar{
+	height: 52px;
+}
+
+#filter_container{
+	color: white;
+	right: -300px;
+	top: 30px;
+	bottom: 80px;
+	position: absolute;
+	pointer-events: none;
+}
+
+#filter_button {
+	color: white;
+	float: left;
+	width: 85px;
+	height: 85px;
+	padding: 15px;
+	background-color: #33b3ff;
+	pointer-events: auto !important;
+}
+
+#filter_bar {
+	padding: 15px;
+	z-index: 3;
+	float: right;
+	width: 300px;
+	height: 100%;
+	background-color: rgba(0, 0, 0, .9);
+	pointer-events: auto !important;
+}
+
+.search-icon{
+	font-size: 55px;
+}
+
+#map_button{
+	float: right;
+	height: 100%;
+	width: 20%;
+	color:white;
+	background-color: #33b3ff;
+}
+
+#showhide{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 15px;
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg); /* IE 9 */
+	-webkit-transform:rotate(180deg); /* Opera, Chrome, and Safari */
+}
+ 
+#map-canvas{
+	position: absolute;
+	top: 0;
+	bottom: 0%;
+	left: 0;
+	width: 100%;
+	z-index: 0;
+}
+
+input, select, textarea{
+    color: #000000 !important;
+}
+ 
+#content{
+	color: white;
+    position: absolute;
+	top: 107px;
+	left: 75px;
+    right: 75px;
+    bottom: 75px;
+}
+
+#mapClick{
+	position: absolute;
+	top: 0px;
+	left: 0%;
+	right: 0%;
+	height: 100%;
+	width: auto;
+	z-index: 2;
+}
+ 
+section{
+	position: absolute;
+	top: 0px; 
+	left: 10%;
+	right: 10%;
+	background-color: rgba(0, 0, 0, .9);
+	height: 100%;
+	width: auto;
+	z-index: 2;
+}
+
+footer{
+	position: absolute;
+	bottom: 0px;
+	color: white;
+	font-size: 10pt;
+	width: 100%;
+	text-align:center;
+
+}
+
+footer > p{
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+.uploadTable td{
+	padding: 3px;
+}
+
+.scroll{
+	overflow-x: hidden; 
+}
+
+.rounded-topright{
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-right-radius: 5px;
+}
+
+.rounded-topleft{
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	border-top-left-radius: 5px;
+}
+
+.rounded-bottomright{
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.rounded-bottomleft{
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.rounded-left{
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.rounded-right{
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.rounded-top{
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	border-top-right-radius: 5px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	border-top-left-radius: 5px;
+}
+
+.rounded-bottom{
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-bottom-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+
