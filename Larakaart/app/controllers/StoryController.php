@@ -4,7 +4,13 @@ class StoryController extends BaseController {
 
 	public function storylist()
 	{
-		$stories = Story::All();
+		$stories = Story::all();
+
+		foreach ($stories as $story) {
+			# $storyLocation = StoryLocation::find($story->id);
+			# $location = Location::find($storyLocation->id);
+			# $story->country = $location
+		}
 
 		return View::make('storylist', array('stories' => $stories));
 	}
