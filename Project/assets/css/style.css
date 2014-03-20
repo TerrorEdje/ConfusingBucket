@@ -51,6 +51,18 @@ header{
 	pointer-events: auto !important;
 }
 
+.filter_submit{
+	width: 100%;
+	height: 60px;
+	background-color: #33b3ff !important;
+}
+
+.filter_reset{
+	width: 100%;
+	height: 60px;
+	
+}
+
 .search-icon{
 	font-size: 55px;
 }
