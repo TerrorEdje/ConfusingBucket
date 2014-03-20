@@ -12,5 +12,5 @@ Route::get('test', array(
 
 Route::get('Storylist', array(
 	'as'	=> 'storylist',
-	'uses'	=> 'StorylistController@index'
+	'uses'	=> 'StoryController@storylist'
 ));
