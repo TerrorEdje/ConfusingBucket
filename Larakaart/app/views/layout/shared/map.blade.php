@@ -4,8 +4,11 @@
 	$connection = openDB();
 */?>
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;key=AIzaSyB4ofW1mgEVlMIoa48rMP0WkAksHAALU18"></script>
-<script type="text/javascript" src="assets/js/markerclusterer.js"></script>
+{{HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;key=AIzaSyB4ofW1mgEVlMIoa48rMP0WkAksHAALU18')}}
+{{HTML::script('assets/js/markerclusterer')}}
+
+<!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;key=AIzaSyB4ofW1mgEVlMIoa48rMP0WkAksHAALU18"></script>
+<script type="text/javascript" src="assets/js/markerclusterer.js"></script>-->
 
 <script type="text/javascript">
 	var locations = new Array();

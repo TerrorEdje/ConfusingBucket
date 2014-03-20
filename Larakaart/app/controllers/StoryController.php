@@ -12,8 +12,13 @@ class StoryController extends BaseController {
 	public function storydetail($id)
 	{
 		echo 'id = '. $id;
-		$story = 
+		$story = $id;
 		return View::make('storydetail')->with('data', $data);
+	}
+
+	public function uploadGet()
+	{
+		return View::make('Story.uploadGet');
 	}
 
 }
