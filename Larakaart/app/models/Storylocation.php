@@ -1,12 +1,12 @@
 <?php
 
-class Story extends Eloquent {
+class Storylocation extends Eloquent {
 
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'story';
+	protected $table = 'storylocation';
 }
 ?>
