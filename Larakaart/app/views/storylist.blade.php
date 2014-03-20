@@ -7,7 +7,7 @@
 	@foreach ($stories as $story)
 		<tr>
 			<td class="otherTDTH">{{ $story->type }}</td>
-			<td class="otherTDTH">{{ $story->country }}</td>
+			<td class="otherTDTH"></td>
 			<td class="otherTDTH">{{ $story->city }}</td>
 			<td class="otherTDTH">{{ $story->startdate }}</td>
 			<td class="otherTDTH">{{ $story->enddate }}</td>

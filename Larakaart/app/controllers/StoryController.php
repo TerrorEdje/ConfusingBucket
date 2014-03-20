@@ -7,9 +7,21 @@ class StoryController extends BaseController {
 		$stories = Story::all();
 
 		foreach ($stories as $story) {
-			# $storyLocation = StoryLocation::find($story->id);
-			# $location = Location::find($storyLocation->id);
-			# $story->country = $location
+			$storyLocations = StoryLocation::where('story_id',$story->id);
+			
+			foreach($storyLocations as $storylocation)
+			{
+				if ($storylocation->location_type == "Organization")
+				{
+					$location = Location::find($storylocation->id);
+					$country = $location->country;
+					$city = $location->city;
+				}
+
+			}
+
+			
+
 		}
 
 		return View::make('storylist', array('stories' => $stories));
