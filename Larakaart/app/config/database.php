@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '212.83.232.237:3306',
-			'database'  => 'Worldmap',
+			'database'  => 'db_develop',
 			'username'  => 'confusingbucket',
 			'password'  => 'bucket007',
 			'charset'   => 'utf8',
