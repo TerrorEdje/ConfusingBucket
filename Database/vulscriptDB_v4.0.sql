@@ -49,6 +49,7 @@ INSERT INTO `location` (`id`, `country`, `city`, `streetname`, `number`, `zipcod
 (1, 'Norway', 'Oslo', 'Herslebs gate', '1', '0578', 59.9139, 10.7522),
 (2, 'Turkey', 'Izmir', 'Milli Kütüphane Cd', '1', '35100', 38.4188, 27.1287),
 (3, 'France', 'Tarbes', NULL, NULL, NULL, 43.233, 0.078082);
+(4, 'France', 'Tarbes', NULL, NULL, NULL, 43.233, 0.178072);
 
 INSERT INTO `locationtype` (`name`, `description`) VALUES
 ('Organization', NULL),
