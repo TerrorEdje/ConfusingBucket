@@ -8,5 +8,4 @@ class StoryController extends BaseController {
 		echo $user->username.' = gebruikersnaam.';
 		return View::make('test');
 	}
-
 }
