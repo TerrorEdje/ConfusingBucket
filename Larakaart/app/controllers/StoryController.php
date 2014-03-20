@@ -18,7 +18,8 @@ class StoryController extends BaseController {
 
 	public function uploadGet()
 	{
-		return View::make('Story.uploadGet');
+		$types = Storytype::all();
+		return View::make('Story.uploadGet')->with('type', $types);
 	}
 
 }

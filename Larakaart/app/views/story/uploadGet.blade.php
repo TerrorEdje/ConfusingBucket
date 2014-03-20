@@ -7,9 +7,11 @@
 		<p>* Verplicht veld</p>
 		<table class="uploadTable">
 		<tr><td>Type:</td> <td><select name="type">
-				<!--foreach ($types as $type) {
-					echo '<option value ="' .$type->_get("id"). '">' .$type->_get("name"). '</option>';
-				}-->
+
+				@foreach ($types as $type) 
+					<option value ="{{ $type->_get("id") }}">{{ $type->_get("name") }}</option>				
+				@endforeach
+
 		</select> *</td></tr>
 			<tr><td>Begindatum:</td> <td> <input type="text" id="calendar" name="startdate" class="customtextbox"> *</td></tr>
 			<tr><td>Einddatum:</td> <td> <input type="text" id="calendar" name="enddate" class="customtextbox"> *</td></tr>
