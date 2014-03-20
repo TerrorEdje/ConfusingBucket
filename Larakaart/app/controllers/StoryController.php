@@ -24,8 +24,9 @@ class StoryController extends BaseController {
 	
 	public function storydetail($id)
 	{
-		echo 'id = '. $id;
-		return View::make('storydetail')->with('data', $data);
+		$story = Story::find($id);
+	
+		return View::make('storydetail')->with('story', $story);
 	}
 
 }
