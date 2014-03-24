@@ -9,22 +9,18 @@ class StoryController extends BaseController {
 		foreach ($stories as $story) {
 			$storyLocations = StoryLocation::where('story_id',$story->id);
 			
+			$location = null;
 			foreach($storyLocations as $storylocation)
 			{
 				if ($storylocation->location_type == "Organization")
 				{
 					$location = Location::find($storylocation->id);
-					$country = $location->country;
-					$city = $location->city;
 				}
-
 			}
-
 			
-
+			$storylist = array($story => $location);
 		}
-
-		return View::make('storylist', array('stories' => $stories));
+		return View::make('storylist', array('stories' => $storylist));
 	}
 
 	public function test1()
