@@ -17,5 +17,9 @@
 
 		</div>
 	</section>
-
+	
+	@foreach ($locations as $location) 
+					
+				@endforeach
+	
 @include('layout/shared/footer')

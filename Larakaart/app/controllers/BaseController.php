@@ -11,7 +11,8 @@ class BaseController extends Controller {
 	{
 		if ( ! is_null($this->layout))
 		{
-			$this->layout = View::make($this->layout);
+			$locations = array();
+			$this->layout = View::make($this->layout)->with('locations', $locations);
 		}
 	}
 
