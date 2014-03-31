@@ -20,8 +20,8 @@
 		<tr><td style="width: 160px;">Website: </td><td><a href="http://{{$organization['website']}}" target=\"_blank\">{{$organization['website']}}</a></td></tr>
 		<tr><td colspan="2">&nbsp;</td></tr>
 		@for ($i = 0; $i < count($locations); $i ++)
-			<tr><td class="tdTop">Locatie(s) story: </td><td><ul>
-			<li>HIER KOMT HET TYPE BITCH<br/>
+			<tr><td class="tdTop">Locatie(s) story: </td><td><ul><li>
+			{{$storylocations[$i]['location_type']}}<br/>
 			{{$locations[$i]['streetname']}} {{$locations[$i]['number']}}<br/>
 			{{$locations[$i]['zipcode']}} {{$locations[$i]['city']}}<br/>
 			{{$locations[$i]['country']}}</li>
