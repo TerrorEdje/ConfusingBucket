@@ -10,7 +10,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="#" class="navbar-brand" onclick="load('home.php');">
+						<a href="{{ URL::route('Home') }}" class="navbar-brand" onclick="">
 							<img id="avans_globe" src="images/Avans_globe.png" alt="avans_globe" />
 						</a>
 					</div>

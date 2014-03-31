@@ -49,7 +49,7 @@ class StoryController extends BaseController {
 		echo $user->username.' = gebruikersnaam.';
 		return View::make('test');
 	}
-	
+
 	public function storydetail($id)
 	{
 		$story = Story::find($id);
@@ -67,10 +67,13 @@ class StoryController extends BaseController {
 			$location = Location::find($storylocation->location_id);
 			array_push($locations,$location);
 		}
-		
-		
-	
 		return View::make('storydetail')->with('story', $story)->with('student', $student)->with('study', $study)->with('organization', $organization)->with('school', $school)->with('locations', $locations)->with('storylocations', $storylocations);
+	}
+
+	public function uploadGet()
+	{
+		$types = Storytype::all();
+		return View::make('Story.uploadGet')->with('type', $types);
 	}
 
 }
