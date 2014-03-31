@@ -8,8 +8,9 @@ class StoryController extends BaseController {
 
 		$allStories = array();
 
-		# Organisatie locatie ophalen
-		foreach ($stories as $story) {
+		# Get the story organization location (for each)
+		foreach($stories as $story) 
+		{
 			$storyLocations = StoryLocation::where('story_id','=',$story->id)->get();			
 			
 			$location = array();
@@ -21,11 +22,11 @@ class StoryController extends BaseController {
 				}
 			}
 
-			# Student naam ophalen
+			# Get the current student's name
 			$student = Student::find($story->student_id);
 			$naam_student = $student->firstname . ' ' . $student->insertion . ' ' . $student->surname;
 
-			# Huidige story verzameling
+			# Current story combined
 			$curStory = array(
 			'id' => $story->id,
 			'type' => $story->type,
