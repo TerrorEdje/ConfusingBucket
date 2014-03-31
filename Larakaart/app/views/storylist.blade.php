@@ -12,7 +12,7 @@
 			<td class="otherTDTH">{{ $story['startdate'] }}</td>
 			<td class="otherTDTH">{{ $story['enddate'] }}</td>
 			<td class="otherTDTH">{{ $story['name'] }}</td>
-			<td>&nbsp;{{ link_to_action('StoryController@storydetail', 'Detail', $parameters = array($story['id']), $attributes = array()); }}</td>
+			<td class="otherTDTH">{{ link_to_action('StoryController@storydetail', 'Detail', $parameters = array($story['id']), $attributes = array()); }}</td>
 		</tr>
 	@endforeach
 	</table>
