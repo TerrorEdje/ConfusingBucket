@@ -19,11 +19,14 @@
 		<tr><td style="width: 160px;">Organization description: </td><td>{{$organization['description']}}</td></tr>
 		<tr><td style="width: 160px;">Website: </td><td><a href="http://{{$organization['website']}}" target=\"_blank\">{{$organization['website']}}</a></td></tr>
 		<tr><td colspan="2">&nbsp;</td></tr>
-		@foreach($locations as $location)
+		@for ($i = 0; $i < count($locations); $i ++)
 			<tr><td class="tdTop">Locatie(s) story: </td><td><ul>
-			<li>TYPE<br/>{{$location['streetname']}} {{$location['number']}}<br/>{{$location['zipcode']}} {{$location['city']}}<br/>{{$location['country']}}</li>
+			<li>HIER KOMT HET TYPE BITCH<br/>
+			{{$locations[$i]['streetname']}} {{$locations[$i]['number']}}<br/>
+			{{$locations[$i]['zipcode']}} {{$locations[$i]['city']}}<br/>
+			{{$locations[$i]['country']}}</li>
 			</ul></td></tr>
-		@endforeach
+		@endfor
 		
 	</table>
 

@@ -16,18 +16,20 @@ class StoryController extends BaseController {
 		$study = Study::find($story->study_id);
 		$organization = Organization::find($story->organization_id);
 		$school = School::find($study->school_id);
-		$storylocations = Storylocation::where('story_id', $id);
+		
+		$storylocations = Storylocation::where('story_id','=', $id)->get();
 		$locations = array();
-		echo "$storylocations";
+		
+
 		foreach ($storylocations as $storylocation)
 		{
-		
 			$location = Location::find($storylocation->location_id);
 			array_push($locations,$location);
 		}
 		
+		
 	
-		return View::make('storydetail')->with('story', $story)->with('student', $student)->with('study', $study)->with('organization', $organization)->with('school', $school)->with('locations', $locations);
+		return View::make('storydetail')->with('story', $story)->with('student', $student)->with('study', $study)->with('organization', $organization)->with('school', $school)->with('locations', $locations)->with('storylocations', $storylocations);
 	}
 
 }
