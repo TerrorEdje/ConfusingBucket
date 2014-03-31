@@ -2,6 +2,47 @@
 
 class StoryController extends BaseController {
 
+	public function storylist()
+	{
+		$stories = Story::all();
+
+		$allStories = array();
+
+		# Organisatie locatie ophalen
+		foreach ($stories as $story) {
+			$storyLocations = StoryLocation::where('story_id','=',$story->id)->get();			
+			
+			$location = array();
+			foreach($storyLocations as $storylocation)
+			{
+				if ($storylocation->location_type == "Organization")
+				{
+					array_push($location, Location::find($storylocation->location_id));
+				}
+			}
+
+			# Student naam ophalen
+			$student = Student::find($story->student_id);
+			$naam_student = $student->firstname . ' ' . $student->insertion . ' ' . $student->surname;
+
+			# Huidige story verzameling
+			$curStory = array(
+			'id' => $story->id,
+			'type' => $story->type,
+			'country' => $location[0]->country,
+			'city' => $location[0]->city,
+			'startdate' => $story->startdate,
+			'enddate' => $story->enddate,
+			'name' => $naam_student
+			);
+
+			array_push($allStories, $curStory);
+
+		}
+
+		return View::make('storylist', array('stories' => $allStories));
+	}
+
 	public function test1()
 	{
 		$user = User::find(1);
