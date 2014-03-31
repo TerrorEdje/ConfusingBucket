@@ -53,7 +53,7 @@ Wordt data uit de database gehaald.
 **Stappen:**
 1. Vul de database met het vulscript.
 2. Open de website.
-3. Klik op een marker met meer dan 1 story.
+3. Klik op de marker in Frankrijk, Tarbes.
 
 **Verwacht resultaat:**
 Er wordt een tabel getoont met meerdere stories.
@@ -67,10 +67,10 @@ Details van een story worden weergegeven.
 1. Vul de database met het vulscript.
 2. Open de website.
 3. Klik op Stories.
-4. Klik op details bij 1 van de stories.
+4. Klik op details bij de eerste story van de stories.
 
 **Verwacht resultaat:**
-Je komt op een pagina met de details van desbetreffende story.
+Je komt op een pagina met de story van Robin Collard. Gegevens: Afstudeerstage in Norway.
 
 ##Testcase 4.2: Detail story weergeven op de website (marker)
 
@@ -80,12 +80,12 @@ Details van een story worden weergegeven
 **Stappen:**
 1. Vul de database met het vulscript.
 2. Open de website.
-3. Klik op een marker met maar 1 story.
+3. Klik op de marker die in Oslo staat.
 
 **Verwacht resultaat:**
-Je komt op een pagina met de details van desbetreffende story.
+Je komt op een pagina met de story van Robin Collard. Gegevens: Afstudeerstage in Norway.
 
-##Testcase 5.1: Auth check
+##Testcase 5.1: Auth check -- OUD
 
 **Test:**
 Kijken of de user herkend wordt
@@ -97,7 +97,7 @@ Kijken of de user herkend wordt
 **Verwacht resultaat:**
 Er word gezecht dat de user geen toegang heeft
 
-##Testcase 5.2: Auth check
+##Testcase 5.2: Auth check  -- OUD
 
 **Test:**
 kijken de pagina en de crud werken
@@ -110,7 +110,7 @@ kijken de pagina en de crud werken
 **Verwacht resultaat:**
 alles gaat goed en acces is granted
 
-##Testcase 5.3: Auth check
+##Testcase 5.3: Auth check  -- OUD
 
 **Test:**
 kijken of datums werken
@@ -123,7 +123,7 @@ kijken of datums werken
 **Verwacht resultaat:**
 hij geeft aan dat acces denied is
 
-##Testcase 6.1: Upload story
+##Testcase 6.1: Upload story  -- OUD
 
 **Test:**
 Kijken of een story geüpload kan worden
@@ -136,7 +136,7 @@ Kijken of een story geüpload kan worden
 **Verwacht resultaat:**
 Alle ingevulde gegevens staan in de database
 
-##Testcase 6.2: Upload story
+##Testcase 6.2: Upload story  -- OUD
 
 **Test:**
 Kijken of de gebruiker een melding krijgt
@@ -149,7 +149,7 @@ Kijken of de gebruiker een melding krijgt
 **Verwacht resultaat:**
 De gebruiker krijgt een melding dat niet alle verplichte velden zijn ingevuld
 
-##Testcase 7.1: Inloggen
+##Testcase 7.1: Inloggen  -- OUD
 
 **Test:**
 Kijken of het inloggen werkt
@@ -162,7 +162,7 @@ Kijken of het inloggen werkt
 **Verwacht resultaat:**
 De gebruiker is ingelogd en in het menu staat de optie op een story te uploaden.
 
-##Testcase 7.2: Inloggen
+##Testcase 7.2: Inloggen  -- OUD
 
 **Test:**
 Kijken of het inloggen werkt met verkeerd wachtwoord en/of gebruikersnaam
@@ -175,7 +175,7 @@ Kijken of het inloggen werkt met verkeerd wachtwoord en/of gebruikersnaam
 **Verwacht resultaat:**
 De gebruiker krijgt een melding over verkeerde inloggegevens.
 
-##Testcase 7.3: Inloggen
+##Testcase 7.3: Inloggen  -- OUD
 
 **Test:**
 Menu balk veranderd mee
@@ -193,9 +193,9 @@ Er staat een logout knop, en uploaden van user story
 Kijken of de markers groeperen
 
 **Stappen:**
-1. Open de website, ga naar de kaart
-2. Zoom uit tot er een groep ontstaat
-3. Klik om de groep
+1. Vul de database met het vulscript.
+2. In Frankrijk, Tarbes staan 2 markers op elkaar.
+3. Klik op de groep
 
 **Verwacht resultaat:**
 Het aantal op de groep komt overeen met het aantal stories in de lijst

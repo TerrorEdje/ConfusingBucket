@@ -2,6 +2,7 @@
 
 Een userstory is pas af als:
 
+- Userstory voldoet aan de coding guidelines.
 - De userstory is getest op functioneel niveau.
 - De userstory moeten testscripts worden geschreven volgens de story en de acceptatie criteria.
 - Documentatie is toegevoegd.
