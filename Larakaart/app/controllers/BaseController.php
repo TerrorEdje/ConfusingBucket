@@ -11,9 +11,12 @@ class BaseController extends Controller {
 	{
 		if ( ! is_null($this->layout))
 		{
-			$locations = array();
-			$this->layout = View::make($this->layout)->with('locations', $locations);
+			echo($this->layout);
+			echo("HALLOOOO");
+			$mapLocations = "blah";
+			$this->layout = View::make($this->layout)->with('mapLocations', $mapLocations);
 		}
+		
 	}
 
 }
