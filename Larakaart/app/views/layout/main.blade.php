@@ -17,5 +17,5 @@
 
 		</div>
 	</section>
-
+	
 @include('layout/shared/footer')

@@ -24,7 +24,11 @@ function hideContent()
 	
 	$('#section').animate({
 		top: getMaxHeight() + "px"
-	}, 1500);
+	}, 1500, function(){
+		$('#filter_container').animate({
+			right: "-" + ($('#filter_bar').width()+30) + "px"
+		}, 500)
+	});
 	
 	$('#showhide').css("transform","rotate(0deg)");
 	$('#showhide').css("-ms-transform","rotate(0deg)");
@@ -38,12 +42,16 @@ function hideContent()
 
 function showContent()
 {
-	hideFilter();
 	$('#section').stop();
+	$('filter_container').stop();
 	
-	$('#section').animate({
-		top: "0px"
-	}, 1500);
+	$('#filter_container').animate({
+		right: "-" + ($('#filter_bar').width()+115) + "px"
+	}, 500).add(
+		$('#section').animate({
+			top: "0px"
+		}, 1500)
+	);
 	
 	$('#showhide').css("transform","rotate(180deg)");
 	$('#showhide').css("-ms-transform","rotate(180deg)");
@@ -53,6 +61,9 @@ function showContent()
 	
 	$('#map_button').unbind("click");
 	$('#map_button').one("click", function() { hideContent(); return false; });
+	
+	$('#filter_button').unbind("click");
+	$('#filter_button').one("click", function() { showFilter(); return false; })
 }
 
 function hideFilter()
@@ -69,7 +80,6 @@ function hideFilter()
 
 function showFilter()
 {
-	hideContent();
 	$('#filter_container').stop();
 	
 	$('#filter_container').animate({
@@ -93,25 +103,72 @@ function filterChanged()
 {
 	value = $("#filter_input").val();
 	
+	country = $("#filter-country").prop("checked");
+	city = $("#filter-city").prop("checked");
+	person = $("#filter-person").prop("checked");
+    
+    internship = $("#filter-internship").prop("checked");
+    graduation = $("#filter-graduation").prop("checked");
+    minor = $("#filter-minor").prop("checked");
+    eps = $("#filter-eps").prop("checked");
+    
+    study = $("#filter-study").val();
+	
 	var filteredMarkers = [];
 	
 	for( i = 0; i < locations.length; ++i)
 	{
-		var newMarker = new google.maps.Marker({
-			id: locations[i].id, 
-			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-			title: locations[i].title,
-			icon: 'images/markers/default.png'
-		});
-		
-		filteredMarkers.push(newMarker);
-		
-		google.maps.event.addListener(newMarker,'click',function() {
-			load('storylist.php?locationid='+this.id);
-		});
+		if (
+			( // Zoek op
+				(country && locations[i].country.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
+				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
+				(person && locations[i].person.toLowerCase().indexOf(value.toLowerCase()) != -1)
+			) &&
+			( // Type
+				(internship && locations[i].storyType == "Stage") ||
+                (graduation && locations[i].storyType == "Afstudeerstage") ||
+                (minor && locations[i].storyType == "Minor") ||
+                (eps && locations[i].storyType == "EPS") ||
+                (internship && graduation && minor && eps) //laat alles zien als alles is aangevinkt, ook als de marker geen type heeft
+			) &&
+			( //Opleiding
+				(study == "all") ||
+                (locations[i].study == study)
+			)
+		)
+		{
+			var newMarker = new google.maps.Marker({
+				id: locations[i].id, 
+				position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+				title: locations[i].title,
+				icon: 'images/markers/default.png'
+			});
+			
+			filteredMarkers.push(newMarker);
+			
+			google.maps.event.addListener(newMarker,'click',function() {
+				load('storylist.php?locationid='+this.id);
+			});
+		}
 	}
 	
 	filterMarkers(filteredMarkers);
+}
+
+function resetFilter()
+{
+	$("#filter_input").val("");
+	
+	$("#filter-country").prop("checked", true);
+	
+	$("#filter-internship").prop("checked", true);
+	$("#filter-graduation").prop("checked", true);
+	$("#filter-minor").prop("checked", true);
+	$("#filter-eps").prop("checked", true);
+    
+    $("#filter-study").val("all");
+	
+	filterChanged();
 }
 
 //Balk goedzetten bij window resize
@@ -145,7 +202,16 @@ $( document ).ready(function() {
 	$('#filter_button').one("click", function() { showFilter(); return false; });
 	
 	//filter
-	$("#filter_input").change(function(){ filterChanged() });
+	//$("#filter_input").change(function(){ filterChanged() });
+	$("#filter_form").submit(function(event){
+		event.preventDefault();
+		filterChanged();
+		return false;
+	});
+	
+	$(".filter_reset").click(function(){
+		resetFilter();
+	});
 	
 });
 

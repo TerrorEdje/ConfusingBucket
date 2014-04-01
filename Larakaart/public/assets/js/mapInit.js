@@ -3,6 +3,8 @@ var mc;
 var markers = [];
 var centerLatlng = new google.maps.LatLng(0,0);
 
+var studies = [];
+
 function initialize() {
 	var mapOptions = {
 		zoom: 2,
@@ -15,19 +17,38 @@ function initialize() {
 	
 	for( i = 0; i < locations.length; ++i)
 	{
+        //Make a marker
 		var marker = new google.maps.Marker({
 			id: locations[i].id, 
 			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
 			title: locations[i].title,
 			icon: 'images/markers/default.png'
 		});
-		
-		markers.push(marker);
-		
-		google.maps.event.addListener(marker,'click',function() {
+        
+        //Add marker to marker list
+        markers.push(marker);
+        
+        //Add a click event to the markers
+        google.maps.event.addListener(marker,'click',function() {
 			load('storylist.php?locationid='+this.id);
 		});
+        
+        //Add study to studies array if it doesn't exist already
+        if($.inArray(locations[i].study, studies)<0) {
+            studies.push(locations[i].study);
+        } 
+		
 	}
+    
+    //Add study options to filter dropdown
+    $.each(studies, function(key, value) {   
+        $('#filter-study')
+            .append($("<option></option>")
+            .attr("value",value)
+            .text(value)); 
+    });
+    
+    //Initialize markerClusterer for displaying markers
 	var mcOptions = {zoomOnClick: false, 
 					gridSize: 41,
 					imagePath: 'images/markers/m',

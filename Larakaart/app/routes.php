@@ -15,6 +15,12 @@ Route::get('storylist', array(
 	'uses'	=> 'StoryController@storylist'
 ));
 
+Route::get('story/upload', array(
+	'as'	=> 'Story-upload-get',
+	'uses'	=> 'StoryController@uploadGet'
+
+));
+
 Route::get('storydetail/{id}', array(
 	'as'	=> 'storydetail',
 	'uses'	=> 'StoryController@storydetail'
