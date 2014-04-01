@@ -18,7 +18,6 @@
 	@foreach ($mapLocations as $location)
 		@if (isset($location['latitude']) && isset($location['longitude']))
 			
-			<?php print_r($location); ?>
 			
 			locations.push( {  id:{{$location["id"]}},
 								country:"{{$location["country"]}}",
