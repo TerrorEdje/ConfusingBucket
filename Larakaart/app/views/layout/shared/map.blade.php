@@ -15,6 +15,22 @@
 <script type="text/javascript">
 	var locations = new Array();
 	
+	@foreach ($mapLocations as $location)
+		@if (isset($location['latitude']) && isset($location['longitude']))
+			
+			<?php print_r($location); ?>
+			
+			locations.push( {  id:{{$location["id"]}},
+								country:"{{$location["country"]}}",
+								city:"{{$location["city"]}}",
+								street:"{{$location["streetname"]}}",
+								number:"{{$location["number"]}}",
+								zipcode:"{{$location["zipcode"]}}",
+								lat:{{$location["latitude"]}},
+								lng:{{$location["longitude"]}},
+								title:"{{$location["streetname"]}} {{$location["number"]}}" }); 
+		@endif
+	@endforeach
 	
 	
 	<?php

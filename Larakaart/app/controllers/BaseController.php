@@ -11,10 +11,24 @@ class BaseController extends Controller {
 	{
 		if ( ! is_null($this->layout))
 		{
-			echo($this->layout);
-			echo("HALLOOOO");
-			$mapLocations = "blah";
-			$this->layout = View::make($this->layout)->with('mapLocations', $mapLocations);
+			$mapLocations = Array();
+			
+			$storyLocations = Storylocation::all();
+			foreach($storyLocations as $storyLocation)
+			{
+				if ($storyLocation['location_type'] == "Organization")
+				{
+					$mapLocation = Array();
+					$location = Location::where('id','=',$storyLocation['location_id'])->get();
+					$story = Story::where('id','=',$storyLocation['story_id'])->get();
+					$student = Student::where('id','=',$story[0]['student_id'])->get();
+					print_r($student);
+				}
+			}
+			
+			
+			$this->layout = View::make($this->layout);
+			View::share('mapLocations', $mapLocations);
 		}
 		
 	}
