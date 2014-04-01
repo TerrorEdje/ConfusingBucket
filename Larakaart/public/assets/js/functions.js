@@ -112,6 +112,7 @@ function filterChanged()
     minor = $("#filter-minor").prop("checked");
     eps = $("#filter-eps").prop("checked");
     
+    study = $("#filter-study").val();
 	
 	var filteredMarkers = [];
 	
@@ -131,7 +132,8 @@ function filterChanged()
                 (internship && graduation && minor && eps) //laat alles zien als alles is aangevinkt, ook als de marker geen type heeft
 			) &&
 			( //Opleiding
-				true
+				(study == "all") ||
+                (locations[i].study == study)
 			)
 		)
 		{
@@ -163,6 +165,8 @@ function resetFilter()
 	$("#filter-graduation").prop("checked", true);
 	$("#filter-minor").prop("checked", true);
 	$("#filter-eps").prop("checked", true);
+    
+    $("#filter-study").val("all");
 	
 	filterChanged();
 }

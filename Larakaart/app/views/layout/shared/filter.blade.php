@@ -63,14 +63,18 @@
 					</div>
 				</div>
 				
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <select name="study" id="filter-study">
+                            <option value="all">All studies</option>
+                        </select>
+                    </div>
+                </div>
+                
 				<button type="submit" class="btn btn-primary filter_submit">Search</button>
 			</fieldset>
 		</form>
 		<br />
 		<button class="btn btn-primary filter_reset">Reset</button>
-		
-		<br />
-		
-		- opleiding<br />
 	</div>
 </div>
