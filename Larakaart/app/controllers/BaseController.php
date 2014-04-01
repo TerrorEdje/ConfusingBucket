@@ -48,16 +48,16 @@ class BaseController extends Controller {
                             $student = $student[0];
                             if ($student['insertion'] != null)
                             {
-                                $mapLocation['studentName'] = $student['firstname'] . " " . $student['insertion'] . " " . $student['surname'];
+                                $mapLocation['person'] = $student['firstname'] . " " . $student['insertion'] . " " . $student['surname'];
                             }
                             else
                             {
-                                $mapLocation['studentName'] = $student['firstname'] . " " . $student['surname'];
+                                $mapLocation['person'] = $student['firstname'] . " " . $student['surname'];
                             }
                         }
                         else
                         {
-                            $mapLocation['studentName'] = "";
+                            $mapLocation['person'] = "";
                         }
                         
                         //Opleiding toevoegen

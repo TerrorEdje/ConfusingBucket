@@ -16,7 +16,7 @@
 								lng:{{$location["longitude"]}},
 								title:"{{$location["streetname"]}} {{$location["number"]}}", 
                                 storyType:"{{$location["storyType"]}}",
-                                person:"{{$location["studentName"]}}",
+                                person:"{{$location["person"]}}",
                                 study:"{{$location["study"]}}" });
 		@endif
 	@endforeach
