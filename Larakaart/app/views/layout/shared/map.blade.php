@@ -27,7 +27,10 @@
 								zipcode:"{{$location["zipcode"]}}",
 								lat:{{$location["latitude"]}},
 								lng:{{$location["longitude"]}},
-								title:"{{$location["streetname"]}} {{$location["number"]}}" }); 
+								title:"{{$location["streetname"]}} {{$location["number"]}}", 
+                                storyType:"{{$location["storyType"]}}",
+                                studentName:"{{$location["studentName"]}}",
+                                study:"{{$location["study"]}}" });
 		@endif
 	@endforeach
 	
