@@ -49,13 +49,13 @@
 							</label>
 						</div>
 						<div class="checkbox">
-							<label for="type-0">
+							<label for="type-2">
 								<input type="checkbox" name="filter-minor" id="filter-minor" value="minor" checked>
 								Minor
 							</label>
 						</div>
 						<div class="checkbox">
-							<label for="type-1">
+							<label for="type-3">
 								<input type="checkbox" name="filter-eps" id="filter-eps" value="eps" checked>
 								EPS
 							</label>
