@@ -106,6 +106,12 @@ function filterChanged()
 	country = $("#filter-country").prop("checked");
 	city = $("#filter-city").prop("checked");
 	person = $("#filter-person").prop("checked");
+    
+    internship = $("#filter-internship").prop("checked");
+    graduation = $("#filter-graduation").prop("checked");
+    minor = $("#filter-minor").prop("checked");
+    eps = $("#filter-eps").prop("checked");
+    
 	
 	var filteredMarkers = [];
 	
@@ -118,7 +124,11 @@ function filterChanged()
 				(person && locations[i].person.toLowerCase().indexOf(value.toLowerCase()) != -1)
 			) &&
 			( // Type
-				true
+				(internship && locations[i].storyType == "Stage") ||
+                (graduation && locations[i].storyType == "Afstudeerstage") ||
+                (minor && locations[i].storyType == "Minor") ||
+                (eps && locations[i].storyType == "EPS") ||
+                (internship && graduation && minor && eps) //laat alles zien als alles is aangevinkt, ook als de marker geen type heeft
 			) &&
 			( //Opleiding
 				true
