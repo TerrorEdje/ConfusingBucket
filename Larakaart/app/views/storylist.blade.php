@@ -12,8 +12,11 @@
 			<td class="otherTDTH">{{ $story['startdate'] }}</td>
 			<td class="otherTDTH">{{ $story['enddate'] }}</td>
 			<td class="otherTDTH">{{ $story['name'] }}</td>
-			<td class="otherTDTH">{{ link_to_action('StoryController@storydetail', 'Detail', $parameters = array($story['id']), $attributes = array()); }}</td>
+			<td class="otherTDTH"><a href="#" onclick="load('{{ URL::route('storydetail', array($story['id'])) }}','storylist_detailmenu'); return false;">Detail</a></td>
 		</tr>
+		
+		
+		
 	@endforeach
 	</table>
 {{--@stop--}}
