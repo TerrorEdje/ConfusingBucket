@@ -74,7 +74,7 @@ class StoryController extends BaseController {
 	public function uploadGet()
 	{
 		$types = array('' => 'Select...') + Storytype::lists('name','name');
-		$studies = array('' => 'Select...') + Study::lists('name','name');
+		$studies = array('' => 'Select...') + Study::lists('name','id');
 		return View::make('uploadget')->with('types', $types)->with('studies', $studies);
 	}
 	
@@ -97,18 +97,57 @@ class StoryController extends BaseController {
 		$student->surname = Input::get('stusurname');
 		$student->email = Input::get('stuemail');
 		$student->save();
-		$story->student_id = $student->id;
 		
 		$organization = new Organization;
 		$organization->name = Input::get('orgname');
 		$organization->description = Input::get('orgdescription');
 		$organization->website = Input::get('orgwebsite');
-		$story->organization_id = $organization->id;
+		$organization->save();
 		
+		$story->student_id = $student->id;
+		$story->study_id = Input::get('study');
+		$story->organization_id = $organization->id;
 		$story->save();
-		$link = new Link;
-		$link->story_id = $story->id;
-		$link->website = Input::get('website');
+		
+		$storylink = new Link;
+		$storylink->story_id = $story->id;
+		$storylink->link = Input::get('website');
+		$storylink->save();
+		
+		$resilink = new Link;
+		$resilink->story_id = $story->id;
+		$resilink->link = Input::get('resiwebsite');
+		$resilink->save();
+		
+		$resiLocation = new Location;
+		$resiLocation->country = Input::get('resicountry');
+		$resiLocation->city = Input::get('resicity');
+		$resiLocation->streetname = Input::get('resistreet');
+		$resiLocation->number = Input::get('resihousenumber');
+		$resiLocation->zipcode = Input::get('resizipcode');
+		$resiLocation->latitude = "0";
+		$resiLocation->longitude = "0";
+		$resiLocation->save();
+		$resiStorylocation = new Storylocation;
+		$resiStorylocation->story_id = $story->id;
+		$resiStorylocation->location_id = $resiLocation->id;
+		$resiStorylocation->location_type = "Residence";
+		$resiStorylocation->save();
+		
+		$orgLocation = new Location;
+		$orgLocation->country = Input::get('orgcountry');
+		$orgLocation->city = Input::get('orgcity');
+		$orgLocation->streetname = Input::get('orgstreet');
+		$orgLocation->number = Input::get('orghousenumber');
+		$orgLocation->zipcode = Input::get('orgzipcode');
+		$orgLocation->latitude = "0";
+		$orgLocation->longitude = "0";
+		$orgLocation->save();
+		$orgStorylocation = new Storylocation;
+		$orgStorylocation->story_id = $story->id;
+		$orgStorylocation->location_id = $orgLocation->id;
+		$orgStorylocation->location_type = "Organization";
+		$orgStorylocation->save();
 		
 		return View::make('uploadAdd');
 	}
