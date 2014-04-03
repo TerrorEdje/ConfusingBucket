@@ -2,6 +2,8 @@
 {{HTML::script('assets/js/markerclusterer.js')}}
 
 <script type="text/javascript">
+	var storyDetailURL = "{{ URL::route('storydetail') }}".split("%7Bid%7D")[0];
+	var storyListURL = "{{ URL::route('storylist2') }}".split("%7Bids%7D")[0];
 	var locations = new Array();
 	@foreach ($mapLocations as $location)
 		@if (isset($location['latitude']) && isset($location['longitude']))

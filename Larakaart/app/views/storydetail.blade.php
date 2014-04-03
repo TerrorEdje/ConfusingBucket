@@ -1,6 +1,6 @@
-@extends('layout.main')
+{{--@extends('layout.main')--}}
 
-@section('content')	
+{{--@section('content')	--}}
 	<table>
 		<tr><td>Type: </td><td>{{ $story['type'] }}</td></tr>
 		
@@ -31,4 +31,4 @@
 	</table>
 
 	
-@stop
+{{--@stop--}}

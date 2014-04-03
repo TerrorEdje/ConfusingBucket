@@ -11,20 +11,21 @@
 							<span class="icon-bar"></span>
 						</button>
 						<a href="{{ URL::route('Home') }}" class="navbar-brand" onclick="">
-							<img id="avans_globe" src="images/Avans_globe.png" alt="avans_globe" />
+							<!--<img id="avans_globe" src="images/Avans_globe.png" alt="avans_globe" />-->
+							{{HTML::image('images/Avans_globe.png', 'avans_globe', array('id' => 'avans_globe'));}}
 						</a>
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav nav-stacked">
 							<li class="storylistmenu storylist_detailmenu">
-								<a href="#" onclick="load('storylist.php'); return false;">
+								<a href="#" onclick="load('{{ URL::route('storylist') }}', 'storylistmenu'); return false;">
 									Stories
 								</a>
 							</li>
 							<?php 
 								if(isset($_SESSION['id'])){
 								echo '<li class="upload_storymenu">
-									<a href="#" onclick="load(\'upload_story.php\'); return false;">
+									<a href="#" onclick="load(\'' . URL::route('Story-upload-get') . '\', \'upload_storymenu\'); return false;">
 										Upload Story
 									</a>
 								</li>';

@@ -90,13 +90,13 @@ function showFilter()
 	$('#filter_button').one("click", function() { hideFilter(); return false; })
 }
 
-function load(page)
+function load(page, menuitem)
 {
 	console.log('Loading page:' + page);
 	$('#content').load(page);
 	$('.active').removeClass("active");
-	$('.'+page.split('.')[0]+'menu').addClass("active");
-	showContent()
+	$('.'+menuitem).addClass("active");
+	showContent();
 }
 
 function filterChanged()
