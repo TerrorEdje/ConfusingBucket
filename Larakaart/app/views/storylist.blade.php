@@ -14,9 +14,15 @@
 			<td class="otherTDTH">{{ $story['name'] }}</td>
 			<td class="otherTDTH"><a href="#" onclick="load('{{ URL::route('storydetail', array($story['id'])) }}','storylist_detailmenu'); return false;">Detail</a></td>
 		</tr>
-		
-		
-		
 	@endforeach
 	</table>
+	
+	<?php
+	if (count($stories) == 1)
+	{
+		?>
+		<script type='text/javascript'>load('{{ URL::route('storydetail', array($stories[0]['id'])) }}','storylist_detailmenu');</script>
+		<?php
+	}
+	?>
 {{--@stop--}}
