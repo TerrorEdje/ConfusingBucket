@@ -96,7 +96,7 @@ function load(page)
 	$('#content').load(page);
 	$('.active').removeClass("active");
 	$('.'+page.split('.')[0]+'menu').addClass("active");
-	showContent()
+	showContent();
 }
 
 function filterChanged()

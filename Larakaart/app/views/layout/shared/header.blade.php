@@ -17,7 +17,7 @@
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav nav-stacked">
 							<li class="storylistmenu storylist_detailmenu">
-								<a href="#" onclick="load('storylist.php'); return false;">
+								<a href="#" onclick="load('{{ URL::to('storylist') }}'); return false;">
 									Stories
 								</a>
 							</li>

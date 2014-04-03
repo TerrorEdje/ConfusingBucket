@@ -1,6 +1,6 @@
-@extends('layout.main')
+{{--@extends('layout.main')--}}
 
-@section('content')
+{{--@section('content')--}}
 
 	<table class="tblUserStory" rules='cols'>
 	<tr ><th>Type</th><th class="otherTDTH">Country</th><th class="otherTDTH">City</th><th class="otherTDTH">Startdate</th><th class="otherTDTH">Enddate</th><th class="otherTDTH">Name</th></tr>
@@ -16,4 +16,4 @@
 		</tr>
 	@endforeach
 	</table>
-@stop
+{{--@stop--}}
