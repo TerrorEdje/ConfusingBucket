@@ -30,7 +30,7 @@ function initialize() {
         
         //Add a click event to the markers
         google.maps.event.addListener(marker,'click',function() {
-			load('storylist.php?locationid='+this.id);
+			load(storyDetailURL+this.id);
 		});
         
         //Add study to studies array if it doesn't exist already

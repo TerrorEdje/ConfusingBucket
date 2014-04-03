@@ -2,10 +2,31 @@
 
 class StoryController extends BaseController {
 
-	public function storylist()
+	public function storylist($ids = "empty")
 	{
-		$stories = Story::all();
+		$stories = new Illuminate\Database\Eloquent\Collection();
 
+		if ($ids != "empty")
+		{
+			$ids = explode(",", $ids);
+			
+			foreach($ids as $id)
+			{
+				$storyLocations = StoryLocation::where('location_id','=',$id)->get();
+				
+				foreach ($storyLocations as $storyLocation)
+				{
+					$newStories = Story::where('id','=',$storyLocation->story_id)->get();
+					
+					$stories->add($newStories[0]);
+				}
+			}
+		}
+		else
+		{
+			$stories = Story::all();
+		}
+		
 		$allStories = array();
 
 		# Get the story organization location (for each)
@@ -21,11 +42,11 @@ class StoryController extends BaseController {
 					array_push($location, Location::find($storylocation->location_id));
 				}
 			}
-
+        
 			# Get the current student's name
 			$student = Student::find($story->student_id);
 			$naam_student = $student->firstname . ' ' . $student->insertion . ' ' . $student->surname;
-
+        
 			# Current story combined
 			$curStory = array(
 			'id' => $story->id,
@@ -36,9 +57,9 @@ class StoryController extends BaseController {
 			'enddate' => $story->enddate,
 			'name' => $naam_student
 			);
-
+        
 			array_push($allStories, $curStory);
-
+        
 		}
 
 		return View::make('storylist', array('stories' => $allStories));
