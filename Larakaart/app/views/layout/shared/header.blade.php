@@ -11,13 +11,14 @@
 							<span class="icon-bar"></span>
 						</button>
 						<a href="{{ URL::route('Home') }}" class="navbar-brand" onclick="">
-							<img id="avans_globe" src="images/Avans_globe.png" alt="avans_globe" />
+							<!--<img id="avans_globe" src="images/Avans_globe.png" alt="avans_globe" />-->
+							{{HTML::image('images/Avans_globe.png', 'avans_globe', array('id' => 'avans_globe'));}}
 						</a>
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav nav-stacked">
 							<li class="storylistmenu storylist_detailmenu">
-								<a href="#" onclick="load('{{ URL::to('storylist') }}'); return false;">
+								<a href="#" onclick="load('storylist'); return false;">
 									Stories
 								</a>
 							</li>
