@@ -1,8 +1,6 @@
 {{HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;key=AIzaSyB4ofW1mgEVlMIoa48rMP0WkAksHAALU18')}}
 {{HTML::script('assets/js/markerclusterer.js')}}
 
-<?php $mapLocations = array(); ?>
-
 <script type="text/javascript">
 	
 	var locations = new Array();
