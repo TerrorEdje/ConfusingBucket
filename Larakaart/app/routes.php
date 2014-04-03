@@ -10,6 +10,11 @@ Route::get('test', array(
 	'uses'	=> 'TestController@test1'
 ));
 
+Route::get('account/login', array(
+	'as'	=> 'account-login-get',
+	'uses'	=> 'AccountController@login'
+));
+
 Route::get('storylist', array(
 	'as'	=> 'storylist',
 	'uses'	=> 'StoryController@storylist'
