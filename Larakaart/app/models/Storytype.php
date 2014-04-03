@@ -7,7 +7,7 @@ class Storytype extends Eloquent {
 	 *
 	 * @var string
 	 */
-	protected $table = 'type';
+	protected $table = 'storytype';
 
 }
 

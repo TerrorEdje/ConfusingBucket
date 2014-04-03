@@ -73,8 +73,44 @@ class StoryController extends BaseController {
 
 	public function uploadGet()
 	{
-		$types = Storytype::all();
-		return View::make('Story.uploadGet')->with('type', $types);
+		$types = array('' => 'Select...') + Storytype::lists('name','name');
+		$studies = array('' => 'Select...') + Study::lists('name','name');
+		return View::make('uploadget')->with('types', $types)->with('studies', $studies);
+	}
+	
+	public function uploadAdd()
+	{
+		if ( Session::token() !== Input::get( '_token' ) ) {
+            return Response::json( array(
+                'msg' => 'Unauthorized attempt to create setting'
+            ) );
+        }
+		$story = new Story;
+		$story->startdate = Input::get('startdate');
+		$story->enddate = Input::get('enddate');
+		$story->schoolyear = Input::get('schoolyear');
+		$story->type = Input::get('type');
+		
+		$student = new Student;
+		$student->firstname = Input::get('stufirstname');
+		$student->insertion = Input::get('stuinsertion');
+		$student->surname = Input::get('stusurname');
+		$student->email = Input::get('stuemail');
+		$student->save();
+		$story->student_id = $student->id;
+		
+		$organization = new Organization;
+		$organization->name = Input::get('orgname');
+		$organization->description = Input::get('orgdescription');
+		$organization->website = Input::get('orgwebsite');
+		$story->organization_id = $organization->id;
+		
+		$story->save();
+		$link = new Link;
+		$link->story_id = $story->id;
+		$link->website = Input::get('website');
+		
+		return View::make('uploadAdd');
 	}
 
 }
