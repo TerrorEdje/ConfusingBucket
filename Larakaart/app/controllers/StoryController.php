@@ -82,31 +82,43 @@ class StoryController extends BaseController {
 	{
 	$validator = Validator::make(Input::all(),
 		array(
-			'startdate'
-			'enddate'
-			'schoolyear'
-			'type'
+			'startdate' => array('required', 'date'),
+			'enddate' => array('required', 'after:startdate'),
+			'type'  => array('required'),
 			
-			'stufirstname'
-			'stuinsertion'
-			'stusurname'
-			'stuemail'
+			'stufirstname' => array('required', 'alpha_dash'),
+			'stuinsertion' => array('alpha_dash'),
+			'stusurname' => array('required', 'alpha_dash'),
+			'stuemail' => array('email'),
 			
-			'orgname'
-			'orgdescription'
-			'orgwebsite'
+			'orgname' => array('required'),
+			'orgwebsite' => array('url'),
+			'orgstreet' => array('alpha_num'),
+			'orghousenumber' => array('alpha_num'),
+			'orgzipcode' => array('alpha_num'),
+			'orgcity' => array('required', 'alpha'),
+			'orgcountry' => array('required', 'alpha'),
+			'orgwebsite' => array('url'),
 			
-			'study'
+			'study' => array('required'),
 			
-			'website'
+			'website' => array('required', 'url'),
 			
-			'resiwebsite'
-			'resicountry'
-			'resicity'
-			'resistreet'
-			'resihousenumber'
-			'resizipcode'
-			''
+			'resiwebsite' => array('url'),
+			'resicountry' => array('alpha'),
+			'resicity' => array('alpha'),
+			'resistreet' => array('alpha_num'),
+			'resihousenumber' => array('alpha_num'),
+			'resizipcode' => array('alpha_num')
+			),
+			
+			$messages = array(
+				'required' => ':attribute is a required field',
+				'url' => 'Please enter a valid website',
+				'alpha_num' => ':attribute should consist of alphabetic or numeric characters or dashes/underscores',
+				'alpha' => ':attribute should consist of only alphabetic characters',
+				'alpha_dash' => ':attribute should consist of alphabetic characters or dashes/underscores',
+			));
 	
 		if ( Session::token() !== Input::get( '_token' ) ) {
             return Response::json( array(
