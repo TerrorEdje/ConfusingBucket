@@ -137,7 +137,7 @@ class StoryController extends BaseController {
 		$story->organization_id = $organization->id;
 		$story->save();
 		
-		$storylink = new Link;
+		/*$storylink = new Link;
 		$storylink->story_id = $story->id;
 		$storylink->link = Input::get('website');
 		$storylink->save();
@@ -145,7 +145,7 @@ class StoryController extends BaseController {
 		$resilink = new Link;
 		$resilink->story_id = $story->id;
 		$resilink->link = Input::get('resiwebsite');
-		$resilink->save();
+		$resilink->save();*/
 		
 		$resiLocation = new Location;
 		$resiLocation->country = Input::get('resicountry');
