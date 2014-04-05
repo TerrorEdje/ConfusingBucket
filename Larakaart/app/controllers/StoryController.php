@@ -80,6 +80,34 @@ class StoryController extends BaseController {
 	
 	public function uploadAdd()
 	{
+	$validator = Validator::make(Input::all(),
+		array(
+			'startdate'
+			'enddate'
+			'schoolyear'
+			'type'
+			
+			'stufirstname'
+			'stuinsertion'
+			'stusurname'
+			'stuemail'
+			
+			'orgname'
+			'orgdescription'
+			'orgwebsite'
+			
+			'study'
+			
+			'website'
+			
+			'resiwebsite'
+			'resicountry'
+			'resicity'
+			'resistreet'
+			'resihousenumber'
+			'resizipcode'
+			''
+	
 		if ( Session::token() !== Input::get( '_token' ) ) {
             return Response::json( array(
                 'msg' => 'Unauthorized attempt to create setting'
@@ -128,6 +156,7 @@ class StoryController extends BaseController {
 		$resiLocation->latitude = "0";
 		$resiLocation->longitude = "0";
 		$resiLocation->save();
+		
 		$resiStorylocation = new Storylocation;
 		$resiStorylocation->story_id = $story->id;
 		$resiStorylocation->location_id = $resiLocation->id;
@@ -143,6 +172,7 @@ class StoryController extends BaseController {
 		$orgLocation->latitude = "0";
 		$orgLocation->longitude = "0";
 		$orgLocation->save();
+		
 		$orgStorylocation = new Storylocation;
 		$orgStorylocation->story_id = $story->id;
 		$orgStorylocation->location_id = $orgLocation->id;

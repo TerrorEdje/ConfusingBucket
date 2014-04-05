@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')	
-	{{ Form::open(array('url' => 'story/add')) }}
+	{{ Form::open(array('url' => 'story/add'), 'post') }}
 		Information about the student:</br>
 		First name: {{ Form::text('stufirstname') }}</br>
 		Insertion: {{ Form::text('stuinsertion') }}</br>
