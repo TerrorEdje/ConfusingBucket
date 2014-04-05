@@ -80,8 +80,8 @@ class StoryController extends BaseController {
 	
 	public function uploadAdd()
 	{
-	$validator = Validator::make(Input::all(),
-		array(
+		$rules = array
+		(
 			'startdate' => array('required', 'date'),
 			'enddate' => array('required', 'after:startdate'),
 			'type'  => array('required'),
@@ -110,88 +110,100 @@ class StoryController extends BaseController {
 			'resistreet' => array('alpha_num'),
 			'resihousenumber' => array('alpha_num'),
 			'resizipcode' => array('alpha_num')
-			),
-			
-			$messages = array(
-				'required' => ':attribute is a required field',
-				'url' => 'Please enter a valid website',
-				'alpha_num' => ':attribute should consist of alphabetic or numeric characters or dashes/underscores',
-				'alpha' => ':attribute should consist of only alphabetic characters',
-				'alpha_dash' => ':attribute should consist of alphabetic characters or dashes/underscores',
-			));
+		);
+		
+		$messages = array
+		(
+			'required' => ':attribute is a required field',
+			'url' => 'Please enter a valid website',
+			'alpha_num' => ':attribute should consist of alphabetic or numeric characters or dashes/underscores',
+			'alpha' => ':attribute should consist of only alphabetic characters',
+			'alpha_dash' => ':attribute should consist of alphabetic characters or dashes/underscores',
+		);
+	
+		$validator = Validator::make(Input::all(), $rules, $messages);
 	
 		if ( Session::token() !== Input::get( '_token' ) ) {
             return Response::json( array(
                 'msg' => 'Unauthorized attempt to create setting'
             ) );
         }
-		$story = new Story;
-		$story->startdate = Input::get('startdate');
-		$story->enddate = Input::get('enddate');
-		$story->schoolyear = Input::get('schoolyear');
-		$story->type = Input::get('type');
 		
-		$student = new Student;
-		$student->firstname = Input::get('stufirstname');
-		$student->insertion = Input::get('stuinsertion');
-		$student->surname = Input::get('stusurname');
-		$student->email = Input::get('stuemail');
-		$student->save();
-		
-		$organization = new Organization;
-		$organization->name = Input::get('orgname');
-		$organization->description = Input::get('orgdescription');
-		$organization->website = Input::get('orgwebsite');
-		$organization->save();
-		
-		$story->student_id = $student->id;
-		$story->study_id = Input::get('study');
-		$story->organization_id = $organization->id;
-		$story->save();
-		
-		/*$storylink = new Link;
-		$storylink->story_id = $story->id;
-		$storylink->link = Input::get('website');
-		$storylink->save();
-		
-		$resilink = new Link;
-		$resilink->story_id = $story->id;
-		$resilink->link = Input::get('resiwebsite');
-		$resilink->save();*/
-		
-		$resiLocation = new Location;
-		$resiLocation->country = Input::get('resicountry');
-		$resiLocation->city = Input::get('resicity');
-		$resiLocation->streetname = Input::get('resistreet');
-		$resiLocation->number = Input::get('resihousenumber');
-		$resiLocation->zipcode = Input::get('resizipcode');
-		$resiLocation->latitude = "0";
-		$resiLocation->longitude = "0";
-		$resiLocation->save();
-		
-		$resiStorylocation = new Storylocation;
-		$resiStorylocation->story_id = $story->id;
-		$resiStorylocation->location_id = $resiLocation->id;
-		$resiStorylocation->location_type = "Residence";
-		$resiStorylocation->save();
-		
-		$orgLocation = new Location;
-		$orgLocation->country = Input::get('orgcountry');
-		$orgLocation->city = Input::get('orgcity');
-		$orgLocation->streetname = Input::get('orgstreet');
-		$orgLocation->number = Input::get('orghousenumber');
-		$orgLocation->zipcode = Input::get('orgzipcode');
-		$orgLocation->latitude = "0";
-		$orgLocation->longitude = "0";
-		$orgLocation->save();
-		
-		$orgStorylocation = new Storylocation;
-		$orgStorylocation->story_id = $story->id;
-		$orgStorylocation->location_id = $orgLocation->id;
-		$orgStorylocation->location_type = "Organization";
-		$orgStorylocation->save();
-		
-		return View::make('uploadAdd');
+		if($validator->fails())
+		{
+			$messages = $validator->messages();
+			return View::make('uploadGet')->with_errors($validator);
+		}
+		else
+		{
+			$story = new Story;
+			$story->startdate = Input::get('startdate');
+			$story->enddate = Input::get('enddate');
+			$story->schoolyear = Input::get('schoolyear');
+			$story->type = Input::get('type');
+			
+			$student = new Student;
+			$student->firstname = Input::get('stufirstname');
+			$student->insertion = Input::get('stuinsertion');
+			$student->surname = Input::get('stusurname');
+			$student->email = Input::get('stuemail');
+			$student->save();
+			
+			$organization = new Organization;
+			$organization->name = Input::get('orgname');
+			$organization->description = Input::get('orgdescription');
+			$organization->website = Input::get('orgwebsite');
+			$organization->save();
+			
+			$story->student_id = $student->id;
+			$story->study_id = Input::get('study');
+			$story->organization_id = $organization->id;
+			$story->save();
+			
+			/*$storylink = new Link;
+			$storylink->story_id = $story->id;
+			$storylink->link = Input::get('website');
+			$storylink->save();
+			
+			$resilink = new Link;
+			$resilink->story_id = $story->id;
+			$resilink->link = Input::get('resiwebsite');
+			$resilink->save();*/
+			
+			$resiLocation = new Location;
+			$resiLocation->country = Input::get('resicountry');
+			$resiLocation->city = Input::get('resicity');
+			$resiLocation->streetname = Input::get('resistreet');
+			$resiLocation->number = Input::get('resihousenumber');
+			$resiLocation->zipcode = Input::get('resizipcode');
+			$resiLocation->latitude = "0";
+			$resiLocation->longitude = "0";
+			$resiLocation->save();
+			
+			$resiStorylocation = new Storylocation;
+			$resiStorylocation->story_id = $story->id;
+			$resiStorylocation->location_id = $resiLocation->id;
+			$resiStorylocation->location_type = "Residence";
+			$resiStorylocation->save();
+			
+			$orgLocation = new Location;
+			$orgLocation->country = Input::get('orgcountry');
+			$orgLocation->city = Input::get('orgcity');
+			$orgLocation->streetname = Input::get('orgstreet');
+			$orgLocation->number = Input::get('orghousenumber');
+			$orgLocation->zipcode = Input::get('orgzipcode');
+			$orgLocation->latitude = "0";
+			$orgLocation->longitude = "0";
+			$orgLocation->save();
+			
+			$orgStorylocation = new Storylocation;
+			$orgStorylocation->story_id = $story->id;
+			$orgStorylocation->location_id = $orgLocation->id;
+			$orgStorylocation->location_type = "Organization";
+			$orgStorylocation->save();
+			
+			return View::make('uploadAdd');
+		}
 	}
 
 }

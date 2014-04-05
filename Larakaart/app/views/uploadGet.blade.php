@@ -1,6 +1,15 @@
 @extends('layout.main')
 
 @section('content')	
+	@if($errors->has())
+		<ul>
+				foreach($messages->all('<li>:message</li>') as $message)
+				{
+					
+				}
+		</ul>
+	@endif
+
 	{{ Form::open(array('url' => 'story/add'), 'post') }}
 		Information about the student:</br>
 		First name: {{ Form::text('stufirstname') }}</br>
