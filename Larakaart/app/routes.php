@@ -41,4 +41,9 @@ Route::get('story/upload', array(
 	'uses'	=> 'StoryController@uploadGet'
 ));
 
+Route::post('story/add', array(
+	'as'	=> 'Story-upload-add',
+	'uses'	=> 'StoryController@uploadAdd'
+));
+
 ?>
