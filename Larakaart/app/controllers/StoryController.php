@@ -75,7 +75,7 @@ class StoryController extends BaseController {
 	{
 		$types = array('' => 'Select...') + Storytype::lists('name','name');
 		$studies = array('' => 'Select...') + Study::lists('name','id');
-		return View::make('uploadget')->with('types', $types)->with('studies', $studies);
+		return View::make('uploadget')->with('types', $types)->with('studies',$studies);
 	}
 	
 	public function uploadAdd()
@@ -132,7 +132,9 @@ class StoryController extends BaseController {
 		if($validator->fails())
 		{
 			$messages = $validator->messages();
-			return View::make('uploadGet')->with_errors($validator);
+			$types = array('' => 'Select...') + Storytype::lists('name','name');
+			$studies = array('' => 'Select...') + Study::lists('name','id');
+			return View::make('uploadGet')->with_errors($validator)->with('types', $types)->with('studies',$studies);
 		}
 		else
 		{

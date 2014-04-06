@@ -5,7 +5,7 @@
 		<ul>
 				foreach($messages->all('<li>:message</li>') as $message)
 				{
-					
+					{{ $message }}
 				}
 		</ul>
 	@endif
