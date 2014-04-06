@@ -101,7 +101,7 @@ class StoryController extends BaseController {
 	
 	public function uploadAdd()
 	{
-		$rules = array
+		/*$rules = array
 		(
 			'startdate' => array('required', 'date'),
 			'enddate' => array('required', 'after:startdate'),
@@ -158,7 +158,7 @@ class StoryController extends BaseController {
 			return View::make('uploadGet')->with_errors($validator)->with('types', $types)->with('studies',$studies);
 		}
 		else
-		{
+		{*/
 			$story = new Story;
 			$story->startdate = Input::get('startdate');
 			$story->enddate = Input::get('enddate');
@@ -226,7 +226,7 @@ class StoryController extends BaseController {
 			$orgStorylocation->save();
 			
 			return View::make('uploadAdd');
-		}
+		//}
 	}
 
 }
