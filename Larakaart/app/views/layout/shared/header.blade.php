@@ -37,7 +37,7 @@
 								</a>
 							</li>-->
 							<?php 
-							if(isset($_SESSION['id'])){
+							/*if(isset($_SESSION['id'])){
 								echo '<li id="loginButton">
 									<a href="logout.php">
 										<span class="text-danger">Log out</span>
@@ -49,7 +49,7 @@
 										<span class="text-primary">Login</span>
 									</a>
 								</li>';
-							}
+							}*/
 							?>
 						</ul>
 					</div>
