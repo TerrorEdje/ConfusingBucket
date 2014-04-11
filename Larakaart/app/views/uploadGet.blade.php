@@ -2,15 +2,15 @@
 
 @section('content')	
 	@if($errors->has())
-		<ul>
+		<!--<ul>
 				foreach($messages->all('<li>:message</li>') as $message)
 				{
 					{{ $message }}
 				}
-		</ul>
+		</ul>-->
 	@endif
 
-	{{ Form::open(array('url' => 'story/add'), 'post') }}
+	<!--{{ Form::open(array('url' => 'story/add'), 'post') }}
 		Information about the student:</br>
 		First name: {{ Form::text('stufirstname') }}</br>
 		Insertion: {{ Form::text('stuinsertion') }}</br>
@@ -47,5 +47,5 @@
 		</br>
 		{{Form::submit('Upload Story')}}
 		{{Form::token()}}
-	{{ Form::close() }}
+	{{ Form::close() }}-->
 @stop
