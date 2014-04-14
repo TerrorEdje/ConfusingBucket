@@ -18,13 +18,17 @@ function getMaxHeight()
     return getHeight() - 50;
 }
 
-function hide()
+function hideContent()
 {
 	$('#section').stop();
 	
 	$('#section').animate({
 		top: getMaxHeight() + "px"
-	}, 1500);
+	}, 1500, function(){
+		$('#filter_container').animate({
+			right: "-" + ($('#filter_bar').width()+30) + "px"
+		}, 500)
+	});
 	
 	$('#showhide').css("transform","rotate(0deg)");
 	$('#showhide').css("-ms-transform","rotate(0deg)");
@@ -33,16 +37,21 @@ function hide()
 	$('#mapClick').css("top", getHeight() + "px");
 	
 	$('#map_button').unbind("click");
-	$('#map_button').one("click", function() { show(); return false; });
+	$('#map_button').one("click", function() { showContent(); return false; });
 }
 
-function show()
+function showContent()
 {
 	$('#section').stop();
+	$('filter_container').stop();
 	
-	$('#section').animate({
-		top: "0px"
-	}, 1500);
+	$('#filter_container').animate({
+		right: "-" + ($('#filter_bar').width()+115) + "px"
+	}, 500).add(
+		$('#section').animate({
+			top: "0px"
+		}, 1500)
+	);
 	
 	$('#showhide').css("transform","rotate(180deg)");
 	$('#showhide').css("-ms-transform","rotate(180deg)");
@@ -51,7 +60,34 @@ function show()
 	$('#mapClick').css("top", '0px');
 	
 	$('#map_button').unbind("click");
-	$('#map_button').one("click", function() { hide(); return false; });
+	$('#map_button').one("click", function() { hideContent(); return false; });
+	
+	$('#filter_button').unbind("click");
+	$('#filter_button').one("click", function() { showFilter(); return false; })
+}
+
+function hideFilter()
+{
+	$('#filter_container').stop();
+	
+	$('#filter_container').animate({
+		right: "-" + ($('#filter_bar').width()+30) + "px"
+	}, 1500);
+	
+	$('#filter_button').unbind("click");
+	$('#filter_button').one("click", function() { showFilter(); return false; })
+}
+
+function showFilter()
+{
+	$('#filter_container').stop();
+	
+	$('#filter_container').animate({
+		right: "0px"
+	}, 1500);
+	
+	$('#filter_button').unbind("click");
+	$('#filter_button').one("click", function() { hideFilter(); return false; })
 }
 
 function load(page)
@@ -60,12 +96,73 @@ function load(page)
 	$('#content').load(page);
 	$('.active').removeClass("active");
 	$('.'+page.split('.')[0]+'menu').addClass("active");
-	show()
+	showContent()
 }
 
+function filterChanged()
+{
+	value = $("#filter_input").val();
+	
+	country = $("#filter-country").prop("checked");
+	city = $("#filter-city").prop("checked");
+	person = $("#filter-person").prop("checked");
+	
+	var filteredMarkers = [];
+	
+	for( i = 0; i < locations.length; ++i)
+	{
+		if (
+			( // Zoek op
+				(country && locations[i].country.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
+				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
+				(person && locations[i].person.toLowerCase().indexOf(value.toLowerCase()) != -1)
+			) &&
+			( // Type
+				true
+			) &&
+			( //Opleiding
+				true
+			)
+		)
+		{
+			var newMarker = new google.maps.Marker({
+				id: locations[i].id, 
+				position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+				title: locations[i].title,
+				icon: 'images/markers/default.png'
+			});
+			
+			filteredMarkers.push(newMarker);
+			
+			google.maps.event.addListener(newMarker,'click',function() {
+				load('storylist.php?locationid='+this.id);
+			});
+		}
+	}
+	
+	filterMarkers(filteredMarkers);
+}
+
+function resetFilter()
+{
+	$("#filter_input").val("");
+	
+	$("#filter-country").prop("checked", true);
+	
+	$("#filter-internship").prop("checked", true);
+	$("#filter-graduation").prop("checked", true);
+	$("#filter-minor").prop("checked", true);
+	$("#filter-eps").prop("checked", true);
+	
+	filterChanged();
+}
+
+//Balk goedzetten bij window resize
 $(window).on('resize', function(){
 	var maxHeight = getMaxHeight();
 	
+    $('#mapClick').css("top", maxHeight + "px");
+    
 	if (!($('#section').css('top') == "0px" || ($('#section').css('top') == "")))
 	{
 		if (maxHeight > 50)
@@ -74,3 +171,38 @@ $(window).on('resize', function(){
 		}
 	}
 });
+
+$( document ).ready(function() {
+	//Stop scrollen van de pagina (content mag wel gescrolld worden)
+    $('body').mousedown(function(e){
+		if(e.button==1 && !($('.scroll').has($(e.target)).length))return false
+	});
+	
+	$('html, body').on('touchmove',function(e){
+		if(!$('.scroll').has($(e.target)).length)
+			e.preventDefault();
+	});
+	
+	//Knoppen laten werken
+	$('#map_button').one("click", function() { hideContent(); return false; });
+	$('#filter_button').one("click", function() { showFilter(); return false; });
+	
+	//filter
+	//$("#filter_input").change(function(){ filterChanged() });
+	$("#filter_form").submit(function(event){
+		event.preventDefault();
+		filterChanged();
+		return false;
+	});
+	
+	$(".filter_reset").click(function(){
+		resetFilter();
+	});
+	
+});
+
+//failsafe: toch gescrolld? Zet de pagina weer terug.
+$(window).scroll(function(e){
+    $(this).scrollTop(0);
+});
+

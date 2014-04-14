@@ -1,5 +1,5 @@
 <?php
-	include 'model/study.php';
+	include_once 'model/study.php';
 		
 	function getAllStudies($connection)
 	{

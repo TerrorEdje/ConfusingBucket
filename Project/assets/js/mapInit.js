@@ -1,4 +1,6 @@
 var map;
+var mc;
+var markers = [];
 var centerLatlng = new google.maps.LatLng(0,0);
 
 function initialize() {
@@ -13,29 +15,36 @@ function initialize() {
 	
 	for( i = 0; i < locations.length; ++i)
 	{
-		//var contentstring = '<p><a href="storylist_detail.php?'.locations[i].id</p>';
-	
-		var infowindow = new google.maps.InfoWindow({
-			//content: contentstring
-		});
-		
 		var marker = new google.maps.Marker({
 			id: locations[i].id, 
 			position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-			map: map,
-			title: locations[i].title
+			title: locations[i].title,
+			icon: 'images/markers/default.png'
 		});
+		
+		markers.push(marker);
 		
 		google.maps.event.addListener(marker,'click',function() {
 			load('storylist.php?locationid='+this.id);
 		});
-		
-
-		
-		//google.maps.event.addListener(marker, 'click', function() {
-		//	infowindow.open(map,marker);
-		//});
 	}
+	var mcOptions = {zoomOnClick: false, 
+					gridSize: 41,
+					imagePath: 'images/markers/m',
+					averageCenter: true};
+	mc = new MarkerClusterer(map, markers, mcOptions);
+}
+
+function resetMarkers()
+{
+	mc.clearMarkers();
+	mc.addMarkers(markers);
+}
+
+function filterMarkers(newMarkers)
+{
+	mc.clearMarkers();
+	mc.addMarkers(newMarkers);
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

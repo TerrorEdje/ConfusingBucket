@@ -1,5 +1,5 @@
 <?php
-	include 'model/user.php';
+	include_once 'model/user.php';
 		
 	function getAllUsers($connection)
 	{
