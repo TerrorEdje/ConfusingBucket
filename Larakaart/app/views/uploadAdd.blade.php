@@ -1,6 +1,6 @@
 @extends('layout.main')
 
 @section('content')	
-	Hoi hoi</br>
+	De story is geupload.</br>
 	
 @stop
