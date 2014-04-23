@@ -35,6 +35,11 @@ Route::get('storydetail/{id}', array(
 	'as'	=> 'storydetail',
 	'uses'	=> 'StoryController@storydetail'
 ));
+
+Route::get('vuldatabase', array(
+	'as'	=> 'vuldatabase',
+	'uses'	=> 'DatabaseController@vullen'
+));
 /*
 Route::get('story/upload', array(
 	'as'	=> 'Story-upload-get',
