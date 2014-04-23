@@ -120,6 +120,119 @@ class DatabaseController extends BaseController {
 		$student->study_id = 1;
 		$student->save();
 		
+		
+		
+		
+		
+		
+		
+		# Het toevoegen van organization types
+		$type = new Organization_type();
+		$type->name = "school";
+		$type->save();
+		
+		$type->name = "business";
+		$type->save();
+		
+		# Het toevoegen van locaties: Afstuderen
+		$location = new Location();
+		$location->country = "Belgium";
+		$location->city = "Herentals";
+		$location->latitude = ;
+		$location->longitude = ;
+		$location->save();
+		
+		$location->country = "New Zealand";
+		$location->city = "Wellington";
+		$location->latitude = ;
+		$location->longitude = ;
+		$location->save();
+
+		# Het toevoegen van locaties: EPS
+		$location->country = "Denmark";
+		$location->city = "Copenhagen";
+		$location->latitude = ;
+		$location->longitude = ;
+		$location->save();
+		
+		$location->country = "Finland";
+		$location->city = "Vaasa";
+		$location->latitude = ;
+		$location->longitude = ;
+		$location->save();
+		
+		# Het toevoegen van locaties: Minor
+		$location->country = "Spain";
+		$location->city = "Valencia";
+		$location->latitude = ;
+		$location->longitude = ;
+		$location->save();
+		
+		$location->country = "Norway";
+		$location->city = "Kongsberg";
+		$location->latitude = ;
+		$location->longitude = ;
+		$location->save();
+		
+		# Het toevoegen van locaties: Stage
+		$location->country = "Australia";
+		$location->city = "Sydney";
+		$location->latitude = ;
+		$location->longitude = ;
+		$location->save();
+		
+		$location->country = "Suriname";
+		$location->city = "Paramaribo";
+		$location->latitude = ;
+		$location->longitude = ;
+		$location->save();
+		
+		# Het toevoegen van de organisaties: Afstuderen
+		$organization = new Organization();
+		$organization->name "Kraft Foods";
+		$organization->type "business";
+		$organization->location_id 1;
+		$organization->save();
+		
+		$organization->name "Weltec Centre for Smart Product";
+		$organization->type "business";
+		$organization->location_id 2;
+		$organization->save();
+		
+		# Het toevoegen van de organisaties: EPS
+		$organization->name "Copenhagen University of Engineering";
+		$organization->type "school";
+		$organization->location_id 3;
+		$organization->save();
+		
+		$organization->name "Novia University of Applied Sciences";
+		$organization->type "school";
+		$organization->location_id 4;
+		$organization->save();
+		
+		# Het toevoegen van de organisaties: Minor
+		$organization->name "Universidad Politécnica de Valencia";
+		$organization->type "school";
+		$organization->location_id 5;
+		$organization->save();
+		
+		$organization->name "Noorwegen, Buskerud University";
+		$organization->type "school";
+		$organization->location_id 6;
+		$organization->save();
+		
+		# Het toevoegen van de organisaties: Stage
+		$organization->name "Australian Centre for Field Robotics";
+		$organization->type "business";
+		$organization->location_id 7;
+		$organization->save();
+		
+		$organization->name "Suralco LLC";
+		$organization->type "business";
+		$organization->location_id 8;
+		$organization->save();
+		
+		
 	
 	
 	
@@ -127,26 +240,17 @@ class DatabaseController extends BaseController {
 	
 		# Het toevoegen van de activity types
 		$type = new Activity_type();
-		$type->name = "Internship";
+		$type->name = "internship";
 		$type->save();
 		
 		$type->name = "EPS";
 		$type->save();
 		
-		$type->name = "Final thesis";
+		$type->name = "final thesis";
 		$type->save();
 		
-		$type->name = "Minor";
-		$type->save();
-		
-
-		
-		
-		
-		
-		
-		
-			
+		$type->name = "minor";
+		$type->save();	
 			
 		return View::make('gevuld');	
 	}
