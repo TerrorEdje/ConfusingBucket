@@ -1,12 +1,12 @@
 <?php
 
-class Storylocation extends Eloquent {
+class Activity extends Eloquent {
 	public $timestamps = false;
 	/**
 	 * The database table used by the model.
 	 *
 	 * @var string
 	 */
-	protected $table = 'storylocation';
+	protected $table = 'activity';
 }
 ?>
