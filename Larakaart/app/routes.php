@@ -36,9 +36,9 @@ Route::get('storydetail/{id}', array(
 	'uses'	=> 'StoryController@storydetail'
 ));
 
-Route::get('organization/detail', array(
+Route::get('organization/detail/{id}', array(
 	'as'	=> 'organizationdetail',
-	'uses'	=> 'OrganizatonController@organizationdetail'
+	'uses'	=> 'OrganizationController@organizationdetail'
 ));
 /*
 Route::get('story/upload', array(

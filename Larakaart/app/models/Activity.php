@@ -8,5 +8,11 @@ class Activity extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'activity';
+	
+	public function getStudyName()
+	{
+		$study = Study::find($this->id);
+		return $study->name;
+	}
 }
 ?>
