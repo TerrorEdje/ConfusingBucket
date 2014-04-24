@@ -2,17 +2,17 @@
 
 @section('content')	
 
-	{{ Form::open(array('url' => 'activity/upload'), 'post') }} <!-- Url toevoegen -->
+	{{ Form::open(array('url' => 'activity/upload'), 'post') }}
 	
 		Information about the activity:</br>
 		
-		Type: {{Form::select('act_type',$types,Input::old('name')) }}</br> <!-- Types moeten uit db gehaald worden en meegegeven worden -->
+		Type: {{Form::select('act_type',$types,Input::old('name')) }}</br>
 		Name: {{ Form::text('name') }}</br>
 		Description: </br>{{ Form::textarea('description') }}</br>
 		Startdate: {{ Form::text('startdate') }}</br>
 		Enddate: {{ Form::text('enddate') }}</br>
-		Study: {{Form::select('study',$studies,Input::old('name')) }}</br> <!-- Opleidingen moeten uit db gehaald worden en meegegeven worden -->
-		Status: {{Form::select('statuses',$statuses,Input::old('name')) }}</br> <!-- Statussen moeten uit db gehaald worden en meegegeven worden -->
+		Study: {{Form::select('study',$studies,Input::old('name')) }}</br>
+		Status: {{Form::select('statuses',$statuses,Input::old('name')) }}</br>
 		
 		</br>
 		Information about the experience:</br>
