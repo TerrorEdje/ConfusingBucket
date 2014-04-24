@@ -5,252 +5,365 @@ class DatabaseController extends BaseController {
 	public function vullen()
 	{
 		# Het toevoegen van scholen
-		$school = new School();
-		$school->name = "Avans Hogeschool";
-		$school->website = "www.avans.nl";
-		$school->save();
+		$avans = new School();
+		$avans->name = "Avans Hogeschool";
+		$avans->website = "www.avans.nl";
+		$avans->save();
 		
 		# Het toevoegen van opleidingen
-		$study = new Study();
-		$study->name = "industrial engineering";
-		$study->school_id = 1;
-		$study->save();
+		$ie = new Study();
+		$ie->name = "industrial engineering";
+		$ie->school_id = $avans->id;
+		$ie->save();
 		
-		$study->name = "mechanical engineering";
-		$study->school_id = 1;
-		$study->save();
+		$me = new Study();
+		$me->name = "mechanical engineering";
+		$me->school_id = $avans->id;
+		$me->save();
+
+		$ce = new Study();
+		$ce->name = "computer engineering";
+		$ce->school_id = $avans->id;
+		$ce->save();
 		
-		$study->name = "computer engineering";
-		$study->school_id = 1;
-		$study->save();
+		$cs = new Study();
+		$cs->name = "computer science";
+		$cs->school_id = $avans->id;
+		$cs->save();
 		
-		$study->name = "computer science";
-		$study->school_id = 1;
-		$study->save();
+		$ee = new Study();
+		$ee->name = "electrical engineering";
+		$ee->school_id = $avans->id;
+		$ee->save();
 		
-		$study->name = "electrical engineering";
-		$study->school_id = 1;
-		$study->save();
-		
-		$study->name = "communication and multimedia design";
-		$study->school_id = 1;
-		$study->save();
+		$cmd = new Study();
+		$cmd->name = "communication and multimedia design";
+		$cmd->school_id = $avans->id;
+		$cmd->save();
 		
 		# Het toevoegen van studenten: Afstuderen
-		$student = new Student();
-		$student->firstname = "Donald";
-		$student->surname = "Rutgers";
-		$student->study_id = 1; 
-		$student->save();
-	
-		$student->firstname = "Jorick";
-		$student->surname = "Dam";
-		$student->study_id = 1;
-		$student->save();
+		$student1 = new Student();
+		$student1->firstname = "Donald";
+		$student1->surname = "Rutgers";
+		$student1->study_id = $ie->id; 
+		$student1->save();
 		
-		$student->firstname = "Arthur";
-		$student->surname = "Kampschöer";
-		$student->study_id = 2;
-		$student->save();
+		$student2 = new Student();	
+		$student2->firstname = "Jorick";
+		$student2->surname = "Dam";
+		$student2->study_id = $ie->id; 
+		$student2->save();
+		
+		$student3 = new Student();
+		$student3->firstname = "Arthur";
+		$student3->surname = "Kampschöer";
+		$student3->study_id = $me->id;
+		$student3->save();
 	
 		# Het toevoegen van studenten: EPS
-		$student->firstname = "Bram";
-		$student->surname = "Bosch";
-		$student->study_id = 3;
-		$student->save();
+		$student4 = new Student();
+		$student4->firstname = "Bram";
+		$student4->surname = "Bosch";
+		$student4->study_id = $ce->id;
+		$student4->save();
 		
-		$student->firstname = "Paul";
-		$student->surname = "Claessens";
-		$student->study_id = 3;
-		$student->save();
+		$student5 = new Student();
+		$student5->firstname = "Paul";
+		$student5->surname = "Claessens";
+		$student5->study_id = $ce->id;
+		$student5->save();
 		
-		$student->firstname = "Rudy";
-		$student->surname = "Chambon";
-		$student->study_id = 4;
-		$student->save();
+		$student6 = new Student();
+		$student6->firstname = "Rudy";
+		$student6->surname = "Chambon";
+		$student6->study_id = $cs->id;
+		$student6->save();
 		
-		$student->firstname = "Rick";
-		$student->insertion = "van";
-		$student->surname = "Uden";
-		$student->study_id = 5;
-		$student->save();
+		$student7 = new Student();
+		$student7->firstname = "Rick";
+		$student7->insertion = "van";
+		$student7->surname = "Uden";
+		$student7->study_id = $ee->id;
+		$student7->save();
 		
 		# Het toevoegen van studenten: Minor
-		$student->firstname = "Joey";
-		$student->insertion = "van der";
-		$student->surname = "Veeken";
-		$student->study_id = 6;
-		$student->save();
+		$student8 = new Student();
+		$student8->firstname = "Joey";
+		$student8->insertion = "van der";
+		$student8->surname = "Veeken";
+		$student8->study_id = $cmd->id;
+		$student8->save();
 		
-		$student->firstname = "Dominique";
-		$student->surname = "Lankheet";
-		$student->study_id = 6;
-		$student->save();
+		$student9 = new Student();
+		$student9->firstname = "Dominique";
+		$student9->surname = "Lankheet";
+		$student9->study_id = $cmd->id;
+		$student9->save();
 		
-		$student->firstname = "Paul";
-		$student->surname = "Plantaz";
-		$student->study_id = 6;
-		$student->save();
+		$student10 = new Student();
+		$student10->firstname = "Paul";
+		$student10->surname = "Plantaz";
+		$student10->study_id = $cmd->id;
+		$student10->save();
 		
-		$student->firstname = "Linda";
-		$student->surname = "Janssen";
-		$student->study_id = 6;
-		$student->save();
+		$student11 = new Student();
+		$student11->firstname = "Linda";
+		$student11->surname = "Janssen";
+		$student11->study_id = $cmd->id;
+		$student11->save();
 		
 		# Het toevoegen van studenten: Stage
-		$student->firstname = "Luc";
-		$student->insertion = "de";
-		$student->surname = "Wolf";
-		$student->study_id = 2;
-		$student->save();
+		$student12 = new Student();
+		$student12->firstname = "Luc";
+		$student12->insertion = "de";
+		$student12->surname = "Wolf";
+		$student12->study_id = $me->id;
+		$student12->save();
 		
-		$student->firstname = "Lukas";
-		$student->insertion = "van der";
-		$student->surname = "Linden";
-		$student->study_id = 2;
-		$student->save();
+		$student13 = new Student();
+		$student13->firstname = "Lukas";
+		$student13->insertion = "van der";
+		$student13->surname = "Linden";
+		$student13->study_id = $me->id;
+		$student13->save();
 		
-		$student->firstname = "Pepijn";
-		$student->surname = "Veldhuizen";
-		$student->study_id = 1;
-		$student->save();
+		$student14 = new Student();		
+		$student14->firstname = "Pepijn";
+		$student14->surname = "Veldhuizen";
+		$student14->study_id = $ie->id;
+		$student14->save();
 		
-		$student->firstname = "Kevin";
-		$student->surname = "Tai-Tin-Woei";
-		$student->study_id = 1;
-		$student->save();
-		
-		
-		
-		
-		
-		
-		
+		$student15 = new Student();
+		$student15->firstname = "Kevin";
+		$student15->surname = "Tai-Tin-Woei";
+		$student15->study_id = $ie->id;
+		$student15->save();
+			
 		# Het toevoegen van organization types
-		$type = new Organization_type();
-		$type->name = "school";
-		$type->save();
+		$school = new Organization_type();
+		$school->name = "school";
+		$school->save();
 		
-		$type->name = "business";
-		$type->save();
+		$company = new Organization_type();
+		$company->name = "company";
+		$company->save();
 		
 		# Het toevoegen van locaties: Afstuderen
-		$location = new Location();
-		$location->country = "Belgium";
-		$location->city = "Herentals";
-		$location->latitude = ;
-		$location->longitude = ;
-		$location->save();
+		$herentals = new Location();
+		$herentals->country = "Belgium";
+		$herentals->city = "Herentals";
+		$herentals->latitude = ;
+		$herentals->longitude = ;
+		$herentals->save();
 		
-		$location->country = "New Zealand";
-		$location->city = "Wellington";
-		$location->latitude = ;
-		$location->longitude = ;
-		$location->save();
+		$wellington = new Location();
+		$wellington->country = "New Zealand";
+		$wellington->city = "Wellington";
+		$wellington->latitude = ;
+		$wellington->longitude = ;
+		$wellington->save();
 
 		# Het toevoegen van locaties: EPS
-		$location->country = "Denmark";
-		$location->city = "Copenhagen";
-		$location->latitude = ;
-		$location->longitude = ;
-		$location->save();
+		$copenhagen = new Location();
+		$copenhagen->country = "Denmark";
+		$copenhagen->city = "Copenhagen";
+		$copenhagen->latitude = ;
+		$copenhagen->longitude = ;
+		$copenhagen->save();
 		
-		$location->country = "Finland";
-		$location->city = "Vaasa";
-		$location->latitude = ;
-		$location->longitude = ;
-		$location->save();
+		$vaasa = new Location();
+		$vaasa->country = "Finland";
+		$vaasa->city = "Vaasa";
+		$vaasa->latitude = ;
+		$vaasa->longitude = ;
+		$vaasa->save();
 		
 		# Het toevoegen van locaties: Minor
-		$location->country = "Spain";
-		$location->city = "Valencia";
-		$location->latitude = ;
-		$location->longitude = ;
-		$location->save();
+		$valencia = new Location();
+		$valencia->country = "Spain";
+		$valencia->city = "Valencia";
+		$valencia->latitude = ;
+		$valencia->longitude = ;
+		$valencia->save();
 		
-		$location->country = "Norway";
-		$location->city = "Kongsberg";
-		$location->latitude = ;
-		$location->longitude = ;
-		$location->save();
+		$kongsberg = new Location();
+		$kongsberg->country = "Norway";
+		$kongsberg->city = "Kongsberg";
+		$kongsberg->latitude = ;
+		$kongsberg->longitude = ;
+		$kongsberg->save();
 		
 		# Het toevoegen van locaties: Stage
-		$location->country = "Australia";
-		$location->city = "Sydney";
-		$location->latitude = ;
-		$location->longitude = ;
-		$location->save();
+		$sydney = new Location();
+		$sydney->country = "Australia";
+		$sydney->city = "Sydney";
+		$sydney->latitude = ;
+		$sydney->longitude = ;
+		$sydney->save();
 		
-		$location->country = "Suriname";
-		$location->city = "Paramaribo";
-		$location->latitude = ;
-		$location->longitude = ;
-		$location->save();
+		$paramaribo = new Location();
+		$paramaribo->country = "Suriname";
+		$paramaribo->city = "Paramaribo";
+		$paramaribo->latitude = ;
+		$paramaribo->longitude = ;
+		$paramaribo->save();
 		
 		# Het toevoegen van de organisaties: Afstuderen
-		$organization = new Organization();
-		$organization->name "Kraft Foods";
-		$organization->type "business";
-		$organization->location_id 1;
-		$organization->save();
+		$kraft = new Organization();
+		$kraft->name = "Kraft Foods";
+		$kraft->type = $company->name;
+		$kraft->location_id = $herentals->id;
+		$kraft->save();
 		
-		$organization->name "Weltec Centre for Smart Product";
-		$organization->type "business";
-		$organization->location_id 2;
-		$organization->save();
+		$weltec = new Organization();
+		$weltec->name = "Weltec Centre for Smart Product";
+		$weltec->type = $company->name;
+		$weltec->location_id = $wellington->id;
+		$weltec->save();
 		
 		# Het toevoegen van de organisaties: EPS
-		$organization->name "Copenhagen University of Engineering";
-		$organization->type "school";
-		$organization->location_id 3;
-		$organization->save();
+		$copenhagenUni = new Organization();
+		$copenhagenUni->name = "Copenhagen University of Engineering";
+		$copenhagenUni->type = $school->name;
+		$copenhagenUni->location_id = $copenhagen->id;
+		$copenhagenUni->save();
 		
-		$organization->name "Novia University of Applied Sciences";
-		$organization->type "school";
-		$organization->location_id 4;
-		$organization->save();
+		$novia = new Organization();
+		$novia->name = "Novia University of Applied Sciences";
+		$novia->type = $school->name;
+		$novia->location_id = $vaasa->id;
+		$novia->save();
 		
 		# Het toevoegen van de organisaties: Minor
-		$organization->name "Universidad Politécnica de Valencia";
-		$organization->type "school";
-		$organization->location_id 5;
-		$organization->save();
+		$politécnica = new Organization();
+		$politécnica->name = "Universidad Politécnica de Valencia";
+		$politécnica->type = $school->name;
+		$politécnica->location_id = $valencia->id;
+		$politécnica->save();
 		
-		$organization->name "Noorwegen, Buskerud University";
-		$organization->type "school";
-		$organization->location_id 6;
-		$organization->save();
+		$buskerud = new Organization();
+		$buskerud->name = "Noorwegen, Buskerud University";
+		$buskerud->type = $school->name;
+		$buskerud->location_id = $kongsberg->id;
+		$buskerud->save();
 		
 		# Het toevoegen van de organisaties: Stage
-		$organization->name "Australian Centre for Field Robotics";
-		$organization->type "business";
-		$organization->location_id 7;
-		$organization->save();
+		$robotics = new Organization();
+		$robotics->name = "Australian Centre for Field Robotics";
+		$robotics->type = $company->name;
+		$robotics->location_id = $sydney->id;
+		$robotics->save();
 		
-		$organization->name "Suralco LLC";
-		$organization->type "business";
-		$organization->location_id 8;
-		$organization->save();
-		
-		
-	
-	
-	
-	
+		$suralco = new Organization();
+		$suralco->name = "Suralco LLC";
+		$suralco->type = $company->name;
+		$suralco->location_id $paramaribo;
+		$suralco->save();
 	
 		# Het toevoegen van de activity types
-		$type = new Activity_type();
-		$type->name = "internship";
-		$type->save();
+		$internship = new Activity_type();
+		$internship->name = "internship";
+		$internship->save();
 		
-		$type->name = "EPS";
-		$type->save();
+		$eps = new Activity_type();
+		$eps->name = "EPS";
+		$eps->save();
 		
-		$type->name = "final thesis";
-		$type->save();
+		$finalThesis = new Activity_type();
+		$finalThesis->name = "final thesis";
+		$finalThesis->save();
 		
-		$type->name = "minor";
-		$type->save();	
+		$minor = new Activity_type();
+		$minor->name = "minor";
+		$minor->save();
+	
+		# Het toevoegen van activity_status
+		$open = new Activity_status();
+		$open->name = "open";
+		$open->save();
+		
+		$closed = new Activity_status();
+		$closed->name = "closed";
+		$closed->save();
+		
+		# Het toevoegen van activity: Afstuderen
+		$activity1 = new Activity();
+		$activity1->name = "Final thesis Kraft Foods";
+		$activity1->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity1->type = $finalThesis->name;
+		$activity1->status = $closed->name;
+		$activity1->organization_id = $kraft->id;
+		$activity1->save();
+		
+		$activity2 = new Activity();
+		$activity2->name = "Final thesis Weltec Centre for Smart Product";
+		$activity2->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity2->type = $finalThesis->name;
+		$activity2->status = $closed->name;
+		$activity2->organization_id = $weltec->id;
+		$activity2->save();
+
+		# Het toevoegen van activity: EPS
+		$activity3 = new Activity();
+		$activity3->name = "EPS Copenhagen University of Engineering";
+		$activity3->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity3->type = $eps->name;
+		$activity3->status = $closed->name;
+		$activity3->organization_id = $copenhagenUni->id;
+		$activity3->save();
+		
+		$activity4 = new Activity();
+		$activity4->name = "EPS Novia University of Applied Sciences";
+		$activity4->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity4->type = $eps->name;
+		$activity4->status = $closed->name;
+		$activity4->organization_id = $novia->id;
+		$activity4->save();
+		
+		# Het toevoegen van activity: Minor
+		$activity5 = new Activity();
+		$activity5->name = "Minor Universidad Politécnica de Valencia";
+		$activity5->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity5->type = $minor->name;
+		$activity5->status = $closed->name;
+		$activity5->organization_id = $politécnica->id;
+		$activity5->save();
+		
+		$activity6 = new Activity();
+		$activity6->name = "Minor Noorwegen, Buskerud University";
+		$activity6->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity6->type = $minor->name;
+		$activity6->status = $closed->name;
+		$activity6->organization_id = $buskerud->id;
+		$activity6->save();
+		
+		$activity7 = new Activity();
+		$activity7->name = "Minor Copenhagen University of Engineering";
+		$activity7->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity7->type = $minor->name;
+		$activity7->status = $closed->name;
+		$activity7->organization_id = $copenhagenUni->id;
+		$activity7->save();
+		
+		# Het toevoegen van activity: Stage
+		$activity8 = new Activity();
+		$activity8->name = "Internship Australian Centre for Field Robotics";
+		$activity8->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity8->type = $internship->name;
+		$activity8->status = $closed->name;
+		$activity8->organization_id = $robotics->id;
+		$activity8->save();
+		
+		$activity9 = new Activity();
+		$activity9->name = "Internship Suralco LLC";
+		$activity9->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$activity9->type = $internship->name;
+		$activity9->status = $closed->name;
+		$activity9->organization_id = $suralco->id;
+		$activity9->save();
+		
+	
+	
 			
 		return View::make('gevuld');	
 	}
