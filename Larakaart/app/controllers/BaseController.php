@@ -16,64 +16,66 @@ class BaseController extends Controller {
 		{
 			$mapLocations = Array();
 			
-			$locations = Location::all();
-			foreach($locations as $location)
+			$organizations = Organization::all();
+			foreach($organizations as $organization)
 			{
 				$mapLocation = Array();
-                  
                   //Locatie toevoegen
-				$location = Location::where('id','=',$storyLocation['location_id'])->get();
-                  if (count($location) > 0)
-                  {
-                      $location = $location[0];
-                      $mapLocation['id']          = $location['id'];
-                      $mapLocation['country']     = $location['country'];
-                      $mapLocation['city']        = $location['city'];
-                      $mapLocation['streetname']  = $location['streetname'];
-                      $mapLocation['number']      = $location['number'];
-                      $mapLocation['zipcode']     = $location['zipcode'];
-                      $mapLocation['latitude']    = $location['latitude'];
-                      $mapLocation['longitude']   = $location['longitude'];
-                  }
-                  
+				$location = Location::find($organization['location_id']);
+                if ($location != null) //ALS RESULT NIET LEEG IS
+                {
+                    $mapLocation['id']          = $location['id'];
+                    $mapLocation['country']     = $location['country'];
+                    $mapLocation['city']        = $location['city'];
+                    $mapLocation['streetname']  = $location['streetname'];
+                    $mapLocation['number']      = $location['number'];
+                    $mapLocation['zipcode']     = $location['zipcode'];
+                    $mapLocation['latitude']    = $location['latitude'];
+                    $mapLocation['longitude']   = $location['longitude'];
+                }
+				else
+				{
+					echo 'Error';
+				}
+				
+                
+				/*
 				$story = Story::where('id','=',$storyLocation['story_id'])->get();
 				if (count($story) > 0)
-                  {
-                      //Type toevoegen
-                      $mapLocation['storyType'] = $story[0]['type'];
-                      
-                      //Studentnaam toevoegen
-                      $student = Student::where('id','=',$story[0]['student_id'])->get();
-                      if (count($student) > 0)
-                      {
-                          $student = $student[0];
-                          if ($student['insertion'] != null)
-                          {
-                              $mapLocation['person'] = $student['firstname'] . " " . $student['insertion'] . " " . $student['surname'];
-                          }
-                          else
-                          {
-                              $mapLocation['person'] = $student['firstname'] . " " . $student['surname'];
-                          }
-                      }
-                      else
-                      {
-                          $mapLocation['person'] = "";
-                      }
-                      
-                      //Opleiding toevoegen
-                      $study = Study::where('id','=',$story[0]['study_id'])->get();
-                      if (count($study) > 0)
-                      {
-                          $study = $study[0];
-                          $mapLocation['study'] = $study['name'];
-                      }
-				}
-                  
-                  array_push($mapLocations,$mapLocation);
-			
+                {
+                    //Type toevoegen
+                    $mapLocation['storyType'] = $story[0]['type'];
+                    
+                    //Studentnaam toevoegen
+                    $student = Student::where('id','=',$story[0]['student_id'])->get();
+                    if (count($student) > 0)
+                    {
+                        $student = $student[0];
+                        if ($student['insertion'] != null)
+                        {
+                            $mapLocation['person'] = $student['firstname'] . " " . $student['insertion'] . " " . $student['surname'];
+                        }
+                        else
+                        {
+                            $mapLocation['person'] = $student['firstname'] . " " . $student['surname'];
+                        }
+                    }
+                    else
+                    {
+                        $mapLocation['person'] = "";
+                    }
+                    
+                    //Opleiding toevoegen
+                    $study = Study::where('id','=',$story[0]['study_id'])->get();
+                    if (count($study) > 0)
+                    {
+                        $study = $study[0];
+                        $mapLocation['study'] = $study['name'];
+                    }
+				}*/
+                array_push($mapLocations,$mapLocation);
 			}
-			
+								var_dump($mapLocations);
 			
 			$this->layout = View::make($this->layout);
 			View::share('mapLocations', $mapLocations);
