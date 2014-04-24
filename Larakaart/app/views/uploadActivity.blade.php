@@ -18,7 +18,6 @@
 		Information about the experience:</br>
 		
 		Description: </br>{{ Form::textarea('description') }}</br>
-		Startdate: {{ Form::text('startdate') }}</br>
 		Score: {{ Form::text('score') }}</br>
 	
 		</br>
