@@ -19,7 +19,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`location`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`location` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `country` VARCHAR(100) NOT NULL ,
   `city` VARCHAR(100) NOT NULL ,
   `streetname` VARCHAR(100) NULL ,
@@ -35,7 +35,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`organization`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`organization` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   `type` VARCHAR(45) NOT NULL ,
   `location_id` INT NOT NULL ,
@@ -79,7 +79,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`school`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`school` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   `website` VARCHAR(245) NULL ,
   PRIMARY KEY (`id`) )
@@ -90,7 +90,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`study`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`study` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   `description` TEXT NULL ,
   `school_id` INT NOT NULL ,
@@ -108,7 +108,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`activity`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`activity` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
   `description` TEXT NOT NULL ,
   `startdate` DATETIME NULL ,
@@ -148,7 +148,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`student`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`student` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `firstname` VARCHAR(45) NOT NULL ,
   `insertion` VARCHAR(45) NULL ,
   `surname` VARCHAR(45) NOT NULL ,
@@ -168,7 +168,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`experience`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`experience` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `activity_id` INT NOT NULL ,
   `description` TEXT NOT NULL ,
   `cijfer` DECIMAL NULL ,
@@ -194,7 +194,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`link`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`link` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `experience_id` INT NOT NULL ,
   `link` VARCHAR(245) NOT NULL ,
   PRIMARY KEY (`id`) ,
@@ -211,7 +211,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`image`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`image` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `thumbnail_url` VARCHAR(245) NOT NULL ,
   `url` VARCHAR(245) NOT NULL ,
   `experience_id` INT NOT NULL ,
@@ -230,7 +230,7 @@ ENGINE = InnoDB;
 -- Table `egjhatti_db2`.`user`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`user` (
-  `id` INT NOT NULL ,
+  `id` INT NOT NULL AUTO_INCREMENT ,
   `username` VARCHAR(45) NOT NULL ,
   `email` VARCHAR(45) NOT NULL ,
   `google_token` VARCHAR(100) NULL ,
