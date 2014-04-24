@@ -189,23 +189,23 @@ class DatabaseController extends BaseController {
 		$kongsberg = new Location();
 		$kongsberg->country = "Norway";
 		$kongsberg->city = "Kongsberg";
-		$kongsberg->latitude = ;
-		$kongsberg->longitude = ;
+		$kongsberg->latitude = 59.66888;
+		$kongsberg->longitude =  	9.65019;
 		$kongsberg->save();
 		
 		# Het toevoegen van locaties: Stage
 		$sydney = new Location();
 		$sydney->country = "Australia";
 		$sydney->city = "Sydney";
-		$sydney->latitude = ;
-		$sydney->longitude = ;
+		$sydney->latitude = -33.86749;
+		$sydney->longitude =  	151.20699;
 		$sydney->save();
 		
 		$paramaribo = new Location();
 		$paramaribo->country = "Suriname";
 		$paramaribo->city = "Paramaribo";
-		$paramaribo->latitude = ;
-		$paramaribo->longitude = ;
+		$paramaribo->latitude = 5.85204;
+		$paramaribo->longitude =  	-55.20383;
 		$paramaribo->save();
 		
 		# Het toevoegen van de organisaties: Afstuderen
