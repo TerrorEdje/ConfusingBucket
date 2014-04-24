@@ -46,4 +46,10 @@ Route::post('story/add', array(
 	'uses'	=> 'StoryController@uploadAdd'
 ));
 */
+
+Route::get('activity/upload', array(
+	'as'	=> 'Activity-upload-get',
+	'uses'	=> 'StoryController@uploadActivity'
+));
+
 ?>

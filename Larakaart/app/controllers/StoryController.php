@@ -228,5 +228,13 @@ class StoryController extends BaseController {
 			return View::make('uploadAdd');
 		//}
 	}
+	
+	public function uploadActivity()
+	{
+		$types = array('' => 'Select...') + Activity_type::lists('name','name');
+		$studies = array('' => 'Select...') + Study::lists('name','id');
+		$statuses = array('' => 'Select...') + Activity_status::lists('name','name');
+		return View::make('uploadActivity')->with('types', $types)->with('studies',$studies)->with('statuses',$statuses);
+	}
 
 }
