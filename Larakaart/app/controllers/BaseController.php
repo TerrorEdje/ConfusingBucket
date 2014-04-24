@@ -20,7 +20,7 @@ class BaseController extends Controller {
 			foreach($organizations as $organization)
 			{
 				$mapLocation = Array();
-                  //Locatie toevoegen
+                //Locatie toevoegen
 				$location = Location::find($organization['location_id']);
                 if ($location != null) //ALS RESULT NIET LEEG IS
                 {
@@ -33,50 +33,25 @@ class BaseController extends Controller {
                     $mapLocation['latitude']    = $location['latitude'];
                     $mapLocation['longitude']   = $location['longitude'];
                 }
-				else
-				{
-					echo 'Error';
-				}
 				
-                
-				/*
-				$story = Story::where('id','=',$storyLocation['story_id'])->get();
-				if (count($story) > 0)
+				/*$activity = Activity::where('organization_id','=',$organization['id'])->get();
+				if ($activity != null)
                 {
+					echo 'test';
+					var_dump($activity);
                     //Type toevoegen
-                    $mapLocation['storyType'] = $story[0]['type'];
-                    
-                    //Studentnaam toevoegen
-                    $student = Student::where('id','=',$story[0]['student_id'])->get();
-                    if (count($student) > 0)
-                    {
-                        $student = $student[0];
-                        if ($student['insertion'] != null)
-                        {
-                            $mapLocation['person'] = $student['firstname'] . " " . $student['insertion'] . " " . $student['surname'];
-                        }
-                        else
-                        {
-                            $mapLocation['person'] = $student['firstname'] . " " . $student['surname'];
-                        }
-                    }
-                    else
-                    {
-                        $mapLocation['person'] = "";
-                    }
+                    //$mapLocation['type'] = $activity['type'];
                     
                     //Opleiding toevoegen
-                    $study = Study::where('id','=',$story[0]['study_id'])->get();
-                    if (count($study) > 0)
+                    $study = Study::where('id','=',$activity[0]['study_id'])->get();
+                    if ($study != null)
                     {
                         $study = $study[0];
                         $mapLocation['study'] = $study['name'];
                     }
 				}*/
                 array_push($mapLocations,$mapLocation);
-			}
-								var_dump($mapLocations);
-			
+			}			
 			$this->layout = View::make($this->layout);
 			View::share('mapLocations', $mapLocations);
 		}

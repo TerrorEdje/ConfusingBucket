@@ -109,7 +109,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`activity` (
   `id` INT NOT NULL AUTO_INCREMENT ,
-  `name` VARCHAR(45) NOT NULL ,
+  `name` VARCHAR(128) NOT NULL ,
   `description` TEXT NOT NULL ,
   `startdate` DATETIME NULL ,
   `enddate` DATETIME NULL ,

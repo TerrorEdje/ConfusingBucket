@@ -5,9 +5,8 @@
 	//var storyListURL = "{{ URL::route('storylist2') }}".split("%7Bids%7D")[0];
 	var locations = new Array();
 	@foreach ($mapLocations as $location)
-	
 		@if (isset($location['latitude']) && isset($location['longitude']))
-        
+			
 			locations.push( {  id:{{$location["id"]}},
 								country:"{{$location["country"]}}",
 								city:"{{$location["city"]}}",
@@ -16,7 +15,7 @@
 								zipcode:"{{$location["zipcode"]}}",
 								lat:{{$location["latitude"]}},
 								lng:{{$location["longitude"]}},
-								title:"{{$location["streetname"]}} {{$location["number"]}}"});
+								title:"{{$location["streetname"]}} {{$location["number"]}}" });
 		@endif
 	@endforeach
 </script>
