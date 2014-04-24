@@ -470,6 +470,25 @@ class DatabaseController extends BaseController {
 		$experience15->accepted=True;
 		$experience15->student_id= $student15->id;
 		$experience15->save();
+		
+		
+		
+		# Het toevoegen van crud operaties
+		$create = new Crud_operation();
+		$create->type = "create";
+		$create->save();
+		
+		$delete = new Crud_operation();
+		$delete->type = "delete";
+		$delete->save();
+		
+		$read = new Crud_operation();
+		$read->type = "read";
+		$read->save();
+		
+		$update = new Crud_operation();
+		$update->type = "update";
+		$update->save();
 			
 		return View::make('gevuld');	
 	}
