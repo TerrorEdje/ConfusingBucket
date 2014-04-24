@@ -257,7 +257,7 @@ class DatabaseController extends BaseController {
 		$suralco = new Organization();
 		$suralco->name = "Suralco LLC";
 		$suralco->type = $company->name;
-		$suralco->location_id $paramaribo;
+		$suralco->location_id = $paramaribo;
 		$suralco->save();
 	
 		# Het toevoegen van de activity types
