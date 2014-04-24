@@ -152,38 +152,38 @@ class DatabaseController extends BaseController {
 		$herentals = new Location();
 		$herentals->country = "Belgium";
 		$herentals->city = "Herentals";
-		$herentals->latitude = ;
-		$herentals->longitude = ;
+		$herentals->latitude = 51.17685;
+		$herentals->longitude = 4.83559;
 		$herentals->save();
 		
 		$wellington = new Location();
 		$wellington->country = "New Zealand";
 		$wellington->city = "Wellington";
-		$wellington->latitude = ;
-		$wellington->longitude = ;
+		$wellington->latitude = -41.28646;
+		$wellington->longitude = 174.77624;
 		$wellington->save();
 
 		# Het toevoegen van locaties: EPS
 		$copenhagen = new Location();
 		$copenhagen->country = "Denmark";
 		$copenhagen->city = "Copenhagen";
-		$copenhagen->latitude = ;
-		$copenhagen->longitude = ;
+		$copenhagen->latitude = 55.67610;
+		$copenhagen->longitude = 12.56834;
 		$copenhagen->save();
 		
 		$vaasa = new Location();
 		$vaasa->country = "Finland";
 		$vaasa->city = "Vaasa";
-		$vaasa->latitude = ;
-		$vaasa->longitude = ;
+		$vaasa->latitude = 63.09514;
+		$vaasa->longitude = 21.61651;
 		$vaasa->save();
 		
 		# Het toevoegen van locaties: Minor
 		$valencia = new Location();
 		$valencia->country = "Spain";
 		$valencia->city = "Valencia";
-		$valencia->latitude = ;
-		$valencia->longitude = ;
+		$valencia->latitude = 39.46991;
+		$valencia->longitude = -0.37629;
 		$valencia->save();
 		
 		$kongsberg = new Location();
