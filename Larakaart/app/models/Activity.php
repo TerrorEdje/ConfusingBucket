@@ -11,8 +11,11 @@ class Activity extends Eloquent {
 	
 	public function getStudyName()
 	{
-		$study = Study::find($this->id);
-		return $study->name;
+		$study = Study::find($this->study_id);
+		if (isset($study))
+		{
+			return $study->name;
+		}
 	}
 }
 ?>
