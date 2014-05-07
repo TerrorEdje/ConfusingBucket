@@ -32,7 +32,7 @@
                                     <div>
                                         <h3>{{ $activity['name'] }}</h3>
                                         <p>
-                                            @if ($activity['status'] == 'Open')
+                                            @if ($activity['status'] == 'open')
                                                 <b class="statusopen">{{ $activity['status'] }}</b>
                                             @else
                                                 <b class="statusclosed">{{$activity['status']}}</b>
