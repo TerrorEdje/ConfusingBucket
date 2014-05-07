@@ -9,7 +9,7 @@
 			<td class="otherTDTH">{{ $organization['name'] }}</td>
 			<td class="otherTDTH">{{ $organization['type'] }}</td>
 			<td class="otherTDTH">{{ $organization['website'] }}</td>
-			<td class="otherTDTH">Linkje</td>
+			<td class="otherTDTH"><a href="#" onclick="load('{{ URL::route('organizationdetail', array($organization['id'])) }}','organizationlist_detailmenu'); return false;">Detail</a></td>
 		</tr>
 	@endforeach
 	</table>
