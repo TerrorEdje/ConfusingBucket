@@ -40,7 +40,7 @@ Er wordt data uit de database gehaald.
 **Stappen:**
 1. Vul de database met het vulscript
 2. Open de website.
-3. Klik op Stories
+3. Klik op Organizations
 
 **Verwacht resultaat:**
 Controleer of de volgende record er staat: Afstudeerstage, Norway, Oslo, 2014-03-02, 2014-03-08, Robin Collard.
@@ -56,26 +56,26 @@ Wordt data uit de database gehaald.
 3. Klik op de marker in Frankrijk, Tarbes.
 
 **Verwacht resultaat:**
-Er wordt een tabel getoont met meerdere stories.
+Er wordt een tabel getoont met meerdere organizations.
 
-##Testcase 4.1: Detail story weergeven op de website (tabel)
+##Testcase 4.1: Detail organization weergeven op de website (tabel)
 
 **Test:**
-Details van een story worden weergegeven.
+Details van een organization worden weergegeven.
 
 **Stappen:**
 1. Vul de database met het vulscript.
 2. Open de website.
 3. Klik op Stories.
-4. Klik op details bij de eerste story van de stories.
+4. Klik op details bij de eerste organization van de organizations.
 
 **Verwacht resultaat:**
-Je komt op een pagina met de story van Robin Collard. Gegevens: Afstudeerstage in Norway.
+Je komt op een pagina met de organization van Robin Collard. Gegevens: Afstudeerstage in Norway.
 
-##Testcase 4.2: Detail story weergeven op de website (marker)
+##Testcase 4.2: Detail organization weergeven op de website (marker)
 
 **Test:**
-Details van een story worden weergegeven
+Details van een organization worden weergegeven
 
 **Stappen:**
 1. Vul de database met het vulscript.
@@ -83,7 +83,7 @@ Details van een story worden weergegeven
 3. Klik op de marker die in Oslo staat.
 
 **Verwacht resultaat:**
-Je komt op een pagina met de story van Robin Collard. Gegevens: Afstudeerstage in Norway.
+Je komt op een pagina met de organization van Robin Collard. Gegevens: Afstudeerstage in Norway.
 
 ##Testcase 5.1: Auth check -- OUD
 
