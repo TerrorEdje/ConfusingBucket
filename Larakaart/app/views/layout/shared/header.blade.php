@@ -17,9 +17,19 @@
 					</div>
 					<div class="navbar-collapse collapse">
 						<ul class="nav navbar-nav nav-stacked">
-							<li class="storylistmenu storylist_detailmenu">
-								<a href="#" onclick="load('{{ URL::route('storylist') }}', 'storylistmenu'); return false;">
-									Stories
+							<li class="organizationlistmenu organizationdetailmenu">
+								<a href="#" onclick="load('{{ URL::route('organizationlist') }}', 'organizationlistmenu'); return false;">
+									Organizations
+								</a>
+							</li>
+                            <li class="activity_uploadmenu">
+								<a href="#" onclick="load('{{ URL::route('Activity-upload-get') }}', 'activity_uploadmenu'); return false;">
+									Upload Activity
+								</a>
+							</li>
+                            <li class="experience_uploadmenu">
+								<a href="#" onclick="load('{{ URL::route('Experience-upload-get') }}', 'experience_uploadmenu'); return false;">
+									Upload Experience
 								</a>
 							</li>
 							<?php 

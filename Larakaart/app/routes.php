@@ -24,16 +24,33 @@ Route::get('storylist/{ids}', array(
 	'as'	=> 'storylist2',
 	'uses'	=> 'StoryController@storylist'
 ));
-
+/*
 Route::get('story/upload', array(
 	'as'	=> 'Story-upload-get',
 	'uses'	=> 'StoryController@uploadGet'
 
 ));
+*/
 
-Route::get('storydetail/{id}', array(
-	'as'	=> 'storydetail',
-	'uses'	=> 'StoryController@storydetail'
+
+Route::get('organization/list', array(
+	'as'	=> 'organizationlist',
+	'uses'	=> 'OrganizationController@organizationlist'
+));
+
+Route::get('organization/list/{ids}', array(
+	'as'	=> 'organizationlist2',
+	'uses'	=> 'OrganizationController@organizationlist'
+));
+
+Route::get('organization/detail/{id}', array(
+	'as'	=> 'organizationdetail',
+	'uses'	=> 'OrganizationController@organizationdetail'
+));
+
+Route::get('vuldatabase', array(
+	'as'	=> 'vuldatabase',
+	'uses'	=> 'DatabaseController@vullen'
 ));
 /*
 Route::get('story/upload', array(
@@ -46,4 +63,25 @@ Route::post('story/add', array(
 	'uses'	=> 'StoryController@uploadAdd'
 ));
 */
+
+Route::get('activity/upload', array(
+	'as'	=> 'Activity-upload-get',
+	'uses'	=> 'StoryController@uploadActivity'
+));
+
+Route::post('activity/add', array(
+	'as'	=> 'Activity-upload-add',
+	'uses'	=> 'StoryController@uploadActivityAdd'
+));
+
+Route::get('experience/upload', array(
+	'as'	=> 'Experience-upload-get',
+	'uses'	=> 'StoryController@uploadExperience'
+));
+
+Route::post('experience/add', array(
+	'as'	=> 'Experience-upload-add',
+	'uses'	=> 'StoryController@uploadExperienceAdd'
+));
+
 ?>

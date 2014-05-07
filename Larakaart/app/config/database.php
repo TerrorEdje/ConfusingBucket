@@ -51,13 +51,13 @@ return array(
 			'database' => __DIR__.'/../database/production.sqlite',
 			'prefix'   => '',
 		),
-
+		
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '212.83.232.237:3306',
-			'database'  => 'db_develop',
-			'username'  => 'confusingbucket',
-			'password'  => 'bucket007',
+			'host'      => 'databases.aii.avans.nl:3306',
+			'database'  => 'egjhatti_db2',
+			'username'  => 'egjhatti',
+			'password'  => "Ab12345",
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
