@@ -231,10 +231,52 @@ class StoryController extends BaseController {
 	
 	public function uploadActivity()
 	{
+		$organizations = array('' => 'Select...') + Organization::lists('name','id');
 		$types = array('' => 'Select...') + Activity_type::lists('name','name');
 		$studies = array('' => 'Select...') + Study::lists('name','id');
 		$statuses = array('' => 'Select...') + Activity_status::lists('name','name');
-		return View::make('uploadActivity')->with('types', $types)->with('studies',$studies)->with('statuses',$statuses);
+		return View::make('uploadActivity')->with('organizations', $organizations)->with('types', $types)->with('studies',$studies)->with('statuses',$statuses);
+	}
+	
+	public function uploadActivityAdd()
+	{
+		$activity = new Activity;
+		$activity->name = Input::get('name');
+		$activity->description = Input::get('description');
+		$activity->startdate = Input::get('startdate');
+		$activity->enddate = Input::get('enddate');
+		$activity->type = Input::get('type');
+		$activity->status = Input::get('status');
+		$activity->organization_id = Input::get('organization');
+		$activity->study_id = Input::get('study');
+		$activity->save();
+		return View::make('uploadActivityAdd');
+	}
+	
+	public function uploadExperience()
+	{
+		$activities = array('' => 'Select...') + Activity::lists('name','id');
+		
+		$students = array();
+		$allStudents = Student::all();
+		foreach ($allStudents as $student) {
+			$name = $student->firstname ." ". $student->insertion ." ". $student->surname;
+			$students[$student->id] = $name;
+		}
+		
+		return View::make('uploadExperience')->with('activities', $activities)->with('students', $students);
+	}
+	
+	public function uploadExperienceAdd()
+	{
+		$experience = new Experience;
+		$experience->activity_id = Input::get('activity');
+		$experience->description = Input::get('description');
+		$experience->cijfer = Input::get('score'); # Cijfer staat op dit moment Nederlands in de database
+		$experience->accepted = false;
+		$experience->student_id = Input::get('student');
+		$experience->save();
+		return View::make('uploadExperienceAdd');
 	}
 
 }
