@@ -34,9 +34,15 @@ class OrganizationController extends BaseController {
 		{
 			$ids = explode(",", $ids);
 			
+            $organizations = array();
+            
 			foreach($ids as $id)
 			{
-				$organizations = Organization::where('id','=',$id)->get();
+                $DBorganizations = Organization::where('id','=',$id)->get();
+                foreach ($DBorganizations as $organization)
+                {
+                    array_push($organizations,$organization);
+                }
 			}
 		}
 		else

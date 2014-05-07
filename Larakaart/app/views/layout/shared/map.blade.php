@@ -2,6 +2,7 @@
 {{HTML::script('assets/js/markerclusterer.js')}}
 <script type="text/javascript">
     var organizationDetailURL = "{{ URL::route('organizationdetail') }}".split("%7Bid%7D")[0];
+    var organizationListURL = "{{ URL::route('organizationlist') }}".split("%7Bid%7D")[0];
     
 	var locations = new Array();
 	@foreach ($mapLocations as $location)

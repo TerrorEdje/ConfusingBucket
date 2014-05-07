@@ -1070,7 +1070,7 @@ ClusterIcon.prototype.triggerClusterClick = function() {
 	}
   }
   
-  load(storyListURL + markerIds);
+  load(organizationListURL + "/" + markerIds);
 
   if (markerClusterer.isZoomOnClick()) {
     // Zoom into the cluster.
