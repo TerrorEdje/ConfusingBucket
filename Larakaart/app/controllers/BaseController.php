@@ -6,33 +6,47 @@ class BaseController extends Controller {
 	 * Setup the layout used by the controller.
 	 *
 	 * @return void
+	 *
+	 * activity, organization, location, student, study
+	 *
 	 */
 	protected function setupLayout()
 	{
 		if ( ! is_null($this->layout))
 		{
 			$mapLocations = Array();
-			
-			/*$storyLocations = Storylocation::all();
-			foreach($storyLocations as $storyLocation)
+			$organizations = Organization::all();
+			foreach($organizations as $organization)
 			{
-				if ($storyLocation['location_type'] == "Organization") //Alleen organisaties staan op de kaart
-				{
-					$mapLocation = Array();
+				$mapLocation = Array();
+                //Locatie toevoegen
+				$location = Location::find($organization['location_id']);
+                if ($location != null) //ALS RESULT NIET LEEG IS
+                {
+                    $mapLocation['id']          = $location['id'];
+                    $mapLocation['country']     = $location['country'];
+                    $mapLocation['city']        = $location['city'];
+                    $mapLocation['streetname']  = $location['streetname'];
+                    $mapLocation['number']      = $location['number'];
+                    $mapLocation['zipcode']     = $location['zipcode'];
+                    $mapLocation['latitude']    = $location['latitude'];
+                    $mapLocation['longitude']   = $location['longitude'];
+                }
+				
+				/*$activity = Activity::where('organization_id','=',$organization['id'])->get();
+				if ($activity != null)
+                {
+					echo 'test';
+					var_dump($activity);
+                    //Type toevoegen
+                    //$mapLocation['type'] = $activity['type'];
                     
-                    //Locatie toevoegen
-					$location = Location::where('id','=',$storyLocation['location_id'])->get();
-                    if (count($location) > 0)
+                    //Opleiding toevoegen
+                    $study = Study::where('id','=',$activity[0]['study_id'])->get();
+                    if ($study != null)
                     {
-                        $location = $location[0];
-                        $mapLocation['id']          = $location['id'];
-                        $mapLocation['country']     = $location['country'];
-                        $mapLocation['city']        = $location['city'];
-                        $mapLocation['streetname']  = $location['streetname'];
-                        $mapLocation['number']      = $location['number'];
-                        $mapLocation['zipcode']     = $location['zipcode'];
-                        $mapLocation['latitude']    = $location['latitude'];
-                        $mapLocation['longitude']   = $location['longitude'];
+                        $study = $study[0];
+                        $mapLocation['study'] = $study['name'];
                     }
                     
 					$story = Story::where('id','=',$storyLocation['story_id'])->get();
@@ -73,7 +87,9 @@ class BaseController extends Controller {
 				}
 			}*/
 			
-			
+				
+                array_push($mapLocations,$mapLocation);
+			}			
 			$this->layout = View::make($this->layout);
 			View::share('mapLocations', $mapLocations);
 		}

@@ -211,4 +211,20 @@ footer > p{
 	border-bottom-left-radius: 5px;
 }
 
+.error{
+	color: red;
+}
 
+.statusopen{
+	color: green;
+}
+
+.statusclosed{
+	color: red;
+}
+
+#thumbnailactivities{
+	color: white;
+	border-radius: 4px;
+	display: block;
+}

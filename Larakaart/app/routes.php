@@ -35,6 +35,21 @@ Route::get('storydetail/{id}', array(
 	'as'	=> 'storydetail',
 	'uses'	=> 'StoryController@storydetail'
 ));
+
+Route::get('organization/list', array(
+	'as'	=> 'organizationlist',
+	'uses'	=> 'OrganizationController@organizationlist'
+));
+
+Route::get('organization/list/{ids}', array(
+	'as'	=> 'organizationlist2',
+	'uses'	=> 'OrganizationController@organizationlist'
+));
+
+Route::get('organization/detail/{id}', array(
+	'as'	=> 'organizationdetail',
+	'uses'	=> 'OrganizationController@organizationdetail'
+));
 /*
 Route::get('story/upload', array(
 	'as'	=> 'Story-upload-get',
