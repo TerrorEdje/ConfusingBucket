@@ -27,5 +27,25 @@ class OrganizationController extends BaseController {
 		return View::make('organizationdetail')->with('errors',$errors)->with('organization',$organization)->with('activities',$activities)->with('experiences',$experiences);
 	}
 
+	public function organizationlist($ids = "empty")
+	{
+
+		if ($ids != "empty")
+		{
+			$ids = explode(",", $ids);
+			
+			foreach($ids as $id)
+			{
+				$organizations = Organization::where('id','=',$id)->get();
+			}
+		}
+		else
+		{
+			$organizations = Organization::all();
+		}
+		
+		return View::make('organizationlist', array('organizations' => $organizations));
+	}
+
 }
 ?>
