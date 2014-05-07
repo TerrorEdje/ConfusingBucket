@@ -90,6 +90,7 @@ class BaseController extends Controller {
 				
                 array_push($mapLocations,$mapLocation);
 			}			
+
 			$this->layout = View::make($this->layout);
 			View::share('mapLocations', $mapLocations);
 		}

@@ -63,4 +63,25 @@ Route::post('story/add', array(
 	'uses'	=> 'StoryController@uploadAdd'
 ));
 */
+
+Route::get('activity/upload', array(
+	'as'	=> 'Activity-upload-get',
+	'uses'	=> 'StoryController@uploadActivity'
+));
+
+Route::post('activity/add', array(
+	'as'	=> 'Activity-upload-add',
+	'uses'	=> 'StoryController@uploadActivityAdd'
+));
+
+Route::get('experience/upload', array(
+	'as'	=> 'Experience-upload-get',
+	'uses'	=> 'StoryController@uploadExperience'
+));
+
+Route::post('experience/add', array(
+	'as'	=> 'Experience-upload-add',
+	'uses'	=> 'StoryController@uploadExperienceAdd'
+));
+
 ?>
