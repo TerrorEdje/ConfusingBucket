@@ -37,7 +37,7 @@
 								</a>
 							</li>-->
 							<?php 
-							/*if(isset($_SESSION['id'])){
+							if(isset($_SESSION['id'])){
 								echo '<li id="loginButton">
 									<a href="logout.php">
 										<span class="text-danger">Log out</span>
@@ -45,11 +45,11 @@
 								</li>';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
-									<a href="#" onclick="load(\'login.php\'); return false;">
+									<a href="#" onclick="load(\'{{ URL::route(\'login\') }}\', \'loginmenu\'); return false;">
 										<span class="text-primary">Login</span>
 									</a>
 								</li>';
-							}*/
+							}
 							?>
 						</ul>
 					</div>
