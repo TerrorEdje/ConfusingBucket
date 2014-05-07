@@ -1,6 +1,3 @@
-@extends('layout.main')
-
-@section('content')
 	<div class="container">
 		<div class="row">
 		@foreach ($errors as $error)
@@ -62,6 +59,7 @@
 								@foreach ($experiences as $experience)
 									<div class="col-sm-6 col-md-4" id="thumbnailexperiences">
 										<div>
+											<h3>{{$experience->getStudentName()}}</h3>
 											@if ($experience['description'] != null)
 											<p>
 												{{$experience['description'] }}<br/>
@@ -76,4 +74,3 @@
 			@endif
 		@endif
 	</div>
-@stop

@@ -8,5 +8,14 @@ class Experience extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'experience';
+	
+	public function getStudentName()
+	{
+		$student = Student::find($this->student_id);
+		if (isset($student))
+		{
+			return $student->firstname . " " . $student-> insertion . " " . $student->surname;
+		}
+	}
 }
 ?>
