@@ -22,6 +22,16 @@
 									Organizations
 								</a>
 							</li>
+                            <li class="activity_uploadmenu">
+								<a href="#" onclick="load('{{ URL::route('Activity-upload-get') }}', 'activity_uploadmenu'); return false;">
+									Upload Activity
+								</a>
+							</li>
+                            <li class="experience_uploadmenu">
+								<a href="#" onclick="load('{{ URL::route('Experience-upload-get') }}', 'experience_uploadmenu'); return false;">
+									Upload Experience
+								</a>
+							</li>
 							<?php 
 								if(isset($_SESSION['id'])){
 								echo '<li class="upload_storymenu">
