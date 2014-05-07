@@ -13,8 +13,8 @@ class BaseController extends Controller {
 		{
 			$mapLocations = Array();
 			
-			$storyLocations = Storylocation::all();
-			foreach($storyLocations as $storyLocation)
+			//$storyLocations = Storylocation::all();
+			/*foreach($storyLocations as $storyLocation)
 			{
 				if ($storyLocation['location_type'] == "Organization") //Alleen organisaties staan op de kaart
 				{
@@ -71,7 +71,7 @@ class BaseController extends Controller {
                     
                     array_push($mapLocations,$mapLocation);
 				}
-			}
+			}*/
 			
 			
 			$this->layout = View::make($this->layout);
