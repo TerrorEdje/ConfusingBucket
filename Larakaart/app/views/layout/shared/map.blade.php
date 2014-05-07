@@ -1,8 +1,6 @@
 {{HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;key=AIzaSyB4ofW1mgEVlMIoa48rMP0WkAksHAALU18')}}
 {{HTML::script('assets/js/markerclusterer.js')}}
 <script type="text/javascript">
-	//var storyDetailURL = "{{ URL::route('storydetail') }}".split("%7Bid%7D")[0];
-	//var storyListURL = "{{ URL::route('storylist2') }}".split("%7Bids%7D")[0];
     var organizationDetailURL = "{{ URL::route('organizationdetail') }}".split("%7Bid%7D")[0];
     
 	var locations = new Array();

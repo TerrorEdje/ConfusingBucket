@@ -17,6 +17,7 @@ class BaseController extends Controller {
 			$mapLocations = Array();
 			$organizations = Organization::all();
 			foreach($organizations as $organization)
+
 			{
 				$mapLocation = Array();
                 //Locatie toevoegen
@@ -85,8 +86,7 @@ class BaseController extends Controller {
                     
                     array_push($mapLocations,$mapLocation);
 				}
-			}*/
-			
+			}*/			
 				
                 array_push($mapLocations,$mapLocation);
 			}			

@@ -24,17 +24,14 @@ Route::get('storylist/{ids}', array(
 	'as'	=> 'storylist2',
 	'uses'	=> 'StoryController@storylist'
 ));
-
+/*
 Route::get('story/upload', array(
 	'as'	=> 'Story-upload-get',
 	'uses'	=> 'StoryController@uploadGet'
 
 ));
+*/
 
-Route::get('storydetail/{id}', array(
-	'as'	=> 'storydetail',
-	'uses'	=> 'StoryController@storydetail'
-));
 
 Route::get('organization/list', array(
 	'as'	=> 'organizationlist',
@@ -49,6 +46,11 @@ Route::get('organization/list/{ids}', array(
 Route::get('organization/detail/{id}', array(
 	'as'	=> 'organizationdetail',
 	'uses'	=> 'OrganizationController@organizationdetail'
+));
+
+Route::get('vuldatabase', array(
+	'as'	=> 'vuldatabase',
+	'uses'	=> 'DatabaseController@vullen'
 ));
 /*
 Route::get('story/upload', array(
