@@ -15,7 +15,7 @@ class DatabaseController extends BaseController {
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van de Activity types
 		$internship = new Activity_type;
-		$internship->name = "internship";
+		$internship->name = "Internship";
 		$internship->save();
 		
 		$eps = new Activity_type;
@@ -23,11 +23,11 @@ class DatabaseController extends BaseController {
 		$eps->save();
 		
 		$finalThesis = new Activity_type;
-		$finalThesis->name = "final thesis";
+		$finalThesis->name = "Final thesis";
 		$finalThesis->save();
 		
 		$minor = new Activity_type;
-		$minor->name = "minor";
+		$minor->name = "Minor";
 		$minor->save();
 /*-----------------------------------------------------------------*/		
 		# Het toevoegen van Activity_status
@@ -177,37 +177,37 @@ class DatabaseController extends BaseController {
 		# Het toevoegen van opleidingen
 		$ie = new Study;
 		$ie->id = 1;
-		$ie->name = "industrial engineering";
+		$ie->name = "Industrial Engineering";
 		$ie->school_id = $avans->id;
 		$ie->save();
 		
 		$me = new Study;
 		$me->id = 2;
-		$me->name = "mechanical engineering";
+		$me->name = "Mechanical Engineering";
 		$me->school_id = $avans->id;
 		$me->save();
 
 		$ce = new Study;
 		$ce->id = 3;
-		$ce->name = "computer engineering";
+		$ce->name = "Computer Engineering";
 		$ce->school_id = $avans->id;
 		$ce->save();
 		
 		$cs = new Study;
 		$cs->id = 4;
-		$cs->name = "computer science";
+		$cs->name = "Computer Science";
 		$cs->school_id = $avans->id;
 		$cs->save();
 		
 		$ee = new Study;
 		$ee->id = 5;
-		$ee->name = "electrical engineering";
+		$ee->name = "Electrical Engineering";
 		$ee->school_id = $avans->id;
 		$ee->save();
 		
 		$cmd = new Study;
 		$cmd->id = 6;
-		$cmd->name = "communication and multimedia design";
+		$cmd->name = "Communication and Multimedia Design";
 		$cmd->school_id = $avans->id;
 		$cmd->save();
 /*-----------------------------------------------------------------*/			
@@ -332,6 +332,9 @@ class DatabaseController extends BaseController {
 		$Activity1->type = $finalThesis->name;
 		$Activity1->status = $closed->name;
 		$Activity1->organization_id = $kraft->id;
+		$Activity1->startdate = '2012-01-01';
+		$Activity1->enddate = '2013-01-01';
+		$Activity1->study_id = $ie->id;
 		$Activity1->save();
 		
 		$Activity2 = new Activity;
@@ -341,6 +344,9 @@ class DatabaseController extends BaseController {
 		$Activity2->type = $finalThesis->name;
 		$Activity2->status = $closed->name;
 		$Activity2->organization_id = $weltec->id;
+		$Activity2->startdate = '2012-01-01';
+		$Activity2->enddate = '2013-01-01';
+		$Activity2->study_id = $me->id;
 		$Activity2->save();
 
 		# Het toevoegen van Activity: EPS
@@ -351,6 +357,9 @@ class DatabaseController extends BaseController {
 		$Activity3->type = $eps->name;
 		$Activity3->status = $closed->name;
 		$Activity3->organization_id = $copenhagenUni->id;
+		$Activity3->startdate = '2012-01-01';
+		$Activity3->enddate = '2013-01-01';
+		$Activity3->study_id = $ce->id;
 		$Activity3->save();
 		
 		$Activity4 = new Activity;
@@ -360,6 +369,9 @@ class DatabaseController extends BaseController {
 		$Activity4->type = $eps->name;
 		$Activity4->status = $closed->name;
 		$Activity4->organization_id = $novia->id;
+		$Activity4->startdate = '2012-01-01';
+		$Activity4->enddate = '2013-01-01';
+		$Activity4->study_id = $cs->id;
 		$Activity4->save();
 		
 		# Het toevoegen van Activity: Minor
@@ -370,6 +382,9 @@ class DatabaseController extends BaseController {
 		$Activity5->type = $minor->name;
 		$Activity5->status = $closed->name;
 		$Activity5->organization_id = $politecnica->id;
+		$Activity5->startdate = '2012-01-01';
+		$Activity5->enddate = '2013-01-01';
+		$Activity5->study_id = $cmd->id;
 		$Activity5->save();
 		
 		$Activity6 = new Activity;
@@ -379,6 +394,9 @@ class DatabaseController extends BaseController {
 		$Activity6->type = $minor->name;
 		$Activity6->status = $closed->name;
 		$Activity6->organization_id = $buskerud->id;
+		$Activity6->startdate = '2012-01-01';
+		$Activity6->enddate = '2013-01-01';
+		$Activity6->study_id = $cmd->id;
 		$Activity6->save();
 		
 		$Activity7 = new Activity;
@@ -388,6 +406,9 @@ class DatabaseController extends BaseController {
 		$Activity7->type = $minor->name;
 		$Activity7->status = $closed->name;
 		$Activity7->organization_id = $copenhagenUni->id;
+		$Activity7->startdate = '2012-01-01';
+		$Activity7->enddate = '2013-01-01';
+		$Activity7->study_id = $cmd->id;
 		$Activity7->save();
 		
 		# Het toevoegen van Activity: Stage
@@ -398,6 +419,9 @@ class DatabaseController extends BaseController {
 		$Activity8->type = $internship->name;
 		$Activity8->status = $closed->name;
 		$Activity8->organization_id = $robotics->id;
+		$Activity8->startdate = '2012-01-01';
+		$Activity8->enddate = '2013-01-01';
+		$Activity8->study_id = $me->id;
 		$Activity8->save();
 		
 		$Activity9 = new Activity;
@@ -407,6 +431,9 @@ class DatabaseController extends BaseController {
 		$Activity9->type = $internship->name;
 		$Activity9->status = $closed->name;
 		$Activity9->organization_id = $suralco->id;
+		$Activity9->startdate = '2012-01-01';
+		$Activity9->enddate = '2013-01-01';
+		$Activity9->study_id = $ie->id;
 		$Activity9->save();
 /*-----------------------------------------------------------------*/		
 		# Add experiences for final thesis'
