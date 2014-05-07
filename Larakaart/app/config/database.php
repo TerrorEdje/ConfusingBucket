@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '212.83.232.237:3306',
-			'database'  => 'db_develop',
-			'username'  => 'ConfusingDBucket',
-			'password'  => "VC0z*t}1J#xh='?",
+			'host'      => 'databases.aii.avans.nl:3306',
+			'database'  => 'egjhatti_db2',
+			'username'  => 'egjhatti',
+			'password'  => "Ab12345",
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
