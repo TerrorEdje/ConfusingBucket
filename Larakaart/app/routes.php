@@ -36,6 +36,16 @@ Route::get('storydetail/{id}', array(
 	'uses'	=> 'StoryController@storydetail'
 ));
 
+Route::get('organization/list', array(
+	'as'	=> 'organizationlist',
+	'uses'	=> 'OrganizationController@organizationlist'
+));
+
+Route::get('organization/list/{ids}', array(
+	'as'	=> 'organizationlist2',
+	'uses'	=> 'OrganizationController@organizationlist'
+));
+
 Route::get('organization/detail/{id}', array(
 	'as'	=> 'organizationdetail',
 	'uses'	=> 'OrganizationController@organizationdetail'
