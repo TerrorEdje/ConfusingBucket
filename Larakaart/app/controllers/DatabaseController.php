@@ -6,11 +6,11 @@ class DatabaseController extends BaseController {
 	{	
 		# Het toevoegen van organization types
 		$school = new Organization_type;
-		$school->name = "school";
+		$school->name = "School";
 		$school->save();
 		
 		$company = new Organization_type;
-		$company->name = "company";
+		$company->name = "Company";
 		$company->save();
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van de Activity types
@@ -179,7 +179,7 @@ class DatabaseController extends BaseController {
 		$cs->save();
 		
 		$ee = new Study;
-		$ee->id = 5		$ee->name = "Electrical Engineering";
+		$ee->name = "Electrical Engineering";
 		$ee->school_id = $avans->id;
 		$ee->save();
 		
