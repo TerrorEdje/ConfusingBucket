@@ -20,7 +20,7 @@ Route::group(array('before' => 'guest'), function() {
 
 		/*form storylist | post*/
 		Route::post('story/add', array(
-			'as'	=> 'Story-upload-add',
+			'as'	=> 'story-upload-add',
 			'uses'	=> 'StoryController@uploadAdd'
 		));
 
@@ -31,9 +31,9 @@ Route::group(array('before' => 'guest'), function() {
 	*/
 
 	/*login | get*/
-	Route::get('account/login', array(
-		'as'	=> 'account-login-get',
-		'uses'	=> 'AccountController@login'
+	Route::get('login', array(
+		'as'	=> 'login-get',
+		'uses'	=> 'loginController@getLogin'
 	));
 
 	/*all storylist | get*/
@@ -56,7 +56,7 @@ Route::group(array('before' => 'guest'), function() {
 
 	/*form story upload | get*/
 	Route::get('story/upload', array(
-		'as'	=> 'Story-upload-get',
+		'as'	=> 'story-upload-get',
 		'uses'	=> 'StoryController@uploadGet'
 	));
 

@@ -25,7 +25,7 @@
 							<?php 
 								if(isset($_SESSION['id'])){
 								echo '<li class="upload_storymenu">
-									<a href="#" onclick="load(\'' . URL::route('Story-upload-get') . '\', \'upload_storymenu\'); return false;">
+									<a href="#" onclick="load(\'' . URL::route('story-upload-get') . '\', \'upload_storymenu\'); return false;">
 										Upload Story
 									</a>
 								</li>';
@@ -45,7 +45,7 @@
 								</li>';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
-									<a href="#" onclick="load(\'{{ URL::route(\'login\') }}\', \'loginmenu\'); return false;">
+									<a href="#" onclick="load(\'' . URL::route('login-get') . '\', \'loginmenu\'); return false;">
 										<span class="text-primary">Login</span>
 									</a>
 								</li>';
