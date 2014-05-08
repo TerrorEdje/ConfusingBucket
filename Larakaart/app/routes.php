@@ -1,87 +1,79 @@
 <?php
 
+/*home screen | voor iedereen zichtbaar*/
 Route::get('/', array(
 	'as'	=> 'Home',
 	'uses'	=> 'IndexController@index'
 ));
 
-Route::get('test', array(
-	'as'	=> 'test',
-	'uses'	=> 'TestController@test1'
-));
 
-Route::get('account/login', array(
-	'as'	=> 'account-login-get',
-	'uses'	=> 'AccountController@login'
-));
-
-Route::get('storylist', array(
-	'as'	=> 'storylist',
-	'uses'	=> 'StoryController@storylist'
-));
-
-Route::get('storylist/{ids}', array(
-	'as'	=> 'storylist2',
-	'uses'	=> 'StoryController@storylist'
-));
 /*
-Route::get('story/upload', array(
-	'as'	=> 'Story-upload-get',
-	'uses'	=> 'StoryController@uploadGet'
-
-));
+| voor gasten | niet ingelogde mensen
 */
+Route::group(array('before' => 'guest'), function() {
 
+	Route::get('organization/list', array(
+		'as'	=> 'organizationlist',
+		'uses'	=> 'OrganizationController@organizationlist'
+	));
 
-Route::get('organization/list', array(
-	'as'	=> 'organizationlist',
-	'uses'	=> 'OrganizationController@organizationlist'
-));
+	Route::get('organization/list/{ids}', array(
+		'as'	=> 'organizationlist2',
+		'uses'	=> 'OrganizationController@organizationlist'
+	));
 
-Route::get('organization/list/{ids}', array(
-	'as'	=> 'organizationlist2',
-	'uses'	=> 'OrganizationController@organizationlist'
-));
+	Route::get('organization/detail/{id}', array(
+		'as'	=> 'organizationdetail',
+		'uses'	=> 'OrganizationController@organizationdetail'
+	));
 
-Route::get('organization/detail/{id}', array(
-	'as'	=> 'organizationdetail',
-	'uses'	=> 'OrganizationController@organizationdetail'
-));
+	/*
+	| cross site scripting safe | ALLE POST functies
+	*/
+	Route::group(array('before' => 'csrf'), function() {
 
-Route::get('vuldatabase', array(
-	'as'	=> 'vuldatabase',
-	'uses'	=> 'DatabaseController@vullen'
-));
-/*
-Route::get('story/upload', array(
-	'as'	=> 'Story-upload-get',
-	'uses'	=> 'StoryController@uploadGet'
-));
+		/*form activity | post*/
+		Route::post('activity/add', array(
+			'as'	=> 'Activity-upload-add',
+			'uses'	=> 'StoryController@uploadActivityAdd'
+		));
 
-Route::post('story/add', array(
-	'as'	=> 'Story-upload-add',
-	'uses'	=> 'StoryController@uploadAdd'
-));
-*/
+		/*form experiance | post*/
+		Route::post('experience/add', array(
+			'as'	=> 'Experience-upload-add',
+			'uses'	=> 'StoryController@uploadExperienceAdd'
+		));
 
-Route::get('activity/upload', array(
-	'as'	=> 'Activity-upload-get',
-	'uses'	=> 'StoryController@uploadActivity'
-));
+	});
 
-Route::post('activity/add', array(
-	'as'	=> 'Activity-upload-add',
-	'uses'	=> 'StoryController@uploadActivityAdd'
-));
+	/*
+	| NIET cross site scripting safe | ALLE GET functies
+	*/
 
-Route::get('experience/upload', array(
-	'as'	=> 'Experience-upload-get',
-	'uses'	=> 'StoryController@uploadExperience'
-));
+	/*login | get*/
+	Route::get('login', array(
+		'as'	=> 'login-get',
+		'uses'	=> 'loginController@getLogin'
+	));
 
-Route::post('experience/add', array(
-	'as'	=> 'Experience-upload-add',
-	'uses'	=> 'StoryController@uploadExperienceAdd'
-));
+	/*
+	| Na inloggen deze functies tonen bij bevoegheid || NOG IN TE BOUWEN!!!
+	*/
+	Route::get('vuldatabase', array(
+		'as'	=> 'vuldatabase',
+		'uses'	=> 'DatabaseController@vullen'
+	));
 
+	/* experiance form | get*/
+	Route::get('experience/upload', array(
+		'as'	=> 'Experience-upload-get',
+		'uses'	=> 'StoryController@uploadExperience'
+	));
+
+	Route::get('activity/upload', array(
+		'as'	=> 'Activity-upload-get',
+		'uses'	=> 'StoryController@uploadActivity'
+	));
+
+});
 ?>

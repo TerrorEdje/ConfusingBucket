@@ -86,6 +86,7 @@ class BaseController extends Controller {
                     
                     array_push($mapLocations,$mapLocation);
 				}
+
 			}*/			
 				
                 array_push($mapLocations,$mapLocation);

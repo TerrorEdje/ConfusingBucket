@@ -32,22 +32,13 @@
 									Upload Experience
 								</a>
 							</li>
-							<?php 
-								if(isset($_SESSION['id'])){
-								echo '<li class="upload_storymenu">
-									<a href="#" onclick="load(\'' . URL::route('Story-upload-get') . '\', \'upload_storymenu\'); return false;">
-										Upload Story
-									</a>
-								</li>';
-								}
-							?>
 							<!--<li class="authtestmenu">
 								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin
 								</a>
 							</li>-->
 							<?php 
-							/*if(isset($_SESSION['id'])){
+							if(isset($_SESSION['id'])){
 								echo '<li id="loginButton">
 									<a href="logout.php">
 										<span class="text-danger">Log out</span>
@@ -55,11 +46,11 @@
 								</li>';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
-									<a href="#" onclick="load(\'login.php\'); return false;">
+									<a href="#" onclick="load(\'' . URL::route('login-get') . '\', \'loginmenu\'); return false;">
 										<span class="text-primary">Login</span>
 									</a>
 								</li>';
-							}*/
+							}
 							?>
 						</ul>
 					</div>
