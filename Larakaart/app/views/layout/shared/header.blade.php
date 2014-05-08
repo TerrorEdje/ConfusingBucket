@@ -46,7 +46,7 @@
 								</li>';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
-									<a href="#" onclick="load(\'' . URL::route('login-get') . '\', \'loginmenu\'); return false;">
+									<a href="' . URL::route('login-get') .'">
 										<span class="text-primary">Login</span>
 									</a>
 								</li>';

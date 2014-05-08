@@ -55,6 +55,12 @@ Route::group(array('before' => 'guest'), function() {
 		'uses'	=> 'LoginController@loginWithGoogle'
 	));
 
+	/*login van google call back| get*/
+	Route::get('login/google', array(
+		'as'	=> 'google-callback',
+		'uses'	=> 'LoginController@loggedInWithGoogle'
+	));
+
 	/*
 	| Na inloggen deze functies tonen bij bevoegheid || NOG IN TE BOUWEN!!!
 	*/
