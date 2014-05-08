@@ -7,9 +7,9 @@ class LoginController extends BaseController {
 	public function getLogin()
 	{
 		//$this->layout->content = View::make('home');
-		//return 'hhee';
+		return 'hhee';
 		//return View::make('login.form');
-		return View::make('login.loginVeld');
+		//return View::make('login.loginVeld');
 	}
 
 	public function loginWithGoogle() {
