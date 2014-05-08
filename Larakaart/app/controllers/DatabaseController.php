@@ -6,11 +6,11 @@ class DatabaseController extends BaseController {
 	{	
 		# Het toevoegen van organization types
 		$school = new Organization_type;
-		$school->name = "school";
+		$school->name = "School";
 		$school->save();
 		
 		$company = new Organization_type;
-		$company->name = "company";
+		$company->name = "Company";
 		$company->save();
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van de Activity types
@@ -41,14 +41,12 @@ class DatabaseController extends BaseController {
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van scholen
 		$avans = new School;
-		$avans->id = 1;
 		$avans->name = "Avans Hogeschool";
 		$avans->website = "www.avans.nl";
 		$avans->save();
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van locaties: Afstuderen
 		$herentals = new Location;
-		$herentals->id = 1;
 		$herentals->country = "Belgium";
 		$herentals->city = "Herentals";
 		$herentals->latitude = 51.17685;
@@ -56,7 +54,6 @@ class DatabaseController extends BaseController {
 		$herentals->save();
 		
 		$wellington = new Location;
-		$wellington->id = 2;
 		$wellington->country = "New Zealand";
 		$wellington->city = "Wellington";
 		$wellington->latitude = -41.28646;
@@ -65,7 +62,6 @@ class DatabaseController extends BaseController {
 
 		# Het toevoegen van locaties: EPS
 		$copenhagen = new Location;
-		$copenhagen->id = 3;
 		$copenhagen->country = "Denmark";
 		$copenhagen->city = "Copenhagen";
 		$copenhagen->latitude = 55.67610;
@@ -73,7 +69,6 @@ class DatabaseController extends BaseController {
 		$copenhagen->save();
 		
 		$vaasa = new Location;
-		$vaasa->id = 4;
 		$vaasa->country = "Finland";
 		$vaasa->city = "Vaasa";
 		$vaasa->latitude = 63.09514;
@@ -82,7 +77,6 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van locaties: Minor
 		$valencia = new Location;
-		$valencia->id = 5;
 		$valencia->country = "Spain";
 		$valencia->city = "Valencia";
 		$valencia->latitude = 39.46991;
@@ -90,7 +84,6 @@ class DatabaseController extends BaseController {
 		$valencia->save();
 		
 		$kongsberg = new Location;
-		$kongsberg->id = 6;
 		$kongsberg->country = "Norway";
 		$kongsberg->city = "Kongsberg";
 		$kongsberg->latitude = 59.66888;
@@ -99,7 +92,6 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van locaties: Stage
 		$sydney = new Location;
-		$sydney->id = 7;
 		$sydney->country = "Australia";
 		$sydney->city = "Sydney";
 		$sydney->latitude = -33.86749;
@@ -107,7 +99,6 @@ class DatabaseController extends BaseController {
 		$sydney->save();
 		
 		$paramaribo = new Location;
-		$paramaribo->id = 8;
 		$paramaribo->country = "Suriname";
 		$paramaribo->city = "Paramaribo";
 		$paramaribo->latitude = 5.85204;
@@ -116,14 +107,12 @@ class DatabaseController extends BaseController {
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van de organisaties: Afstuderen
 		$kraft = new Organization;
-		$kraft->id = 1;
 		$kraft->name = "Kraft Foods";
 		$kraft->type = $company->name;
 		$kraft->location_id = $herentals->id;
 		$kraft->save();
 		
 		$weltec = new Organization;
-		$weltec->id = 2;
 		$weltec->name = "Weltec Centre for Smart Product";
 		$weltec->type = $company->name;
 		$weltec->location_id = $wellington->id;
@@ -131,14 +120,12 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van de organisaties: EPS
 		$copenhagenUni = new Organization;
-		$copenhagenUni->id = 3;
 		$copenhagenUni->name = "Copenhagen University of Engineering";
 		$copenhagenUni->type = $school->name;
 		$copenhagenUni->location_id = $copenhagen->id;
 		$copenhagenUni->save();
 		
 		$novia = new Organization;
-		$novia->id = 4;
 		$novia->name = "Novia University of Applied Sciences";
 		$novia->type = $school->name;
 		$novia->location_id = $vaasa->id;
@@ -146,14 +133,12 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van de organisaties: Minor
 		$politecnica = new Organization;
-		$politecnica->id = 5;
 		$politecnica->name = "Universidad Politecnica de Valencia";
 		$politecnica->type = $school->name;
 		$politecnica->location_id = $valencia->id;
 		$politecnica->save();
 		
 		$buskerud = new Organization;
-		$buskerud->id = 6;
 		$buskerud->name = "Noorwegen, Buskerud University";
 		$buskerud->type = $school->name;
 		$buskerud->location_id = $kongsberg->id;
@@ -161,14 +146,12 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van de organisaties: Stage
 		$robotics = new Organization;
-		$robotics->id = 7;
 		$robotics->name = "Australian Centre for Field Robotics";
 		$robotics->type = $company->name;
 		$robotics->location_id = $sydney->id;
 		$robotics->save();
 		
 		$suralco = new Organization;
-		$suralco->id = 8;
 		$suralco->name = "Suralco LLC";
 		$suralco->type = $company->name;
 		$suralco->location_id = $paramaribo->id;
@@ -176,58 +159,49 @@ class DatabaseController extends BaseController {
 /*-----------------------------------------------------------------*/		
 		# Het toevoegen van opleidingen
 		$ie = new Study;
-		$ie->id = 1;
 		$ie->name = "Industrial Engineering";
 		$ie->school_id = $avans->id;
 		$ie->save();
 		
 		$me = new Study;
-		$me->id = 2;
 		$me->name = "Mechanical Engineering";
 		$me->school_id = $avans->id;
 		$me->save();
 
 		$ce = new Study;
-		$ce->id = 3;
 		$ce->name = "Computer Engineering";
 		$ce->school_id = $avans->id;
 		$ce->save();
 		
 		$cs = new Study;
-		$cs->id = 4;
 		$cs->name = "Computer Science";
 		$cs->school_id = $avans->id;
 		$cs->save();
 		
 		$ee = new Study;
-		$ee->id = 5;
 		$ee->name = "Electrical Engineering";
 		$ee->school_id = $avans->id;
 		$ee->save();
 		
 		$cmd = new Study;
-		$cmd->id = 6;
 		$cmd->name = "Communication and Multimedia Design";
 		$cmd->school_id = $avans->id;
 		$cmd->save();
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van studenten: Afstuderen
 		$student1 = new Student;
-		$student1->id = 1;
 		$student1->firstname = "Donald";
 		$student1->surname = "Rutgers";
 		$student1->study_id = $ie->id; 
 		$student1->save();
 		
-		$student2 = new Student;
-		$student2->id = 2;		
+		$student2 = new Student;	
 		$student2->firstname = "Jorick";
 		$student2->surname = "Dam";
 		$student2->study_id = $ie->id; 
 		$student2->save();
 		
 		$student3 = new Student;
-		$student3->id = 3;
 		$student3->firstname = "Arthur";
 		$student3->surname = "Kampschoer";
 		$student3->study_id = $me->id;
@@ -235,28 +209,24 @@ class DatabaseController extends BaseController {
 	
 		# Het toevoegen van studenten: EPS
 		$student4 = new Student;
-		$student4->id = 4;
 		$student4->firstname = "Bram";
 		$student4->surname = "Bosch";
 		$student4->study_id = $ce->id;
 		$student4->save();
 		
 		$student5 = new Student;
-		$student5->id = 5;
 		$student5->firstname = "Paul";
 		$student5->surname = "Claessens";
 		$student5->study_id = $ce->id;
 		$student5->save();
 		
 		$student6 = new Student;
-		$student6->id = 6;
 		$student6->firstname = "Rudy";
 		$student6->surname = "Chambon";
 		$student6->study_id = $cs->id;
 		$student6->save();
 		
 		$student7 = new Student;
-		$student7->id = 7;
 		$student7->firstname = "Rick";
 		$student7->insertion = "van";
 		$student7->surname = "Uden";
@@ -265,7 +235,6 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van studenten: Minor
 		$student8 = new Student;
-		$student8->id = 8;
 		$student8->firstname = "Joey";
 		$student8->insertion = "van der";
 		$student8->surname = "Veeken";
@@ -273,21 +242,18 @@ class DatabaseController extends BaseController {
 		$student8->save();
 		
 		$student9 = new Student;
-		$student9->id = 9;
 		$student9->firstname = "Dominique";
 		$student9->surname = "Lankheet";
 		$student9->study_id = $cmd->id;
 		$student9->save();
 		
 		$student10 = new Student;
-		$student10->id = 10;
 		$student10->firstname = "Paul";
 		$student10->surname = "Plantaz";
 		$student10->study_id = $cmd->id;
 		$student10->save();
 		
 		$student11 = new Student;
-		$student11->id =11;
 		$student11->firstname = "Linda";
 		$student11->surname = "Janssen";
 		$student11->study_id = $cmd->id;
@@ -295,7 +261,6 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van studenten: Stage
 		$student12 = new Student;
-		$student12->id = 12;
 		$student12->firstname = "Luc";
 		$student12->insertion = "de";
 		$student12->surname = "Wolf";
@@ -303,7 +268,6 @@ class DatabaseController extends BaseController {
 		$student12->save();
 		
 		$student13 = new Student;
-		$student13->id = 13;
 		$student13->firstname = "Lukas";
 		$student13->insertion = "van der";
 		$student13->surname = "Linden";
@@ -311,14 +275,12 @@ class DatabaseController extends BaseController {
 		$student13->save();
 		
 		$student14 = new Student;
-		$student14->id = 14;		
 		$student14->firstname = "Pepijn";
 		$student14->surname = "Veldhuizen";
 		$student14->study_id = $ie->id;
 		$student14->save();
 		
 		$student15 = new Student;
-		$student15->id = 15;
 		$student15->firstname = "Kevin";
 		$student15->surname = "Tai-Tin-Woei";
 		$student15->study_id = $ie->id;
@@ -326,7 +288,6 @@ class DatabaseController extends BaseController {
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van Activity: Afstuderen
 		$Activity1 = new Activity;
-		$Activity1->id = 1;
 		$Activity1->name = "Final thesis Kraft Foods";
 		$Activity1->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity1->type = $finalThesis->name;
@@ -338,7 +299,6 @@ class DatabaseController extends BaseController {
 		$Activity1->save();
 		
 		$Activity2 = new Activity;
-		$Activity2->id = 2;
 		$Activity2->name = "Final thesis Weltec Centre for Smart Product";
 		$Activity2->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity2->type = $finalThesis->name;
@@ -351,7 +311,6 @@ class DatabaseController extends BaseController {
 
 		# Het toevoegen van Activity: EPS
 		$Activity3 = new Activity;
-		$Activity3->id = 3;
 		$Activity3->name = "EPS Copenhagen University of Engineering";
 		$Activity3->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity3->type = $eps->name;
@@ -363,7 +322,6 @@ class DatabaseController extends BaseController {
 		$Activity3->save();
 		
 		$Activity4 = new Activity;
-		$Activity4->id = 4;
 		$Activity4->name = "EPS Novia University of Applied Sciences";
 		$Activity4->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity4->type = $eps->name;
@@ -376,7 +334,6 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van Activity: Minor
 		$Activity5 = new Activity;
-		$Activity5->id = 5;
 		$Activity5->name = "Minor Universidad Politecnica de Valencia";
 		$Activity5->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity5->type = $minor->name;
@@ -388,7 +345,6 @@ class DatabaseController extends BaseController {
 		$Activity5->save();
 		
 		$Activity6 = new Activity;
-		$Activity6->id = 6;
 		$Activity6->name = "Minor Noorwegen, Buskerud University";
 		$Activity6->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity6->type = $minor->name;
@@ -400,7 +356,6 @@ class DatabaseController extends BaseController {
 		$Activity6->save();
 		
 		$Activity7 = new Activity;
-		$Activity7->id = 7;
 		$Activity7->name = "Minor Copenhagen University of Engineering";
 		$Activity7->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity7->type = $minor->name;
@@ -413,7 +368,6 @@ class DatabaseController extends BaseController {
 		
 		# Het toevoegen van Activity: Stage
 		$Activity8 = new Activity;
-		$Activity8->id = 8;
 		$Activity8->name = "Internship Australian Centre for Field Robotics";
 		$Activity8->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity8->type = $internship->name;
@@ -425,7 +379,6 @@ class DatabaseController extends BaseController {
 		$Activity8->save();
 		
 		$Activity9 = new Activity;
-		$Activity9->id = 9;
 		$Activity9->name = "Internship Suralco LLC";
 		$Activity9->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity9->type = $internship->name;
@@ -438,7 +391,6 @@ class DatabaseController extends BaseController {
 /*-----------------------------------------------------------------*/		
 		# Add experiences for final thesis'
 		$experience1 = new Experience;
-		$experience1->id = 1;
 		$experience1->Activity_id=$Activity1->id;
 		$experience1->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience1->accepted=1;
@@ -446,7 +398,6 @@ class DatabaseController extends BaseController {
 		$experience1->save();
 		
 		$experience2 = new Experience;
-		$experience2->id = 2;
 		$experience2->Activity_id=$Activity1->id;
 		$experience2->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience2->accepted=1;
@@ -454,7 +405,6 @@ class DatabaseController extends BaseController {
 		$experience2->save();
 		
 		$experience3 = new Experience;
-		$experience3->id = 3;
 		$experience3->Activity_id=$Activity2->id;
 		$experience3->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience3->accepted=1;
@@ -463,7 +413,6 @@ class DatabaseController extends BaseController {
 		
 		# Add experiences for EPS
 		$experience4 = new Experience;
-		$experience4->id = 4;
 		$experience4->Activity_id=$Activity3->id;
 		$experience4->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience4->accepted=1;
@@ -471,7 +420,6 @@ class DatabaseController extends BaseController {
 		$experience4->save();
 		
 		$experience5 = new Experience;
-		$experience5->id = 5;
 		$experience5->Activity_id=$Activity3->id;
 		$experience5->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience5->accepted=1;
@@ -479,7 +427,6 @@ class DatabaseController extends BaseController {
 		$experience5->save();
 		
 		$experience6 = new Experience;
-		$experience6->id = 6;
 		$experience6->Activity_id=$Activity4->id;
 		$experience6->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience6->accepted=1;
@@ -487,7 +434,6 @@ class DatabaseController extends BaseController {
 		$experience6->save();
 		
 		$experience7 = new Experience;
-		$experience7->id = 7;
 		$experience7->Activity_id=$Activity3->id;
 		$experience7->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience7->accepted=1;
@@ -496,7 +442,6 @@ class DatabaseController extends BaseController {
 		
 		# Add experiences for minors
 		$experience8 = new Experience;
-		$experience8->id = 8;
 		$experience8->Activity_id=$Activity5->id;
 		$experience8->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience8->accepted=1;
@@ -504,7 +449,6 @@ class DatabaseController extends BaseController {
 		$experience8->save();
 		
 		$experience9 = new Experience;
-		$experience9->id = 9;
 		$experience9->Activity_id=$Activity5->id;
 		$experience9->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience9->accepted=1;
@@ -512,7 +456,6 @@ class DatabaseController extends BaseController {
 		$experience9->save();
 		
 		$experience10 = new Experience;
-		$experience10->id = 10;
 		$experience10->Activity_id=$Activity6->id;
 		$experience10->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience10->accepted=1;
@@ -520,7 +463,6 @@ class DatabaseController extends BaseController {
 		$experience10->save();
 		
 		$experience11 = new Experience;
-		$experience11->id = 11;
 		$experience11->Activity_id=$Activity7->id;
 		$experience11->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience11->accepted=1;
@@ -529,7 +471,6 @@ class DatabaseController extends BaseController {
 		
 		# Add experiences for internships
 		$experience12 = new Experience;
-		$experience12->id = 12;
 		$experience12->Activity_id=$Activity8->id;
 		$experience12->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience12->accepted=1;
@@ -537,7 +478,6 @@ class DatabaseController extends BaseController {
 		$experience12->save();
 		
 		$experience13 = new Experience;
-		$experience13->id = 13;
 		$experience13->Activity_id=$Activity8->id;
 		$experience13->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience13->accepted=1;
@@ -545,7 +485,6 @@ class DatabaseController extends BaseController {
 		$experience13->save();
 		
 		$experience14 = new Experience;
-		$experience14->id = 14;
 		$experience14->Activity_id=$Activity9->id;
 		$experience14->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience14->accepted=1;
@@ -553,7 +492,6 @@ class DatabaseController extends BaseController {
 		$experience14->save();
 		
 		$experience15 = new Experience;
-		$experience15->id = 15;
 		$experience15->Activity_id=$Activity9->id;
 		$experience15->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience15->accepted=1;
