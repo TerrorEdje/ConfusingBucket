@@ -105,7 +105,6 @@ function filterChanged()
 	
 	country = $("#filter-country").prop("checked");
 	city = $("#filter-city").prop("checked");
-	//person = $("#filter-person").prop("checked");
     
     internship = $("#filter-internship").prop("checked");
     final_thesis = $("#filter-final_thesis").prop("checked");
@@ -124,10 +123,6 @@ function filterChanged()
 			( // Zoek op
 				(country && locations[i].country.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
 				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1)
-			) &&
-			( //Opleiding
-				(study == "") ||
-                (locations[i].study == study)
 			) 
 		)
 		{
@@ -149,6 +144,10 @@ function filterChanged()
                             (locations[i]['years'][j]['start'] <= year) &&
                             (locations[i]['years'][j]['end'] >= year)
                         )
+                    ) &&
+                    (
+                        (study == "") ||
+                        (locations[i]['years'][j]['study'] == study)
                     )
                 )
                 {
@@ -179,16 +178,17 @@ function filterChanged()
 
 function resetFilter()
 {
-	$("#filter_input").val("");
+	$("#filter-input").val("");
 	
 	$("#filter-country").prop("checked", true);
 	
 	$("#filter-internship").prop("checked", true);
-	$("#filter-graduation").prop("checked", true);
+	$("#filter-final_thesis").prop("checked", true);
 	$("#filter-minor").prop("checked", true);
 	$("#filter-eps").prop("checked", true);
     
-    $("#filter-study").val("all");
+    $("#filter-year").val("");
+    $("#filter-study").val("");
 	
 	filterChanged();
 }
@@ -224,7 +224,6 @@ $( document ).ready(function() {
 	$('#filter_button').one("click", function() { showFilter(); return false; });
 	
 	//filter
-	//$("#filter_input").change(function(){ filterChanged() });
 	$("#filter_form").submit(function(event){
 		event.preventDefault();
 		filterChanged();

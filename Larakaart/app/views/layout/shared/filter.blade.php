@@ -63,20 +63,9 @@
                     </div>
 				</div>
                 
-                <!--<div class="form-group">
-                    <div class="col-md-12">
-                        <select name="year" class="form-control" id="filter-year">
-                            <option value="0">All years</option>
-                        </select>
-                    </div>
-                </div>-->
-                
                 <div class="form-group">
                     <div class="col-md-12">
                         <input type="text" class="form-control" id="filter-study" placeholder="Study" name="study"><br />
-                        <!--<select name="study" class="form-control" id="filter-study">
-                            <option value="all">All studies</option>
-                        </select>-->
                     </div>
                 </div>
                 

@@ -15,14 +15,14 @@
 								zipcode:"{{$location["zipcode"]}}",
 								lat:{{$location["latitude"]}},
 								lng:{{$location["longitude"]}},
-                                study:"{{$location["study"]}}",
 								title:"{{$location["streetname"]}} {{$location["number"]}}" 
                               };
             var years = new Array();
             @foreach ($location['years'] as $year)
                 var year = { start:{{$year["start"]}},
                                end:{{$year["end"]}},
-                              type:"{{$year["type"]}}"
+                              type:"{{$year["type"]}}",
+                             study:"{{$year["study"]}}"
                            };
                 years.push(year);
             @endforeach

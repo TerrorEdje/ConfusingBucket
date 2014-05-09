@@ -40,9 +40,9 @@ class BaseController extends Controller {
                 {
                     foreach($activities as $activity)
                     {
+                        $year = array();
                         if ($activity['startdate'] != null || $activity['enddate'] != null)
                         {
-                            $year = array();
                             if ($activity['startdate'] != null) 
                             {
                                 $year['start'] = date('Y', strtotime($activity['startdate']));
@@ -56,7 +56,6 @@ class BaseController extends Controller {
                             else
                                 $year['end'] = 9999;
                             $year['type'] = $activity['type'];
-                            array_push($mapLocation['years'], $year);
                         }
                         
                         $studies = Study::where('id','=',$activity['study_id'])->get();
@@ -64,64 +63,12 @@ class BaseController extends Controller {
                         {
                             foreach($studies as $study)
                             {
-                                $mapLocation['study'] = $study['name'];
+                                $year['study'] = $study['name'];
                             }
                         }
+                        array_push($mapLocation['years'], $year);
                     }
                 }
-                
-                
-                /*
-					echo 'test';
-					var_dump($activity);
-                    //Type toevoegen
-                    //$mapLocation['type'] = $activity['type'];
-                    
-                    //Opleiding toevoegen
-                    $study = Study::where('id','=',$activity[0]['study_id'])->get();
-                    if ($study != null)
-                    {
-                        $study = $study[0];
-                        $mapLocation['study'] = $study['name'];
-                    }
-                    
-					$story = Story::where('id','=',$storyLocation['story_id'])->get();
-					if (count($story) > 0)
-                    {
-                        //Type toevoegen
-                        $mapLocation['storyType'] = $story[0]['type'];
-                        
-                        //Studentnaam toevoegen
-                        $student = Student::where('id','=',$story[0]['student_id'])->get();
-                        if (count($student) > 0)
-                        {
-                            $student = $student[0];
-                            if ($student['insertion'] != null)
-                            {
-                                $mapLocation['person'] = $student['firstname'] . " " . $student['insertion'] . " " . $student['surname'];
-                            }
-                            else
-                            {
-                                $mapLocation['person'] = $student['firstname'] . " " . $student['surname'];
-                            }
-                        }
-                        else
-                        {
-                            $mapLocation['person'] = "";
-                        }
-                        
-                        //Opleiding toevoegen
-                        $study = Study::where('id','=',$story[0]['study_id'])->get();
-                        if (count($study) > 0)
-                        {
-                            $study = $study[0];
-                            $mapLocation['study'] = $study['name'];
-                        }
-					}
-                    
-                    array_push($mapLocations,$mapLocation);
-				}
-			}	*/
 				
                 array_push($mapLocations,$mapLocation);
 			}			

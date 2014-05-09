@@ -33,11 +33,6 @@ function initialize() {
         google.maps.event.addListener(marker,'click',function() {
 			load(organizationDetailURL+this.id, "organizationdetailmenu");
 		});
-        
-        //Add study to studies array if it doesn't exist already
-        if($.inArray(locations[i].study, studies)<0) {
-            studies.push(locations[i].study);
-        } 
 		
         //Add years to years array
         $.each(locations[i]['years'], function (key, year) {
@@ -64,18 +59,16 @@ function initialize() {
                 if ($.inArray(year['start'].toString(), years)<0)
                     years.push(year['start'].toString());
             }
+            
+            //Add study to studies array if it doesn't exist already
+            if($.inArray(year['study'], studies)<0) {
+                studies.push(year['study']);
+            } 
         });
 	}
     
     //Add study options to filter dropdown
     $('#filter-study').autocomplete({ source: studies });
-    
-    //$.each(studies, function(key, value) {   
-    //    $('#filter-study')
-    //        .append($("<option></option>")
-    //        .attr("value",value)
-    //        .text(value)); 
-    //});
     
     //Add years to the year autocomplete
     $('#filter-year').autocomplete({ source: years });
