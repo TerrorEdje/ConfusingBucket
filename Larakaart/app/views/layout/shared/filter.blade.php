@@ -73,9 +73,10 @@
                 
                 <div class="form-group">
                     <div class="col-md-12">
-                        <select name="study" class="form-control" id="filter-study">
+                        <input type="text" class="form-control" id="filter-study" placeholder="Study" name="study"><br />
+                        <!--<select name="study" class="form-control" id="filter-study">
                             <option value="all">All studies</option>
-                        </select>
+                        </select>-->
                     </div>
                 </div>
                 

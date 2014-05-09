@@ -126,7 +126,7 @@ function filterChanged()
 				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1)
 			) &&
 			( //Opleiding
-				(study == "all") ||
+				(study == "") ||
                 (locations[i].study == study)
 			) 
 		)

@@ -68,12 +68,14 @@ function initialize() {
 	}
     
     //Add study options to filter dropdown
-    $.each(studies, function(key, value) {   
-        $('#filter-study')
-            .append($("<option></option>")
-            .attr("value",value)
-            .text(value)); 
-    });
+    $('#filter-study').autocomplete({ source: studies });
+    
+    //$.each(studies, function(key, value) {   
+    //    $('#filter-study')
+    //        .append($("<option></option>")
+    //        .attr("value",value)
+    //        .text(value)); 
+    //});
     
     //Add years to the year autocomplete
     $('#filter-year').autocomplete({ source: years });
