@@ -230,8 +230,8 @@ $.fn.accordionChevrons = function() {
                 .toggleClass('glyphicon-chevron-down glyphicon-chevron-up');
             $("i.indicator", accordion)
                 .not(chevState)
-                .removeClass("glyphicon-chevron-up")
-                .addClass("glyphicon-chevron-down");
+                .removeClass("glyphicon-chevron-up blue")
+                .addClass("glyphicon-chevron-down blue");
         });
     });
 };
