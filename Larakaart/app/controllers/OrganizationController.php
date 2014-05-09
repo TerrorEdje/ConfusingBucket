@@ -56,9 +56,23 @@ class OrganizationController extends BaseController {
 	public function organizationcms()
 	{
 		$organizations = Organization::all();
-		
-		
-		return View::make('organizationcms',array('organizations' => $organizations));
+		return View::make('organization/cms',array('organizations' => $organizations));
+	}
+	
+	public function uploadOrganization()
+	{		
+		$organization_types = Organization_type::all();
+		$types = array();
+		foreach($organization_types as $type)
+		{
+			array_push($types,$type->name);
+		}
+		return View::make('organization/upload')->with('types',$types);
+	}
+	
+	public function uploadOrganizationAdd()
+	{
+		return View::make('organization/uploadadd');
 	}
 
 }
