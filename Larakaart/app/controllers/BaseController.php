@@ -19,6 +19,8 @@ class BaseController extends Controller {
 			foreach($organizations as $organization)
 			{
 				$mapLocation = Array();
+                $mapLocation['organization'] = $organization['name'];
+                
                 //Locatie toevoegen
 				$location = Location::find($organization['location_id']);
                 if ($location != null) //ALS RESULT NIET LEEG IS

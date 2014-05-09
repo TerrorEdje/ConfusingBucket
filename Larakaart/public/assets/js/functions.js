@@ -108,6 +108,7 @@ function filterChanged()
 	
 	country = $("#filter-country").prop("checked");
 	city = $("#filter-city").prop("checked");
+    organization = $("#filter-organization").prop("checked");
     
     internship = $("#filter-internship").prop("checked");
     final_thesis = $("#filter-final_thesis").prop("checked");
@@ -123,7 +124,8 @@ function filterChanged()
 		if (
 			( // Zoek op
 				(country && locations[i].country.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
-				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1)
+				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
+                (organization && locations[i].organization.toLowerCase().indexOf(value.toLowerCase()) != -1)
 			) 
 		)
 		{
@@ -220,6 +222,10 @@ function searchForChanged()
     {
         $('#filter-input').autocomplete({ source: cities});
     }
+    else if($("#filter-organization").prop("checked"))
+    {
+        $('#filter-input').autocomplete({ source: organizations});
+    }
 }
 
 //Balk goedzetten bij window resize
@@ -276,7 +282,9 @@ $( document ).ready(function() {
         searchForChanged();
     });
     
-    //resetFilter();
+    $("#filter-organization").change(function(){
+        searchForChanged();
+    });
 });
 
 //failsafe: toch gescrolld? Zet de pagina weer terug.

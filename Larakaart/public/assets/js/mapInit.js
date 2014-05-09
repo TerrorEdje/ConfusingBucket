@@ -7,6 +7,7 @@ var studies = [];
 var years = [];
 var cities = [];
 var countries = [];
+var organizations = [];
 
 function initialize() {
 	var mapOptions = {
@@ -74,6 +75,10 @@ function initialize() {
         
         if($.inArray(locations[i]['county'], countries)<0) {
             countries.push(locations[i]['country']);
+        } 
+        
+        if($.inArray(locations[i]['organization'], organizations)<0) {
+            organizations.push(locations[i]['organization']);
         } 
 	}
     

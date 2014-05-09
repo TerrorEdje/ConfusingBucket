@@ -15,6 +15,7 @@
 								zipcode:"{{$location["zipcode"]}}",
 								lat:{{$location["latitude"]}},
 								lng:{{$location["longitude"]}},
+                                organization:"{{$location["organization"]}}",
 								title:"{{$location["streetname"]}} {{$location["number"]}}" 
                               };
             var years = new Array();

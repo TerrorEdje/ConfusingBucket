@@ -24,6 +24,12 @@
 								City
 							</label>
 						</div>
+                        <div class="radio">
+							<label for="search_for-2">
+								<input type="radio" name="searchFor" id="filter-organization" value="organization">
+								organization
+							</label>
+						</div>
 					</div>
 				</div>
 
