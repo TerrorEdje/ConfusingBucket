@@ -6,6 +6,7 @@ Route::get('/', array(
 	'uses'	=> 'IndexController@index'
 ));
 
+
 /*
 | voor gasten | niet ingelogde mensen
 */
