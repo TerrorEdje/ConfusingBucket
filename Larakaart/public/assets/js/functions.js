@@ -220,3 +220,20 @@ $(window).scroll(function(e){
     $(this).scrollTop(0);
 });
 
+//accordion glyph
+$.fn.accordionChevrons = function() {
+    return this.each(function(i, accordion) {
+        $(".accordion-toggle", accordion).click(function(ev) {
+            var link = ev.target;
+            var header = $(link).closest(".panel-heading");
+            var chevState = $("i.indicator", header)
+                .toggleClass('glyphicon-chevron-down glyphicon-chevron-up');
+            $("i.indicator", accordion)
+                .not(chevState)
+                .removeClass("glyphicon-chevron-down")
+                .addClass("glyphicon-chevron-up");
+        });
+    });
+};
+$('#accordion').accordionChevrons();
+
