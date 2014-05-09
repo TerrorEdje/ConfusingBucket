@@ -93,7 +93,7 @@ Route::group(array('before' => 'guest'), function() {
 	
 	Route::get('organization/cms', array(
 			'as'	=> 'Organization-cms',
-			'uses'	=> 'OrganizationController@OrganizationCMS'
+			'uses'	=> 'OrganizationController@Organizationcms'
 	));
 
 });
