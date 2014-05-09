@@ -55,7 +55,10 @@ class OrganizationController extends BaseController {
 	
 	public function organizationcms()
 	{
-		return View::make('organizationcms');
+		$organizations = Organization::all();
+		
+		
+		return View::make('organizationcms',array('organizations' => $organizations));
 	}
 
 }
