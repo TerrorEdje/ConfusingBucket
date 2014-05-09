@@ -14,17 +14,42 @@
         </div>
 
         <ul class="nav nav-tabs">
+			<li class="active"><a href="#about" data-toggle="tab">About</a></li>
             @if (count($activities) != 0)
-                <li class="active"><a href="#activities" data-toggle="tab">Activities</a></li>
+                <li><a href="#activities" data-toggle="tab">Activities</a></li>
             @endif
             @if (count($experiences) != 0)
                 <li><a href="#experiences" data-toggle="tab">Experiences</a></li>
             @endif
-			<li><a href="#about" data-toggle="tab">About</a></li>
         </ul>
 
         <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade in active" id="activities">
+			<div class="tab-pane fade in active" id="about">
+				<p>
+					<div id="about">
+						<p>
+							@if (isset($organization->getLocation()->streetname))
+								{{ $organization->getLocation()->streetname }}<br/>
+							@endif
+							@if (isset($organization->getLocation()->number))
+								{{ $organization->getLocation()->number }}<br/>
+							@endif
+							{{ $organization->getLocation()->city }}
+							@if (isset($organization->getLocation()->zipcode))
+								,{{ $organization->getLocation()->zipcode }}
+							@endif
+							<br/>{{ $organization->getLocation()->country }}
+						</p>
+						<p>
+							{{ $organization['description'] }}<br/>
+							@if (isset($organization['website'])) 
+								{{ $organization['website'] }}
+							@endif
+						</p>
+					</div>
+				</p>
+            </div>
+            <div class="tab-pane fade" id="activities">
                 @if (count($activities) != 0)
                     <p>
                         <div id="activities">
@@ -81,31 +106,6 @@
                         </div>
                     </p>
                 @endif
-            </div>
-			<div class="tab-pane fade" id="about">
-				<p>
-					<div id="about">
-						<p>
-							@if (isset($organization->getLocation()->streetname))
-								{{ $organization->getLocation()->streetname }}<br/>
-							@endif
-							@if (isset($organization->getLocation()->number))
-								{{ $organization->getLocation()->number }}<br/>
-							@endif
-							{{ $organization->getLocation()->city }}
-							@if (isset($organization->getLocation()->zipcode))
-								,{{ $organization->getLocation()->zipcode }}
-							@endif
-							<br/>{{ $organization->getLocation()->country }}
-						</p>
-						<p>
-							{{ $organization['description'] }}<br/>
-							@if (isset($organization['website'])) 
-								{{ $organization['website'] }}
-							@endif
-						</p>
-					</div>
-				</p>
             </div>
         </div>
     @endif
