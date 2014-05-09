@@ -1,4 +1,4 @@
-{{HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;key=AIzaSyB4ofW1mgEVlMIoa48rMP0WkAksHAALU18')}}
+{{HTML::script('//maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false&amp;key=AIzaSyB4ofW1mgEVlMIoa48rMP0WkAksHAALU18')}}
 {{HTML::script('assets/js/markerclusterer.js')}}
 <script type="text/javascript">
     var organizationDetailURL = "{{ URL::route('organizationdetail') }}".split("%7Bid%7D")[0];
