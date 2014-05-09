@@ -4,6 +4,7 @@ var markers = [];
 var centerLatlng = new google.maps.LatLng(0,0);
 
 var studies = [];
+var years = [];
 
 function initialize() {
 	var mapOptions = {
@@ -38,6 +39,32 @@ function initialize() {
             studies.push(locations[i].study);
         } 
 		
+        //Add years to years array
+        $.each(locations[i]['years'], function (key, year) {
+            var start = false;
+            var end = false;
+            
+            if ((year['start'] != 0) && (year['end'] != 9999))
+            {
+                for (j = year['start']; j <= year['end']; ++j)
+                {
+                    if ($.inArray(j.toString(), years)<0)
+                        years.push(j.toString());
+                }
+            }
+            
+            if ((year['start'] == 0) && (year['end'] != 9999))
+            {
+                if ($.inArray(year['end'].toString(), years)<0)
+                    years.push(year['end'].toString());
+            }
+            
+            if ((year['start'] != 0) && (year['end'] == 9999))
+            {
+                if ($.inArray(year['start'].toString(), years)<0)
+                    years.push(year['start'].toString());
+            }
+        });
 	}
     
     //Add study options to filter dropdown
@@ -47,6 +74,9 @@ function initialize() {
             .attr("value",value)
             .text(value)); 
     });
+    
+    //Add years to the year autocomplete
+    $('#filter-year').autocomplete({ source: years });
     
     //Initialize markerClusterer for displaying markers
 	var mcOptions = {zoomOnClick: false, 

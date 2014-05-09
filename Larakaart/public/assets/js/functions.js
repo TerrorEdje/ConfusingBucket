@@ -101,7 +101,7 @@ function load(page, menuitem)
 
 function filterChanged()
 {
-	value = $("#filter_input").val();
+	value = $("#filter-input").val();
 	
 	country = $("#filter-country").prop("checked");
 	city = $("#filter-city").prop("checked");
@@ -168,7 +168,7 @@ function filterChanged()
                 filteredMarkers.push(newMarker);
                 
                 google.maps.event.addListener(newMarker,'click',function() {
-                    load('storylist.php?locationid='+this.id);
+                    load(organizationDetailURL+this.id);
                 });
             }
 		}

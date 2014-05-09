@@ -7,7 +7,7 @@
 	<div id="filter_bar" class="rounded-bottomleft scroll">
 		<form class="form-horizontal" id="filter_form">
 			<fieldset>
-				<input type="text" class="form-control" id="filter_input" placeholder="Search" name="search"><br />
+				<input type="text" class="form-control" id="filter-input" placeholder="Search" name="search"><br />
 
 				<div class="form-group">
 					<label class="col-md-6 control-label" for="searchFor">Search for</label>
@@ -56,8 +56,20 @@
 						</div>
 					</div>
 				</div>
-				
-                <input type="number" class="form-control" id="filter-year" placeholder="Year" name="year"><br />
+                <div class="form-group">
+					<label class="col-md-6 control-label" for="filters">Year</label>
+					<div class="col-md-6">
+                        <input type="text" class="form-control" id="filter-year" placeholder="Year" name="year"><br />
+                    </div>
+				</div>
+                
+                <!--<div class="form-group">
+                    <div class="col-md-12">
+                        <select name="year" class="form-control" id="filter-year">
+                            <option value="0">All years</option>
+                        </select>
+                    </div>
+                </div>-->
                 
                 <div class="form-group">
                     <div class="col-md-12">

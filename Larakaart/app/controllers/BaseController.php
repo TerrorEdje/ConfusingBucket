@@ -33,10 +33,6 @@ class BaseController extends Controller {
                     $mapLocation['longitude']   = $location['longitude'];
                 }
                 
-                $mapLocation['internship'] = false;
-                $mapLocation['final_thesis'] = false;
-                $mapLocation['minor'] = false;
-                $mapLocation['EPS'] = false;
                 $mapLocation['years'] = array();
                 
 				$activities = Activity::where('organization_id','=',$organization['id'])->get();
@@ -44,22 +40,6 @@ class BaseController extends Controller {
                 {
                     foreach($activities as $activity)
                     {
-                        switch($activity['type'])
-                        {
-                            case "Internship":
-                                $mapLocation['internship'] = true;
-                                break;
-                            case "Final thesis":
-                                $mapLocation['final_thesis'] = true;
-                                break;
-                            case "Minor":
-                                $mapLocation['minor'] = true;
-                                break;
-                            case "EPS":
-                                $mapLocation['EPS'] = true;
-                                break;
-                        }
-                        
                         if ($activity['startdate'] != null || $activity['enddate'] != null)
                         {
                             $year = array();
@@ -78,8 +58,19 @@ class BaseController extends Controller {
                             $year['type'] = $activity['type'];
                             array_push($mapLocation['years'], $year);
                         }
+                        
+                        $studies = Study::where('id','=',$activity['study_id'])->get();
+                        if ($studies != null)
+                        {
+                            foreach($studies as $study)
+                            {
+                                $mapLocation['study'] = $study['name'];
+                            }
+                        }
                     }
                 }
+                
+                
                 /*
 					echo 'test';
 					var_dump($activity);
