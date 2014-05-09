@@ -73,6 +73,7 @@
 			</fieldset>
 		</form>
 		<br />
+		<button class="btn btn-primary filter_list">View list</button><br /><br />
 		<button class="btn btn-primary filter_reset">Reset</button>
 	</div>
 </div>

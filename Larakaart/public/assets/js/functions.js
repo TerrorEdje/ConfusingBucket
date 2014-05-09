@@ -99,8 +99,11 @@ function load(page, menuitem)
 	showContent();
 }
 
+var filteredMarkers = [];
 function filterChanged()
 {
+    filteredMarkers = [];
+    
 	value = $("#filter-input").val();
 	
 	country = $("#filter-country").prop("checked");
@@ -114,8 +117,6 @@ function filterChanged()
     year = $("#filter-year").val();
     
     study = $("#filter-study").val();
-	
-	var filteredMarkers = [];
 	
 	for( i = 0; i < locations.length; ++i)
 	{
@@ -193,6 +194,22 @@ function resetFilter()
 	filterChanged();
 }
 
+function showFilteredList()
+{
+    var markerIds = '';
+  
+    for (i=0; i < filteredMarkers.length; i++)
+    {
+        markerIds += filteredMarkers[i].id;
+        if (i != filteredMarkers.length -1)
+        {
+            markerIds += ',';
+        }
+    }
+    
+    load(organizationListURL + "/" + markerIds, "organizationlistmenu");
+}
+
 function searchForChanged()
 {
     if ($("#filter-country").prop("checked"))
@@ -245,6 +262,11 @@ $( document ).ready(function() {
 	$(".filter_reset").click(function(){
 		resetFilter();
 	});
+    
+    $(".filter_list").click(function(){
+        filterChanged();
+        showFilteredList();
+    });
 	
     $("#filter-country").change(function(){
         searchForChanged();
@@ -253,6 +275,8 @@ $( document ).ready(function() {
     $("#filter-city").change(function(){
         searchForChanged();
     });
+    
+    //resetFilter();
 });
 
 //failsafe: toch gescrolld? Zet de pagina weer terug.
