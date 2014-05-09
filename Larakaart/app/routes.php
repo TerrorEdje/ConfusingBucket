@@ -58,7 +58,13 @@ Route::group(array('before' => 'guest'), function() {
 	/*login | get*/
 	Route::get('login', array(
 		'as'	=> 'login-get',
-		'uses'	=> 'loginController@getLogin'
+		'uses'	=> 'LoginController@loginWithGoogle'
+	));
+
+	/*login van google call back| get*/
+	Route::get('login/google', array(
+		'as'	=> 'google-callback',
+		'uses'	=> 'LoginController@loggedInWithGoogle'
 	));
 
 	/*
