@@ -7,8 +7,7 @@
 	var locations = new Array();
 	@foreach ($mapLocations as $location)
 		@if (isset($location['latitude']) && isset($location['longitude']))
-			
-			locations.push( {  id:{{$location["id"]}},
+            var newLocation = {  id:{{$location["id"]}},
 								country:"{{$location["country"]}}",
 								city:"{{$location["city"]}}",
 								street:"{{$location["streetname"]}}",
@@ -16,7 +15,18 @@
 								zipcode:"{{$location["zipcode"]}}",
 								lat:{{$location["latitude"]}},
 								lng:{{$location["longitude"]}},
-								title:"{{$location["streetname"]}} {{$location["number"]}}" });
+								title:"{{$location["streetname"]}} {{$location["number"]}}" 
+                              };
+            var years = new Array();
+            @foreach ($location['years'] as $year)
+                var year = { start:{{$year["start"]}},
+                               end:{{$year["end"]}},
+                              type:"{{$year["type"]}}"
+                           };
+                years.push(year);
+            @endforeach
+            newLocation['years'] = years;
+			locations.push(newLocation);
 		@endif
 	@endforeach
 </script>

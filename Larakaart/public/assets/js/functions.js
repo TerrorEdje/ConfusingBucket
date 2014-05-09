@@ -105,12 +105,14 @@ function filterChanged()
 	
 	country = $("#filter-country").prop("checked");
 	city = $("#filter-city").prop("checked");
-	person = $("#filter-person").prop("checked");
+	//person = $("#filter-person").prop("checked");
     
     internship = $("#filter-internship").prop("checked");
-    graduation = $("#filter-graduation").prop("checked");
+    final_thesis = $("#filter-final_thesis").prop("checked");
     minor = $("#filter-minor").prop("checked");
     eps = $("#filter-eps").prop("checked");
+    
+    year = $("#filter-year").val();
     
     study = $("#filter-study").val();
 	
@@ -121,34 +123,54 @@ function filterChanged()
 		if (
 			( // Zoek op
 				(country && locations[i].country.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
-				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
-				(person && locations[i].person.toLowerCase().indexOf(value.toLowerCase()) != -1)
-			) &&
-			( // Type
-				(internship && locations[i].storyType == "Stage") ||
-                (graduation && locations[i].storyType == "Afstudeerstage") ||
-                (minor && locations[i].storyType == "Minor") ||
-                (eps && locations[i].storyType == "EPS") ||
-                (internship && graduation && minor && eps) //laat alles zien als alles is aangevinkt, ook als de marker geen type heeft
+				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1)
 			) &&
 			( //Opleiding
 				(study == "all") ||
                 (locations[i].study == study)
-			)
+			) 
 		)
 		{
-			var newMarker = new google.maps.Marker({
-				id: locations[i].id, 
-				position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-				title: locations[i].title,
-				icon: 'images/markers/default.png'
-			});
-			
-			filteredMarkers.push(newMarker);
-			
-			google.maps.event.addListener(newMarker,'click',function() {
-				load('storylist.php?locationid='+this.id);
-			});
+            var showMarker = false;
+            
+            for ( j = 0; j < locations[i]['years'].length; ++j)
+            {
+                if ( 
+                    ( // Type
+                        (internship && locations[i]['years'][j].type == "Internship") ||
+                        (final_thesis && locations[i]['years'][j].type == "Final thesis") ||
+                        (minor && locations[i]['years'][j].type == "Minor") ||
+                        (eps && locations[i]['years'][j].type == "EPS") ||
+                        (internship && final_thesis && minor && eps) //laat alles zien als alles is aangevinkt, ook als de marker geen type heeft
+                    ) &&
+                    (
+                        (year == 0) ||
+                        (
+                            (locations[i]['years'][j]['start'] <= year) &&
+                            (locations[i]['years'][j]['end'] >= year)
+                        )
+                    )
+                )
+                {
+                    showMarker = true;
+                }
+            }
+            
+            if (showMarker)
+            {
+                var newMarker = new google.maps.Marker({
+                    id: locations[i].id, 
+                    position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+                    title: locations[i].title,
+                    icon: 'images/markers/default.png'
+                });
+                
+                filteredMarkers.push(newMarker);
+                
+                google.maps.event.addListener(newMarker,'click',function() {
+                    load('storylist.php?locationid='+this.id);
+                });
+            }
 		}
 	}
 	

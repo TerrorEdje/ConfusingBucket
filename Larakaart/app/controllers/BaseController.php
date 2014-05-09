@@ -17,7 +17,6 @@ class BaseController extends Controller {
 			$mapLocations = Array();
 			$organizations = Organization::all();
 			foreach($organizations as $organization)
-
 			{
 				$mapLocation = Array();
                 //Locatie toevoegen
@@ -33,10 +32,55 @@ class BaseController extends Controller {
                     $mapLocation['latitude']    = $location['latitude'];
                     $mapLocation['longitude']   = $location['longitude'];
                 }
-				
-				/*$activity = Activity::where('organization_id','=',$organization['id'])->get();
-				if ($activity != null)
+                
+                $mapLocation['internship'] = false;
+                $mapLocation['final_thesis'] = false;
+                $mapLocation['minor'] = false;
+                $mapLocation['EPS'] = false;
+                $mapLocation['years'] = array();
+                
+				$activities = Activity::where('organization_id','=',$organization['id'])->get();
+				if ($activities != null)
                 {
+                    foreach($activities as $activity)
+                    {
+                        switch($activity['type'])
+                        {
+                            case "Internship":
+                                $mapLocation['internship'] = true;
+                                break;
+                            case "Final thesis":
+                                $mapLocation['final_thesis'] = true;
+                                break;
+                            case "Minor":
+                                $mapLocation['minor'] = true;
+                                break;
+                            case "EPS":
+                                $mapLocation['EPS'] = true;
+                                break;
+                        }
+                        
+                        if ($activity['startdate'] != null || $activity['enddate'] != null)
+                        {
+                            $year = array();
+                            if ($activity['startdate'] != null) 
+                            {
+                                $year['start'] = date('Y', strtotime($activity['startdate']));
+                            }
+                            else
+                                $year['start'] = 0;
+                            if ($activity['enddate'] != null) 
+                            {
+                                $year['end'] = date('Y', strtotime($activity['enddate']));
+                            }
+                            else
+                                $year['end'] = 9999;
+                            $year['type'] = $activity['type'];
+                            array_push($mapLocation['years'], $year);
+                        }
+                    }
+                }
+                /*
 					echo 'test';
 					var_dump($activity);
                     //Type toevoegen
@@ -86,7 +130,7 @@ class BaseController extends Controller {
                     
                     array_push($mapLocations,$mapLocation);
 				}
-			}*/			
+			}	*/
 				
                 array_push($mapLocations,$mapLocation);
 			}			

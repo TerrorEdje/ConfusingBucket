@@ -24,12 +24,6 @@
 								City
 							</label>
 						</div>
-						<div class="radio">
-							<label for="search_for-2">
-								<input type="radio" name="searchFor" id="filter-person" value="person">
-								Person
-							</label>
-						</div>
 					</div>
 				</div>
 
@@ -44,8 +38,8 @@
 						</div>
 						<div class="checkbox">
 							<label for="type-1">
-								<input type="checkbox" name="filter-graduation" id="filter-graduation" value="graduation" checked>
-								Graduation
+								<input type="checkbox" name="filter-final_thesis" id="filter-final_thesis" value="final_thesis" checked>
+								Final thesis
 							</label>
 						</div>
 						<div class="checkbox">
@@ -63,9 +57,11 @@
 					</div>
 				</div>
 				
+                <input type="number" class="form-control" id="filter-year" placeholder="Year" name="year"><br />
+                
                 <div class="form-group">
                     <div class="col-md-12">
-                        <select name="study" id="filter-study">
+                        <select name="study" class="form-control" id="filter-study">
                             <option value="all">All studies</option>
                         </select>
                     </div>
