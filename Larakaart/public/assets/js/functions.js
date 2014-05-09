@@ -193,6 +193,18 @@ function resetFilter()
 	filterChanged();
 }
 
+function searchForChanged()
+{
+    if ($("#filter-country").prop("checked"))
+    {
+        $('#filter-input').autocomplete({ source: countries});
+    }
+    else if($("#filter-city").prop("checked"))
+    {
+        $('#filter-input').autocomplete({ source: cities});
+    }
+}
+
 //Balk goedzetten bij window resize
 $(window).on('resize', function(){
 	var maxHeight = getMaxHeight();
@@ -234,6 +246,13 @@ $( document ).ready(function() {
 		resetFilter();
 	});
 	
+    $("#filter-country").change(function(){
+        searchForChanged();
+    });
+    
+    $("#filter-city").change(function(){
+        searchForChanged();
+    });
 });
 
 //failsafe: toch gescrolld? Zet de pagina weer terug.

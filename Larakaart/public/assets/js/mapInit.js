@@ -5,6 +5,8 @@ var centerLatlng = new google.maps.LatLng(0,0);
 
 var studies = [];
 var years = [];
+var cities = [];
+var countries = [];
 
 function initialize() {
 	var mapOptions = {
@@ -65,6 +67,14 @@ function initialize() {
                 studies.push(year['study']);
             } 
         });
+        
+        if($.inArray(locations[i]['city'], cities)<0) {
+            cities.push(locations[i]['city']);
+        } 
+        
+        if($.inArray(locations[i]['county'], countries)<0) {
+            countries.push(locations[i]['country']);
+        } 
 	}
     
     //Add study options to filter dropdown
@@ -72,6 +82,9 @@ function initialize() {
     
     //Add years to the year autocomplete
     $('#filter-year').autocomplete({ source: years });
+    
+    //Add countries to the filter autocomplete
+    $('#filter-input').autocomplete({ source: countries});
     
     //Initialize markerClusterer for displaying markers
 	var mcOptions = {zoomOnClick: false, 
