@@ -51,7 +51,10 @@ class LoginController extends BaseController {
 
 	public function loggedInWithGoogle() {
 
-		return '<pre>print_r($1)</pre>';
+		$code = Input::get('code');
+
+		return '<pre>print_r($1)</pre>--->'.$code;
+
 	}
 
 }

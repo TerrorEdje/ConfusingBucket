@@ -22,8 +22,8 @@ return array(
 		 * Facebook
 		 */
         'Google' => array(
-    		'client_id'     => '507801177930-04tfjq02c204g8a7a7kf1cj96rleflif.apps.googleusercontent.com',
-    		'client_secret' => 'ZM5UtcIrLFggwswlmPF0K71y',
+    		'client_id'     => '507801177930-o5m9lstektc9miu5ir27e9anjoqhsveh.apps.googleusercontent.com',
+    		'client_secret' => 'uXPcQPVSWWyxbP_uEt51hQnn',
     		'scope'         => array('userinfo_email', 'userinfo_profile'),
 		),  
 

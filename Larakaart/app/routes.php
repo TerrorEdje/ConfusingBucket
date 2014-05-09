@@ -38,6 +38,11 @@ Route::group(array('before' => 'guest'), function() {
 			'uses'	=> 'StoryController@uploadActivityAdd'
 		));
 
+		Route::post('login', array(
+			'as'	=> 'google-callback',
+			'uses'	=> 'LoginController@loggedInWithGoogle'
+		));
+
 		/*form experiance | post*/
 		Route::post('experience/add', array(
 			'as'	=> 'Experience-upload-add',
@@ -56,8 +61,8 @@ Route::group(array('before' => 'guest'), function() {
 		'uses'	=> 'LoginController@loginWithGoogle'
 	));
 
-	/*login van google call back| get*/
-	Route::get('login/google', array(
+	/*login van google call back| get CHANGED!!!!*/
+	Route::post('login/google', array(
 		'as'	=> 'google-callback',
 		'uses'	=> 'LoginController@loggedInWithGoogle'
 	));
