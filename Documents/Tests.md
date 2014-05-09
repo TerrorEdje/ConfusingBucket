@@ -199,3 +199,23 @@ Kijken of de markers groeperen
 
 **Verwacht resultaat:**
 Het aantal op de groep komt overeen met het aantal stories in de lijst
+
+##Testcase 9: Zoek functionaliteit
+
+**Test:**
+Controleren of de zoekfunctie klopt
+
+**Stappen:**
+1. Vul de database met het vulscript.
+2. Vul de volgende gegens in:  
+Copenhagen  
+City  
+Type: Minor (rest niet)  
+Year: 2015  
+Study: Communication and Multimedia Designe
+3. Het jaar en de study moeten een auto-aanvul suggestie krijgen. 
+4. Klik op Search
+
+**Verwacht resultaat:**
+Er staat 1 marker in Copenhagen. De rest van de markers zijn weg. 
+Als je op reset klikt, moeten alle velden naar de stadaard gezet worden en alle markers moeten weer verschijnen.
