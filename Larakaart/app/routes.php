@@ -84,6 +84,11 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Organization-upload-get',
 			'uses'	=> 'OrganizationController@uploadOrganization'
 	));
+	
+	Route::get('organization/cms', array(
+			'as'	=> 'Organization-cms',
+			'uses'	=> 'OrganizationController@OrganizationCMS'
+	));
 
 });
 ?>
