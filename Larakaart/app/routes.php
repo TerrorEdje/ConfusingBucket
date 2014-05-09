@@ -43,6 +43,11 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Experience-upload-add',
 			'uses'	=> 'StoryController@uploadExperienceAdd'
 		));
+		
+		Route::post('organization/add', array(
+			'as'	=> 'Organization-upload-add',
+			'uses'	=> 'OrganizationController@uploadOrganizationAdd'
+		));
 
 	});
 
@@ -73,6 +78,11 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('activity/upload', array(
 		'as'	=> 'Activity-upload-get',
 		'uses'	=> 'StoryController@uploadActivity'
+	));
+	
+	Route::get('organization/upload', array(
+			'as'	=> 'Organization-upload-get',
+			'uses'	=> 'OrganizationController@uploadOrganization'
 	));
 
 });
