@@ -12,16 +12,10 @@
 				</div>
 				<div id="{{ $organization['id']}}" class="panel-collapse collapse">
 					<div class="panel-body">
-						<p>
-						{{ $organization['type'] }}
-						</p>
-						<p>
-						{{ $organization['description'] }}
-						</p>
+						<p> {{ $organization['type'] }} </p>
+						<p> {{ $organization['description'] }} </p>
 						@if (isset($organization['website']))
-							<p>
-							{{ $organization['website'] }}
-							</p>
+							<p> {{ $organization['website'] }} </p>
 						@endif
 						<a href="#" onclick="load('{{ URL::route('organizationdetail', array($organization['id'])) }}','organizationdetailmenu'); return false;">Learn more</a>
 					</div>
