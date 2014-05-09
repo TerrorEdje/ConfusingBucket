@@ -32,6 +32,11 @@
 									Upload Experience
 								</a>
 							</li>
+							<li class="organization_cmsmenu">
+								<a href="#" onclick="load('{{ URL::route('Organization-cms') }}', 'organization_cmsmenu'); return false;">
+									Organization CMS
+								</a>
+							</li>
 							<!--<li class="authtestmenu">
 								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin
