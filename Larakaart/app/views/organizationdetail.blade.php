@@ -43,10 +43,10 @@
                                                 {{ $activity->getStudyName()}} <br/>
                                             @endif
                                             @if ($activity['startdate'] != null)
-                                                Start date: {{ $activity['startdate'] }}<br/>
+                                                Start date: {{ date('d-m-Y', strtotime($activity['startdate'])) }}<br/>
                                             @endif
                                             @if ($activity['enddate'] != null)
-                                                End date: {{ $activity['enddate'] }}<br/>
+                                                End date: {{ date('d-m-Y', strtotime($activity['enddate'])) }}<br/>
                                             @endif
                                         </p>
                                         @if ($activity['description'] != null)

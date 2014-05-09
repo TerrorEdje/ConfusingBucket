@@ -8,5 +8,14 @@ class Organization extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'organization';
+	
+	public function getLocation()
+	{
+		$location = Location::find($this->location_id);
+		if (isset($location))
+		{
+			return $location;
+		}
+	}
 }
 ?>
