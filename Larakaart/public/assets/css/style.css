@@ -225,6 +225,14 @@ footer > p{
 	color: red;
 }
 
+.organizationType{
+	color: #33b3ff;
+}
+
+.experienceStudentName{
+	color: #33b3ff;
+}
+
 #thumbnailactivities{
 	color: white;
 	border-radius: 4px;

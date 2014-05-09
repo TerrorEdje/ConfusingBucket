@@ -8,7 +8,7 @@
         <div class="row">
             <h1>{{ $organization['name'] }} </h1>
             <p>
-                {{ $organization['type'] }}<br/>
+                <span class="organizationType">{{ $organization['type'] }}</span><br/>
                 <a target="_blank" href="http://{{$organization['website']}}">{{ $organization['website'] }}</a>
             </p>
         </div>
@@ -94,7 +94,7 @@
                             @foreach ($experiences as $experience)
                                 <div class="col-sm-6 col-md-4" id="thumbnailexperiences">
                                     <div>
-                                        <h3>{{$experience->getStudentName()}}</h3>
+                                        <h3 class="experienceStudentName">{{$experience->getStudentName()}}</h3>
                                         @if ($experience['description'] != null)
                                         <p>
                                             {{$experience['description'] }}<br/>
