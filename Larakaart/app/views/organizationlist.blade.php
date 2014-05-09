@@ -4,7 +4,7 @@
 			@foreach ($organizations as $organization)
 				<div class="panel-heading">
 					<h1 class="panel-title"> 
-						<a data-toggle="collapse" data-parent="#accordion" href="#{{ $organization['id']}}">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ $organization['id']}}">
 							<i class="indicator glyphicon glyphicon-chevron-down"></i>
 							{{ $organization['name'] }} ({{ $organization->getLocation()->city }}, {{ $organization->getLocation()->country }})		
 						</a>
@@ -29,7 +29,11 @@
 			@endforeach
 		</div>
 	</div>
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#accordion').accordionChevrons();
+    });
+</script>
 
 
 
