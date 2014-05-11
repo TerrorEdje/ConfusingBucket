@@ -62,7 +62,11 @@ header{
 .filter_reset{
 	width: 100%;
 	height: 60px;
-	
+}
+
+.filter_list{
+	width: 100%;
+	height: 60px;
 }
 
 .search-icon{

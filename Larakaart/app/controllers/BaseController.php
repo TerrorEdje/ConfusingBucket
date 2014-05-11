@@ -17,9 +17,10 @@ class BaseController extends Controller {
 			$mapLocations = Array();
 			$organizations = Organization::all();
 			foreach($organizations as $organization)
-
 			{
 				$mapLocation = Array();
+                $mapLocation['organization'] = $organization['name'];
+                
                 //Locatie toevoegen
 				$location = Location::find($organization['location_id']);
                 if ($location != null) //ALS RESULT NIET LEEG IS
@@ -33,61 +34,43 @@ class BaseController extends Controller {
                     $mapLocation['latitude']    = $location['latitude'];
                     $mapLocation['longitude']   = $location['longitude'];
                 }
-				
-				/*$activity = Activity::where('organization_id','=',$organization['id'])->get();
-				if ($activity != null)
+                
+                $mapLocation['years'] = array();
+                
+				$activities = Activity::where('organization_id','=',$organization['id'])->get();
+				if ($activities != null)
                 {
-					echo 'test';
-					var_dump($activity);
-                    //Type toevoegen
-                    //$mapLocation['type'] = $activity['type'];
-                    
-                    //Opleiding toevoegen
-                    $study = Study::where('id','=',$activity[0]['study_id'])->get();
-                    if ($study != null)
+                    foreach($activities as $activity)
                     {
-                        $study = $study[0];
-                        $mapLocation['study'] = $study['name'];
-                    }
-                    
-					$story = Story::where('id','=',$storyLocation['story_id'])->get();
-					if (count($story) > 0)
-                    {
-                        //Type toevoegen
-                        $mapLocation['storyType'] = $story[0]['type'];
-                        
-                        //Studentnaam toevoegen
-                        $student = Student::where('id','=',$story[0]['student_id'])->get();
-                        if (count($student) > 0)
+                        $year = array();
+                        if ($activity['startdate'] != null || $activity['enddate'] != null)
                         {
-                            $student = $student[0];
-                            if ($student['insertion'] != null)
+                            if ($activity['startdate'] != null) 
                             {
-                                $mapLocation['person'] = $student['firstname'] . " " . $student['insertion'] . " " . $student['surname'];
+                                $year['start'] = date('Y', strtotime($activity['startdate']));
                             }
                             else
+                                $year['start'] = 0;
+                            if ($activity['enddate'] != null) 
                             {
-                                $mapLocation['person'] = $student['firstname'] . " " . $student['surname'];
+                                $year['end'] = date('Y', strtotime($activity['enddate']));
                             }
-                        }
-                        else
-                        {
-                            $mapLocation['person'] = "";
+                            else
+                                $year['end'] = 9999;
+                            $year['type'] = $activity['type'];
                         }
                         
-                        //Opleiding toevoegen
-                        $study = Study::where('id','=',$story[0]['study_id'])->get();
-                        if (count($study) > 0)
+                        $studies = Study::where('id','=',$activity['study_id'])->get();
+                        if ($studies != null)
                         {
-                            $study = $study[0];
-                            $mapLocation['study'] = $study['name'];
+                            foreach($studies as $study)
+                            {
+                                $year['study'] = $study['name'];
+                            }
                         }
-					}
-                    
-                    array_push($mapLocations,$mapLocation);
-				}
-
-			}*/			
+                        array_push($mapLocation['years'], $year);
+                    }
+                }
 				
                 array_push($mapLocations,$mapLocation);
 			}			

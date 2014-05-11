@@ -99,22 +99,25 @@ function load(page, menuitem)
 	showContent();
 }
 
+var filteredMarkers = [];
 function filterChanged()
 {
-	value = $("#filter_input").val();
+    filteredMarkers = [];
+    
+	value = $("#filter-input").val();
 	
 	country = $("#filter-country").prop("checked");
 	city = $("#filter-city").prop("checked");
-	person = $("#filter-person").prop("checked");
+    organization = $("#filter-organization").prop("checked");
     
     internship = $("#filter-internship").prop("checked");
-    graduation = $("#filter-graduation").prop("checked");
+    final_thesis = $("#filter-final_thesis").prop("checked");
     minor = $("#filter-minor").prop("checked");
     eps = $("#filter-eps").prop("checked");
     
+    year = $("#filter-year").val();
+    
     study = $("#filter-study").val();
-	
-	var filteredMarkers = [];
 	
 	for( i = 0; i < locations.length; ++i)
 	{
@@ -122,33 +125,54 @@ function filterChanged()
 			( // Zoek op
 				(country && locations[i].country.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
 				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
-				(person && locations[i].person.toLowerCase().indexOf(value.toLowerCase()) != -1)
-			) &&
-			( // Type
-				(internship && locations[i].storyType == "Stage") ||
-                (graduation && locations[i].storyType == "Afstudeerstage") ||
-                (minor && locations[i].storyType == "Minor") ||
-                (eps && locations[i].storyType == "EPS") ||
-                (internship && graduation && minor && eps) //laat alles zien als alles is aangevinkt, ook als de marker geen type heeft
-			) &&
-			( //Opleiding
-				(study == "all") ||
-                (locations[i].study == study)
-			)
+                (organization && locations[i].organization.toLowerCase().indexOf(value.toLowerCase()) != -1)
+			) 
 		)
 		{
-			var newMarker = new google.maps.Marker({
-				id: locations[i].id, 
-				position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
-				title: locations[i].title,
-				icon: 'images/markers/default.png'
-			});
-			
-			filteredMarkers.push(newMarker);
-			
-			google.maps.event.addListener(newMarker,'click',function() {
-				load('storylist.php?locationid='+this.id);
-			});
+            var showMarker = false;
+            
+            for ( j = 0; j < locations[i]['years'].length; ++j)
+            {
+                if ( 
+                    ( // Type
+                        (internship && locations[i]['years'][j].type == "Internship") ||
+                        (final_thesis && locations[i]['years'][j].type == "Final thesis") ||
+                        (minor && locations[i]['years'][j].type == "Minor") ||
+                        (eps && locations[i]['years'][j].type == "EPS") ||
+                        (internship && final_thesis && minor && eps) //laat alles zien als alles is aangevinkt, ook als de marker geen type heeft
+                    ) &&
+                    (
+                        (year == 0) ||
+                        (
+                            (locations[i]['years'][j]['start'] <= year) &&
+                            (locations[i]['years'][j]['end'] >= year)
+                        )
+                    ) &&
+                    (
+                        (study == "") ||
+                        (locations[i]['years'][j]['study'] == study)
+                    )
+                )
+                {
+                    showMarker = true;
+                }
+            }
+            
+            if (showMarker)
+            {
+                var newMarker = new google.maps.Marker({
+                    id: locations[i].id, 
+                    position: new google.maps.LatLng(locations[i].lat, locations[i].lng),
+                    title: locations[i].title,
+                    icon: 'images/markers/default.png'
+                });
+                
+                filteredMarkers.push(newMarker);
+                
+                google.maps.event.addListener(newMarker,'click',function() {
+                    load(organizationDetailURL+this.id);
+                });
+            }
 		}
 	}
 	
@@ -157,18 +181,51 @@ function filterChanged()
 
 function resetFilter()
 {
-	$("#filter_input").val("");
+	$("#filter-input").val("");
 	
 	$("#filter-country").prop("checked", true);
 	
 	$("#filter-internship").prop("checked", true);
-	$("#filter-graduation").prop("checked", true);
+	$("#filter-final_thesis").prop("checked", true);
 	$("#filter-minor").prop("checked", true);
 	$("#filter-eps").prop("checked", true);
     
-    $("#filter-study").val("all");
+    $("#filter-year").val("");
+    $("#filter-study").val("");
 	
 	filterChanged();
+}
+
+function showFilteredList()
+{
+    var markerIds = '';
+  
+    for (i=0; i < filteredMarkers.length; i++)
+    {
+        markerIds += filteredMarkers[i].id;
+        if (i != filteredMarkers.length -1)
+        {
+            markerIds += ',';
+        }
+    }
+    
+    load(organizationListURL + "/" + markerIds, "organizationlistmenu");
+}
+
+function searchForChanged()
+{
+    if ($("#filter-country").prop("checked"))
+    {
+        $('#filter-input').autocomplete({ source: countries});
+    }
+    else if($("#filter-city").prop("checked"))
+    {
+        $('#filter-input').autocomplete({ source: cities});
+    }
+    else if($("#filter-organization").prop("checked"))
+    {
+        $('#filter-input').autocomplete({ source: organizations});
+    }
 }
 
 //Balk goedzetten bij window resize
@@ -202,7 +259,6 @@ $( document ).ready(function() {
 	$('#filter_button').one("click", function() { showFilter(); return false; });
 	
 	//filter
-	//$("#filter_input").change(function(){ filterChanged() });
 	$("#filter_form").submit(function(event){
 		event.preventDefault();
 		filterChanged();
@@ -212,7 +268,23 @@ $( document ).ready(function() {
 	$(".filter_reset").click(function(){
 		resetFilter();
 	});
+    
+    $(".filter_list").click(function(){
+        filterChanged();
+        showFilteredList();
+    });
 	
+    $("#filter-country").change(function(){
+        searchForChanged();
+    });
+    
+    $("#filter-city").change(function(){
+        searchForChanged();
+    });
+    
+    $("#filter-organization").change(function(){
+        searchForChanged();
+    });
 });
 
 //failsafe: toch gescrolld? Zet de pagina weer terug.

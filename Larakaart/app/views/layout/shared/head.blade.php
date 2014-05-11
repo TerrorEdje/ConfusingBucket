@@ -16,14 +16,14 @@
 	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
 	<link href="assets/css/bootstrap.css" type="text/css" rel = "stylesheet" />-->
 	
-	{{HTML::script('http://code.jquery.com/jquery-latest.min.js')}}
+	{{HTML::script('//code.jquery.com/jquery-latest.min.js')}}
 	{{HTML::script('assets/js/bootstrap.js')}}
 	{{HTML::script('assets/js/functions.js')}}
 	<!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="assets/js/bootstrap.js"></script>
 	<script type="text/javascript" src="assets/js/functions.js"></script>-->
 	
-	{{HTML::script('http://code.jquery.com/ui/1.10.1/jquery-ui.js')}}
+	{{HTML::script('//code.jquery.com/ui/1.10.1/jquery-ui.js')}}
 	<!--<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>-->
 	
 </head>

@@ -4,6 +4,10 @@ var markers = [];
 var centerLatlng = new google.maps.LatLng(0,0);
 
 var studies = [];
+var years = [];
+var cities = [];
+var countries = [];
+var organizations = [];
 
 function initialize() {
 	var mapOptions = {
@@ -32,21 +36,60 @@ function initialize() {
         google.maps.event.addListener(marker,'click',function() {
 			load(organizationDetailURL+this.id, "organizationdetailmenu");
 		});
-        
-        //Add study to studies array if it doesn't exist already
-        if($.inArray(locations[i].study, studies)<0) {
-            studies.push(locations[i].study);
-        } 
 		
+        //Add years to years array
+        $.each(locations[i]['years'], function (key, year) {
+            var start = false;
+            var end = false;
+            
+            if ((year['start'] != 0) && (year['end'] != 9999))
+            {
+                for (j = year['start']; j <= year['end']; ++j)
+                {
+                    if ($.inArray(j.toString(), years)<0)
+                        years.push(j.toString());
+                }
+            }
+            
+            if ((year['start'] == 0) && (year['end'] != 9999))
+            {
+                if ($.inArray(year['end'].toString(), years)<0)
+                    years.push(year['end'].toString());
+            }
+            
+            if ((year['start'] != 0) && (year['end'] == 9999))
+            {
+                if ($.inArray(year['start'].toString(), years)<0)
+                    years.push(year['start'].toString());
+            }
+            
+            //Add study to studies array if it doesn't exist already
+            if($.inArray(year['study'], studies)<0) {
+                studies.push(year['study']);
+            } 
+        });
+        
+        if($.inArray(locations[i]['city'], cities)<0) {
+            cities.push(locations[i]['city']);
+        } 
+        
+        if($.inArray(locations[i]['county'], countries)<0) {
+            countries.push(locations[i]['country']);
+        } 
+        
+        if($.inArray(locations[i]['organization'], organizations)<0) {
+            organizations.push(locations[i]['organization']);
+        } 
 	}
     
     //Add study options to filter dropdown
-    $.each(studies, function(key, value) {   
-        $('#filter-study')
-            .append($("<option></option>")
-            .attr("value",value)
-            .text(value)); 
-    });
+    $('#filter-study').autocomplete({ source: studies });
+    
+    //Add years to the year autocomplete
+    $('#filter-year').autocomplete({ source: years });
+    
+    //Add countries to the filter autocomplete
+    $('#filter-input').autocomplete({ source: countries});
     
     //Initialize markerClusterer for displaying markers
 	var mcOptions = {zoomOnClick: false, 

@@ -7,7 +7,7 @@
 	<div id="filter_bar" class="rounded-bottomleft scroll">
 		<form class="form-horizontal" id="filter_form">
 			<fieldset>
-				<input type="text" class="form-control" id="filter_input" placeholder="Search" name="search"><br />
+				<input type="text" class="form-control" id="filter-input" placeholder="Search" name="search"><br />
 
 				<div class="form-group">
 					<label class="col-md-6 control-label" for="searchFor">Search for</label>
@@ -24,10 +24,10 @@
 								City
 							</label>
 						</div>
-						<div class="radio">
+                        <div class="radio">
 							<label for="search_for-2">
-								<input type="radio" name="searchFor" id="filter-person" value="person">
-								Person
+								<input type="radio" name="searchFor" id="filter-organization" value="organization">
+								organization
 							</label>
 						</div>
 					</div>
@@ -44,8 +44,8 @@
 						</div>
 						<div class="checkbox">
 							<label for="type-1">
-								<input type="checkbox" name="filter-graduation" id="filter-graduation" value="graduation" checked>
-								Graduation
+								<input type="checkbox" name="filter-final_thesis" id="filter-final_thesis" value="final_thesis" checked>
+								Final thesis
 							</label>
 						</div>
 						<div class="checkbox">
@@ -62,12 +62,16 @@
 						</div>
 					</div>
 				</div>
-				
+                <div class="form-group">
+					<label class="col-md-6 control-label" for="filters">Year</label>
+					<div class="col-md-6">
+                        <input type="text" class="form-control" id="filter-year" placeholder="Year" name="year"><br />
+                    </div>
+				</div>
+                
                 <div class="form-group">
                     <div class="col-md-12">
-                        <select name="study" id="filter-study">
-                            <option value="all">All studies</option>
-                        </select>
+                        <input type="text" class="form-control" id="filter-study" placeholder="Study" name="study"><br />
                     </div>
                 </div>
                 
@@ -75,6 +79,7 @@
 			</fieldset>
 		</form>
 		<br />
+		<button class="btn btn-primary filter_list">View list</button><br /><br />
 		<button class="btn btn-primary filter_reset">Reset</button>
 	</div>
 </div>
