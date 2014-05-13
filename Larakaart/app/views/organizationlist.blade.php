@@ -5,7 +5,7 @@
 				<div class="panel-heading">
 					<h1 class="panel-title"> 
 						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ $organization['id']}}">
-							<i class="indicator glyphicon glyphicon-chevron-down blue"></i>&nbsp;&nbsp;&nbsp;
+							<i class="indicator glyphicon glyphicon-chevron-down text-primary"></i>&nbsp;&nbsp;&nbsp;
 							{{ $organization['name'] }} ({{ $organization->getLocation()->city }}, {{ $organization->getLocation()->country }})		
 						</a>
 					</h1>
