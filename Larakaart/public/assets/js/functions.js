@@ -93,9 +93,10 @@ function showFilter()
 function load(page, menuitem)
 {
 	console.log('Loading page:' + page);
-	$('#content').load(page);
+	$('#content').load(page, hijackForms);
 	$('.active').removeClass("active");
 	$('.'+menuitem).addClass("active");
+    
 	showContent();
 }
 
@@ -228,6 +229,25 @@ function searchForChanged()
     }
 }
 
+function hijackForms()
+{
+    $('form:not(.noHijack)').submit(formSubmitted);
+}
+
+function formSubmitted(e)
+{
+    console.log('form submitted');
+    e.preventDefault();
+    $.ajax({
+        type: 'post',
+        url: $(e.target).attr('action'),
+        data: $(e.target).serialize(),
+        success: function(data) {
+            $('#content').html(data);
+        } 
+    });
+}
+
 //Balk goedzetten bij window resize
 $(window).on('resize', function(){
 	var maxHeight = getMaxHeight();
@@ -285,6 +305,8 @@ $( document ).ready(function() {
     $("#filter-organization").change(function(){
         searchForChanged();
     });
+    
+    hijackForms();
 });
 
 //failsafe: toch gescrolld? Zet de pagina weer terug.
