@@ -24,7 +24,7 @@ class OrganizationController extends BaseController {
 		}
 		
 		
-		return View::make('organizationdetail')->with('errors',$errors)->with('organization',$organization)->with('activities',$activities)->with('experiences',$experiences);
+		return View::make('organization/detail')->with('errors',$errors)->with('organization',$organization)->with('activities',$activities)->with('experiences',$experiences);
 	}
 
 	public function organizationlist($ids = "empty")
@@ -50,7 +50,7 @@ class OrganizationController extends BaseController {
 			$organizations = Organization::all();
 		}
 		
-		return View::make('organizationlist', array('organizations' => $organizations));
+		return View::make('organization/list', array('organizations' => $organizations));
 	}
 	
 	public function organizationcms()
@@ -61,17 +61,27 @@ class OrganizationController extends BaseController {
 	
 	public function uploadOrganization()
 	{		
-		$organization_types = Organization_type::all();
-		$types = array();
-		foreach($organization_types as $type)
-		{
-			array_push($types,$type->name);
-		}
+		$types = array('' => 'Select...') + Organization_type::lists('name','name');
 		return View::make('organization/upload')->with('types',$types);
 	}
 	
 	public function uploadOrganizationAdd()
 	{
+		$organization = new Organization;
+		$organization->name = Input::get('name');
+		$organization->description = Input::get('description');
+		$organization->type = Input::get('type');
+		$organization->website = Input::get('website');
+		$location = new Location;
+		$location->country = Input::get('country');
+		$location->city = Input::get('city');
+		$location->streetname = Input::get('streetname');
+		$location->number = Input::get('number');
+		$location->zipcode = Input::get('zipcode');
+		$location->geocode();
+		$location->save();
+		$organization->location_id = $location->id;
+		$organization->save();
 		return View::make('organization/uploadadd');
 	}
 
