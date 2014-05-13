@@ -10,7 +10,7 @@ class Location extends Eloquent {
 	protected $table = 'location';
 	
 	function geocode(){
-		$stringlocation = $this->country . " " . $this->city . " " . $this->streetname . " " . $this->number;
+		$stringlocation = $this->country . ", " . $this->city . ", " . $this->streetname . ", " . $this->number;
 		$locationclean = str_replace (" ", "+", urlencode($stringlocation));
 		$details_url = "http://maps.googleapis.com/maps/api/geocode/json?address=" . $locationclean . "&sensor=false";
 

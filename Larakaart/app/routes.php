@@ -48,6 +48,11 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Organization-upload-add',
 			'uses'	=> 'OrganizationController@uploadOrganizationAdd'
 		));
+		
+		Route::post('organization/update-add', array(
+			'as'	=> 'Organization-update-add',
+			'uses'	=> 'OrganizationController@uploadOrganizationAdd'
+		));
 
 	});
 
@@ -88,6 +93,11 @@ Route::group(array('before' => 'guest'), function() {
 	
 	Route::get('organization/upload', array(
 			'as'	=> 'Organization-upload-get',
+			'uses'	=> 'OrganizationController@uploadOrganization'
+	));
+	
+	Route::get('organization/update', array(
+			'as'	=> 'Organization-update-get',
 			'uses'	=> 'OrganizationController@uploadOrganization'
 	));
 	
