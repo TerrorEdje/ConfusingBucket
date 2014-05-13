@@ -31,12 +31,24 @@ class LoginController extends BaseController {
 	        // Send a request with it
 	        $result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
+	        /*
 	        $message = 'Your unique Google user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
 	        echo $message. "<br/>";
+	        */
 
-	        //Var_dump
-	        //display whole array().
-	        dd($result);
+	        $user = new User();
+	        $user->google_id = $result['id'];
+
+	        if(User::find($user->google_id)){
+
+	        	logginIn($user);
+
+			}else{
+				
+				$user->save();
+				'';
+
+			}
 
 	    }
 	    // if not ask for permission first
@@ -49,11 +61,33 @@ class LoginController extends BaseController {
     	}
 	}
 
+	private function logginIn(User $user){
+
+		if (Auth::attempt(array('google_id' => $user->google_id))) {
+	    		/*return Redirect::to('home')->with('message', 'You have succesfully logged in!');*/
+	    		return 'gelukt';
+			} else {
+	    		/*return Redirect::to('users/login')
+	        	->with('message', 'Something went wrong please try again!!');*/
+	        	return 'gefaalt';
+			}
+
+	}
+
 	public function loggedInWithGoogle() {
 
 		$code = Input::get('code');
 
-		return '<pre>print_r($1)</pre>--->'.$code;
+		/*sessie zetten*/
+
+		/*if (Auth::attempt(array('google_token'=>Input::get('code')))) {
+    		return Redirect::to('home')->with('message', 'You have succesfully logged in!');
+		} else {
+    		return Redirect::to('users/login')
+        	->with('message', 'Something went wrong please try again!!');
+		}*/
+
+		/*return '<pre>print_r($1)</pre>--->'.$code;*/
 
 	}
 
