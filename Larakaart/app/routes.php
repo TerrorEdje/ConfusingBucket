@@ -51,7 +51,7 @@ Route::group(array('before' => 'guest'), function() {
 		
 		Route::post('organization/update-add', array(
 			'as'	=> 'Organization-update-add',
-			'uses'	=> 'OrganizationController@uploadOrganizationAdd'
+			'uses'	=> 'OrganizationController@updateOrganizationAdd'
 		));
 
 	});

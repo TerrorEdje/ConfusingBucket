@@ -20,7 +20,11 @@
         <div class="form-group">
 	    	<label for="type" class="col-sm-2 control-label">Type: </label>
 			<div class="col-sm-8">
-			   	<select class="form-control" id="type" name="type"><option value="0">Company</option><option value="1">School</option></select>
+			   	<select class="form-control" id="type" name="type">
+					@foreach($types as $type)
+						<option value="{{$type}}">{{$type}}</option>
+					@endforeach
+				</select>
 			</div>
 			@if($errors->has('type'))
 				<div class="col-sm-offset-2 col-sm-8 has-error">
@@ -56,13 +60,13 @@
         <legend class="the-legend text-primary">Address</legend>
         
         <div class="form-group">
-	    	<label for="street" class="col-sm-2 control-label">Street: </label>
+	    	<label for="streetname" class="col-sm-2 control-label">Street: </label>
 			<div class="col-sm-6">
-			   	<input type="text" class="form-control address" id="street" name="street" {{ (Input::old('street')) ? 'value="'.e(Input::old('street')).'"': '' }}>
+			   	<input type="text" class="form-control address" id="streetname" name="streetname" {{ (Input::old('streetname')) ? 'value="'.e(Input::old('streetname')).'"': '' }}>
 			</div>
-			@if($errors->has('street'))
+			@if($errors->has('streetname'))
 				<div class="col-sm-offset-2 col-sm-6 has-error">
-					<h5 class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> {{ $errors->first('street')}}</h5>
+					<h5 class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> {{ $errors->first('streetname')}}</h5>
 				</div>
 			@endif
             <label for="number" class="col-sm-1 control-label">No: </label>

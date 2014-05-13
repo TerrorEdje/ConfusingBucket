@@ -13,7 +13,7 @@ function initialize() {
 }
 
 function codeAddress() {
-    var address = $('#country').val() + ", " + $('#city').val() + ", " + $('#street').val() + " " + $('#number').val();
+    var address = $('#country').val() + ", " + $('#city').val() + ", " + $('#streetname').val() + " " + $('#number').val();
     geocoder.geocode( { 'address': address}, function(results, status) {
         if (locationMarker != undefined)
         {
