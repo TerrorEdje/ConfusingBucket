@@ -23,9 +23,10 @@ class BaseController extends Controller {
                 
                 //Locatie toevoegen
 				$location = Location::find($organization['location_id']);
+				$mapLocation['id'] = $organization['id'];
                 if ($location != null) //ALS RESULT NIET LEEG IS
                 {
-                    $mapLocation['id']          = $location['id'];
+
                     $mapLocation['country']     = $location['country'];
                     $mapLocation['city']        = $location['city'];
                     $mapLocation['streetname']  = $location['streetname'];
