@@ -1,3 +1,5 @@
+{{HTML::script('assets/js/geocode.js')}}
+
 {{ Form::open(array('url' => 'organization/add'), 'post') }}
 	<h1>Organization</h1>
 	Name: {{ Form::text('name') }}</br>
@@ -13,3 +15,5 @@
 	{{Form::submit('Upload Organization')}}
 	{{Form::token()}}
 {{ Form::close() }}
+
+<div id="location-canvas" style="width: 320px; height: 480px;"></div>
