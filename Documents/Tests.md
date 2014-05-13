@@ -30,7 +30,7 @@ Werkt het uitlezen van de markers uit de database.
 2. Open de website.
 
 **Verwacht resultaat:**
-Op de kaart staat een marker in Izmir (Turkije).
+Op de kaart staat een marker in Vaasa (Finland).
 
 ##Testcase 3.1: Data uit de database halen. (Repositories en Models)
 
@@ -41,9 +41,25 @@ Er wordt data uit de database gehaald.
 1. Vul de database met het vulscript
 2. Open de website.
 3. Klik op Organizations
+4. Klik willekeurig op de organisaties
 
 **Verwacht resultaat:**
-Controleer of de volgende record er staat: Afstudeerstage, Norway, Oslo, 2014-03-02, 2014-03-08, Robin Collard.
+Controleer of de volgende records er staan:
+1. Kraft Foods (Herentals, Belgium)
+2. Weltec Centre for Smart Product (Wellington, New Zealand)
+3. Copenhagen University of Engineering (Copenhagen, Denmark)
+4. Novia University of Applied Sciences (Vaasa, Finland)
+5. Universidad Politecnica de Valencia (Valencia, Spain)
+6. Noorwegen, Buskerud University (Kongsberg, Norway)
+7. Australian Centre for Field Robotics (Sydney, Australia)
+8. Suralco LLC (Paramaribo, Suriname)
+
+Bij klikken op een organisatie wordt de accordion uitgevouwen voor die organisatie. Als er een andere al open stond, wordt die tegelijk gesloten.
+
+Als er op een organisatie is geklikt, zijn de volgende dingen te zien:
+1. Type van de organisatie (Company of School)
+2. Een omschrijving van de organisatie (Lorem Ipsum)
+3. Een link (Learn more)
 
 ##Testcase 3.2: Data uit de database halen. (Repositories en Models)
 
@@ -53,12 +69,15 @@ Wordt data uit de database gehaald.
 **Stappen:**
 1. Vul de database met het vulscript.
 2. Open de website.
-3. Klik op de marker in Frankrijk, Tarbes.
+3. Klik op de marker met een '3' erin.
 
 **Verwacht resultaat:**
-Er wordt een tabel getoont met meerdere organizations.
+Er wordt een lijst met de volgende 3 records getoont:
+1. Kraft Foods (Herentals, Belgium)
+2. Copenhagen University of Engineering (Copenhagen, Denmark)
+3. Noorwegen, Buskerud University (Kongsberg, Norway)
 
-##Testcase 4.1: Detail organization weergeven op de website (tabel)
+##Testcase 4.1: Detail organization weergeven op de website (accordion)
 
 **Test:**
 Details van een organization worden weergegeven.
@@ -66,11 +85,30 @@ Details van een organization worden weergegeven.
 **Stappen:**
 1. Vul de database met het vulscript.
 2. Open de website.
-3. Klik op Stories.
-4. Klik op details bij de eerste organization van de organizations.
+3. Klik op Organizations.
+4. Klik op de eerste organisatie.
+5. Klik op Learn more
+6. 1. Klik op about
+   2. Klik op Activities
+   3. Klik op Experiences
+
 
 **Verwacht resultaat:**
-Je komt op een pagina met de organization van Robin Collard. Gegevens: Afstudeerstage in Norway.
+1. About:
+Je komt op een pagina met informatie van de organization Kraft Foods. Gegevens:
+  1. Herentals
+  2. Belgium.
+2. Activities:
+Je komt op een pagina met een activity van de organisatie Kraft Foods. Gegevens:
+  1. Final thesis Kraft Foods
+  2. closed
+  3. Industrial Engineering
+  4. Start: 01-01-2012
+  5. End: 01-01-2013
+3. Experiances:
+Je komt op een pagina met twee experiences van studenten over Kraft Foods. Gegevens:
+  1. Donald Rutgers
+  2. Jorick Dam
 
 ##Testcase 4.2: Detail organization weergeven op de website (marker)
 
@@ -80,10 +118,24 @@ Details van een organization worden weergegeven
 **Stappen:**
 1. Vul de database met het vulscript.
 2. Open de website.
-3. Klik op de marker die in Oslo staat.
+3. Klik op de marker die in Vaasa staat.
 
 **Verwacht resultaat:**
-Je komt op een pagina met de organization van Robin Collard. Gegevens: Afstudeerstage in Norway.
+1. About:
+Je komt op een pagina met informatie van de organization Novia University of Applied Sciences. Gegevens:
+  1. Vaasa
+  2. Finland.
+2. Activities:
+Je komt op een pagina met een activity van de organisatie Novia University of Applied Sciences. Gegevens:
+  1. EPS Novia University of Applied Sciences
+  2. closed
+  3. EPS
+  3. Computer Sience
+  4. Start: 01-01-2012
+  5. End: 01-01-2013
+3. Experiences:
+Je komt op een pagina met de experience van een student over Novia University of Applied Sciences. Gegevens:
+  1. Rudy Chambon
 
 ##Testcase 5.1: Auth check -- OUD
 
@@ -194,8 +246,31 @@ Kijken of de markers groeperen
 
 **Stappen:**
 1. Vul de database met het vulscript.
-2. In Frankrijk, Tarbes staan 2 markers op elkaar.
+2. In Europa staan 3 markers op elkaar.
+  1. Kraft Foods (Herentals, Belgium)
+  2. Copenhagen University of Engineering (Copenhagen, Denmark)
+  3. Noorwegen, Buskerud University (Kongsberg, Norway)
 3. Klik op de groep
 
 **Verwacht resultaat:**
-Het aantal op de groep komt overeen met het aantal stories in de lijst
+Het aantal op de groep komt overeen met het aantal stories in de lijst (accordion)
+
+##Testcase 9: Zoek functionaliteit
+
+**Test:**
+Controleren of de zoekfunctie klopt
+
+**Stappen:**
+1. Vul de database met het vulscript.
+2. Vul de volgende gegens in:  
+Copenhagen  
+City  
+Type: Minor (rest niet)  
+Year: 2015  
+Study: Communication and Multimedia Designe
+3. Het jaar en de study moeten een auto-aanvul suggestie krijgen. De zoekbalk moet een suggestie krijgen voor stad of land (gelijk aan de keuze)
+4. Klik op Search
+
+**Verwacht resultaat:**
+Er staat 1 marker in Copenhagen. De rest van de markers zijn weg. 
+Als je op reset klikt, moeten alle velden naar de stadaard gezet worden en alle markers moeten weer verschijnen.
