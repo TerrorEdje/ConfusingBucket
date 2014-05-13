@@ -24,7 +24,7 @@ class OrganizationController extends BaseController {
 		}
 		
 		
-		return View::make('organizationdetail')->with('errors',$errors)->with('organization',$organization)->with('activities',$activities)->with('experiences',$experiences);
+		return View::make('organization/detail')->with('errors',$errors)->with('organization',$organization)->with('activities',$activities)->with('experiences',$experiences);
 	}
 
 	public function organizationlist($ids = "empty")
@@ -50,7 +50,7 @@ class OrganizationController extends BaseController {
 			$organizations = Organization::all();
 		}
 		
-		return View::make('organizationlist', array('organizations' => $organizations));
+		return View::make('organization/list', array('organizations' => $organizations));
 	}
 	
 	public function organizationcms()
