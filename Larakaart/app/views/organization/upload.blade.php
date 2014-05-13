@@ -5,7 +5,7 @@
 	Website: {{ Form::text('website') }}</br>
 	Description: </br>{{ Form::textarea('description') }}</br>
 	<h1>Adress</h1>
-	Street: {{ Form::text('streetname') }} Number: {{ Form::text('number') }}</br></br>
+	Street: {{ Form::text('streetname') }} Number: {{ Form::text('number') }}</br>
 	City: {{ Form::text('city') }}</br>
 	Zipcode: {{ Form::text('zipcode') }} </br>
 	Country: {{ Form::text('country') }} </br>
