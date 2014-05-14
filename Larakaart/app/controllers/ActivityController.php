@@ -13,7 +13,56 @@ class ActivityController extends BaseController {
 	
 	public function uploadActivityAdd()
 	{	
-		$startdate = Input::get('startdate');
+		$input	= Input::all();
+	
+		$validator = Validator::make($input, array(
+				'organisatie' => 'required',
+				'type' 			=> 'required',
+				'name' 		=> 'required|max:45|alpha_dash',
+				'description' => 'required|alpha_dash',
+				'startdate'	=> 'date',
+				'enddate' 	=> 'date|after:startdate',
+				'status'		=> 'required'
+			));		
+		
+	
+		if($validator->fails())
+		{
+			echo 'Test <br />';
+			foreach($input as $x)
+			{
+				echo $x .'<br />';
+			}
+			/*return Redirect::route('Activity-upload-add')
+				->withErrors($validator)
+				->withInput();*/
+
+		}
+		else
+		{
+			$organisatie 	= Input::get('organization');
+			$type 				= Input::get('type');
+			$name				= Input::get('name');
+			$description	= Input::get('description');
+			$startdate		= Input::get('startdate');
+			$enddate 		= Input::get('enddate');
+			$status			= Input::get('status');
+			$study				= Input::get('study');
+
+			$newActivity = new Activity;
+			$newActivity->name 					= $name;
+			$newActivity->description 			= $description;
+			$newActivity->startdate 				= $startdate;
+			$newActivity->enddate 				= $enddate;
+			$newActivity->type 						= $type;
+			$newActivity->status 					= $status;
+			$newActivity->organization_id 	= $organisatie;
+			$newActivity->study_id 				= $study;
+			$newActivity->save();
+			return View::make('uploadActivityAdd');
+		}
+	
+		/*$startdate = Input::get('startdate');
 	
 		$rules = array
 		(
@@ -57,7 +106,7 @@ class ActivityController extends BaseController {
 			$activity->study_id = Input::get('study');
 			$activity->save();
 			return View::make('uploadActivityAdd');
-		}
+		}*/
 	}
 
 }
