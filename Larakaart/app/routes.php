@@ -41,7 +41,7 @@ Route::group(array('before' => 'guest'), function() {
 		/*form experiance | post*/
 		Route::post('experience/add', array(
 			'as'	=> 'Experience-upload-add',
-			'uses'	=> 'StoryController@uploadExperienceAdd'
+			'uses'	=> 'ExperienceController@uploadExperienceAdd'
 		));
 
 	});
@@ -67,7 +67,7 @@ Route::group(array('before' => 'guest'), function() {
 	/* experiance form | get*/
 	Route::get('experience/upload', array(
 		'as'	=> 'Experience-upload-get',
-		'uses'	=> 'StoryController@uploadExperience'
+		'uses'	=> 'ExperienceController@uploadExperience'
 	));
 
 	Route::get('activity/upload', array(
