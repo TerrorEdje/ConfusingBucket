@@ -75,7 +75,7 @@
 			</tr>
 			<tr><td colspan="5">&nbsp;</td></tr>
 		</table>
-	{{Form::submit('Upload Activity', array('class' => 'btn btn-success'))}}
+		<button type="submit" class="btn btn-success">Upload Activity</button>
 	</fieldset>
 	{{Form::token()}}
 {{ Form::close() }}	
