@@ -79,4 +79,14 @@
 	</fieldset>
 	{{Form::token()}}
 {{ Form::close() }}	
+
+@if ( $errors->count() > 0 )
+      <p>The following errors have occurred:</p>
+
+      <ul>
+        @foreach( $errors->all() as $message )
+          <li class="text-danger">{{ $message }}</li>
+        @endforeach
+      </ul>
+    @endif
 	
