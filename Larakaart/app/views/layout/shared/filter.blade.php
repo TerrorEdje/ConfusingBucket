@@ -5,7 +5,7 @@
 		</div>
 	</a>
 	<div id="filter_bar" class="rounded-bottomleft scroll">
-		<form class="form-horizontal" id="filter_form">
+		<form class="form-horizontal noHijack" id="filter_form">
 			<fieldset>
 				<input type="text" class="form-control" id="filter-input" placeholder="Search" name="search"><br />
 

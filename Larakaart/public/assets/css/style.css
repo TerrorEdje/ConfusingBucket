@@ -217,18 +217,6 @@ footer > p{
 	border-bottom-left-radius: 5px;
 }
 
-.error{
-	color: red;
-}
-
-.statusopen{
-	color: green;
-}
-
-.statusclosed{
-	color: red;
-}
-
 #thumbnailactivities{
 	color: white;
 	border-radius: 4px;
@@ -238,8 +226,4 @@ footer > p{
 #organizationlist {
 	background-color: rgba(0, 0, 0, 0);
 	color: white;
-}
-
-.blue {
-	color: #33b3ff;
 }
