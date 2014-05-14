@@ -35,19 +35,19 @@
 		<table>
 			<tr>
 				<td style="width: 150px"><label class="text-primary">Activity: </label></td>
-				<td>{{ Form::select('activity', $activities, Input::old('name')) }}</td>
+				<td>{{ Form::select('activity', $activities, Input::old('name'), array('class' => 'form-control')) }}</td>
 			</tr>
 			<tr>
 				<td style="width: 150px"><label class="text-primary">Description: </label></td>
-				<td>{{ Form::textarea('description') }}</td>
+				<td>{{ Form::textarea('description', null, array('class' => 'form-control')) }}</td>
 			</tr>
 			<tr>
 				<td style="width: 150px"><label class="text-primary">Score: </label></td>
-				<td>{{ Form::text('score') }}</td>
+				<td>{{ Form::text('score', null, array('class' => 'form-control')) }}</td>
 			</tr>
 			<tr>
 				<td style="width: 150px"><label class="text-primary">Student: </label></td>
-				<td>{{ Form::select('student', $students, Input::old('name')) }}</td>
+				<td>{{ Form::select('student', $students, Input::old('name'), array('class' => 'form-control')) }}</td>
 			</tr>
 		</table>
 		
