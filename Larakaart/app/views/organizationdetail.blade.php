@@ -1,14 +1,14 @@
 <div class="container">
     <div class="row">
     @foreach ($errors as $error)
-        <p class="error">{{ $error }}</p>
+        <p class="text-danger">{{ $error }}</p>
     @endforeach
     </div>
     @if ($organization != null)
         <div class="row">
             <h1>{{ $organization['name'] }} </h1>
             <p>
-                <span class="blue">{{ $organization['type'] }}</span><br/>
+                <span class="text-primary">{{ $organization['type'] }}</span><br/>
                 <a target="_blank" href="http://{{$organization['website']}}">{{ $organization['website'] }}</a>
             </p>
         </div>
@@ -59,9 +59,9 @@
                                         <h3>{{ $activity['name'] }}</h3>
                                         <p>
                                             @if ($activity['status'] == 'open')
-                                                <b class="statusopen">{{ $activity['status'] }}</b>
+                                                <b class="text-success">{{ $activity['status'] }}</b>
                                             @else
-                                                <b class="statusclosed">{{$activity['status']}}</b>
+                                                <b class="text-danger">{{$activity['status']}}</b>
                                             @endif
                                             <br/>
                                             {{ $activity['type'] }} </br>
@@ -94,7 +94,7 @@
                             @foreach ($experiences as $experience)
                                 <div class="col-sm-6 col-md-4" id="thumbnailexperiences">
                                     <div>
-                                        <h3 class="blue">{{$experience->getStudentName()}}</h3>
+                                        <h3 class="text-primary">{{$experience->getStudentName()}}</h3>
                                         @if ($experience['description'] != null)
                                         <p>
                                             {{$experience['description'] }}<br/>
