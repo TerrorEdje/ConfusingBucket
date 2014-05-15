@@ -38,7 +38,7 @@ class ExperienceController extends BaseController {
 			'required' => ':attribute is a required field.',
 			'alpha_dash' => ':attribute should consist of alphabetic characters or dashes/underscores.',
 			'numeric' => ':attribute should be a number.',
-			'between:1,10' => ':attribute should be between 1 and 10.'
+			'between' => ':attribute should be between 1 and 10.'
 		);
 		
 		$validator = Validator::make(Input::all(), $rules, $messages);
@@ -54,7 +54,7 @@ class ExperienceController extends BaseController {
 				$students[$student->id] = $name;
 			}
 			return Redirect::to('experience/upload')->with('activities', $activities)
-			->with('students', $students)->withErrors($validator->messages())->withInput();
+			->with('students', $students)->withInput()->withErrors($validator->messages());
 		}
 		else
 		{
