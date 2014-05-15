@@ -274,3 +274,83 @@ Study: Communication and Multimedia Designe
 **Verwacht resultaat:**
 Er staat 1 marker in Copenhagen. De rest van de markers zijn weg. 
 Als je op reset klikt, moeten alle velden naar de stadaard gezet worden en alle markers moeten weer verschijnen.
+
+##Testcase 10.1: Validatie Upload Activity (required fields)
+
+**Test:**
+Controleren of de required fields ingevuld moeten worden
+
+**Stappen:**
+1.	Open de site
+2.	Klik op "Upload Activity"
+3.	Vul helemaal niks in
+4.	Klik op de groene knop - Upload Activity
+
+**Verwacht resultaat:**
+De pagina wordt opnieuw getoont met onder alle velden, behalve Study, Start date en End date, het bericht dat het een verplicht veld is.
+
+##Testcase 10.2: Validatie Upload Activity (input type)
+
+**Test:**
+Controleren of de input type correct wordt gevalideerd
+
+**Stappen:**
+1.	Open de site
+2.	Klik op "Upload Activity"
+3.	Selecteer een Organization
+4.	Selecteer een Type
+5.	Vul een Name in
+6.	Selecteer een Study
+7.	Vul bij Start date iets in wat géén datum is
+8.	Vul bij End date iets in wat géén datum is
+9.	Selecteer een Status
+10.	Vul een Description in
+11.	Klik op de groene knop - Upload Activity
+
+**Verwacht resultaat**
+De pagina wordt getoont met onder de volgende velden het bijbehorende bericht:
+1.	Start date:
+	*	Start date should be a date
+2.	End date:
+	*	Start date should be a date
+
+##Testcase 10.3: Validatie Upload Activity (Start date en End date)
+
+**Test:**
+Controleren of de End date een datum na de Start date moet zijn
+
+**Stappen**
+1.	Open de site
+2.	Klik op "Upload Activity"
+3.	Selecteer een Organization
+4.	Selecteer een Type
+5.	Vul een Name in
+6.	Selecteer een Study
+7.	Selecteer een Start date
+8.	Selecteer een End date die een datum is vóór de Start date
+9.	Selecteer een Status
+10.	Vul een Description in
+11.	Klik op de groene knop - Upload Activity
+
+**Verwacht resultaat:**
+De pagina wordt getoont met onder het End date veld het volgende bericht:
+*	End date should be a date after the start date
+
+##Testcase 10.4: Validatie Upload Acitvity (alles correct)
+
+**Test:**
+Controleren of data in de database komt te staan als alle velden correct zijn ingevuld
+
+**Stappen:**
+1.	Open de site
+2.	Klik op "Upload Activity"
+3.	Vul alle velden correct in
+4.	Klik op de groene knop - Upload Activity
+5.	Ga naar Organizations
+6.	Klik op de Organization die je bij het upload hebt gekozen
+7.	Klik op Learn more
+8.	Klik op Activities
+9.	Kijk of de net geüploade activity in de lijst staat
+
+**Verwacht resultaat:**
+De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij Organizations.
