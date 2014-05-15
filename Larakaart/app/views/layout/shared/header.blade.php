@@ -45,7 +45,7 @@
 									</a>
 								</li>';
 
-								echo 'hallo :'.Auth::user()->username.'.';
+								echo 'hallo : '.Auth::user()->username.'.';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
 									<a href="' . URL::route('login-get') .'">
@@ -66,4 +66,3 @@
 		</a>
 	</div>
 </header>
-
