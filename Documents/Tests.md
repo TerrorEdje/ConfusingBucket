@@ -207,8 +207,32 @@ Zien of inloggen via google Oauth werkt. (Werkt alleen op de server)
 
 **Stappen:**
 1. Open de website, klik op login in het menu om in te loggen.
-2. Kies een Google account op de verwijzingspagina
+2. Kies een Google account op de verwijzingspagina.
 3. Ga akkoord met de voorwaarden door op accepteren te drukken.
 
 **Verwacht resultaat:**
 Je wordt teruggestuurd naar de website van Confusing Bucket. Ben je een nieuwe gebruiker, dan wordt je in de tabel User in de database gezet, ben je een bestaande gebruiker dan wordt je bestaande data uit de user tabel gehaald.
+
+##Testcase 10: Inloggen
+
+**Test:**
+Menu balk veranderd mee
+
+**Stappen:**
+1. Open de website, ga naar de pagina om in te loggen.
+2. Log correct in. (Zie testcase 9)
+
+**Verwacht resultaat:**
+In de menu balk staat nu een logout link in plaats van een login link.
+
+##Testcase 11: Inloggen
+
+**Test:**
+Test of uitloggen werkt.
+
+**Stappen:**
+1. Login op de website. (Zie testcase 9)
+2. Druk op de logout link in het menu.
+
+**Verwacht resultaat:**
+In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).
