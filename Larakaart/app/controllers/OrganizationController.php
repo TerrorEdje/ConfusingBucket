@@ -24,7 +24,7 @@ class OrganizationController extends BaseController {
 		}
 		
 		
-		return View::make('organizationdetail')->with('errors',$errors)->with('organization',$organization)->with('activities',$activities)->with('experiences',$experiences);
+		return View::make('organization/detail')->with('errors',$errors)->with('organization',$organization)->with('activities',$activities)->with('experiences',$experiences);
 	}
 
 	public function organizationlist($ids = "empty")
@@ -50,7 +50,134 @@ class OrganizationController extends BaseController {
 			$organizations = Organization::all();
 		}
 		
-		return View::make('organizationlist', array('organizations' => $organizations));
+		return View::make('organization/list', array('organizations' => $organizations));
+	}
+	
+	public function organizationcms()
+	{
+		$organizations = Organization::all();
+		return View::make('organization/cms',array('organizations' => $organizations));
+	}
+	
+	public function uploadOrganization()
+	{		
+		$types = array('' => 'Select...') + Organization_type::lists('name','name');
+		return View::make('organization/upload')->with('types',$types);
+	}
+	
+	public function updateOrganization($id)
+	{
+		$organization = Organization::find($id);
+		$location = Location::find($organization->location_id);
+		$types = Organization_type::lists('name','name');
+		return View::make('organization/update')->with('types',$types)->with('organization',$organization)->with('location',$location);
+	}
+	
+	public function uploadOrganizationAdd()
+	{
+		$rules = array
+		(
+			'name' => 'required',
+			'type' => 'required',
+			'description' => 'required',
+			'country' => 'required',
+			'city' => 'required'			
+		);
+		
+		$niceNames = array
+		(
+			'name' => 'Name',
+			'type' => 'Type',
+			'description' => 'Description',
+			'country' => 'Country',
+			'city' => 'City'
+		);
+		
+		$messages = array
+		(
+			'required' => ':attribute is a required field.'
+		);
+		
+		$validator = Validator::make(Input::all(),$rules,$messages);
+		$validator-> setAttributeNames($niceNames);
+		
+		if($validator->fails())
+		{
+			$types = array('' => 'Select...') + Organization_type::lists('name','name');
+			return Redirect::to('organization/upload')->with('types',$types)->withErrors($validator->messages())->withInput();
+		}
+		else
+		{
+			$organization = new Organization;
+			$organization->name = Input::get('name');
+			$organization->description = Input::get('description');
+			$organization->type = Input::get('type');
+			$organization->website = Input::get('website');
+			$location = new Location;
+			$location->country = Input::get('country');
+			$location->city = Input::get('city');
+			$location->streetname = Input::get('streetname');
+			$location->number = Input::get('number');
+			$location->zipcode = Input::get('zipcode');
+			$location->geocode();
+			$location->save();
+			$organization->location_id = $location->id;
+			$organization->save();
+			return View::make('organization/uploadadd');
+		}
+	}
+	
+	public function updateOrganizationAdd()
+	{
+		$rules = array
+		(
+			'name' => 'required',
+			'type' => 'required',
+			'description' => 'required',
+			'country' => 'required',
+			'city' => 'required'			
+		);
+		
+		$niceNames = array
+		(
+			'name' => 'Name',
+			'type' => 'Type',
+			'description' => 'Description',
+			'country' => 'Country',
+			'city' => 'City'
+		);
+		
+		$messages = array
+		(
+			'required' => ':attribute is a required field.'
+		);
+		
+		$validator = Validator::make(Input::all(),$rules,$messages);
+		$validator-> setAttributeNames($niceNames);
+		
+		if($validator->fails())
+		{
+			$types = array('' => 'Select...') + Organization_type::lists('name','name');
+			return Redirect::to('organization/update/' . Input::get('organization_id'))->with('types',$types)->withErrors($validator->messages())->withInput();
+		}
+		else
+		{
+			$organization = Organization::find(Input::get('organization_id'));
+			$organization->name = Input::get('name');
+			$organization->description = Input::get('description');
+			$organization->type = Input::get('type');
+			$organization->website = Input::get('website');
+			$location = Location::find(Input::get('location_id'));
+			$location->country = Input::get('country');
+			$location->city = Input::get('city');
+			$location->streetname = Input::get('streetname');
+			$location->number = Input::get('number');
+			$location->zipcode = Input::get('zipcode');
+			$location->geocode();
+			$location->save();
+			$organization->save();
+			return View::make('organization/updateadd');
+		}
 	}
 
 }

@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
-    @foreach ($errors as $error)
-        <p class="text-danger">{{ $error }}</p>
-    @endforeach
+		@foreach ($errors as $error)
+			<p class="text-danger">{{ $error }}</p>
+		@endforeach
     </div>
     @if ($organization != null)
         <div class="row">

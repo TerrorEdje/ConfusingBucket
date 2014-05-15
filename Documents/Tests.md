@@ -175,70 +175,6 @@ kijken of datums werken
 **Verwacht resultaat:**
 hij geeft aan dat acces denied is
 
-##Testcase 6.1: Upload story  -- OUD
-
-**Test:**
-Kijken of een story geüpload kan worden
-
-**Stappen:**
-1. Open de website, ga naar de pagina om een story te uploaden
-2. Vul minstens alle verplichte velden in
-3. Upload de story
-
-**Verwacht resultaat:**
-Alle ingevulde gegevens staan in de database
-
-##Testcase 6.2: Upload story  -- OUD
-
-**Test:**
-Kijken of de gebruiker een melding krijgt
-
-**Stappen:**
-1. Open de website, ga naar de pagina om een story te uploaden
-2. Vul niet alle verplichte velden in
-3. Upload de story
-
-**Verwacht resultaat:**
-De gebruiker krijgt een melding dat niet alle verplichte velden zijn ingevuld
-
-##Testcase 7.1: Inloggen  -- OUD
-
-**Test:**
-Kijken of het inloggen werkt
-
-**Stappen:**
-1. Open de website, ga naar de pagina om in te loggen
-2. Vul een juiste gebruikersnaam en wachtwoord in
-3. Log in
-
-**Verwacht resultaat:**
-De gebruiker is ingelogd en in het menu staat de optie op een story te uploaden.
-
-##Testcase 7.2: Inloggen  -- OUD
-
-**Test:**
-Kijken of het inloggen werkt met verkeerd wachtwoord en/of gebruikersnaam
-
-**Stappen:**
-1. Open de website, ga naar de pagina om in te loggen
-2. Vul verkeerde gebruikersnaam en/of verkeerde wachtwoord in
-3. Log in
-
-**Verwacht resultaat:**
-De gebruiker krijgt een melding over verkeerde inloggegevens.
-
-## [Outdated] Testcase 7.3: Inloggen
-
-**Test:**
-Menu balk veranderd mee
-
-**Stappen:**
-1. Open de website, ga naar de pagina om in te loggen
-2. Log correct in
-
-**Verwacht resultaat:**
-Er staat een logout knop, en uploaden van user story
-
 ##Testcase 8: Markers groeperen
 
 **Test:**
@@ -253,7 +189,6 @@ Kijken of de markers groeperen
 3. Klik op de groep
 
 **Verwacht resultaat:**
-<<<<<<< HEAD
 Het aantal op de groep komt overeen met het aantal stories in de lijst (accordion)
 
 ##Testcase 9: Zoek functionaliteit
@@ -355,10 +290,57 @@ Controleren of data in de database komt te staan als alle velden correct zijn in
 
 **Verwacht resultaat:**
 De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij Organizations.
-=======
+<<<<<<< HEAD
+
+##Testcase 12.1: Upload Organisatie
+**Test:** Controleren of uploaden van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op organisatie.
+2. Klik op de knop Upload.
+3. Vul alle velden in.
+4. Klik op Upload Organisatie.
+5. Controlleer of de geüploade organisatie in de lijst van organisaties staat.
+
+**Verwacht resultaat:** De geüploade organisatie staat in de lijst van organisaties met de opgegeven gegevens.
+
+##Testcase 12.2: Validatie upload Organisatie
+**Test:** Controleren of de validatie van het uploaden van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op organisatie.
+2. Klik op de knop Upload.
+3. Vul geen velden in.
+4. Klik op Upload Organisatie.
+
+**Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.
+
+##Testcase 13.1: Update Organisatie
+**Test:** Controleren of updaten van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op organisatie.
+2. Klik op een organisatie en vervolgens op update.
+3. Verander de description van de organisatie.
+4. Klik op Update Organisatie.
+5. Controlleer of de geüpdate organisatie in de lijst van organisaties staat.
+
+**Verwacht resultaat:** De geüpdate organisatie staat in de lijst van organisaties met de nieuwe gegevens.
+
+##Testcase 13.2: Validatie update Organisatie
+**Test:** Controleren of de validatie van het uploaden van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op organisatie.
+2. Klik op een organisatie en vervolgens op update.
+3. Verwijder de description van de organisatie.
+4. Klik op Update Organisatie.
+
+**Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.
+
 Het aantal op de groep komt overeen met het aantal stories in de lijst
 
-##Testcase 9: Inloggen
+##Testcase 14.1: Inloggen
 
 **Test:**
 Zien of inloggen via google Oauth werkt. (Werkt alleen op de server)
@@ -371,7 +353,7 @@ Zien of inloggen via google Oauth werkt. (Werkt alleen op de server)
 **Verwacht resultaat:**
 Je wordt teruggestuurd naar de website van Confusing Bucket. Ben je een nieuwe gebruiker, dan wordt je in de tabel User in de database gezet, ben je een bestaande gebruiker dan wordt je bestaande data uit de user tabel gehaald.
 
-##Testcase 10: Inloggen
+##Testcase 14.2: Inloggen
 
 **Test:**
 Menu balk veranderd mee
@@ -383,7 +365,7 @@ Menu balk veranderd mee
 **Verwacht resultaat:**
 In de menu balk staat nu een logout link in plaats van een login link.
 
-##Testcase 11: Inloggen
+##Testcase 14.3: Inloggen
 
 **Test:**
 Test of uitloggen werkt.
@@ -394,4 +376,3 @@ Test of uitloggen werkt.
 
 **Verwacht resultaat:**
 In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).
->>>>>>> feature/google_login
