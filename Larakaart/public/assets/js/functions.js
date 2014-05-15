@@ -212,6 +212,10 @@ $( document ).ready(function() {
 	$(".filter_reset").click(function(){
 		resetFilter();
 	});
+
+	$("#loginButton").click(function(){
+		$("#loadLogin").show();
+	});
 	
 });
 

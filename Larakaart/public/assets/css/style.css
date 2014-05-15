@@ -232,16 +232,39 @@ footer > p{
 .fullpage{
 	height:100%;
 	width:100%;
-	opacity: 0.8;
+	opacity: 0.96;
 	position: absolute;
-	z-index: 980;
-	background-color: black;
+	z-index: 992;
 }
 
 .load{
+	margin-top: 15%;
 	height:auto;
 	width:80%;
-	z-index: 970;
+	z-index: 991;
 	margin-left:auto;
 	margin-right:auto;
+}
+
+.waitingImage{
+	max-width: 100px;
+	max-height: 100px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:40px;
+}
+
+.waitingText{
+	top:40%;
+	color:white;
+	text-align: center;
+}
+
+.darkBackground{
+	position: absolute;
+	height:100%;
+	width:100%;
+	opacity: 0.96;
+	z-index: 990;
+	background-color: black;
 }

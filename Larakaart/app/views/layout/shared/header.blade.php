@@ -44,8 +44,6 @@
 										<span class="text-danger">Log out &nbsp;<span class="glyphicon glyphicon-log-out"></span></span>
 									</a>
 								</li>';
-
-								echo 'hallo : '.Auth::user()->username.'.';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
 									<a href="' . URL::route('login-get') .'">
