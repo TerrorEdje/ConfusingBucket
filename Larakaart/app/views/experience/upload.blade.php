@@ -8,42 +8,42 @@
 			<div class="col-sm-6">
 			
 				<div class="form-group">
-					<label class="col-sm-3 control-label text-primary">Activity: </label>
+					<label for="name" class="col-sm-3 control-label text-primary">Activity: </label>
 					<div class="col-sm-9">
 						{{ Form::select('activity', $activities, Input::old('name'), array('class' => 'form-control')) }}
 					</div>
 					<div class="col-sm-offset-3 col-sm-9 has-error">
-						{{ $errors->first('activity', '<span class="text-danger">:message</span>') }}
+						{{ $errors->first('activity', '<span class="text-danger"><span class="glyphicon glyphicon-remove"></span> :message</span>') }}
 					</div>
 				</div>		
 
 				<div class="form-group">
-					<label class="col-sm-3 control-label text-primary">Description: </label>
+					<label for="name" class="col-sm-3 control-label text-primary">Description: </label>
 					<div class="col-sm-9">
 						{{ Form::textarea('description', null, array('class' => 'form-control')) }}
 					</div>
 					<div class="col-sm-offset-3 col-sm-9 has-error">
-						{{ $errors->first('description', '<span class="text-danger">:message</span>') }}
+						{{ $errors->first('description', '<span class="text-danger"><span class="glyphicon glyphicon-remove"></span> :message</span>') }}
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-sm-3 control-label text-primary">Score: </label>
+					<label for="name" class="col-sm-3 control-label text-primary">Score: </label>
 					<div class="col-sm-9">
 						{{ Form::text('score', null, array('class' => 'form-control')) }}
 					</div>
 					<div class="col-sm-offset-3 col-sm-9 has-error">
-						{{ $errors->first('score', '<span class="text-danger">:message</span>') }}
+						{{ $errors->first('score', '<span class="text-danger"><span class="glyphicon glyphicon-remove"></span> :message</span>') }}
 					</div>
 				</div>
 				
 				<div class="form-group">
-					<label class="col-sm-3 control-label text-primary">Student: </label>
+					<label for="name" class="col-sm-3 control-label text-primary">Student: </label>
 					<div class="col-sm-9">
 						{{ Form::select('student', $students, Input::old('name'), array('class' => 'form-control')) }}
 					</div>
 					<div class="col-sm-offset-3 col-sm-9 has-error">
-						{{ $errors->first('student', '<span class="text-danger">:message</span>') }}
+						{{ $errors->first('student', '<span class="text-danger"><span class="glyphicon glyphicon-remove"></span> :message</span>') }}
 					</div>
 				</div>
 			

@@ -21,8 +21,8 @@ class ExperienceController extends BaseController {
 		$rules = array
 		(
 			'activity' => 'required',
-			'description' => 'required|alpha_dash',
-			'score' => 'required|numeric|between:1,10',
+			'description' => 'required',
+			'score' => 'numeric|between:1,10',
 			'student' => 'required'
 		);
 		
