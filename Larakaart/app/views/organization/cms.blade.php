@@ -18,7 +18,7 @@
 					@if (isset($organization['website']))
 						<p> {{ $organization['website'] }} </p>
 					@endif
-					<!--<a href="#" onclick="load('{{ URL::route('organizationdetail', array($organization['id'])) }}','organizationdetailmenu'); return false;">Update</a>-->
+					<a href="#" onclick="load('{{ URL::route('Organization-update-get', array($organization['id'])) }}','organizationupdatemenu'); return false;">Update</a>
 				</div>
 			</div>
 		@endforeach

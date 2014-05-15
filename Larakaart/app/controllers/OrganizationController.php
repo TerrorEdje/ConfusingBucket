@@ -65,6 +65,14 @@ class OrganizationController extends BaseController {
 		return View::make('organization/upload')->with('types',$types);
 	}
 	
+	public function updateOrganization($id)
+	{
+		$organization = Organization::find($id);
+		$location = Location::find($organization->location_id);
+		$types = Organization_type::lists('name','name');
+		return View::make('organization/update')->with('types',$types)->with('organization',$organization)->with('location',$location);
+	}
+	
 	public function uploadOrganizationAdd()
 	{
 		$organization = new Organization;
@@ -83,6 +91,25 @@ class OrganizationController extends BaseController {
 		$organization->location_id = $location->id;
 		$organization->save();
 		return View::make('organization/uploadadd');
+	}
+	
+	public function updateOrganizationAdd()
+	{
+		$organization = Organization::find(Input::get('organization_id'));
+		$organization->name = Input::get('name');
+		$organization->description = Input::get('description');
+		$organization->type = Input::get('type');
+		$organization->website = Input::get('website');
+		$location = Location::find(Input::get('location_id'));
+		$location->country = Input::get('country');
+		$location->city = Input::get('city');
+		$location->streetname = Input::get('streetname');
+		$location->number = Input::get('number');
+		$location->zipcode = Input::get('zipcode');
+		$location->geocode();
+		$location->save();
+		$organization->save();
+		return View::make('organization/updateadd');
 	}
 
 }

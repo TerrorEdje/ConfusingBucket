@@ -96,9 +96,9 @@ Route::group(array('before' => 'guest'), function() {
 			'uses'	=> 'OrganizationController@uploadOrganization'
 	));
 	
-	Route::get('organization/update', array(
+	Route::get('organization/update/{id}', array(
 			'as'	=> 'Organization-update-get',
-			'uses'	=> 'OrganizationController@uploadOrganization'
+			'uses'	=> 'OrganizationController@updateOrganization'
 	));
 	
 	Route::get('organization/cms', array(

@@ -31,6 +31,9 @@ function codeAddress() {
 
 $(document).ready(function() {
     $(".address").change(codeAddress);
+	initialize();
+	codeAddress();
 });
 
-initialize();
+
+
