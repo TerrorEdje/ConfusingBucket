@@ -1,58 +1,62 @@
 	
 	{{ Form::open(array('url' => 'experience/add'), 'post') }}
 	
-	<fieldset class="the-fieldset form-margin">
-		
-		<legend class="the-legend text-primary">Information about the experience:</legend>
-		
-		<div class="col-sm-6">
-		
-			<div class="form-group">
-				<label class="text-primary">Activity: </label>
-				<div>
-					{{ Form::select('activity', $activities, Input::old('name'), array('class' => 'form-control')) }}
-				</div>
-				<div>
-					{{ $errors->first('activity', '<span class="text-danger">:message</span>') }}
-				</div>
-			</div>		
+		<fieldset class="the-fieldset form-margin">
+			
+			<legend class="the-legend text-primary">Information about the experience:</legend>
+			
+			<div class="col-sm-6">
+			
+				<div class="form-group">
+					<label class="col-sm-3 control-label text-primary">Activity: </label>
+					<div class="col-sm-9">
+						{{ Form::select('activity', $activities, Input::old('name'), array('class' => 'form-control')) }}
+					</div>
+					<div class="col-sm-offset-3 col-sm-9 has-error">
+						{{ $errors->first('activity', '<span class="text-danger">:message</span>') }}
+					</div>
+				</div>		
 
-			<div class="form-group">
-				<label class="text-primary">Description: </label>
-				<div>
-					{{ Form::textarea('description', null, array('class' => 'form-control')) }}
+				<div class="form-group">
+					<label class="col-sm-3 control-label text-primary">Description: </label>
+					<div class="col-sm-9">
+						{{ Form::textarea('description', null, array('class' => 'form-control')) }}
+					</div>
+					<div class="col-sm-offset-3 col-sm-9 has-error">
+						{{ $errors->first('description', '<span class="text-danger">:message</span>') }}
+					</div>
 				</div>
-				<div>
-					{{ $errors->first('description', '<span class="text-danger">:message</span>') }}
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label text-primary">Score: </label>
+					<div class="col-sm-9">
+						{{ Form::text('score', null, array('class' => 'form-control')) }}
+					</div>
+					<div class="col-sm-offset-3 col-sm-9 has-error">
+						{{ $errors->first('score', '<span class="text-danger">:message</span>') }}
+					</div>
 				</div>
+				
+				<div class="form-group">
+					<label class="col-sm-3 control-label text-primary">Student: </label>
+					<div class="col-sm-9">
+						{{ Form::select('student', $students, Input::old('name'), array('class' => 'form-control')) }}
+					</div>
+					<div class="col-sm-offset-3 col-sm-9 has-error">
+						{{ $errors->first('student', '<span class="text-danger">:message</span>') }}
+					</div>
+				</div>
+			
+				<div class="col-sm-offset-3 col-sm-9">
+					<button type="submit" class="btn btn-success">Upload Experience</button>
+				</div>	
+			
 			</div>
 			
-			<div class="form-group">
-				<label class="text-primary">Score: </label>
-				<div>
-					{{ Form::text('score', null, array('class' => 'form-control')) }}
-				</div>
-				<div>
-					{{ $errors->first('score', '<span class="text-danger">:message</span>') }}
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="text-primary">Student: </label>
-				<div>
-					{{ Form::select('student', $students, Input::old('name'), array('class' => 'form-control')) }}
-				</div>
-				<div>
-					{{ $errors->first('student', '<span class="text-danger">:message</span>') }}
-				</div>
-			</div>
+		</fieldset>
 		
-		<button type="submit" class="btn btn-success">Upload Experience</button>
+		{{ Form::token() }}
 		
-		</div>
-		
-	</fieldset>
-	{{Form::token()}}
 	{{ Form::close() }}	
 
 
