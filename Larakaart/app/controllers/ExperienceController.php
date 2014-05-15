@@ -54,7 +54,7 @@ class ExperienceController extends BaseController {
 				$students[$student->id] = $name;
 			}
 			return Redirect::to('experience/upload')->with('activities', $activities)
-			->with('students', $students)->withErrors($validator->messages());
+			->with('students', $students)->withErrors($validator->messages())->withInput();
 		}
 		else
 		{
