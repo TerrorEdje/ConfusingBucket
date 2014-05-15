@@ -22,7 +22,11 @@
 			<div class="col-sm-8">
 			   	<select class="form-control" id="type" name="type">
 					@foreach($types as $type)
-						<option value="{{$type}}">{{$type}}</option>
+						@if($type == 'Select...')
+							<option>{{$type}}</option>
+						@else
+							<option value="{{$type}}">{{$type}}</option>
+						@endif
 					@endforeach
 				</select>
 			</div>
@@ -71,7 +75,7 @@
 			@endif
             <label for="number" class="col-sm-1 control-label">No: </label>
 			<div class="col-sm-1">
-			   	<input type="number" class="form-control address" id="number" name="number" {{ (Input::old('number')) ? 'value="'.e(Input::old('number')).'"': '' }}>
+			   	<input type="text" class="form-control address" id="number" name="number" {{ (Input::old('number')) ? 'value="'.e(Input::old('number')).'"': '' }}>
 			</div>
 			@if($errors->has('number'))
 				<div class="col-sm-offset-8 col-sm-1 has-error">

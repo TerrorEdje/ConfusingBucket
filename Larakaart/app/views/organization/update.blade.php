@@ -79,7 +79,7 @@
 			@endif
             <label for="number" class="col-sm-1 control-label">No: </label>
 			<div class="col-sm-1">
-			   	<input type="number" class="form-control address" id="number" name="number" value="{{$location['number']}}">
+			   	<input type="text" class="form-control address" id="number" name="number" value="{{$location['number']}}">
 			</div>
 			@if($errors->has('number'))
 				<div class="col-sm-offset-8 col-sm-1 has-error">
