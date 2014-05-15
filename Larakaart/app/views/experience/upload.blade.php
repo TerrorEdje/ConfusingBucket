@@ -1,30 +1,3 @@
-
-
-	<!-- {{ Form::open(array('url' => 'experience/add'), 'post') }}
-	
-		Information about the experience:</br>
-		
-		<p>
-		Activity: {{Form::select('activity',$activities,Input::old('name')) }}</br>
-		Description: </br>{{ Form::textarea('description') }}</br>
-		Score: {{ Form::text('score') }}</br>
-		Student: {{Form::select('student',$students) }}</br>
-		</p>
-	
-		</br>
-		{{Form::submit('Upload Experience')}}
-		{{Form::token()}}
-	{{ Form::close() }}
-	
-	@if ( $errors->count() > 0 )
-      <p>The following errors have occurred:</p>
-
-      <ul>
-        @foreach( $errors->all() as $message )
-          <li class="text-danger">{{ $message }}</li>
-        @endforeach
-      </ul>
-    @endif -->
 	
 	{{ Form::open(array('url' => 'experience/add'), 'post') }}
 	
@@ -32,38 +5,54 @@
 		
 		<legend class="the-legend text-primary">Information about the experience:</legend>
 		
-		<table>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Activity: </label></td>
-				<td>{{ Form::select('activity', $activities, Input::old('name'), array('class' => 'form-control')) }}</td>
-			</tr>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Description: </label></td>
-				<td>{{ Form::textarea('description', null, array('class' => 'form-control')) }}</td>
-			</tr>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Score: </label></td>
-				<td>{{ Form::text('score', null, array('class' => 'form-control')) }}</td>
-			</tr>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Student: </label></td>
-				<td>{{ Form::select('student', $students, Input::old('name'), array('class' => 'form-control')) }}</td>
-			</tr>
-		</table>
+		<div class="col-sm-6">
+		
+			<div class="form-group">
+				<label class="text-primary">Activity: </label>
+				<div>
+					{{ Form::select('activity', $activities, Input::old('name'), array('class' => 'form-control')) }}
+				</div>
+				<div>
+					{{ $errors->first('activity', '<span class="text-danger">:message</span>') }}
+				</div>
+			</div>		
+
+			<div class="form-group">
+				<label class="text-primary">Description: </label>
+				<div>
+					{{ Form::textarea('description', null, array('class' => 'form-control')) }}
+				</div>
+				<div>
+					{{ $errors->first('description', '<span class="text-danger">:message</span>') }}
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="text-primary">Score: </label>
+				<div>
+					{{ Form::text('score', null, array('class' => 'form-control')) }}
+				</div>
+				<div>
+					{{ $errors->first('score', '<span class="text-danger">:message</span>') }}
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="text-primary">Student: </label>
+				<div>
+					{{ Form::select('student', $students, Input::old('name'), array('class' => 'form-control')) }}
+				</div>
+				<div>
+					{{ $errors->first('student', '<span class="text-danger">:message</span>') }}
+				</div>
+			</div>
 		
 		<button type="submit" class="btn btn-success">Upload Experience</button>
+		
+		</div>
 		
 	</fieldset>
 	{{Form::token()}}
 	{{ Form::close() }}	
 
-	@if ( $errors->count() > 0 )
-      <p>The following errors have occurred:</p>
-
-      <ul>
-        @foreach( $errors->all() as $message )
-          <li class="text-danger">{{ $message }}</li>
-        @endforeach
-      </ul>
-    @endif
 
