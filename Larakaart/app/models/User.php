@@ -1,6 +1,5 @@
 <?php
-
-class User extends Eloquent {
+class User extends Eloquent{
 	public $timestamps = false;
 	/**
 	 * The database table used by the model.
@@ -8,5 +7,7 @@ class User extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'user';
+
+	protected $fillable = ['username', 'email', 'google_token'];
 }
 ?>

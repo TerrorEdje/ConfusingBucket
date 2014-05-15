@@ -38,12 +38,14 @@
 								</a>
 							</li>-->
 							<?php 
-							if(isset($_SESSION['id'])){
+							if(Auth::check()){
 								echo '<li id="loginButton">
-									<a href="logout.php">
+									<a href="' . URL::route('logout') .'">
 										<span class="text-danger">Log out</span>
 									</a>
 								</li>';
+
+								echo 'hallo :'.Auth::user()->username.'.';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
 									<a href="' . URL::route('login-get') .'">

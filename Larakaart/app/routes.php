@@ -6,6 +6,11 @@ Route::get('/', array(
 	'uses'	=> 'IndexController@index'
 ));
 
+Route::get('/logout', array(
+	'as'	=> 'logout',
+	'uses'	=> 'LoginController@logout'
+));
+
 /*
 | voor gasten | niet ingelogde mensen
 */
