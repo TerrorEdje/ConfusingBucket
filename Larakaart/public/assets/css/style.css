@@ -227,3 +227,9 @@ footer > p{
 	background-color: rgba(0, 0, 0, 0);
 	color: white;
 }
+
+.uploadActivityTextarea
+{
+	width: 500px;
+	resize: none;
+}

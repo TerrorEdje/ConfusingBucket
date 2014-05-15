@@ -9,6 +9,8 @@ class Activity extends Eloquent {
 	 */
 	protected $table = 'activity';
 	
+    protected $fillable = ['name', 'description', 'startdate', 'enddate', 'type', 'status', 'organization_id', 'study_id'];
+    
 	public function getStudyName()
 	{
 		$study = Study::find($this->study_id);

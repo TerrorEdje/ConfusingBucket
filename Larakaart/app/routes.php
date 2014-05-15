@@ -35,7 +35,7 @@ Route::group(array('before' => 'guest'), function() {
 		/*form activity | post*/
 		Route::post('activity/add', array(
 			'as'	=> 'Activity-upload-add',
-			'uses'	=> 'StoryController@uploadActivityAdd'
+			'uses'	=> 'ActivityController@uploadActivityAdd'
 		));
 
 		/*form experiance | post*/
@@ -72,7 +72,7 @@ Route::group(array('before' => 'guest'), function() {
 
 	Route::get('activity/upload', array(
 		'as'	=> 'Activity-upload-get',
-		'uses'	=> 'StoryController@uploadActivity'
+		'uses'	=> 'ActivityController@uploadActivity'
 	));
 
 });
