@@ -41,13 +41,13 @@
 							if(Auth::check()){
 								echo '<li id="loginOutButton">
 									<a href="' . URL::route('logout') .'">
-										<span class="text-danger">Log out &nbsp;<span class="glyphicon glyphicon-log-out"></span></span>
+										<span class="text-danger"><span class="glyphicon glyphicon-log-out"> &nbsp;</span>Log out</span>
 									</a>
 								</li>';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
 									<a href="' . URL::route('login-get') .'">
-										<span class="text-primary">Login &nbsp;<span class="zocial google"></span></span>
+										<span class="text-primary"><span class="zocial google"></span>&nbsp; Login</span>
 									</a>
 								</li>';
 							}
