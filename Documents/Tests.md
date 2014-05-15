@@ -175,44 +175,6 @@ kijken of datums werken
 **Verwacht resultaat:**
 hij geeft aan dat acces denied is
 
-##Testcase 7.1: Inloggen  -- OUD
-
-**Test:**
-Kijken of het inloggen werkt
-
-**Stappen:**
-1. Open de website, ga naar de pagina om in te loggen
-2. Vul een juiste gebruikersnaam en wachtwoord in
-3. Log in
-
-**Verwacht resultaat:**
-De gebruiker is ingelogd en in het menu staat de optie op een story te uploaden.
-
-##Testcase 7.2: Inloggen  -- OUD
-
-**Test:**
-Kijken of het inloggen werkt met verkeerd wachtwoord en/of gebruikersnaam
-
-**Stappen:**
-1. Open de website, ga naar de pagina om in te loggen
-2. Vul verkeerde gebruikersnaam en/of verkeerde wachtwoord in
-3. Log in
-
-**Verwacht resultaat:**
-De gebruiker krijgt een melding over verkeerde inloggegevens.
-
-##Testcase 7.3: Inloggen  -- OUD
-
-**Test:**
-Menu balk veranderd mee
-
-**Stappen:**
-1. Open de website, ga naar de pagina om in te loggen
-2. Log correct in
-
-**Verwacht resultaat:**
-Er staat een logout knop, en uploaden van user story
-
 ##Testcase 8: Markers groeperen
 
 **Test:**
@@ -328,6 +290,7 @@ Controleren of data in de database komt te staan als alle velden correct zijn in
 
 **Verwacht resultaat:**
 De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij Organizations.
+<<<<<<< HEAD
 
 ##Testcase 12.1: Upload Organisatie
 **Test:** Controleren of uploaden van een nieuwe organisatie werkt.
@@ -374,3 +337,42 @@ De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij O
 4. Klik op Update Organisatie.
 
 **Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.
+
+Het aantal op de groep komt overeen met het aantal stories in de lijst
+
+##Testcase 14.1: Inloggen
+
+**Test:**
+Zien of inloggen via google Oauth werkt. (Werkt alleen op de server)
+
+**Stappen:**
+1. Open de website, klik op login in het menu om in te loggen.
+2. Kies een Google account op de verwijzingspagina.
+3. Ga akkoord met de voorwaarden door op accepteren te drukken.
+
+**Verwacht resultaat:**
+Je wordt teruggestuurd naar de website van Confusing Bucket. Ben je een nieuwe gebruiker, dan wordt je in de tabel User in de database gezet, ben je een bestaande gebruiker dan wordt je bestaande data uit de user tabel gehaald.
+
+##Testcase 14.2: Inloggen
+
+**Test:**
+Menu balk veranderd mee
+
+**Stappen:**
+1. Open de website, ga naar de pagina om in te loggen.
+2. Log correct in. (Zie testcase 9)
+
+**Verwacht resultaat:**
+In de menu balk staat nu een logout link in plaats van een login link.
+
+##Testcase 14.3: Inloggen
+
+**Test:**
+Test of uitloggen werkt.
+
+**Stappen:**
+1. Login op de website. (Zie testcase 9)
+2. Druk op de logout link in het menu.
+
+**Verwacht resultaat:**
+In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).

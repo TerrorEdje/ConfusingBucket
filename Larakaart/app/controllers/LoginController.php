@@ -31,12 +31,22 @@ class LoginController extends BaseController {
 	        // Send a request with it
 	        $result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
-	        $message = 'Your unique Google user id is: ' . $result['id'] . ' and your name is ' . $result['name'];
-	        echo $message. "<br/>";
+	        $user = new User();
+	        $user->google_token = $result['id'];
+	        $user->username = $result['name'];
+	        $user->email = $result['email'];
 
-	        //Var_dump
-	        //display whole array().
-	        dd($result);
+	        $dbUser = User::where('google_token', '=', $user->google_token)->first();
+
+	        if(!is_null($dbUser)){
+
+	        	$this->logginIn($user);
+
+			}else{
+
+				$this->createUser($user);
+
+			}
 
 	    }
 	    // if not ask for permission first
@@ -49,9 +59,66 @@ class LoginController extends BaseController {
     	}
 	}
 
+	private function logginIn(User $user){
+
+		//login try
+		if(Auth::login($user)){
+
+			return Redirect::intended('/');
+
+		}else{
+
+			return Redirect::to('home');
+
+		}
+
+	}
+
+	private function createUser(User $user){
+
+		$newUser = User::create(array(
+			'google_token' 	=> $user->google_token,
+			'username' 		=> $user->username,
+			'email' 		=> $user->email
+		));
+
+		if($newUser){
+
+			$this->logginIn($user);
+
+		}else{
+
+			/* als er gaan account aangemaakt kon worden || ERROR */
+			return Redirect::to('Home')
+    		->with('message', 'Something went wrong please try again!!');
+
+		}
+
+	}
+
 	public function loggedInWithGoogle() {
 
-		return '<pre>print_r($1)</pre>';
+		$code = Input::get('code');
+
+		/*sessie zetten*/
+
+		/*if (Auth::attempt(array('google_token'=>Input::get('code')))) {
+    		return Redirect::to('home')->with('message', 'You have succesfully logged in!');
+		} else {
+    		return Redirect::to('users/login')
+        	->with('message', 'Something went wrong please try again!!');
+		}*/
+
+		/*return '<pre>print_r($1)</pre>--->'.$code;*/
+
+	}
+
+	public function logout(){
+
+		Auth::logout();
+
+		return Redirect::to('/');
+
 	}
 
 }

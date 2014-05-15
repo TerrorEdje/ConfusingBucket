@@ -14,14 +14,14 @@ interface UserInterface {
 	 *
 	 * @return string
 	 */
-	public function getAuthPassword();
+	//public function getAuthPassword();
 
 	/**
 	 * Get the token value for the "remember me" session.
 	 *
 	 * @return string
 	 */
-	public function getRememberToken();
+	//public function getRememberToken();
 
 	/**
 	 * Set the token value for the "remember me" session.
@@ -29,13 +29,13 @@ interface UserInterface {
 	 * @param  string  $value
 	 * @return void
 	 */
-	public function setRememberToken($value);
+	//public function setRememberToken($value);
 
 	/**
 	 * Get the column name for the "remember me" token.
 	 *
 	 * @return string
 	 */
-	public function getRememberTokenName();
+	//public function getRememberTokenName();
 
 }

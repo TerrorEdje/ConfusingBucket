@@ -6,6 +6,10 @@ Route::get('/', array(
 	'uses'	=> 'IndexController@index'
 ));
 
+Route::get('/logout', array(
+	'as'	=> 'logout',
+	'uses'	=> 'LoginController@logout'
+));
 
 /*
 | voor gasten | niet ingelogde mensen
@@ -38,6 +42,11 @@ Route::group(array('before' => 'guest'), function() {
 			'uses'	=> 'ActivityController@uploadActivityAdd'
 		));
 
+		Route::post('login', array(
+			'as'	=> 'google-callback',
+			'uses'	=> 'LoginController@loggedInWithGoogle'
+		));
+
 		/*form experiance | post*/
 		Route::post('experience/add', array(
 			'as'	=> 'Experience-upload-add',
@@ -66,8 +75,8 @@ Route::group(array('before' => 'guest'), function() {
 		'uses'	=> 'LoginController@loginWithGoogle'
 	));
 
-	/*login van google call back| get*/
-	Route::get('login/google', array(
+	/*login van google call back| get CHANGED!!!!*/
+	Route::post('login/google', array(
 		'as'	=> 'google-callback',
 		'uses'	=> 'LoginController@loggedInWithGoogle'
 	));
