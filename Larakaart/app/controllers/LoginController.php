@@ -62,7 +62,7 @@ class LoginController extends BaseController {
 	private function logginIn(User $user){
 
 		//login try
-		if(Auth::login($user)){ //Auth::attempt(array('google_token' => $user->google_token), true)) ingelocht blijven, dan wel remember me token toevoegen in db
+		if(Auth::login($user)){
 
 			return Redirect::intended('/');
 
