@@ -39,7 +39,7 @@
 							</li>-->
 							<?php 
 							if(Auth::check()){
-								echo '<li id="loginButton">
+								echo '<li id="loginOutButton">
 									<a href="' . URL::route('logout') .'">
 										<span class="text-danger">Log out &nbsp;<span class="glyphicon glyphicon-log-out"></span></span>
 									</a>
