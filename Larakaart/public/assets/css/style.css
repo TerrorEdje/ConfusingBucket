@@ -228,3 +228,20 @@ footer > p{
 	border-radius: 4px;
 	display: block;
 }
+
+.fullpage{
+	height:100%;
+	width:100%;
+	opacity: 0.8;
+	position: absolute;
+	z-index: 980;
+	background-color: black;
+}
+
+.load{
+	height:auto;
+	width:80%;
+	z-index: 970;
+	margin-left:auto;
+	margin-right:auto;
+}
