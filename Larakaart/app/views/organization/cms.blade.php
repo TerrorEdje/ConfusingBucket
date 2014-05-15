@@ -1,7 +1,10 @@
-<a href="#" onClick="load('{{ URL::route('Organization-upload-get') }}', 'organization_cmsmenu'); return false;">Upload</a>
-<br/>
+
 <div class="panel-group" id="accordion">
 	<div class="panel" id="organizationlist">
+		<div class="panel-heading">		
+			<a class="btn btn-success" href="#" onClick="load('{{ URL::route('Organization-upload-get') }}', 'organization_cmsmenu'); return false;">Upload</a>
+			<br> &nbsp;
+		</div>		
 		@foreach ($organizations as $organization)
 			<div class="panel-heading">
 				<h1 class="panel-title"> 
@@ -18,7 +21,7 @@
 					@if (isset($organization['website']))
 						<p> {{ $organization['website'] }} </p>
 					@endif
-					<a href="#" onclick="load('{{ URL::route('Organization-update-get', array($organization['id'])) }}','organizationupdatemenu'); return false;">Update</a>
+					<a class="btn btn-success" href="#" onclick="load('{{ URL::route('Organization-update-get', array($organization['id'])) }}','organizationupdatemenu'); return false;">Update</a>
 				</div>
 			</div>
 		@endforeach

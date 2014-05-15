@@ -274,3 +274,49 @@ Study: Communication and Multimedia Designe
 **Verwacht resultaat:**
 Er staat 1 marker in Copenhagen. De rest van de markers zijn weg. 
 Als je op reset klikt, moeten alle velden naar de stadaard gezet worden en alle markers moeten weer verschijnen.
+
+##Testcase 12.1: Upload Organisatie
+**Test:** Controleren of uploaden van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op organisatie.
+2. Klik op de knop Upload.
+3. Vul alle velden in.
+4. Klik op Upload Organisatie.
+5. Controlleer of de geüploade organisatie in de lijst van organisaties staat.
+
+**Verwacht resultaat:** De geüploade organisatie staat in de lijst van organisaties met de opgegeven gegevens.
+
+##Testcase 12.2: Validatie upload Organisatie
+**Test:** Controleren of de validatie van het uploaden van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op organisatie.
+2. Klik op de knop Upload.
+3. Vul geen velden in.
+4. Klik op Upload Organisatie.
+
+**Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.
+
+##Testcase 13.1: Update Organisatie
+**Test:** Controleren of updaten van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op organisatie.
+2. Klik op een organisatie en vervolgens op update.
+3. Verander de description van de organisatie.
+4. Klik op Update Organisatie.
+5. Controlleer of de geüpdate organisatie in de lijst van organisaties staat.
+
+**Verwacht resultaat:** De geüpdate organisatie staat in de lijst van organisaties met de nieuwe gegevens.
+
+##Testcase 13.2: Validatie update Organisatie
+**Test:** Controleren of de validatie van het uploaden van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op organisatie.
+2. Klik op een organisatie en vervolgens op update.
+3. Verwijder de description van de organisatie.
+4. Klik op Update Organisatie.
+
+**Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.
