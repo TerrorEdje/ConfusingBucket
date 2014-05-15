@@ -41,7 +41,7 @@ class ActivityController extends BaseController {
 			'required' => ':attribute is a required field.',
 			'alpha_dash' => ':attribute should consist of alphabetic characters or dashes/underscores.',
 			'date' => ':attribute should be a date.',
-			'after:startdate' => ':attribute should be a date after the startdate.',
+			'after:startdate' => ':attribute should be a date after the start date.',
 		);
 		
 		$validator = Validator::make(Input::all(), $rules, $messages);
