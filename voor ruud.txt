@@ -1,0 +1,73 @@
+public function postCreate(){
+		
+		$validator = Validator::make(Input::all(),
+			array(
+				'voornaam' 			=> 'required|max:50|min:2',
+				'tussenvoegsel' 	=> 'max:30',
+				'achternaam' 		=> 'required|max:50|min:3',
+				'email' 			=> 'required|max:100|email|unique:gebruikers',
+				'gebruikersnaam'	=> 'required|max:100|min:4|unique:gebruikers',
+				'wachtwoord' 		=> 'required|max:20|min:5',
+				'herhaal_wachtwoord'=> 'required|max:20|min:5|same:wachtwoord',
+				'privacy'			=> 'required'
+			)
+		);
+
+		if($validator->fails()){
+			
+			return Redirect::route('account-create')
+				->withErrors($validator)
+				->withInput();
+
+		}else{
+
+			$voornaam 		= Input::get('voornaam');
+			$tussenvoegsel 	= Input::get('tussenvoegsel');
+			$achternaam		= Input::get('achternaam');
+			$email			= Input::get('email');
+			$gebruikersnaam	= Input::get('gebruikersnaam');
+			$wachtwoord 	= Input::get('wachtwoord');
+
+			$newGebruiker = Gebruiker::create(array(
+				'voornaam' 		=> $voornaam,
+				'tussenvoegsel' => $tussenvoegsel,
+				'achternaam' 	=> $achternaam,
+				'email' 		=> $email,
+				'gebruikersnaam'=> $gebruikersnaam,
+				'wachtwoord' 	=> $wachtwoord,
+				'actief' 		=> 0
+			));
+
+			$Gebruiker = Gebruiker::where('gebruikersnaam', '=', $gebruikersnaam)->firstOrFail();
+
+			if($newGebruiker){
+
+				$therms = ThermsOfAgreement::orderBy('ID', 'desc')->firstOrFail();
+
+				/*return '<pre>'.print_r($therms['ID']).'</pre>';
+				return '<pre>'.print_r($therms).'</pre><pre>'.print_r($Gebruiker).'</pre>';*/
+
+				$newTherm = Therms::create(array(
+					'gebruikers_ID'			=> $Gebruiker->ID,
+					'therms_of_agreement_ID'=> $therms->ID
+				));
+
+				if($newTherm){
+					return Redirect::route('home')
+					->with('global', 'Uw account is aangemaakt, inloggen kan hier boven!');
+				}
+				else
+				{
+					return Redirect::route('account-create')
+					->with('global', 'Excusses, onze server is tijdelijk offline probeer het zo nog eens!')
+					->withInput();
+				}
+			}
+			else
+			{
+				return Redirect::route('account-create')
+				->with('global', 'Excusses, onze server is tijdelijk offline probeer het zo nog eens!')
+				->withInput();
+			}
+		}		
+	}

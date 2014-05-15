@@ -295,6 +295,10 @@ $( document ).ready(function() {
         filterChanged();
         showFilteredList();
     });
+
+	$("#loginButton").click(function(){
+		$("#loadLogin").show();
+	});
 	
     $("#filter-country").change(function(){
         searchForChanged();
