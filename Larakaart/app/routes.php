@@ -43,6 +43,16 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Experience-upload-add',
 			'uses'	=> 'StoryController@uploadExperienceAdd'
 		));
+		
+		Route::post('organization/add', array(
+			'as'	=> 'Organization-upload-add',
+			'uses'	=> 'OrganizationController@uploadOrganizationAdd'
+		));
+		
+		Route::post('organization/update-add', array(
+			'as'	=> 'Organization-update-add',
+			'uses'	=> 'OrganizationController@updateOrganizationAdd'
+		));
 
 	});
 
@@ -53,7 +63,13 @@ Route::group(array('before' => 'guest'), function() {
 	/*login | get*/
 	Route::get('login', array(
 		'as'	=> 'login-get',
-		'uses'	=> 'loginController@getLogin'
+		'uses'	=> 'LoginController@loginWithGoogle'
+	));
+
+	/*login van google call back| get*/
+	Route::get('login/google', array(
+		'as'	=> 'google-callback',
+		'uses'	=> 'LoginController@loggedInWithGoogle'
 	));
 
 	/*
@@ -73,6 +89,21 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('activity/upload', array(
 		'as'	=> 'Activity-upload-get',
 		'uses'	=> 'ActivityController@uploadActivity'
+	));
+	
+	Route::get('organization/upload', array(
+			'as'	=> 'Organization-upload-get',
+			'uses'	=> 'OrganizationController@uploadOrganization'
+	));
+	
+	Route::get('organization/update/{id}', array(
+			'as'	=> 'Organization-update-get',
+			'uses'	=> 'OrganizationController@updateOrganization'
+	));
+	
+	Route::get('organization/cms', array(
+			'as'	=> 'Organization-cms',
+			'uses'	=> 'OrganizationController@Organizationcms'
 	));
 
 });
