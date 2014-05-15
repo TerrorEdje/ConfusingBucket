@@ -175,32 +175,6 @@ kijken of datums werken
 **Verwacht resultaat:**
 hij geeft aan dat acces denied is
 
-##Testcase 6.1: Upload story  -- OUD
-
-**Test:**
-Kijken of een story geüpload kan worden
-
-**Stappen:**
-1. Open de website, ga naar de pagina om een story te uploaden
-2. Vul minstens alle verplichte velden in
-3. Upload de story
-
-**Verwacht resultaat:**
-Alle ingevulde gegevens staan in de database
-
-##Testcase 6.2: Upload story  -- OUD
-
-**Test:**
-Kijken of de gebruiker een melding krijgt
-
-**Stappen:**
-1. Open de website, ga naar de pagina om een story te uploaden
-2. Vul niet alle verplichte velden in
-3. Upload de story
-
-**Verwacht resultaat:**
-De gebruiker krijgt een melding dat niet alle verplichte velden zijn ingevuld
-
 ##Testcase 7.1: Inloggen  -- OUD
 
 **Test:**
