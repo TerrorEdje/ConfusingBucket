@@ -17,10 +17,10 @@ class ActivityController extends BaseController {
 		(
 			'organization' => 'required',
 			'type' => 'required',
-			'name' => 'required|alpha_dash',
-			'description' => 'required|alpha_dash',
-			'startdate' => 'required|date',
-			'enddate' => 'required|date|after:startdate',
+			'name' => 'required',
+			'description' => 'required',
+			'startdate' => 'date',
+			'enddate' => 'date|after:startdate',
 			'status' => 'required'
 		);
         
@@ -55,20 +55,22 @@ class ActivityController extends BaseController {
 			$statuses = array('' => 'Select...') + Activity_status::lists('name','name');
 			return Redirect::to('activity/upload')->with('organizations', $organizations)
 			->with('types', $types)->with('studies',$studies)->with('statuses',$statuses)
+            ->withInput()
 			->withErrors($validator->messages());
 		}
 		else
 		{
-			$activity = new Activity;
-			$activity->name = Input::get('name');
-			$activity->description = Input::get('description');
-			$activity->startdate = Input::get('startdate');
-			$activity->enddate = Input::get('enddate');
-			$activity->type = Input::get('type');
-			$activity->status = Input::get('status');
-			$activity->organization_id = Input::get('organization');
-			$activity->study_id = Input::get('study');
-			$activity->save();
+            $newActivity = Activity::create(array(
+                'name'              => Input::get('name'),
+                'description'       => Input::get('description'),
+                'startdate'         => Input::get('startdate'),
+                'enddate'           => Input::get('enddate'),
+                'type'              => Input::get('type'),
+                'status'            => Input::get('status'),
+                'organization_id'   => Input::get('organization'),
+                'study_id'          => Input::get('study')
+            ));
+            
 			return View::make('activity/uploadadd');
 		}
 	}

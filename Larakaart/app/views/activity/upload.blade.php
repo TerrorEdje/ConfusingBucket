@@ -1,7 +1,7 @@
 <script>   
 	$(function() {
-		$( "#calendar" ).datepicker({ dateFormat: 'dd-mm-yy' });
-		$( "#calendar2" ).datepicker({ dateFormat: 'dd-mm-yy' });   
+		$( "#calendar" ).datepicker({ dateFormat: 'yy-mm-dd' });
+		$( "#calendar2" ).datepicker({ dateFormat: 'yy-mm-dd' });   
 	}); 
 </script>
 
@@ -12,29 +12,29 @@
 		
 		<p>
 			Organization: 	{{ Form::select('organization', $organizations,Input::old('name')) }} 
-							{{ $errors->first('organization', '<span class="text-danger">:message</span>') }}</br>
+							{{ $errors->first('organization', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}</br>
 							
 			Type: 			{{ Form::select('type', $types, Input::old('name')) }} 
-							{{ $errors->first('type', '<span class="text-danger">:message</span>') }}</br>
+							{{ $errors->first('type', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}</br>
 				  
 			Name: 			{{ Form::text('name') }} 
-							{{ $errors->first('name', '<span class="text-danger">:message</span>') }}</br>
+							{{ $errors->first('name', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}</br>
 				  
 			Description: </br>
 							{{ Form::textarea('description') }} 
-							{{ $errors->first('description', '<span class="text-danger">:message</span>') }}</br>
+							{{ $errors->first('description', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}</br>
 			
 			Startdate: 		{{ Form::text('startdate') }} 
-							{{ $errors->first('startdate', '<span class="text-danger">:message</span>') }}</br>
+							{{ $errors->first('startdate', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}</br>
 					   
 			Enddate: 		{{ Form::text('enddate') }} 
-							{{ $errors->first('enddate', '<span class="text-danger">:message</span>') }}</br>
+							{{ $errors->first('enddate', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}</br>
 					 
 			Study: 			{{ Form::select('study', $studies,Input::old('name')) }} 
-							{{ $errors->first('study', '<span class="text-danger">:message</span>') }}</br>
+							{{ $errors->first('study', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}</br>
 				   
 			Status: 		{{ Form::select('status', $statuses,Input::old('name')) }} 
-							{{ $errors->first('status', '<span class="text-danger">:message</span>') }}</br>
+							{{ $errors->first('status', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}</br>
 		</p>
 		
 		{{Form::submit('Upload Activity')}}
@@ -51,7 +51,7 @@
                     {{Form::select('organization',$organizations, Input::old('name'), array('class'=>'form-control')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
-                    {{ $errors->first('organization', '<span class="text-danger">:message</span>') }}
+                    {{ $errors->first('organization', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
                 </div>
             </div>
             
@@ -61,7 +61,7 @@
                     {{Form::select('type', $types, Input::old('name'), array('class'=>'form-control')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
-                    {{ $errors->first('type', '<span class="text-danger">:message</span>') }}
+                    {{ $errors->first('type', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
                 </div>
             </div>
             
@@ -71,7 +71,7 @@
                     {{ Form::text('name', null, array('class' => 'form-control','placeholder' => 'Name')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
-                    {{ $errors->first('name', '<span class="text-danger">:message</span>') }}
+                    {{ $errors->first('name', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
                 </div>
             </div>
             
@@ -81,7 +81,7 @@
                     {{Form::select('study', $studies, Input::old('name'), array('class'=>'form-control')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
-                    {{ $errors->first('study', '<span class="text-danger">:message</span>') }}
+                    {{ $errors->first('study', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
                 </div>
             </div>
         </div>
@@ -93,7 +93,7 @@
                     {{ Form::text('startdate', null, array('class' => 'form-control','placeholder' => 'Startdate', 'id' => 'calendar')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
-                    {{ $errors->first('startdate', '<span class="text-danger">:message</span>') }}
+                    {{ $errors->first('startdate', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
                 </div>
             </div>
             
@@ -103,7 +103,7 @@
                     {{ Form::text('enddate', null, array('class' => 'form-control','placeholder' => 'Enddate', 'id' => 'calendar2')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
-                    {{ $errors->first('enddate', '<span class="text-danger">:message</span>') }}
+                    {{ $errors->first('enddate', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
                 </div>
             </div>
             
@@ -113,7 +113,7 @@
                     {{Form::select('status', $statuses, Input::old('name'), array('class'=>'form-control')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
-                    {{ $errors->first('status', '<span class="text-danger">:message</span>') }}
+                    {{ $errors->first('status', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
                 </div>
             </div>
         </div>
@@ -126,7 +126,7 @@
                     {{ Form::textarea('description',null, array('class' => 'form-control uploadActivityTextarea', 'rows' => '10')) }}
                 </div>
                 <div class="col-sm-12 has-error">
-                    {{ $errors->first('description', '<span class="text-danger">:message</span>') }}
+                    {{ $errors->first('description', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
                 </div>
             </div>
         </div>
