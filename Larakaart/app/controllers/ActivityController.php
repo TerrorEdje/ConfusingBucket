@@ -23,16 +23,29 @@ class ActivityController extends BaseController {
 			'enddate' => 'required|date|after:startdate',
 			'status' => 'required'
 		);
+        
+        $niceNames = array(
+            'organization' => 'Organization',
+            'type' => 'Type',
+            'name' => 'Name',
+            'study' => 'Study',
+            'startdate' => 'Start date',
+            'enddate' => 'End date',
+            'status' => 'Status',
+            'description' => 'Description'
+        );
+        
 		
 		$messages = array
 		(
-			'required' => 'The :attribute is a required field.',
-			'alpha_dash' => 'The :attribute should consist of alphabetic characters or dashes/underscores.',
-			'date' => 'The :attribute should be a date.',
-			'after:startdate' => 'The :attribute should be a date after the startdate.',
+			'required' => ':attribute is a required field.',
+			'alpha_dash' => ':attribute should consist of alphabetic characters or dashes/underscores.',
+			'date' => ':attribute should be a date.',
+			'after:startdate' => ':attribute should be a date after the startdate.',
 		);
 		
 		$validator = Validator::make(Input::all(), $rules, $messages);
+        $validator->setAttributeNames($niceNames); 
 		
 		if($validator->fails())
 		{

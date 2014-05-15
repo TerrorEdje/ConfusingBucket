@@ -41,60 +41,101 @@
 		{{Form::token()}}
 	{{ Form::close() }}-->
 	
-{{ Form::open(array('url' => 'activity/add'), 'post') }}
+{{ Form::open(array('url' => 'activity/add', 'post', 'class'=>'form-horizontal')) }}
 	<fieldset class="the-fieldset form-margin">
 		<legend class="the-legend text-primary">Information about the activity:</legend>
-        <div class="col-sm-6">test1</div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label text-primary">Organization: </label>
+                <div class="col-sm-9">
+                    {{Form::select('organization',$organizations, Input::old('name'), array('class'=>'form-control')) }}
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 has-error">
+                    {{ $errors->first('organization', '<span class="text-danger">:message</span>') }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label text-primary">Type: </label>
+                <div class="col-sm-9">
+                    {{Form::select('type', $types, Input::old('name'), array('class'=>'form-control')) }}
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 has-error">
+                    {{ $errors->first('type', '<span class="text-danger">:message</span>') }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label text-primary">Name: </label>
+                <div class="col-sm-9">
+                    {{ Form::text('name', null, array('class' => 'form-control','placeholder' => 'Name')) }}
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 has-error">
+                    {{ $errors->first('name', '<span class="text-danger">:message</span>') }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label text-primary">Study: </label>
+                <div class="col-sm-9">
+                    {{Form::select('study', $studies, Input::old('name'), array('class'=>'form-control')) }}
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 has-error">
+                    {{ $errors->first('study', '<span class="text-danger">:message</span>') }}
+                </div>
+            </div>
+        </div>
         
-        <div class="col-sm-6">test2</div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label text-primary">Start date: </label>
+                <div class="col-sm-9">
+                    {{ Form::text('startdate', null, array('class' => 'form-control','placeholder' => 'Startdate', 'id' => 'calendar1')) }}
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 has-error">
+                    {{ $errors->first('startdate', '<span class="text-danger">:message</span>') }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label text-primary">End date: </label>
+                <div class="col-sm-9">
+                    {{ Form::text('enddate', null, array('class' => 'form-control','placeholder' => 'Enddate', 'id' => 'calendar2')) }}
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 has-error">
+                    {{ $errors->first('enddate', '<span class="text-danger">:message</span>') }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="name" class="col-sm-3 control-label text-primary">Status: </label>
+                <div class="col-sm-9">
+                    {{Form::select('status', $statuses, Input::old('name'), array('class'=>'form-control')) }}
+                </div>
+                <div class="col-sm-offset-3 col-sm-9 has-error">
+                    {{ $errors->first('status', '<span class="text-danger">:message</span>') }}
+                </div>
+            </div>
+        </div>
         
         
-        <div class="col-sm-12">test3</div>
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label for="name" class="col-sm-1 control-label text-primary">Description: </label>
+                <div class="col-sm-12">
+                    {{ Form::textarea('description',null, array('class' => 'form-control uploadActivityTextarea', 'rows' => '10')) }}
+                </div>
+                <div class="col-sm-12 has-error">
+                    {{ $errors->first('description', '<span class="text-danger">:message</span>') }}
+                </div>
+            </div>
+        </div>
         
-		<table>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Organization: </label></td><td>{{Form::select('organization',$organizations, Input::old('name'), array('class'=>'form-control')) }}
-                {{ $errors->first('organization', '<span class="text-danger">:message</span>') }}</td>
-				<td style="width: 150px">&nbsp;</td>
-				<td style="width: 150px"><label class="text-primary">Startdate: </label></td><td>{{ Form::text('startdate', null, array('class' => 'form-control','placeholder' => 'Startdate', 'id' => 'calendar')) }}</td>
-			</tr>
-			<tr><td colspan="5">&nbsp;</td></tr>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Type: </label></td><td>{{Form::select('type', $types, Input::old('name'), array('class'=>'form-control')) }}</td>
-				<td style="width: 50px">&nbsp;</td>
-				<td style="width: 150px"><label class="text-primary">Enddate: </label></td><td>{{ Form::text('enddate', null, array('class' => 'form-control','placeholder' => 'Enddate', 'id' => 'calendar2')) }}</td>
-			</tr>
-			<tr><td colspan="5">&nbsp;</td></tr>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Name: </label></td><td>{{ Form::text('name', null, array('class' => 'form-control','placeholder' => 'Name')) }}</td>
-			</tr>
-			<tr><td colspan="5">&nbsp;</td></tr>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Study: </label></td><td>{{Form::select('study', $studies, Input::old('name'), array('class'=>'form-control')) }}</td>
-				<td style="width: 50px">&nbsp;</td>
-				<td style="width: 150px"><label class="text-primary">Status: </label></td><td>{{Form::select('status', $statuses, Input::old('name'), array('class'=>'form-control')) }}</td>
-			</tr>
-			<tr><td colspan="5">&nbsp;</td></tr>
-			<tr>
-				<td style="width: 150px"><label class="text-primary">Description: </label></td>
-			</tr>
-			<tr>
-				<td colspan="2">{{ Form::textarea('description',null, array('class' => 'form-control uploadActivityTextarea', 'rows' => '10')) }}</td>
-			</tr>
-			<tr><td colspan="5">&nbsp;</td></tr>
-		</table>
-		<button type="submit" class="btn btn-success">Upload Activity</button>
+		<div class="col-sm-12">
+            <button type="submit" class="btn btn-success">Upload Activity</button>
+        </div>
 	</fieldset>
 	{{Form::token()}}
 {{ Form::close() }}	
 
-@if ( $errors->count() > 0 )
-      <p>The following errors have occurred:</p>
-
-      <ul>
-        @foreach( $errors->all() as $message )
-          <li class="text-danger">{{ $message }}</li>
-        @endforeach
-      </ul>
-    @endif
 	
