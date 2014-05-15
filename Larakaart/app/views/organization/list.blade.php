@@ -17,7 +17,7 @@
 						@if (isset($organization['website']))
 							<p> {{ $organization['website'] }} </p>
 						@endif
-						<a href="#" onclick="load('{{ URL::route('organizationdetail', array($organization['id'])) }}','organizationdetailmenu'); return false;">Learn more</a>
+						<a class="btn btn-info" href="#" onclick="load('{{ URL::route('organizationdetail', array($organization['id'])) }}','organizationdetailmenu'); return false;">Learn more</a>
 					</div>
 				</div>
 			@endforeach
