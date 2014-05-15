@@ -90,7 +90,7 @@
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label text-primary">Start date: </label>
                 <div class="col-sm-9">
-                    {{ Form::text('startdate', null, array('class' => 'form-control','placeholder' => 'Startdate', 'id' => 'calendar1')) }}
+                    {{ Form::text('startdate', null, array('class' => 'form-control','placeholder' => 'Startdate', 'id' => 'calendar')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
                     {{ $errors->first('startdate', '<span class="text-danger">:message</span>') }}
