@@ -4,7 +4,7 @@
 		
 		<div class="darkBackground">
 			<div class="load">
-				<h2 class="waitingText">Gegevens worden geverifieerd bij <span class="text-primary">Google</span>.</h2>
+				<h2 class="waitingText">Waiting for <span class="text-primary">Google</span>.</h2>
 			</div>
 			<div class="waitingImage">
 				{{ HTML::image('images/waiting.gif', 'Waiting', array('width' => 100, 'height' => 100)) }}
