@@ -47,7 +47,7 @@
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
 									<a href="' . URL::route('login-get') .'">
-										<span class="text-primary">Login &nbsp;<span class="glyphicon glyphicon-log-in"></span></span>
+										<span class="text-primary">Login &nbsp;<span class="zocial google"></span></span>
 									</a>
 								</li>';
 							}
