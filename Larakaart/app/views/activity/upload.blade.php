@@ -44,9 +44,17 @@
 {{ Form::open(array('url' => 'activity/add'), 'post') }}
 	<fieldset class="the-fieldset form-margin">
 		<legend class="the-legend text-primary">Information about the activity:</legend>
+        <div class="col-sm-6">test1</div>
+        
+        <div class="col-sm-6">test2</div>
+        
+        
+        <div class="col-sm-12">test3</div>
+        
 		<table>
 			<tr>
-				<td style="width: 150px"><label class="text-primary">Organization: </label></td><td>{{Form::select('organization',$organizations, Input::old('name'), array('class'=>'form-control')) }}</td>
+				<td style="width: 150px"><label class="text-primary">Organization: </label></td><td>{{Form::select('organization',$organizations, Input::old('name'), array('class'=>'form-control')) }}
+                {{ $errors->first('organization', '<span class="text-danger">:message</span>') }}</td>
 				<td style="width: 150px">&nbsp;</td>
 				<td style="width: 150px"><label class="text-primary">Startdate: </label></td><td>{{ Form::text('startdate', null, array('class' => 'form-control','placeholder' => 'Startdate', 'id' => 'calendar')) }}</td>
 			</tr>

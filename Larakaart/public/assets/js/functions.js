@@ -231,6 +231,7 @@ function searchForChanged()
 
 function hijackForms()
 {
+    console.log("Forms hijacked");
     $('form:not(.noHijack)').submit(formSubmitted);
 }
 
@@ -244,6 +245,7 @@ function formSubmitted(e)
         data: $(e.target).serialize(),
         success: function(data) {
             $('#content').html(data);
+            hijackForms();
         } 
     });
 }
