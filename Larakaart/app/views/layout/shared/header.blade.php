@@ -41,7 +41,7 @@
 							if(Auth::check()){
 								echo '<li id="loginButton">
 									<a href="' . URL::route('logout') .'">
-										<span class="text-danger">Log out</span>
+										<span class="text-danger">Log out <span class="glyphicon glyphicon-log-out"></span></span>
 									</a>
 								</li>';
 
@@ -49,7 +49,7 @@
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
 									<a href="' . URL::route('login-get') .'">
-										<span class="text-primary">Login</span>
+										<span class="text-primary">Login <span class="glyphicon glyphicon-log-in"></span></span>
 									</a>
 								</li>';
 							}
