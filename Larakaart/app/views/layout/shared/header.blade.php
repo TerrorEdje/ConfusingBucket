@@ -41,7 +41,7 @@
 							if(Auth::check()){
 								echo '<li id="loginOutButton">
 									<a href="' . URL::route('logout') .'">
-										<span class="text-danger"><span class="glyphicon glyphicon-log-out"> &nbsp;</span>Log out</span>
+										<span class="text-danger"><span class="glyphicon glyphicon-log-out">&nbsp;</span>Log out</span>
 									</a>
 								</li>';
 							}else{
