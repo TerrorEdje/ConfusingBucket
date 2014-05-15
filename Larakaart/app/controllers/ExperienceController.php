@@ -35,10 +35,10 @@ class ExperienceController extends BaseController {
 		
 		$messages = array
 		(
-			'required' => 'The :attribute is a required field.',
-			'alpha_dash' => 'The :attribute should consist of alphabetic characters or dashes/underscores.',
-			'numeric' => 'The :attribute should be a number.',
-			'between:1,10' => 'The :attribute should be between 1 and 10.',
+			'required' => ':attribute is a required field.',
+			'alpha_dash' => ':attribute should consist of alphabetic characters or dashes/underscores.',
+			'numeric' => ':attribute should be a number.',
+			'between:1,10' => ':attribute should be between 1 and 10.',
 		);
 		
 		$validator = Validator::make(Input::all(), $rules, $messages);
