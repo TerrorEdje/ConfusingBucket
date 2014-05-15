@@ -89,7 +89,7 @@ class LoginController extends BaseController {
 		}else{
 
 			/* als er gaan account aangemaakt kon worden || ERROR */
-			return Redirect::to('home')
+			return Redirect::to('Home')
     		->with('message', 'Something went wrong please try again!!');
 
 		}
@@ -117,7 +117,7 @@ class LoginController extends BaseController {
 
 		Auth::logout();
 
-		return Redirect::to('home');
+		return Redirect::to('/');
 
 	}
 
