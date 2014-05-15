@@ -26,6 +26,13 @@ class ExperienceController extends BaseController {
 			'student' => 'required'
 		);
 		
+		$niceNames = array(
+            'activity' => 'Activity',
+            'description' => 'Description',
+            'score' => 'Score',
+            'student' => 'Student'
+        );
+		
 		$messages = array
 		(
 			'required' => 'The :attribute is a required field.',
@@ -35,6 +42,7 @@ class ExperienceController extends BaseController {
 		);
 		
 		$validator = Validator::make(Input::all(), $rules, $messages);
+		$validator->setAttributeNames($niceNames);
 	
 		if($validator->fails())
 		{
