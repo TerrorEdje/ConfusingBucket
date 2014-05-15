@@ -58,7 +58,7 @@
                                     <div>
                                         <h3>{{ $activity['name'] }}</h3>
                                         <p>
-                                            @if ($activity['status'] == 'open')
+                                            @if ($activity['status'] == 'Open')
                                                 <b class="text-success">{{ $activity['status'] }}</b>
                                             @else
                                                 <b class="text-danger">{{$activity['status']}}</b>
