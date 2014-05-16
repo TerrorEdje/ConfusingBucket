@@ -64,7 +64,7 @@ class LoginController extends BaseController {
 		//login try
 		if(Auth::login($user)){
 
-			return Redirect::intended('/');
+			return Redirect::to('Home');
 
 		}else{
 
