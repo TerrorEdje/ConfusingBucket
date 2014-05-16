@@ -21,7 +21,7 @@
 					@if (isset($organization['website']))
 						<p> {{ $organization['website'] }} </p>
 					@endif
-					<a class="btn btn-success" href="#" onclick="load('{{ URL::route('Organization-update-get', array($organization['id'])) }}','organizationupdatemenu'); return false;">Update</a>
+					<a class="btn btn-warning" href="#" onclick="load('{{ URL::route('Organization-update-get', array($organization['id'])) }}','organization_cmsmenu'); return false;">Update</a>
 				</div>
 			</div>
 		@endforeach

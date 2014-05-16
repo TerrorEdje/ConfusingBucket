@@ -108,7 +108,7 @@
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-8">
 	    	<!--<button type="submit" class="btn btn-danger">Terug</button>-->
-	    	<button type="submit" class="btn btn-success">Update Organization</button>
+	    	<button type="submit" class="btn btn-warning">Update Organization</button>
 	    </div>
 		{{ Form::token() }}
 	</div>
