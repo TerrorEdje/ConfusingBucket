@@ -10,6 +10,7 @@
 	{{HTML::style('assets/css/inputStyles.css?version=1.000')}}
 	{{HTML::style('//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css')}}
 	{{HTML::style('assets/css/bootstrap.css')}}
+	{{HTML::style('assets/css/zocial.css')}}
 	<!--<link rel="stylesheet" href="assets/css/style.css?version=1.002" type="text/css" />
 	<link rel="stylesheet" href="assets/css/StoryListStyle.css?version=1.000" type="text/css" />
 	<link rel="stylesheet" href="assets/css/inputStyles.css?version=1.000" type="text/css" />

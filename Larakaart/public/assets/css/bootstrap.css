@@ -3460,7 +3460,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 30px 30px;
+  padding: 7px 20px;
   text-transform: uppercase;
   color: white;
   text-align: center;

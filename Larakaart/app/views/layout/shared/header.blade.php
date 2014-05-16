@@ -22,32 +22,42 @@
 									Organizations
 								</a>
 							</li>
-                            <li class="activity_uploadmenu">
-								<a href="#" onclick="load('{{ URL::route('Activity-upload-get') }}', 'activity_uploadmenu'); return false;">
-									Upload Activity
-								</a>
-							</li>
-                            <li class="experience_uploadmenu">
-								<a href="#" onclick="load('{{ URL::route('Experience-upload-get') }}', 'experience_uploadmenu'); return false;">
-									Upload Experience
-								</a>
-							</li>
+                            <li class="dropdown activity_uploadmenu experience_uploadmenu organization_cmsmenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="activity_uploadmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Activity-upload-get') }}', 'activity_uploadmenu'); return false;">
+                                            Upload Activity
+                                        </a>
+                                    </li>
+                                    <li class="experience_uploadmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Experience-upload-get') }}', 'experience_uploadmenu'); return false;">
+                                            Upload Experience
+                                        </a>
+                                    </li>
+                                    <li class="organization_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Organization-cms') }}', 'organization_cmsmenu'); return false;">
+                                            Organization
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 							<!--<li class="authtestmenu">
 								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin
 								</a>
 							</li>-->
 							<?php 
-							if(isset($_SESSION['id'])){
-								echo '<li id="loginButton">
-									<a href="logout.php">
-										<span class="text-danger">Log out</span>
+							if(Auth::check()){
+								echo '<li id="loginOutButton">
+									<a href="' . URL::route('logout') .'">
+										<span class="text-danger"><span class="glyphicon glyphicon-log-out">&nbsp;</span>Log out</span>
 									</a>
 								</li>';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
-									<a href="#" onclick="load(\'' . URL::route('login-get') . '\', \'loginmenu\'); return false;">
-										<span class="text-primary">Login</span>
+									<a href="' . URL::route('login-get') .'">
+										<span class="text-primary"><span class="zocial google"></span>&nbsp; Login</span>
 									</a>
 								</li>';
 							}
@@ -64,4 +74,3 @@
 		</a>
 	</div>
 </header>
-
