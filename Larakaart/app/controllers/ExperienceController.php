@@ -3,7 +3,16 @@
 class ExperienceController extends BaseController {
 	
 	public function uploadExperience()
-	{
+	{	
+		$organizations = array('' => 'Select...') + Organization::lists('name','id');
+		
+		$allOrgActivities = array();
+		$dbOrganizations = Organization::all();
+		foreach ($dbOrganizations as $organization) {
+			$activities = Activity::where('organization_id', '=', $organization->id);
+			$allOrgActivities[$organization->id] = $activities;
+		}
+	
 		$activities = array('' => 'Select...') + Activity::lists('name','id');
 		
 		$students = array();
@@ -13,13 +22,15 @@ class ExperienceController extends BaseController {
 			$students[$student->id] = $name;
 		}
 		
-		return View::make('experience/upload')->with('activities', $activities)->with('students', $students);
+		return View::make('experience/upload')->with('activities', $activities)->with('students', $students)
+		->with('allOrgActivities', $allOrgActivities)->with('organizations', $organizations);
 	}
 	
 	public function uploadExperienceAdd()
 	{
 		$rules = array
 		(
+			'organization' => 'required',
 			'activity' => 'required',
 			'description' => 'required',
 			'score' => 'numeric|between:1,10',
@@ -46,6 +57,15 @@ class ExperienceController extends BaseController {
 	
 		if($validator->fails())
 		{
+			$organizations = array('' => 'Select...') + Organization::lists('name','id');
+		
+			$allOrgActivities = array();
+			$dbOrganizations = Organization::all();
+			foreach ($dbOrganizations as $organization) {
+				$activities = Activity::where('organization_id', '=', $organization->id);
+				$allOrgActivities[$organization->id] = $activities;
+			}
+		
 			$activities = array('' => 'Select...') + Activity::lists('name','id');
 			$students = array();
 			$allStudents = Student::all();
@@ -53,7 +73,7 @@ class ExperienceController extends BaseController {
 				$name = $student->firstname ." ". $student->insertion ." ". $student->surname;
 				$students[$student->id] = $name;
 			}
-			return Redirect::to('experience/upload')->with('activities', $activities)
+			return Redirect::to('experience/upload')->with('activities', $activities)->with('allOrgActivities', $allOrgActivities)->with('organizations', $organizations)
 			->with('students', $students)->withInput()->withErrors($validator->messages());
 		}
 		else
