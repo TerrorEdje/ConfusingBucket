@@ -2,6 +2,21 @@
 
 class ActivityController extends BaseController {
 	
+    public function Activitycms()
+	{
+        $sortedActivities = array();
+        
+        $i = 0;
+        $organizations = Organization::all();
+        foreach ($organizations as $organization)
+        {
+            $sortedActivities[$i]['organization_name'] = $organization['name'];
+            $sortedActivities[$i]['activities'] = Activity::where('organization_id', '=', $organization['id'])->get();
+            $i++;
+        }
+		return View::make('activity/cms',array('sortedActivities' => $sortedActivities));
+	}
+    
 	public function uploadActivity()
 	{
 		$organizations = array('' => 'Select...') + Organization::lists('name','id');
@@ -9,6 +24,21 @@ class ActivityController extends BaseController {
 		$studies = array('' => 'Select...') + Study::lists('name','id');
 		$statuses = array('' => 'Select...') + Activity_status::lists('name','name');
 		return View::make('activity/upload')->with('organizations', $organizations)->with('types', $types)->with('studies',$studies)->with('statuses',$statuses);
+	}
+    
+    public function updateActivity($id)
+	{
+        $activity = Activity::find($id);
+        $organizations = array('' => 'Select...') + Organization::lists('name','id');
+		$types = array('' => 'Select...') + Activity_type::lists('name','name');
+		$studies = array('' => 'Select...') + Study::lists('name','id');
+		$statuses = array('' => 'Select...') + Activity_status::lists('name','name');
+		return View::make('activity/update')->with('activity', $activity)->with('organizations', $organizations)->with('types', $types)->with('studies',$studies)->with('statuses',$statuses);
+        
+		$organization = Organization::find($id);
+		$location = Location::find($organization->location_id);
+		$types = Organization_type::lists('name','name');
+		return View::make('organization/update')->with('types',$types)->with('organization',$organization)->with('location',$location);
 	}
 	
 	public function uploadActivityAdd()

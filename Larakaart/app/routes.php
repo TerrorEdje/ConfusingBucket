@@ -99,6 +99,16 @@ Route::group(array('before' => 'guest'), function() {
 		'as'	=> 'Activity-upload-get',
 		'uses'	=> 'ActivityController@uploadActivity'
 	));
+    
+    Route::get('activity/update/{id}', array(
+			'as'	=> 'Activity-update-get',
+			'uses'	=> 'ActivityController@updateActivity'
+	));
+    
+    Route::get('activity/cms', array(
+		'as'	=> 'Activity-cms',
+		'uses'	=> 'ActivityController@Activitycms'
+	));
 	
 	Route::get('organization/upload', array(
 			'as'	=> 'Organization-upload-get',
