@@ -1,6 +1,6 @@
 
 <div class="panel-group" id="accordion">
-	<div class="panel accordionList" id="activitylist">
+	<div class="panel accordionList" id="schoollist">
 		<div class="panel-heading">		
 			<a class="btn btn-success" href="#" onClick="load('{{ URL::route('School-upload-get') }}', 'school_cmsmenu'); return false;">Upload</a>
 			<br> &nbsp;

@@ -1,6 +1,6 @@
-<form action="{{ URL::route('School-upload-add') }}" method="post" class="form-horizontal">
+<form action="{{ URL::route('Study-upload-add') }}" method="post" class="form-horizontal">
 	<fieldset class="the-fieldset form-margin">
-   		<legend class="the-legend text-primary">School</legend>		
+   		<legend class="the-legend text-primary">Study</legend>		
 		
 		<div class="form-group">
 	    	<label for="name" class="col-sm-2 control-label text-primary">Name: </label>
@@ -13,12 +13,12 @@
 	  	</div>
 
 	  	<div class="form-group">
-	    	<label for="website" class="col-sm-2 control-label text-primary">Website: </label>
+	    	<label for="website" class="col-sm-2 control-label text-primary">Description: </label>
 	   		<div class="col-sm-8">
-	      		{{Form::text('website', null, array('class' => 'form-control','placeholder' => 'Website'))}}
+	      		{{Form::textarea('description', null, array('class' => 'form-control','placeholder' => 'Description'))}}
 	    	</div>
 			<div class="col-sm-offset-2 col-sm-8 has-error">
-				{{ $errors->first('website', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
+				{{ $errors->first('', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
 			</div>
 	  	</div>
 
@@ -27,7 +27,7 @@
 	<div class="form-group">
 		<div class="col-sm-offset-2 col-sm-8">
 	    	<!--<button type="submit" class="btn btn-danger">Terug</button>-->
-	    	<button type="submit" class="btn btn-success">Upload School</button>
+	    	<button type="submit" class="btn btn-success">Upload Study</button>
 	    </div>
 		{{ Form::token() }}
 	</div>
