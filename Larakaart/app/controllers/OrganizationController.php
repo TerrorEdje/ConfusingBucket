@@ -123,7 +123,7 @@ class OrganizationController extends BaseController {
 			$location->save();
 			$organization->location_id = $location->id;
 			$organization->save();
-			return View::make('organization/uploadadd');
+			return $organization->name . ' has been uploaded.';;
 		}
 	}
 	
@@ -176,7 +176,7 @@ class OrganizationController extends BaseController {
 			$location->geocode();
 			$location->save();
 			$organization->save();
-			return View::make('organization/updateadd');
+			return $organization->name . ' has been updated.';
 		}
 	}
 
