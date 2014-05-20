@@ -52,7 +52,7 @@ return array(
 			'prefix'   => '',
 		),
 		
-		'mysql' => array(
+		/*'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'databases.aii.avans.nl:3306',
 			'database'  => 'egjhatti_db2',
@@ -61,18 +61,18 @@ return array(
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
+		),*/
 
-		/*'mysql' => array(
+		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'mysql.hostfree.nl',
-			'database'  => 'u199057476_A',
+			'database'  => 'u199057476_a',
 			'username'  => 'u199057476_root',
 			'password'  => '123456',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),*/
+		),
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

@@ -38,7 +38,7 @@ class LoginController extends BaseController {
 
 	        $dbUser = User::where('google_token', '=', $user->google_token)->first();
 
-	        if(!is_null($dbUser)){
+	        if(!empty($dbUser)){
 
 	        	$this->logginIn($user);
 
@@ -61,14 +61,43 @@ class LoginController extends BaseController {
 
 	private function logginIn(User $user){
 
+		$newLog = Login_log::create(array(
+				'datetime' 	=> '2000-01-01 00:00:00',
+				'gebruiker' => '256416',
+				'token'		=> 'hjfnanl4885'
+			));
+
 		//login try
 		if(Auth::login($user)){
 
-			return Redirect::to('Home');
+			/*$hee = new DateTime('now');*/
+
+			/*$newUser = User::create(array(
+				'google_token' 	=> 'hee',
+				'username' 		=> $hee,
+				'email' 		=> 'hoi'
+			));*/
+
+			$newLog = Login_log::create(array(
+				'datetime' 	=> '2000-01-01 00:00:00',
+				'gebruiker' => '256416',
+				'token'		=> 'hjfnanl4885'
+			));
+
+			if($newLog){
+
+				return Redirect::to('Home');
+
+			}else{
+
+				return '111hee';
+
+			}
+			
 
 		}else{
 
-			return Redirect::to('home');
+			return Redirect::to('Home');
 
 		}
 
@@ -93,23 +122,6 @@ class LoginController extends BaseController {
     		->with('message', 'Something went wrong please try again!!');
 
 		}
-
-	}
-
-	public function loggedInWithGoogle() {
-
-		$code = Input::get('code');
-
-		/*sessie zetten*/
-
-		/*if (Auth::attempt(array('google_token'=>Input::get('code')))) {
-    		return Redirect::to('home')->with('message', 'You have succesfully logged in!');
-		} else {
-    		return Redirect::to('users/login')
-        	->with('message', 'Something went wrong please try again!!');
-		}*/
-
-		/*return '<pre>print_r($1)</pre>--->'.$code;*/
 
 	}
 
