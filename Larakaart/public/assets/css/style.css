@@ -223,9 +223,9 @@ footer > p{
 	display: block;
 }
 
-#organizationlist {
-	background-color: rgba(0, 0, 0, 0);
-	color: white;
+.accordionList {
+	background-color: rgba(0, 0, 0, 0) !important;
+	color: white !important;
 }
 
 .uploadActivityTextarea

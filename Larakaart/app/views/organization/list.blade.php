@@ -1,6 +1,6 @@
 
 	<div class="panel-group" id="accordion">
-		<div class="panel" id="organizationlist">
+		<div class="panel accordionList" id="organizationlist">
 			@foreach ($organizations as $organization)
 				<div class="panel-heading">
 					<h1 class="panel-title"> 
