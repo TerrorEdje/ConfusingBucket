@@ -10,7 +10,8 @@
 				<div class="form-group">
 					<label for="name" class="col-sm-4 control-label text-primary">Organization: </label>
 					<div class="col-sm-4">
-						{{ Form::select('organization', $organizations, Input::old('name'), array('class' => 'form-control', 'id' => 'organization')) }}
+						{{ Form::select('organization', $organizations, Input::old('name'), array('class' => 'form-control', 
+						'onchange' => 'setOptions(document.myform.organization.options[document.myform.organization.selectedIndex].value);')) }}
 					</div>
 					<div class="col-sm-offset-4 col-sm-8 has-error">
 						{{ $errors->first('organization', '<span class="text-danger"><span class="glyphicon glyphicon-remove"></span> :message</span>') }}
@@ -21,30 +22,24 @@
 				
 				
 				<script type="text/javascript">	
-				
-					$(document).ready(function() {
-						$('#organization').on('change', do_something);
-					});
 
-					function do_something() {
-						var selected = $('#organization').val();
-						$.ajax({
-							url:        'experience/upload',
-							type:       'POST',
-							data:       { value: selected },
-							success:    function() {
-								$setActivities();
-							}
-						});
-					}
-					
-					function setActivities() {
+					var allOrgActivities = new Array();
+					@foreach($allOrgActivities as $orgID => $orgActivities)
 						var activities = new Array();
-						@foreach ($allOrgActivities as $orgID => $orgActivities)
-							@if ($orgID == 1) <!-- ID van de organisatie die is geselecteerd -->
-								activities.push($orgActivities);
-							@endif	
+						@foreach ($orgActivities as $activity) 
+							var activity = { id:{{$activity["id"]}}, name:{{$activity["name"]}} };
+							activities.push(activity);
 						@endforeach
+						allOrgActivities['orgID'] = {{ $orgID }};
+						allOrgActivities['orgActivities'] = activities;			
+					@endforeach
+					
+					function setOptions(orgID) {
+						var activityDropdown = document.myform.activity;
+						activityDropdown.options.length = 0;
+						for (var activity in allOrgActivities[orgID]){
+							activityDropdown.options[activityDropdown.options.length] = new Option(activity['name'], activity['id']);
+						}	
 					}
 
 				</script>
