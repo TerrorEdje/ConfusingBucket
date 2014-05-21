@@ -7,10 +7,43 @@
 			
 			<div class="col-sm-12">
 			
+			
+			
+			<!--
+			<script type="text/javascript">
+
+				function lookup(inputString) {
+					if(inputString.length == 0) {
+						$('#suggestions').hide();
+					}
+					else {
+					$.post("rpc.php", {queryString: ""+inputString+""}, function(data){
+							if(data.length >0) {
+								$('#suggestions').show();
+								$('#autoSuggestionsList').html(data);
+							}
+						});
+					}
+				}
+
+				function fill(thisValue) {
+					$('#inputString').val(thisValue);
+					setTimeout("$('#suggestions').hide();", 200);
+				}
+			</script> -->
+			
+			
+			
+			
 				<div class="form-group">
 					<label for="name" class="col-sm-4 control-label text-primary">Organization: </label>
 					<div class="col-sm-4">
+						<!-- {{ Form::text('organization', Input::old('name'), array('class' => 'form-control', 'id' => 'inputString', 'onkeyup' => 'lookup(this.value);', 'onblur' => 'fill();')) }} -->
 						{{ Form::select('organization', $organizations, Input::old('name'), array('class' => 'form-control', 'id' => 'organization')) }}
+						<!-- <div class="suggestionsBox" id="suggestions" style="display: none;">
+							<div class="suggestionList" id="autoSuggestionsList">
+							</div>
+						</div> -->
 					</div>
 					<div class="col-sm-offset-4 col-sm-8 has-error">
 						{{ $errors->first('organization', '<span class="text-danger"><span class="glyphicon glyphicon-remove"></span> :message</span>') }}
@@ -19,7 +52,7 @@
 				
 				
 				
-				
+				<!--
 				<script type="text/javascript">	
 				
 					$(document).ready(function() {
@@ -42,12 +75,12 @@
 						var activities = new Array();
 						@foreach ($allOrgActivities as $orgID => $orgActivities)
 							@if ($orgID == 1) <!-- ID van de organisatie die is geselecteerd -->
-								activities.push($orgActivities);
+<!--								activities.push($orgActivities);
 							@endif	
 						@endforeach
 					}
 
-				</script>
+				</script> -->
 				
 			
 				
