@@ -7,6 +7,7 @@
 		</div>		
         <?php $i=0; ?>
 		@foreach ($sortedActivities as $sortedActivity)
+            @if (count($sortedActivity['activities']) > 0)
 			<div class="panel-heading">
 				<h1 class="panel-title"> 
 					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{$i}}">
@@ -50,6 +51,7 @@
 				</div>
 			</div>
             <?php $i++; ?>
+            @endif
 		@endforeach
 	</div>
 </div>

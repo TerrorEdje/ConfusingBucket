@@ -7,7 +7,8 @@ class ActivityController extends BaseController {
         $sortedActivities = array();
         
         $i = 0;
-        $organizations = Organization::all();
+        //$organizations = Organization::all();
+        $organizations = Organization::orderBy('name', 'asc')->get();
         foreach ($organizations as $organization)
         {
             $sortedActivities[$i]['organization_name'] = $organization['name'];
