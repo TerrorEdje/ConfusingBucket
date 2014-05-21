@@ -22,12 +22,12 @@
 									Organizations
 								</a>
 							</li>
-                            <li class="dropdown activity_uploadmenu experience_uploadmenu organization_cmsmenu">
+                            <li class="dropdown activity_cmsmenu experience_uploadmenu organization_cmsmenu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li class="activity_uploadmenu">
-                                        <a href="#" onclick="load('{{ URL::route('Activity-upload-get') }}', 'activity_uploadmenu'); return false;">
-                                            Upload Activity
+                                    <li class="activity_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Activity-cms') }}', 'activity_cmsmenu'); return false;">
+                                            Activity
                                         </a>
                                     </li>
                                     <li class="experience_uploadmenu">

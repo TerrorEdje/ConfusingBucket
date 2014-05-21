@@ -41,6 +41,11 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Activity-upload-add',
 			'uses'	=> 'ActivityController@uploadActivityAdd'
 		));
+		
+		Route::post('activity/update-add', array(
+			'as'	=> 'Activity-update-add',
+			'uses'	=> 'ActivityController@updateActivityAdd'
+		));
 
 		Route::post('login', array(
 			'as'	=> 'google-callback',
@@ -62,7 +67,6 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Organization-update-add',
 			'uses'	=> 'OrganizationController@updateOrganizationAdd'
 		));
-
 	});
 
 	/*
@@ -98,6 +102,16 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('activity/upload', array(
 		'as'	=> 'Activity-upload-get',
 		'uses'	=> 'ActivityController@uploadActivity'
+	));
+    
+    Route::get('activity/update/{id}', array(
+			'as'	=> 'Activity-update-get',
+			'uses'	=> 'ActivityController@updateActivity'
+	));
+    
+    Route::get('activity/cms', array(
+		'as'	=> 'Activity-cms',
+		'uses'	=> 'ActivityController@Activitycms'
 	));
 	
 	Route::get('organization/upload', array(
