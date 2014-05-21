@@ -5,7 +5,7 @@
 	}); 
 </script>
 
-{{ Form::open(array('url' => 'activity/add', 'post', 'class'=>'form-horizontal')) }}
+{{ Form::open(array('url' => 'activity/update-add', 'post', 'class'=>'form-horizontal')) }}
 	<fieldset class="the-fieldset form-margin">
 		<legend class="the-legend text-primary">Information about the activity:</legend>
         <input name="activity_id" type="hidden" value="{{$activity['id']}}">

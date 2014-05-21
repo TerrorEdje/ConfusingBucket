@@ -41,6 +41,11 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Activity-upload-add',
 			'uses'	=> 'ActivityController@uploadActivityAdd'
 		));
+		
+		Route::post('activity/update-add', array(
+			'as'	=> 'Activity-update-add',
+			'uses'	=> 'ActivityController@updateActivityAdd'
+		));
 
 		Route::post('login', array(
 			'as'	=> 'google-callback',
@@ -62,7 +67,6 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Organization-update-add',
 			'uses'	=> 'OrganizationController@updateOrganizationAdd'
 		));
-
 	});
 
 	/*
