@@ -290,7 +290,6 @@ Controleren of data in de database komt te staan als alle velden correct zijn in
 
 **Verwacht resultaat:**
 De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij Organizations.
-<<<<<<< HEAD
 
 ##Testcase 12.1: Upload Organisatie
 **Test:** Controleren of uploaden van een nieuwe organisatie werkt.
@@ -376,3 +375,28 @@ Test of uitloggen werkt.
 
 **Verwacht resultaat:**
 In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).
+
+##Testcase 15.1: Update Activity
+**Test:** Controleren of updaten van een nieuwe organisatie werkt.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op activity.
+2. Klik op een organisatie.
+3. Kies een activity en klik daaronder op update.
+4. Verander de description van de activity.
+5. Klik op Update Activity.
+6. Controlleer of de geüpdate velden met de nieuwe waarde in de database staat.
+
+**Verwacht resultaat:** De activity heeft nu andere gegevens.
+
+##Testcase 15.2: Validatie update Activity
+**Test:** Controleren of de validatie werkt bij het updaten van een activity.
+
+**Stappen:**
+1. Open de website. Ga naar CMS en klik daar op activity.
+2. Klik op een organisatie.
+3. Kies een activity en klik daaronder op update.
+4. Verwijder de description van de activity.
+5. Klik op Update Organisatie.
+
+**Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden een error weergeven.
