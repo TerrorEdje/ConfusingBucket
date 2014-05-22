@@ -223,6 +223,12 @@ footer > p{
 	display: block;
 }
 
+#thumbnailstudies{
+	color: white;
+	border-radius: 4px;
+	display: block;
+}
+
 .accordionList {
 	background-color: rgba(0, 0, 0, 0) !important;
 	color: white !important;
