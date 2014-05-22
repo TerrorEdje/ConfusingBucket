@@ -132,6 +132,8 @@ function back()
     {
         $('#backButton').parent().addClass("disabled");
     }
+    
+    return false;
 }
 
 function forward()
@@ -147,12 +149,16 @@ function forward()
     {
         $('#forwardButton').parent().addClass("disabled");
     }
+    
+    return false;
 }
 
 function refresh()
 {
     currentPage = history[historyLocation];
     loadPage(currentPage.page, currentPage.menuitem);
+    
+    return false;
 }
 
 var filteredMarkers = [];
