@@ -58,6 +58,9 @@ Route::group(array('before' => 'guest'), function() {
 			'uses'	=> 'StoryController@uploadExperienceAdd'
 		));
 		
+		/*
+		| Organization CMS post methods.
+		*/
 		Route::post('organization/add', array(
 			'as'	=> 'Organization-upload-add',
 			'uses'	=> 'OrganizationController@uploadOrganizationAdd'
@@ -66,6 +69,32 @@ Route::group(array('before' => 'guest'), function() {
 		Route::post('organization/update-add', array(
 			'as'	=> 'Organization-update-add',
 			'uses'	=> 'OrganizationController@updateOrganizationAdd'
+		));
+		
+		/*
+		| School CMS post methods.
+		*/
+		Route::post('school/add', array(
+			'as'	=> 'School-upload-add',
+			'uses'	=> 'SchoolController@uploadSchoolAdd'
+		));
+		
+		Route::post('school/update-add', array(
+			'as'	=> 'School-update-add',
+			'uses'	=> 'SchoolController@updateSchoolAdd'
+		));
+		
+		/*
+		| Study CMS post methods.
+		*/
+		Route::post('study/add', array(
+			'as'	=> 'Study-upload-add',
+			'uses'	=> 'StudyController@uploadStudyAdd'
+		));
+		
+		Route::post('study/update-add', array(
+			'as'	=> 'Study-update-add',
+			'uses'	=> 'StudyController@updateStudyAdd'
 		));
 	});
 
@@ -114,6 +143,9 @@ Route::group(array('before' => 'guest'), function() {
 		'uses'	=> 'ActivityController@Activitycms'
 	));
 	
+	/*
+	| Organization CMS screens.
+	*/
 	Route::get('organization/upload', array(
 			'as'	=> 'Organization-upload-get',
 			'uses'	=> 'OrganizationController@uploadOrganization'
@@ -126,7 +158,43 @@ Route::group(array('before' => 'guest'), function() {
 	
 	Route::get('organization/cms', array(
 			'as'	=> 'Organization-cms',
-			'uses'	=> 'OrganizationController@Organizationcms'
+			'uses'	=> 'OrganizationController@organizationcms'
+	));
+	
+	/*
+	| School CMS screens.
+	*/
+	Route::get('school/cms', array(
+			'as'	=> 'School-cms',
+			'uses'	=> 'SchoolController@schoolcms'
+	));
+	
+	Route::get('school/upload', array(
+			'as'	=> 'School-upload-get',
+			'uses'	=> 'SchoolController@uploadSchool'
+	));
+	
+	Route::get('school/update/{id}', array(
+			'as'	=> 'School-update-get',
+			'uses'	=> 'SchoolController@updateSchool'
+	));
+	
+	/*
+	| Study CMS screens.
+	*/
+	Route::get('study/cms', array(
+			'as'	=> 'Study-cms',
+			'uses'	=> 'StudyController@studycms'
+	));
+	
+	Route::get('study/upload', array(
+			'as'	=> 'Study-upload-get',
+			'uses'	=> 'StudyController@uploadStudy'
+	));
+	
+	Route::get('study/update/{id}', array(
+			'as'	=> 'Study-update-get',
+			'uses'	=> 'StudyController@updateStudy'
 	));
 
 });

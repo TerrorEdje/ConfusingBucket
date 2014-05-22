@@ -40,6 +40,16 @@
                                             Organization
                                         </a>
                                     </li>
+									<li class="school_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('School-cms') }}', 'school_cmsmenu'); return false;">
+                                            School
+                                        </a>
+                                    </li>
+									<li class="study_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Study-cms') }}', 'study_cmsmenu'); return false;">
+                                            Study
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 							<!--<li class="authtestmenu">

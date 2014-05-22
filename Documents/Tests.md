@@ -137,44 +137,6 @@ Je komt op een pagina met een activity van de organisatie Novia University of Ap
 Je komt op een pagina met de experience van een student over Novia University of Applied Sciences. Gegevens:
   1. Rudy Chambon
 
-##Testcase 5.1: Auth check -- OUD
-
-**Test:**
-Kijken of de user herkend wordt
-
-**Stappen:**
-1. Open de website, ga naar /authtest.php
-2. Vul gebruiker id 1 in in de code
-
-**Verwacht resultaat:**
-Er word gezecht dat de user geen toegang heeft
-
-##Testcase 5.2: Auth check  -- OUD
-
-**Test:**
-kijken de pagina en de crud werken
-
-**Stappen:**
-1. Open de website, ga naar /authtest.php
-2. Run vul en create script 3.3
-3. Vul gebruiker id 1 in in de code en pagina ‘authtest’
-
-**Verwacht resultaat:**
-alles gaat goed en acces is granted
-
-##Testcase 5.3: Auth check  -- OUD
-
-**Test:**
-kijken of datums werken
-
-**Stappen:**
-1. Open de website, ga naar /authtest.php
-2. Pas in de database bij acces de date time stamps aan naar 2013
-3. Vul gebruiker id 1 in in de code en pagina ‘authtest’
-
-**Verwacht resultaat:**
-hij geeft aan dat acces denied is
-
 ##Testcase 8: Markers groeperen
 
 **Test:**
@@ -337,7 +299,17 @@ De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij O
 
 **Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.
 
-Het aantal op de groep komt overeen met het aantal stories in de lijst
+##Testcase 13.3: Organisatie CMS
+
+**Test:**
+Test of het organization CMS werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Organization"
+
+**Verwacht resultaat:**
+Je zult nu een scherm zien met organisaties, als je op een organisatie klikt dan zal je een update knop en beschrijving zien.
 
 ##Testcase 14.1: Inloggen
 
@@ -352,7 +324,7 @@ Zien of inloggen via google Oauth werkt. (Werkt alleen op de server)
 **Verwacht resultaat:**
 Je wordt teruggestuurd naar de website van Confusing Bucket. Ben je een nieuwe gebruiker, dan wordt je in de tabel User in de database gezet, ben je een bestaande gebruiker dan wordt je bestaande data uit de user tabel gehaald.
 
-##Testcase 14.2: Inloggen
+##Testcase 14.2: Menu verandert na inloggen
 
 **Test:**
 Menu balk veranderd mee
@@ -364,7 +336,7 @@ Menu balk veranderd mee
 **Verwacht resultaat:**
 In de menu balk staat nu een logout link in plaats van een login link.
 
-##Testcase 14.3: Inloggen
+##Testcase 14.3: Uitloggen
 
 **Test:**
 Test of uitloggen werkt.
@@ -376,7 +348,7 @@ Test of uitloggen werkt.
 **Verwacht resultaat:**
 In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).
 
-##Testcase 15.1: Update Activity
+##Testcase 15.1: Activity update
 **Test:** Controleren of updaten van een nieuwe organisatie werkt.
 
 **Stappen:**
@@ -389,7 +361,7 @@ In de menu balk staat nu een login link in plaats van een logout link. En de ses
 
 **Verwacht resultaat:** De activity heeft nu andere gegevens.
 
-##Testcase 15.2: Validatie update Activity
+##Testcase 15.2: Activity update validatie 
 **Test:** Controleren of de validatie werkt bij het updaten van een activity.
 
 **Stappen:**
@@ -410,5 +382,146 @@ In de menu balk staat nu een login link in plaats van een logout link. En de ses
 
 **Verwacht resultaat:** Je zult nu een scherm zien met activities, als je op een activity klikt dan zal je gegevens en een update knop zien.
 
+##Testcase 16.1: School Upload validatie
 
+**Test:**
+Test of de validatie van upload school werkt.
 
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "School"
+3. Klik op "Upload"
+4. Voer hier helemaal NIKS in
+5. Klik op "Upload School"
+
+**Verwacht resultaat:**
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.
+
+##Testcase 16.2: School upload
+
+**Test:**
+Test of het uploaden van een school werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "School"
+3. Klik op "Upload"
+4. Voer een naam en een website in.
+5. Klik op "Upload School"
+
+**Verwacht resultaat:**
+Je zult nu een bericht krijgen dat de school is geüpload.
+
+##Testcase 16.3: School CMS
+
+**Test:**
+Test of het school CMS werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "School"
+
+**Verwacht resultaat:**
+Je zult nu een scherm zien met scholen, als je op een school klikt dan zal je een update knop en website zien.
+
+##Testcase 16.4: School update validatie
+
+**Test:**
+Test of de validatie van update school werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "School"
+3. Klik op een school en daarna update
+4. Voer hier helemaal NIKS in
+5. Klik op "Update School"
+
+**Verwacht resultaat:**
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.
+
+##Testcase 16.5: School update
+
+**Test:**
+Test of het updaten van een school werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "School"
+3. Klik op een school en daarna update
+4. Voer een naam en een website in.
+5. Klik op "Update School"
+
+**Verwacht resultaat:**
+Je zult nu een bericht krijgen dat de school is geupdate.
+
+##Testcase 17.1: Study Upload validatie
+
+**Test:**
+Test of de validatie van upload study werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Study"
+3. Klik op "Upload"
+4. Voer hier helemaal NIKS in
+5. Klik op "Upload Study"
+
+**Verwacht resultaat:**
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.
+
+##Testcase 17.2: Study Upload
+
+**Test:**
+Test of het uploaden van een study werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Study"
+3. Klik op "Upload"
+4. Voer een naam en selecteer een school in.
+5. Klik op "Upload Study"
+
+**Verwacht resultaat:**
+Je zult nu een bericht krijgen dat de study is geüpload.
+
+##Testcase 17.3: Study CMS
+
+**Test:**
+Test of het study CMS werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Study"
+
+**Verwacht resultaat:**
+Je zult nu een scherm zien met scholen, als je op een school klikt dan zal je bijbehorende studies zien met een update knop.
+
+##Testcase 17.4: Study update validatie
+
+**Test:**
+Test of de validatie van update study werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Study"
+3. Klik op een school, en kies daarna update bij een study
+4. Voer hier helemaal NIKS in
+5. Klik op "Update Study"
+
+**Verwacht resultaat:**
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.
+
+##Testcase 17.5: Study update
+
+**Test:**
+Test of het updaten van een study werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Study"
+3. Klik op een school, en kies daarna update bij een study
+4. Voer een naam en selecteer een school in.
+5. Klik op "Update Study"
+
+**Verwacht resultaat:**
+Je zult nu een bericht krijgen dat de study is geupdate.
