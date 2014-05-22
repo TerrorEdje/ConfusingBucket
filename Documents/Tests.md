@@ -400,3 +400,15 @@ In de menu balk staat nu een login link in plaats van een logout link. En de ses
 5. Klik op Update Organisatie.
 
 **Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden een error weergeven.
+
+##Testcase 15.3: Activity CMS
+**Test:** Controleren of het activity CMS werkt.
+
+**Stappen:**
+1. Open de website. 
+2. Klik onder het kopje van CMS op "Activity".
+
+**Verwacht resultaat:** Je zult nu een scherm zien met activities, als je op een activity klikt dan zal je gegevens en een update knop zien.
+
+
+
