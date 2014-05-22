@@ -115,6 +115,8 @@ function load(page, menuitem)
     }
     
     loadPage(page, menuitem)
+    $('#backButton').parent().removeClass("disabled");
+    $('#forwardButton').parent().addClass("disabled");
 }
 
 function back()
@@ -124,10 +126,11 @@ function back()
         historyLocation--;
         lastPage = history[historyLocation];
         loadPage(lastPage.page, lastPage.menuitem);
+        $('#forwardButton').parent().removeClass("disabled");
     }
     if (historyLocation == 0)
     {
-        // To do: disable back button
+        $('#backButton').parent().addClass("disabled");
     }
 }
 
@@ -138,10 +141,11 @@ function forward()
         historyLocation++;
         nextPage = history[historyLocation];
         loadPage(nextPage.page, nextPage.menuitem);
+        $('#backButton').parent().removeClass("disabled");
     }
-    if (historyLocation == history.length)
+    if (historyLocation == history.length - 1)
     {
-        // To do: disable forward button
+        $('#forwardButton').parent().addClass("disabled");
     }
 }
 
