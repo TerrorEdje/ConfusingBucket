@@ -337,7 +337,17 @@ De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij O
 
 **Verwacht resultaat:** Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.
 
-Het aantal op de groep komt overeen met het aantal stories in de lijst
+##Testcase 13.3: Organization CMS
+
+**Test:**
+Test of het organization CMS werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Organization"
+
+**Verwacht resultaat:**
+Je zult nu een scherm zien met organisaties, als je op een organisatie klikt dan zal je een update knop en beschrijving zien.
 
 ##Testcase 14.1: Inloggen
 
@@ -376,15 +386,6 @@ Test of uitloggen werkt.
 **Verwacht resultaat:**
 In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).
 
-
-
-
-
-
-
-
-
-
 ##Testcase 16.1: School Upload validatie
 
 **Test:**
@@ -414,3 +415,57 @@ Test of het uploaden van een school werkt.
 
 **Verwacht resultaat:**
 Je zult nu een bericht krijgen dat de school is geüpload.
+
+##Testcase 16.3: School CMS
+
+**Test:**
+Test of het school CMS werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "School"
+
+**Verwacht resultaat:**
+Je zult nu een scherm zien met scholen, als je op een school klikt dan zal je een update knop en website zien.
+
+##Testcase 16.1: Study Upload validatie
+
+**Test:**
+Test of de validatie van upload study werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Study"
+3. Klik op "Upload"
+4. Voer hier helemaal NIKS in
+5. Klik op "Upload Study"
+
+**Verwacht resultaat:**
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.
+
+##Testcase 16.2: Study Upload validatie
+
+**Test:**
+Test of het uploaden van een study werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Study"
+3. Klik op "Upload"
+4. Voer een naam en selecteer een school in.
+5. Klik op "Upload Study"
+
+**Verwacht resultaat:**
+Je zult nu een bericht krijgen dat de study is geüpload.
+
+##Testcase 16.3: Study CMS
+
+**Test:**
+Test of het study CMS werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "Study"
+
+**Verwacht resultaat:**
+Je zult nu een scherm zien met scholen, als je op een school klikt dan zal je bijbehorende studies zien met een update knop.
