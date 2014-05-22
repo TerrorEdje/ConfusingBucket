@@ -34,20 +34,23 @@ class OrganizationController extends BaseController {
 		{
 			$ids = explode(",", $ids);
 			
+			$DBorganizations = Organization::orderBy('name','asc')->get();
+			
+			
             $organizations = array();
-            
-			foreach($ids as $id)
+			
+            foreach($DBorganizations as $organization)
 			{
-                $DBorganizations = Organization::where('id','=',$id)->get();
-                foreach ($DBorganizations as $organization)
-                {
-                    array_push($organizations,$organization);
-                }
+				if (in_array($organization->id,$ids))
+				{
+					array_push($organizations,$organization);
+				}
 			}
 		}
 		else
 		{
-			$organizations = Organization::all();
+			$organizations = Organization::orderBy('name','asc')->get();
+
 		}
 		
 		return View::make('organization/list', array('organizations' => $organizations));
@@ -55,7 +58,7 @@ class OrganizationController extends BaseController {
 	
 	public function organizationcms()
 	{
-		$organizations = Organization::all();
+		$organizations = Organization::orderBy('name','asc')->get();
 		return View::make('organization/cms',array('organizations' => $organizations));
 	}
 	
