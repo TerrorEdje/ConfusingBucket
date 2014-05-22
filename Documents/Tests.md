@@ -290,7 +290,6 @@ Controleren of data in de database komt te staan als alle velden correct zijn in
 
 **Verwacht resultaat:**
 De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij Organizations.
-<<<<<<< HEAD
 
 ##Testcase 12.1: Upload Organisatie
 **Test:** Controleren of uploaden van een nieuwe organisatie werkt.
@@ -376,3 +375,42 @@ Test of uitloggen werkt.
 
 **Verwacht resultaat:**
 In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).
+
+
+
+
+
+
+
+
+
+
+##Testcase 16.1: School Upload validatie
+
+**Test:**
+Test of de validatie van upload school werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "School"
+3. Klik op "Upload"
+4. Voer hier helemaal NIKS in
+5. Klik op "Upload School"
+
+**Verwacht resultaat:**
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.
+
+##Testcase 16.2: School Upload validatie
+
+**Test:**
+Test of het uploaden van een school werkt.
+
+**Stappen:**
+1. Open de website
+2. Klik in het menu kopje CMS op "School"
+3. Klik op "Upload"
+4. Voer een naam en een website in.
+5. Klik op "Upload School"
+
+**Verwacht resultaat:**
+Je zult nu een bericht krijgen dat de school is geüpload.
