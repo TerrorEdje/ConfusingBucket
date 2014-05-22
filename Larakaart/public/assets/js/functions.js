@@ -1,3 +1,7 @@
+var history = [{page: "./?nolayout", menuitem: "homemenu"}];
+var historyLocation = 0;
+
+
 function getHeight() {
   myHeight = 0;
   if( typeof( window.innerWidth ) == 'number' ) {
@@ -90,7 +94,7 @@ function showFilter()
 	$('#filter_button').one("click", function() { hideFilter(); return false; })
 }
 
-function load(page, menuitem)
+function loadPage(page, menuitem)
 {
 	console.log('Loading page:' + page);
 	$('#content').load(page, hijackForms);
@@ -98,6 +102,53 @@ function load(page, menuitem)
 	$('.'+menuitem).addClass("active");
     
 	showContent();
+}
+
+function load(page, menuitem)
+{
+	historyLocation++;
+    history[historyLocation] = { page: page, menuitem: menuitem };
+
+    if (history.length > historyLocation) 
+    {
+        history.splice(historyLocation+1, history.length - historyLocation);
+    }
+    
+    loadPage(page, menuitem)
+}
+
+function back()
+{
+    if (historyLocation != 0)
+    {
+        historyLocation--;
+        lastPage = history[historyLocation];
+        loadPage(lastPage.page, lastPage.menuitem);
+    }
+    if (historyLocation == 0)
+    {
+        // To do: disable back button
+    }
+}
+
+function forward()
+{
+    if (historyLocation < history.length-1)
+    {
+        historyLocation++;
+        nextPage = history[historyLocation];
+        loadPage(nextPage.page, nextPage.menuitem);
+    }
+    if (historyLocation == history.length)
+    {
+        // To do: disable forward button
+    }
+}
+
+function refresh()
+{
+    currentPage = history[historyLocation];
+    loadPage(currentPage.page, currentPage.menuitem);
 }
 
 var filteredMarkers = [];
@@ -317,6 +368,10 @@ $( document ).ready(function() {
     $("#filter-organization").change(function(){
         searchForChanged();
     });
+    
+    $("#backButton").click(back);
+    $("#forwardButton").click(forward);
+    $("#refreshButton").click(refresh);
     
     hijackForms();
 });

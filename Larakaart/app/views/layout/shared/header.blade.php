@@ -10,7 +10,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="{{ URL::route('Home') }}" class="navbar-brand" onclick="">
+						<a href="#" class="navbar-brand" onclick="load('./?nolayout', 'homemenu'); return false;">
 							<!--<img id="avans_globe" src="images/Avans_globe.png" alt="avans_globe" />-->
 							{{HTML::image('images/Avans_globe.png', 'avans_globe', array('id' => 'avans_globe'));}}
 						</a>
