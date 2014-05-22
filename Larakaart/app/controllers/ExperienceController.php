@@ -1,19 +1,29 @@
 <?php
 
 class ExperienceController extends BaseController {
+
+	# Toont lijst met alle organisaties
+	public function experiencecmsList()
+	{
+		$organizations = Organization::all();
+		return View::make('experience/cmsList', array('organizations' => $organizations));
+	}
 	
-	public function uploadExperience()
-	{	
-		$organizations = array('' => 'Select...') + Organization::lists('name','id');
+	# Toont de detail view van een organisatie
+	public function experiencecmsDetail($id)
+	{
+		$organization = Organization::find($id);
 		
-		$allOrgActivities = array();
-		$dbOrganizations = Organization::all();
-		foreach ($dbOrganizations as $organization) {
-			$activities = Activity::where('organization_id', '=', $organization->id);
-			$allOrgActivities[$organization->id] = $activities;
+		$activities = Activity::where('organization_id','=',$id)->get();
+		$experiences = array();
+		foreach ($activities as $activity)
+		{
+			$tempexperience = Experience::where('activity_id','=',$activity->id)->get();
+			foreach($tempexperience as $experience)
+			{
+				array_push($experiences,$experience);
+			}
 		}
-	
-		$activities = array('' => 'Select...') + Activity::lists('name','id');
 		
 		$students = array();
 		$allStudents = Student::all();
@@ -22,22 +32,42 @@ class ExperienceController extends BaseController {
 			$students[$student->id] = $name;
 		}
 		
-		return View::make('experience/upload')->with('activities', $activities)->with('students', $students)
-		->with('allOrgActivities', $allOrgActivities)->with('organizations', $organizations);
+		return View::make('experience/cmsDetail')->with('organization',$organization)->with('activities',$activities)
+		->with('experiences',$experiences)->with('students',$students);
+	}
+	
+	public function uploadExperience($id)
+	{	
+		$dbActivities = Activity::where('organization_id', '=', $id)->get();
+		
+		$infoActivities = array();
+		foreach ($dbActivities as $activity) {
+			$infoActivities[$activity->id] = $activity->name;
+		}
+		$activities = array('' => 'Select...') + $infoActivities;
+		
+		$students = array();
+		$allStudents = Student::all();
+		foreach ($allStudents as $student) {
+			$name = $student->firstname ." ". $student->insertion ." ". $student->surname;
+			$students[$student->id] = $name;
+		}
+		
+		return View::make('experience/upload')->with('orgID', $id)->with('activities', $activities)->with('students', $students);
 	}
 	
 	public function uploadExperienceAdd()
 	{
 		$rules = array
 		(
-			'organization' => 'required',
 			'activity' => 'required',
 			'description' => 'required',
 			'score' => 'numeric|between:1,10',
 			'student' => 'required'
 		);
 		
-		$niceNames = array(
+		$niceNames = array
+		(
             'activity' => 'Activity',
             'description' => 'Description',
             'score' => 'Score',
@@ -47,7 +77,6 @@ class ExperienceController extends BaseController {
 		$messages = array
 		(
 			'required' => ':attribute is a required field.',
-			'alpha_dash' => ':attribute should consist of alphabetic characters or dashes/underscores.',
 			'numeric' => ':attribute should be a number.',
 			'between' => ':attribute should be between 1 and 10.'
 		);
@@ -56,25 +85,25 @@ class ExperienceController extends BaseController {
 		$validator->setAttributeNames($niceNames);
 	
 		if($validator->fails())
-		{
-			$organizations = array('' => 'Select...') + Organization::lists('name','id');
+		{		
+			$id = Input::get('orgID');
+			$dbActivities = Activity::where('organization_id', '=', $id)->get();
 		
-			$allOrgActivities = array();
-			$dbOrganizations = Organization::all();
-			foreach ($dbOrganizations as $organization) {
-				$activities = Activity::where('organization_id', '=', $organization->id);
-				$allOrgActivities[$organization->id] = $activities;
+			$infoActivities = array();
+			foreach ($dbActivities as $activity) {
+				$infoActivities[$activity->id] = $activity->name;
 			}
-		
-			$activities = array('' => 'Select...') + Activity::lists('name','id');
+			$activities = array('' => 'Select...') + $infoActivities;
+			
 			$students = array();
 			$allStudents = Student::all();
 			foreach ($allStudents as $student) {
 				$name = $student->firstname ." ". $student->insertion ." ". $student->surname;
 				$students[$student->id] = $name;
 			}
-			return Redirect::to('experience/upload')->with('activities', $activities)->with('allOrgActivities', $allOrgActivities)->with('organizations', $organizations)
-			->with('students', $students)->withInput()->withErrors($validator->messages());
+		
+			return Redirect::to('experience/upload/'.$id)->with('orgID', $id)->with('activities', $activities)->with('students', $students)
+			->withInput()->withErrors($validator->messages());
 		}
 		else
 		{
@@ -88,6 +117,72 @@ class ExperienceController extends BaseController {
 			return View::make('experience/uploadAdd');
 		}
 		
+	}
+	
+	public function updateExperience($id)
+	{	
+		$experience = Experience::find($id);
+		
+		$students = array();
+		$allStudents = Student::all();
+		foreach ($allStudents as $student) {
+			$name = $student->firstname ." ". $student->insertion ." ". $student->surname;
+			$students[$student->id] = $name;
+		}
+		
+		return View::make('experience/update')->with('students', $students)->with('experience', $experience);
+	}
+	
+	public function updateExperienceAdd()
+	{
+		$rules = array
+		(
+			'description' => 'required',
+			'score' => 'numeric|between:1,10',
+			'student' => 'required'
+		);
+		
+		$niceNames = array(
+            'description' => 'Description',
+            'score' => 'Score',
+            'student' => 'Student'
+        );
+		
+		$messages = array
+		(
+			'required' => ':attribute is a required field.',
+			'numeric' => ':attribute should be a number.',
+			'between' => ':attribute should be between 1 and 10.'
+		);
+		
+		$validator = Validator::make(Input::all(), $rules, $messages);
+		$validator->setAttributeNames($niceNames);
+	
+		$expID = Input::get('expID');
+		
+		if($validator->fails())
+		{
+			$experience = Experience::find($expID);
+			
+			$students = array();
+			$allStudents = Student::all();
+			foreach ($allStudents as $student) {
+				$name = $student->firstname ." ". $student->insertion ." ". $student->surname;
+				$students[$student->id] = $name;
+			}
+			return Redirect::to('experience/update/' .$expID)->with('students', $students)->with('experience', $experience)
+			->with('students', $students)->withInput()->withErrors($validator->messages());
+		}
+		else
+		{
+			$experience = Experience::find($expID);
+			$experience->description = Input::get('description');
+			$experience->cijfer = Input::get('score'); # Cijfer staat op dit moment Nederlands in de database
+			$experience->accepted = false;
+			$experience->student_id = Input::get('student');
+			$experience->save();
+			return View::make('experience/updateAdd');
+		}	
 	}
 
 }

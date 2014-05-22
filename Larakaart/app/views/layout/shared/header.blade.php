@@ -40,6 +40,11 @@
                                             Organization
                                         </a>
                                     </li>
+									<li class="experience_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Experience-cms-list') }}', 'experience_cmsmenu'); return false;">
+                                            Experience
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 							<!--<li class="authtestmenu">
