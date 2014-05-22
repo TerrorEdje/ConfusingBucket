@@ -27,7 +27,7 @@
                         <div class="radio">
 							<label for="search_for-2">
 								<input type="radio" name="searchFor" id="filter-organization" value="organization">
-								organization
+								Organization
 							</label>
 						</div>
 					</div>

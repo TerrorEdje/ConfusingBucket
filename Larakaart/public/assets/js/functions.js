@@ -122,13 +122,11 @@ function filterChanged()
 	
 	for( i = 0; i < locations.length; ++i)
 	{
-		if (
-			( // Zoek op
+		if ( // Zoek op
 				(country && locations[i].country.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
 				(city && locations[i].city.toLowerCase().indexOf(value.toLowerCase()) != -1) ||
                 (organization && locations[i].organization.toLowerCase().indexOf(value.toLowerCase()) != -1)
 			) 
-		)
 		{
             var showMarker = false;
             
@@ -157,6 +155,14 @@ function filterChanged()
                 {
                     showMarker = true;
                 }
+            }
+            
+            if (locations[i]['years'].length == 0 &&
+                (internship && final_thesis && minor && eps) &&
+                year == 0 &&
+                study == "")
+            {
+                showMarker = true;
             }
             
             if (showMarker)
