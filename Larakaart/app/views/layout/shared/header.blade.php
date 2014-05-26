@@ -30,11 +30,6 @@
                                             Activity
                                         </a>
                                     </li>
-                                    <li class="experience_uploadmenu">
-                                        <a href="#" onclick="load('{{ URL::route('Experience-upload-get') }}', 'experience_uploadmenu'); return false;">
-                                            Upload Experience
-                                        </a>
-                                    </li>
                                     <li class="organization_cmsmenu">
                                         <a href="#" onclick="load('{{ URL::route('Organization-cms') }}', 'organization_cmsmenu'); return false;">
                                             Organization
@@ -48,6 +43,11 @@
 									<li class="study_cmsmenu">
                                         <a href="#" onclick="load('{{ URL::route('Study-cms') }}', 'study_cmsmenu'); return false;">
                                             Study
+										</a>
+									</li>
+									<li class="experience_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Experience-cms-list') }}', 'experience_cmsmenu'); return false;">
+                                            Experience
                                         </a>
                                     </li>
                                 </ul>

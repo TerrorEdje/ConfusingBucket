@@ -55,7 +55,7 @@ Route::group(array('before' => 'guest'), function() {
 		/*form experiance | post*/
 		Route::post('experience/add', array(
 			'as'	=> 'Experience-upload-add',
-			'uses'	=> 'StoryController@uploadExperienceAdd'
+			'uses'	=> 'ExperienceController@uploadExperienceAdd'
 		));
 		
 		/*
@@ -64,6 +64,11 @@ Route::group(array('before' => 'guest'), function() {
 		Route::post('organization/add', array(
 			'as'	=> 'Organization-upload-add',
 			'uses'	=> 'OrganizationController@uploadOrganizationAdd'
+		));
+		
+		Route::post('experience/update-add', array(
+			'as'	=> 'Experience-update-add',
+			'uses'	=> 'ExperienceController@updateExperienceAdd'
 		));
 		
 		Route::post('organization/update-add', array(
@@ -123,11 +128,16 @@ Route::group(array('before' => 'guest'), function() {
 	));
 
 	/* experiance form | get*/
-	Route::get('experience/upload', array(
+	Route::get('experience/upload/{id}', array(
 		'as'	=> 'Experience-upload-get',
-		'uses'	=> 'StoryController@uploadExperience'
+		'uses'	=> 'ExperienceController@uploadExperience'
 	));
 
+	Route::get('experience/update/{id}', array(
+			'as'	=> 'Experience-update-get',
+			'uses'	=> 'ExperienceController@updateExperience'
+	));
+	
 	Route::get('activity/upload', array(
 		'as'	=> 'Activity-upload-get',
 		'uses'	=> 'ActivityController@uploadActivity'
@@ -195,6 +205,16 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('study/update/{id}', array(
 			'as'	=> 'Study-update-get',
 			'uses'	=> 'StudyController@updateStudy'
+	));
+	
+	Route::get('experience/cms/list', array(
+			'as'	=> 'Experience-cms-list',
+			'uses'	=> 'ExperienceController@experiencecmsList'
+	));
+	
+	Route::get('experience/cmsDetail/{id}', array(
+		'as'	=> 'Experience-cms-detail',
+		'uses'	=> 'ExperienceController@experiencecmsDetail'
 	));
 
 });
