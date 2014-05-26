@@ -290,7 +290,6 @@ Controleren of data in de database komt te staan als alle velden correct zijn in
 
 **Verwacht resultaat:**
 De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij Organizations.
-<<<<<<< HEAD
 
 ##Testcase 11.1: Validatie Upload Experience (required fields)
 
@@ -299,9 +298,13 @@ Controleren of de required fields ingevuld moeten worden
 
 **Stappen:**
 1.	Open de site
-2.	Klik op "Upload Experience"
-3.	Vul helemaal niks in
-4.	Klik op de groene knop - Upload Experience
+2.	Klik op cms
+3. 	Kies experience
+4.	Selecteer een organisatie
+5.	Klik op Learn more
+6.	Klik bij het tabje Experiences op "Upload"
+7.	Vul helemaal niks in
+8.	Klik op de groene knop - Upload Experience
 
 **Verwacht resultaat:**
 Onder de velden Activity en Description komt een  bericht te staan dat het veld verplicht is.
@@ -313,12 +316,16 @@ Controleren of de input type correct wordt gevalideerd
 
 **Stappen:**
 1.	Open de site
-2.	Klik op "Upload Experience"
-3.	Selecteer een activity
-4.	Vul een description in
-5.	Vul iets in (alles behalve alleen cijfers is goed)
-6.	Selecteer een student
-7.	Klik op de groene knop - Upload Experience
+2.	Klik op cms
+3. 	Kies experience
+4.	Selecteer een organisatie
+5.	Klik op Learn more
+6.	Klik bij het tabje Experiences op "Upload"
+7.	Selecteer een activity
+8.	Vul een description in
+9.	Vul iets in (alles behalve alleen cijfers is goed)
+10.	Selecteer een student
+11.	Klik op de groene knop - Upload Experience
 
 **Verwacht resultaat**
 Onder het veld score komt een bericht dat het veld met enkel cijfers ingevuld mag worden.
@@ -330,12 +337,16 @@ Controleren of de input van score bestaat uit cijfers van 1 tot 10
 
 **Stappen**
 1.	Open de site
-2.	Klik op "Upload Experience"
-3.	Selecteer een activity
-4.	Vul een description in
-5.	Vul een cijfer in (alles behalve de cijfers 1-10 mag)
-6.	Selecteer een student
-7.	Klik op de groene knop - Upload Experience
+2.	Klik op cms
+3. 	Kies experience
+4.	Selecteer een organisatie
+5.	Klik op Learn more
+6.	Klik bij het tabje Experiences op "Upload"
+7.	Selecteer een activity
+8.	Vul een description in
+9.	Vul een cijfer in (alles behalve de cijfers 1-10 mag)
+10.	Selecteer een student
+11.	Klik op de groene knop - Upload Experience
 
 **Verwacht resultaat:**
 Onder het veld score komt een bericht te staan dat het veld ingevuld moet worden met een cijfer tussen 1 en 10.
@@ -347,14 +358,16 @@ Controleren of de data in de database wordt opgeslagen en alle velden correct zi
 
 **Stappen:**
 1.	Open de site
-2.	Klik op "Upload Experience"
-3.	Vul alle velden correct in
-4.	Klik op de groene knop - Upload Experience
-5.	Ga naar Organizations
-6.	Klik op de Organization die je bij het upload hebt gekozen
-7.	Klik op Learn more
-8.	Klik op Experiences
-9.	Kijk of de net geüploade experience in de lijst staat
+2.	Klik op cms
+3. 	Kies experience
+4.	Selecteer een organisatie
+5.	Klik op Learn more
+6.	Klik bij het tabje Experiences op "Upload"
+7.	Vul alle velden correct in
+8.	Klik op de groene knop - Upload Experience
+
+**Verwacht resultaat:**
+De data wordt in de database opgeslagen en de nieuwe Experience is te vinden bij Organizations.
 
 ##Testcase 12.1: Upload Organisatie
 **Test:** Controleren of uploaden van een nieuwe organisatie werkt.
@@ -441,3 +454,78 @@ Test of uitloggen werkt.
 **Verwacht resultaat:**
 In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).
 
+##Testcase 18.1: Validatie Update Experience (required fields)
+
+**Test:**
+Controleren of de required fields ingevuld moeten worden
+
+**Stappen:**
+1.	Open de site
+2.	Klik op cms
+3. 	Kies experience
+4.	Selecteer een organisatie
+5.	Klik op Learn more
+6.	Klik bij het tabje Experiences op "Update" bij een experience
+7.	Vul helemaal niks in
+8.	Klik op de groene knop - Upload Experience
+
+**Verwacht resultaat:**
+Onder het veld Description komt een bericht te staan dat het veld verplicht is.
+
+##Testcase 18.2: Validate Update Experience (input type numeric)
+
+**Test:**
+Controleren of de input type correct wordt gevalideerd
+
+**Stappen:**
+1.	Open de site
+2.	Klik op cms
+3. 	Kies experience
+4.	Selecteer een organisatie
+5.	Klik op Learn more
+6.	Klik bij het tabje Experiences op "Update" bij een experience
+7.	Pas de description aan
+8.	Vul iets in bij score (alles behalve alleen cijfers is goed)
+9.	Selecteer een student
+10.	Klik op de groene knop - Upload Experience
+
+**Verwacht resultaat**
+Onder het veld score komt een bericht dat het veld met enkel cijfers ingevuld mag worden.
+
+##Testcase 18.3: Validatie Update Experience (input value)
+
+**Test:**
+Controleren of de input van score bestaat uit cijfers van 1 tot 10
+
+**Stappen**
+1.	Open de site
+2.	Klik op cms
+3. 	Kies experience
+4.	Selecteer een organisatie
+5.	Klik op Learn more
+6.	Klik bij het tabje Experiences op "Update" bij een experience
+7.	Pas de description aan
+8.	Vul een cijfer in bij score (alles behalve de cijfers 1-10 mag)
+9.	Selecteer een student
+10.	Klik op de groene knop - Upload Experience
+
+**Verwacht resultaat:**
+Onder het veld score komt een bericht te staan dat het veld ingevuld moet worden met een cijfer tussen 1 en 10.
+
+##Testcase 18.4: Validatie Update Experience (alles correct)
+
+**Test:**
+Controleren of de data in de database wordt opgeslagen en alle velden correct zijn ingevuld
+
+**Stappen:**
+1.	Open de site
+2.	Klik op cms
+3. 	Kies experience
+4.	Selecteer een organisatie
+5.	Klik op Learn more
+6.	Klik bij het tabje Experiences op "Update" bij een experience
+7.	Vul alle velden correct in
+8.	Klik op de groene knop - Upload Experience
+
+**Verwacht resultaat:**
+De gewijzigde data wordt in de database opgeslagen en de gewijzigde Experience is te vinden bij Organizations.
