@@ -1,4 +1,4 @@
-@extends('layout.main')
+@extends((( !isset($_GET['nolayout'])) ? 'layout.main' : 'layout.empty' ))
 
 @section('content')
 	<h1>Welcome to <span class="text-primary">The Worldmap</span> of Confusing Bucket!</h1>

@@ -279,3 +279,9 @@ footer > p{
 	z-index: 990;
 	background-color: black;
 }
+
+.navigationButton{
+    padding: 5px !important;
+    padding-left: 10px !important;
+    height: 32px !important;
+}
