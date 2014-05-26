@@ -615,7 +615,7 @@ Controleren of de required fields ingevuld moeten worden
 4.	Selecteer een organisatie
 5.	Klik op Learn more
 6.	Klik bij het tabje Experiences op "Update" bij een experience
-7.	Vul helemaal niks in
+7.	Maak alle velden leeg (in zoverre het mogelijk is)
 8.	Klik op de groene knop - Upload Experience
 
 **Verwacht resultaat:**
