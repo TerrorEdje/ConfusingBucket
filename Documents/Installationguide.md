@@ -53,6 +53,7 @@ Change the DocumentRoot to /var/www/WorldMap/public
 * **sudo chmod -R guo+w ~/WorldMap/app/storage**
 * **sudo chmod -R guo+r ~/WorldMap**
 * **sudo chmod -R o+x ~/WorldMap**
+* **sudo apt-get install php5-curl**
 * **sudo service apache2 restart**
 
 All required software should be installed and running.

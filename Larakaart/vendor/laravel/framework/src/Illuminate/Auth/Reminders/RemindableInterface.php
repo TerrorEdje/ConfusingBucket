@@ -7,6 +7,6 @@ interface RemindableInterface {
 	 *
 	 * @return string
 	 */
-	public function getReminderEmail();
+	//public function getReminderEmail();
 
 }

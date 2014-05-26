@@ -10,7 +10,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a href="{{ URL::route('Home') }}" class="navbar-brand" onclick="">
+						<a href="#" class="navbar-brand" onclick="load('./?nolayout', 'homemenu'); return false;">
 							<!--<img id="avans_globe" src="images/Avans_globe.png" alt="avans_globe" />-->
 							{{HTML::image('images/Avans_globe.png', 'avans_globe', array('id' => 'avans_globe'));}}
 						</a>
@@ -22,44 +22,55 @@
 									Organizations
 								</a>
 							</li>
-                            <li class="activity_uploadmenu">
-								<a href="#" onclick="load('{{ URL::route('Activity-upload-get') }}', 'activity_uploadmenu'); return false;">
-									Upload Activity
-								</a>
-							</li>
-                            <li class="experience_uploadmenu">
-								<a href="#" onclick="load('{{ URL::route('Experience-upload-get') }}', 'experience_uploadmenu'); return false;">
-									Upload Experience
-								</a>
-							</li>
-							<?php 
-								if(isset($_SESSION['id'])){
-								echo '<li class="upload_storymenu">
-									<a href="#" onclick="load(\'' . URL::route('Story-upload-get') . '\', \'upload_storymenu\'); return false;">
-										Upload Story
-									</a>
-								</li>';
-								}
-							?>
+                            <li class="dropdown activity_cmsmenu experience_uploadmenu organization_cmsmenu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li class="activity_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Activity-cms') }}', 'activity_cmsmenu'); return false;">
+                                            Activity
+                                        </a>
+                                    </li>
+                                    <li class="organization_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Organization-cms') }}', 'organization_cmsmenu'); return false;">
+                                            Organization
+                                        </a>
+                                    </li>
+									<li class="school_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('School-cms') }}', 'school_cmsmenu'); return false;">
+                                            School
+                                        </a>
+                                    </li>
+									<li class="study_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Study-cms') }}', 'study_cmsmenu'); return false;">
+                                            Study
+										</a>
+									</li>
+									<li class="experience_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Experience-cms-list') }}', 'experience_cmsmenu'); return false;">
+                                            Experience
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 							<!--<li class="authtestmenu">
 								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin
 								</a>
 							</li>-->
 							<?php 
-							/*if(isset($_SESSION['id'])){
-								echo '<li id="loginButton">
-									<a href="logout.php">
-										<span class="text-danger">Log out</span>
+							if(Auth::check()){
+								echo '<li id="loginOutButton">
+									<a href="' . URL::route('logout') .'">
+										<span class="text-danger"><span class="glyphicon glyphicon-log-out">&nbsp;</span>Log out</span>
 									</a>
 								</li>';
 							}else{
 								echo '<li class="loginmenu logoutmenu" id="loginButton">
-									<a href="#" onclick="load(\'login.php\'); return false;">
-										<span class="text-primary">Login</span>
+									<a href="' . URL::route('login-get') .'">
+										<span class="text-primary"><span class="zocial google"></span>&nbsp; Login</span>
 									</a>
 								</li>';
-							}*/
+							}
 							?>
 						</ul>
 					</div>
@@ -73,4 +84,3 @@
 		</a>
 	</div>
 </header>
-

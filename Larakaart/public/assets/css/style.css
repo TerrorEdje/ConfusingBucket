@@ -16,6 +16,8 @@ header{
 #menu_bar{
 	float: left;
 	width: 80%;
+	z-index: -3;
+	opacity: 1;
 }
 
 #map_bar{
@@ -60,7 +62,11 @@ header{
 .filter_reset{
 	width: 100%;
 	height: 60px;
-	
+}
+
+.filter_list{
+	width: 100%;
+	height: 60px;
 }
 
 .search-icon{
@@ -104,7 +110,7 @@ input, select, textarea{
 	top: 107px;
 	left: 75px;
     right: 75px;
-    bottom: 75px;
+    bottom: 5px;
 }
 
 #mapClick{
@@ -211,20 +217,71 @@ footer > p{
 	border-bottom-left-radius: 5px;
 }
 
-.error{
-	color: red;
-}
-
-.statusopen{
-	color: green;
-}
-
-.statusclosed{
-	color: red;
-}
-
 #thumbnailactivities{
 	color: white;
 	border-radius: 4px;
 	display: block;
+}
+
+#thumbnailstudies{
+	color: white;
+	border-radius: 4px;
+	display: block;
+}
+
+.accordionList {
+	background-color: rgba(0, 0, 0, 0) !important;
+	color: white !important;
+}
+
+.uploadActivityTextarea
+{
+	width: 500px;
+	resize: none;
+}
+
+.fullpage{
+	height:100%;
+	width:100%;
+	opacity: 0.96;
+	position: absolute;
+	z-index: 992;
+}
+
+.load{
+	margin-top: 15%;
+	height:auto;
+	width:80%;
+	z-index: 991;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.waitingImage{
+	max-width: 100px;
+	max-height: 100px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:40px;
+}
+
+.waitingText{
+	top:40%;
+	color:white;
+	text-align: center;
+}
+
+.darkBackground{
+	position: absolute;
+	height:100%;
+	width:100%;
+	opacity: 0.96;
+	z-index: 990;
+	background-color: black;
+}
+
+.navigationButton{
+    padding: 5px !important;
+    padding-left: 10px !important;
+    height: 32px !important;
 }

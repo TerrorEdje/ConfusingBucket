@@ -66,7 +66,7 @@ return array(
 		/*'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'mysql.hostfree.nl',
-			'database'  => 'u199057476_A',
+			'database'  => 'u199057476_a',
 			'username'  => 'u199057476_root',
 			'password'  => '123456',
 			'charset'   => 'utf8',
