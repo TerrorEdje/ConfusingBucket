@@ -426,6 +426,19 @@ Test of uitloggen werkt.
 **Verwacht resultaat:**
 In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).
 
+##Testcase 14.4: Registreren als organisatie
+
+**Test:**
+Controleren of de organisatie in de database staat
+
+**Stappen:**
+1. Login op de website. (Zie testcase 9)
+2. Vul het formulier in waarmee een organisatie wordt geregistreerd.
+3. Druk op de knop waarop 'register organisation & login staat'.
+
+**Verwacht resultaat:**
+De registratie is voltooid, de eigenaar is ingelogd en in de Database is een nieuwe organisatie toegevoegd.
+
 ##Testcase 15.1: Activity update
 **Test:** Controleren of updaten van een nieuwe organisatie werkt.
 
