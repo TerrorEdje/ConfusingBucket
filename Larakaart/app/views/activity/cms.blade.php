@@ -23,10 +23,10 @@
                             <div>
                                 <h3>{{ $activity['name'] }}</h3>
                                 <p>
-                                    @if ($activity['status'] == 'Open')
-                                        <b class="text-success">{{ $activity['status'] }}</b>
+                                    @if ($activity['activity_status'] == 'Open')
+                                        <b class="text-success">{{ $activity['activity_status'] }}</b>
                                     @else
-                                        <b class="text-danger">{{$activity['status']}}</b>
+                                        <b class="text-danger">{{$activity['activity_status']}}</b>
                                     @endif
                                     <br/>
                                     {{ $activity['type'] }} </br>
