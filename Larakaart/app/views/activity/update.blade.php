@@ -75,7 +75,7 @@
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label text-primary">Status: </label>
                 <div class="col-sm-9">
-                    {{Form::select('status', $statuses, $activity['status'], array('class'=>'form-control')) }}
+                    {{Form::select('status', $statuses, $activity['activity_status'], array('class'=>'form-control')) }}
                 </div>
                 <div class="col-sm-offset-3 col-sm-9 has-error">
                     {{ $errors->first('status', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
