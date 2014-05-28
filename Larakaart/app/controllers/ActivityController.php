@@ -86,7 +86,7 @@ class ActivityController extends BaseController {
 			$activity->startdate = Input::get('startdate');
 			$activity->enddate = Input::get('enddate');
 			$activity-> type = Input::get('type');
-			$activity-> status = Input::get('status');
+			$activity-> activity_status = Input::get('status');
 			$activity-> organization_id = Input::get('organization');
 			$activity-> study_id = Input::get('study');
 			$activity->save();
@@ -148,14 +148,15 @@ class ActivityController extends BaseController {
 		else
 		{
             $newActivity = Activity::create(array(
-                'name'              => Input::get('name'),
-                'description'       => Input::get('description'),
-                'startdate'         => Input::get('startdate'),
-                'enddate'           => Input::get('enddate'),
-                'type'              => Input::get('type'),
-                'status'            => Input::get('status'),
-                'organization_id'   => Input::get('organization'),
-                'study_id'          => Input::get('study')
+                'name'              				=> Input::get('name'),
+                'description'       				=> Input::get('description'),
+                'startdate'         				=> Input::get('startdate'),
+                'enddate'           				=> Input::get('enddate'),
+                'type'              					=> Input::get('type'),
+                'activity_status'          		=> Input::get('status'),
+                'organization_id'   			=> Input::get('organization'),
+                'study_id'          				=> Input::get('study'),
+				'status'							=> 'Needsapproval'
             ));
             
 			return "Your activity has been uploaded.";	

@@ -113,8 +113,9 @@ class ExperienceController extends BaseController {
 			$experience->cijfer = Input::get('score'); # Cijfer staat op dit moment Nederlands in de database
 			$experience->accepted = false;
 			$experience->student_id = Input::get('student');
+			$expierence->status	= 'Needsapproval';
 			$experience->save();
-			return View::make('experience/uploadAdd');
+			return 'Expierence has been uploaded.';
 		}
 		
 	}
@@ -181,7 +182,7 @@ class ExperienceController extends BaseController {
 			$experience->accepted = false;
 			$experience->student_id = Input::get('student');
 			$experience->save();
-			return View::make('experience/updateAdd');
+			return 'Expierence has been updated.';
 		}	
 	}
 

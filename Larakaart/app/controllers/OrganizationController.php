@@ -115,6 +115,7 @@ class OrganizationController extends BaseController {
 			$organization->name = Input::get('name');
 			$organization->description = Input::get('description');
 			$organization->type = Input::get('type');
+			$organization->status	= 'Needsapproval';
 			$organization->website = Input::get('website');
 			$location = new Location;
 			$location->country = Input::get('country');
@@ -126,7 +127,7 @@ class OrganizationController extends BaseController {
 			$location->save();
 			$organization->location_id = $location->id;
 			$organization->save();
-			return $organization->name . ' has been uploaded.';;
+			return $organization->name . ' has been uploaded.';
 		}
 	}
 	

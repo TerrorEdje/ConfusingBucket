@@ -9,7 +9,7 @@ class Activity extends Eloquent {
 	 */
 	protected $table = 'activity';
 	
-    protected $fillable = ['name', 'description', 'startdate', 'enddate', 'type', 'status', 'organization_id', 'study_id'];
+	public static $unguarded = true;
     
 	public function getStudyName()
 	{
