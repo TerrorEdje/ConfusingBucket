@@ -83,16 +83,20 @@ function initialize() {
 	}
     
     years.sort();
-    var originalYears = years;
+    var newYears = [];
     
-    $.each(originalYears, function (key, year) {
-        if (key < originalYears.length-1)
+    $.each(years, function (key, year) {
+        if (key < years.length-1)
         {
-            for (var i = key+1; i < originalYears.length; i++) {
-                years.push(year + '-' + originalYears[i]);
+            for (var i = key+1; i < years.length; i++) {
+                newYears.push(year + '-' + years[i]);
+                console.log(year + '-' + years[i]);
             }
         }
     });
+    
+    years = years.concat(newYears);
+    years.sort();
     
     //Add study options to filter dropdown
     $('#filter-study').autocomplete({ source: studies });
