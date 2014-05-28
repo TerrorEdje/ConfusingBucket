@@ -82,6 +82,18 @@ function initialize() {
         } 
 	}
     
+    years.sort();
+    var originalYears = years;
+    
+    $.each(originalYears, function (key, year) {
+        if (key < originalYears.length-1)
+        {
+            for (var i = key+1; i < originalYears.length; i++) {
+                years.push(year + '-' + originalYears[i]);
+            }
+        }
+    });
+    
     //Add study options to filter dropdown
     $('#filter-study').autocomplete({ source: studies });
     
