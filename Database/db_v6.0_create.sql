@@ -132,13 +132,13 @@ CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`activity` (
   `startdate` DATE NULL ,
   `enddate` DATE NULL ,
   `type` VARCHAR(45) NOT NULL ,
-  `status` VARCHAR(45) NOT NULL ,
+  `activity_status` VARCHAR(45) NOT NULL ,
   `organization_id` INT NOT NULL ,
   `study_id` INT NULL ,
   `status` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`id`) ,
   INDEX `type-activity_idx` (`type` ASC) ,
-  INDEX `status-activity_idx` (`status` ASC) ,
+  INDEX `status-activity_idx` (`activity_status` ASC) ,
   INDEX `study-activity_idx` (`study_id` ASC) ,
   INDEX `status-activity_idx1` (`status` ASC) ,
   CONSTRAINT `type-activity`
@@ -146,8 +146,8 @@ CREATE  TABLE IF NOT EXISTS `egjhatti_db2`.`activity` (
     REFERENCES `egjhatti_db2`.`activity_type` (`name` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `status-activity`
-    FOREIGN KEY (`status` )
+  CONSTRAINT `activitystatus-activity`
+    FOREIGN KEY (`activity_status` )
     REFERENCES `egjhatti_db2`.`activity_status` (`name` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
