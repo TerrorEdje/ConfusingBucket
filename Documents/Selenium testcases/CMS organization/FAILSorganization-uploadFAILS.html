@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/Avans/ConfusingBucket/Larakaart/public/" />
+<title>organization-upload</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">organization-upload</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Avans/ConfusingBucket/Larakaart/public/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=CMS</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Organization</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Upload</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Upload</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td>Selenium test</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=type</td>
+	<td>label=Company</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=website</td>
+	<td>http://docs.seleniumhq.org/docs/02_selenium_ide.jsp</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=description</td>
+	<td>Selenium test</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=streetname</td>
+	<td>Keurvorststraat</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=number</td>
+	<td>56</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=city</td>
+	<td>Molenhoek</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=zipcode</td>
+	<td>6584EH</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=country</td>
+	<td>The Netherlands</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-success</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=content</td>
+	<td>Selenium test has been uploaded.</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Organizations</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Selenium test (Molenhoek, The Netherlands)</td>
+	<td>Selenium test (Molenhoek, The Netherlands)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Selenium test (Molenhoek, The Netherlands)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=#11 &gt; div.panel-body &gt; a.btn.btn-info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#9 &gt; div.panel-body &gt; a.btn.btn-info</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=About</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='about']/p[2]</td>
+	<td>Selenium test<br /> http://docs.seleniumhq.org/docs/02_selenium_ide.jsp</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>link=exact:http://docs.seleniumhq.org/docs/02_selenium_ide.jsp</td>
+	<td>exact:http://docs.seleniumhq.org/docs/02_selenium_ide.jsp</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h1</td>
+	<td>Selenium test</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=p &gt; span.text-primary</td>
+	<td>Company</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=#about &gt; #about &gt; p</td>
+	<td>Keurvorststraat<br /> 56<br /> Molenhoek ,6584EH <br />The Netherlands</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
