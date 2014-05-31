@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/Avans/ConfusingBucket/Larakaart/public/" />
+<title>study-update-required</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">study-update-required</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Avans/ConfusingBucket/Larakaart/public/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=CMS</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Study</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>link=Upload</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=Hogeschool van Arnhem en Nijmegen (1 Study)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=#1 &gt; div.panel-body &gt; #thumbnailstudies &gt; a.btn.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=button.btn.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=school</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=school</td>
+	<td>label=Select...</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>css=button.btn.btn-warning</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.text-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.text-danger</td>
+	<td>Name is a required field.</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id='content']/form/fieldset/div[2]/div[2]/span</td>
+	<td>School is a required field.</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

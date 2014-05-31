@@ -4,12 +4,12 @@
 <head profile="http://selenium-ide.openqa.org/profiles/test-case">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="selenium.base" href="http://localhost/Avans/ConfusingBucket/Larakaart/public/" />
-<title>experience-update</title>
+<title>experience-update-required</title>
 </head>
 <body>
 <table cellpadding="1" cellspacing="1" border="1">
 <thead>
-<tr><td rowspan="1" colspan="3">experience-update</td></tr>
+<tr><td rowspan="1" colspan="3">experience-update-required</td></tr>
 </thead><tbody>
 <tr>
 	<td>open</td>
@@ -27,6 +27,11 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Kraft Foods (Herentals, Belgium)</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Kraft Foods (Herentals, Belgium)</td>
 	<td></td>
@@ -37,19 +42,34 @@
 	<td></td>
 </tr>
 <tr>
+	<td>waitForElementPresent</td>
+	<td>link=Update</td>
+	<td></td>
+</tr>
+<tr>
 	<td>click</td>
 	<td>link=Update</td>
 	<td></td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>name=score</td>
-	<td>7</td>
+	<td>name=description</td>
+	<td></td>
 </tr>
 <tr>
 	<td>click</td>
 	<td>css=button.btn.btn-success</td>
 	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>css=span.text-danger</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=span.text-danger</td>
+	<td>Description is a required field.</td>
 </tr>
 
 </tbody></table>
