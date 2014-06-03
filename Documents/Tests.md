@@ -691,3 +691,18 @@ Controleren of de data in de database wordt opgeslagen en alle velden correct zi
 
 **Verwacht resultaat:**
 De gewijzigde data wordt in de database opgeslagen en de gewijzigde Experience is te vinden bij Organizations.
+
+##Testcase 19: breadcrumbs
+
+**Test:**
+Controleren of de breadcrumbs kloppen
+
+**Stappen:**
+1.	Open de site
+2.	Klik op organizations
+3. 	Controleer of de breadcrumb klopt ("Home » Organizations")
+4.	Open een organization en klik op learn more
+5.	Controleer of de breadcrumb klopt ("Home » Organizations » Detauils")
+
+**Verwacht resultaat:**
+Voor alle pagina's verschijnt een breadcrumb en de links naar de vorige pagina's werken. 
