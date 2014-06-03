@@ -90,7 +90,6 @@ function initialize() {
         {
             for (var i = key+1; i < years.length; i++) {
                 newYears.push(year + '-' + years[i]);
-                console.log(year + '-' + years[i]);
             }
         }
     });
