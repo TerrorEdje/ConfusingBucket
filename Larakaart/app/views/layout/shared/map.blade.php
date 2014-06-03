@@ -3,6 +3,7 @@
 <script type="text/javascript">
     var organizationDetailURL = "{{ URL::route('organizationdetail') }}".split("%7Bid%7D")[0];
     var organizationListURL = "{{ URL::route('organizationlist') }}".split("%7Bid%7D")[0];
+    var baseURL = "{{ URL::route('Home') }}";
     
 	var locations = new Array();
 	@foreach ($mapLocations as $location)

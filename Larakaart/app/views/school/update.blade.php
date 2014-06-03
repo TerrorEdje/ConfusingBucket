@@ -36,4 +36,8 @@
 	</div>
 </form>
 
-
+<script type="text/javascript">    
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> ' +
+                          '» <a href="#" onclick="load(\'{{ URL::route('School-cms') }}\', \'school_cmsmenu\'); return false;">School CMS</a> ' +
+                          '» Update School');
+</script>

@@ -105,3 +105,8 @@
 {{ Form::close() }}	
 
 	
+<script type="text/javascript">    
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> ' +
+                          '» <a href="#" onclick="load(\'{{ URL::route('Activity-cms') }}\', \'activity_cmsmenu\'); return false;">Activity CMS</a> ' +
+                          '» Upload Activity');
+</script>

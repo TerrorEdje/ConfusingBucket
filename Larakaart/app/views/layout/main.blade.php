@@ -20,7 +20,11 @@
             <li>
                 <a href="#" id="refreshButton" class="navbar-brand navigationButton"><span class="glyphicon glyphicon-refresh"></span></a>
             </li>
+            <li>
+                <span id="breadcrumb" class=""> </span>
+            </li>
         </ul>
+        
 		<div id="content" class="scroll">
 
 @yield('content')
