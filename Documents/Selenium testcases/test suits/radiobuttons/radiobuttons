@@ -8,7 +8,9 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="open-site.html">open-site</a></td></tr>
+<tr><td><a href="search-city-co.html">search-city-co</a></td></tr>
+<tr><td><a href="search-country-zea.html">search-country-zea</a></td></tr>
+<tr><td><a href="search-organization-b.html">search-organization-b</a></td></tr>
 </tbody></table>
 </body>
 </html>
