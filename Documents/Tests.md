@@ -164,7 +164,7 @@ Controleren of de zoekfunctie klopt
 Copenhagen  
 City  
 Type: Minor (rest niet)  
-Year: 2015  
+Year: 2012-2013  
 Study: Communication and Multimedia Designe
 3. Het jaar en de study moeten een auto-aanvul suggestie krijgen. De zoekbalk moet een suggestie krijgen voor stad of land (gelijk aan de keuze)
 4. Klik op Search
