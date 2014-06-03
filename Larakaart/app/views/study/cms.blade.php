@@ -1,3 +1,4 @@
+<h3>Studies</h3>
 
 <div class="panel-group" id="accordion">
 	<div class="panel accordionList" id="studylist">

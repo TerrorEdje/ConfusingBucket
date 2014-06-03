@@ -1,3 +1,5 @@
+<h3>Upload Study</h3>
+
 <form action="{{ URL::route('Study-upload-add') }}" method="post" class="form-horizontal">
 	<fieldset class="the-fieldset form-margin">
    		<legend class="the-legend text-primary">Study</legend>		

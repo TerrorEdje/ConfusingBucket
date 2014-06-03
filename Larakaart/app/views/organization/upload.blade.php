@@ -1,5 +1,5 @@
 {{HTML::script('assets/js/geocode.js')}}
-
+<h3>Upload Organization</h3>
 
 <form action="{{ URL::route('Organization-upload-add') }}" method="post" class="form-horizontal">
 	<fieldset class="the-fieldset form-margin">

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="jumbotron">
 
-		<h1>Inloggen</h1>
+		<h3>Inloggen</h3>
 		<h4 class="text-muted">U kunt hier beneden inloggen, of <a href="{{ URL::route('account-create') }}"><big class="text-primary">hier aanmelden</big></a>.</h4>
 
 		@if(Session::has('global'))

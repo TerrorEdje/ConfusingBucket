@@ -107,14 +107,25 @@ class ExperienceController extends BaseController {
 		}
 		else
 		{
-			$experience = new Experience;
+			/*$experience = new Experience;
 			$experience->activity_id = Input::get('activity');
 			$experience->description = Input::get('description');
-			$experience->cijfer = Input::get('score'); # Cijfer staat op dit moment Nederlands in de database
+			$experience->score = Input::get('score'); # Cijfer staat op dit moment Nederlands in de database
 			$experience->accepted = false;
 			$experience->student_id = Input::get('student');
-			$expierence->status	= 'Needsapproval';
-			$experience->save();
+			$expierence->status = 'Needsapproval';			
+			$experience->save();*/
+			
+			$newExperience = Experience::create(array(
+                'activity_id'       	=> Input::get('activity'),
+                'description'      	=> Input::get('description'),
+                'score'         		=> Input::get('score'),
+                'accepted'          => false,
+                'student_id'       	=> Input::get('student'),
+				'status'				=> 'Needsapproval'
+            ));
+			
+			
 			return 'Expierence has been uploaded.';
 		}
 		

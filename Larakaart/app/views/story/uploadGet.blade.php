@@ -1,6 +1,8 @@
 @extends('layout.main')
 
 @section('content')
+	<h3>Upload Story</h3>
+
 	<form id="upload-form" action="addStory.php" method="POST">
 		<input type="hidden" name="usingAJAX" value="false" />
 				
@@ -42,7 +44,7 @@
 			<tr><td>Woonplaats:</td> <td> <input type="text" name="residence_city" class="customtextbox"></td></tr>
 			<tr><td>Land:</td> <td> <input type="text" name="residence_country" class="customtextbox"></td></tr>
 
-			<tr><td><input type="submit" name="upload" value="Upload story"></td></tr>
+			<tr><td><input type="submit" name="upload" value="Upload Story"></td></tr>
 			
 			</form
 			

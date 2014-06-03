@@ -1,4 +1,5 @@
 {{HTML::script('assets/js/geocode.js')}}
+<h3>Update Organization</h3>
 
 <form action="{{ URL::route('Organization-update-add') }}" method="post" class="form-horizontal">
 	<fieldset class="the-fieldset form-margin">

@@ -1,3 +1,5 @@
+<h3>Update Activity</h3>
+
 <script>   
 	$(function() {
 		$( "#calendar" ).datepicker({ dateFormat: 'yy-mm-dd' });

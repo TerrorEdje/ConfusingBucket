@@ -1,5 +1,6 @@
 	
 	{{ Form::open(array('url' => 'experience/update-add', 'post', 'class'=>'form-horizontal')) }}
+	<h3>Update Experience</h3>
 	
 		<fieldset class="the-fieldset form-margin">
 			
