@@ -1,3 +1,5 @@
+<h3>Organizations</h3>
+
 <div class="panel-group" id="accordion">
 	<div class="panel accordionList" id="organizationlist">
 		<div class="panel-heading">		

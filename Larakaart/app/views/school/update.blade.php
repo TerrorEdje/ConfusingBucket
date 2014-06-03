@@ -1,3 +1,5 @@
+<h3>Update School</h3>
+
 <form action="{{ URL::route('School-update-add') }}" method="post" class="form-horizontal">
 	<fieldset class="the-fieldset form-margin">
    		<legend class="the-legend text-primary">{{$school['name']}}</legend>
