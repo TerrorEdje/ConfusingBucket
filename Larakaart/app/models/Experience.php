@@ -9,6 +9,8 @@ class Experience extends Eloquent {
 	 */
 	protected $table = 'experience';
 	
+	public static $unguarded = true;
+	
 	public function getStudentName()
 	{
 		$student = Student::find($this->student_id);
