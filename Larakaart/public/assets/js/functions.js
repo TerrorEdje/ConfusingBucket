@@ -178,6 +178,7 @@ function filterChanged()
     eps = $("#filter-eps").prop("checked");
     
     year = $("#filter-year").val();
+    filterYears = $("#filter-year").val().split('-');
     
     study = $("#filter-study").val();
 	
@@ -202,10 +203,19 @@ function filterChanged()
                         (internship && final_thesis && minor && eps) //laat alles zien als alles is aangevinkt, ook als de marker geen type heeft
                     ) &&
                     (
-                        (year == 0) ||
                         (
-                            (locations[i]['years'][j]['start'] <= year) &&
-                            (locations[i]['years'][j]['end'] >= year)
+                            (filterYears.length == 2) &&
+                            (
+                                (locations[i]['years'][j]['start'] <= filterYears[1]) &&
+                                (locations[i]['years'][j]['end'] >= filterYears[0])
+                            )
+                        ) ||
+                        (
+                            (year == 0) ||
+                            (
+                                (locations[i]['years'][j]['start'] <= year) &&
+                                (locations[i]['years'][j]['end'] >= year)
+                            )
                         )
                     ) &&
                     (
