@@ -164,3 +164,5 @@ class ActivityController extends BaseController {
 	}
 
 }
+
+?>
