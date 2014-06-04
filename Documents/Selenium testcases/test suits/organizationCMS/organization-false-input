@@ -8,7 +8,7 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="false input/organization-update-required.html">organization-update-required</a></td></tr>
+<tr><td><a href="../../CMS organization/false input/organization-update-required.html">organization-update-required</a></td></tr>
 <tr><td><a href="false input/organization-upload-required.html">organization-upload-required</a></td></tr>
 </tbody></table>
 </body>

@@ -8,10 +8,7 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="1 checkbox/organization-EPS.html">organization-EPS</a></td></tr>
-<tr><td><a href="1 checkbox/organization-final-thesis.html">organization-final-thesis</a></td></tr>
-<tr><td><a href="1 checkbox/organization-internship.html">organization-internship</a></td></tr>
-<tr><td><a href="1 checkbox/organization-minor.html">organization-minor</a></td></tr>
+<tr><td><a href="../../search/radiobuttons&checkboxes/Organization/0 checkboxes/organization-0-checkboxes.html">organization-0-checkboxes</a></td></tr>
 </tbody></table>
 </body>
 </html>

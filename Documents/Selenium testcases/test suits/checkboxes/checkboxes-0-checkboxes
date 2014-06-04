@@ -8,7 +8,7 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="0 checkboxes/search-0-checkboxes.html">search-0-checkboxes</a></td></tr>
+<tr><td><a href="../../search/checkboxes/0 checkboxes/search-0-checkboxes.html">search-0-checkboxes</a></td></tr>
 </tbody></table>
 </body>
 </html>

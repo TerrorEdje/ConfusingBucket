@@ -8,7 +8,7 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="2 checkboxes/search-eps-final-thesis.html">search-eps-final-thesis</a></td></tr>
+<tr><td><a href="../../search/checkboxes/2 checkboxes/search-eps-final-thesis.html">search-eps-final-thesis</a></td></tr>
 <tr><td><a href="2 checkboxes/search-eps-internship.html">search-eps-internship</a></td></tr>
 <tr><td><a href="2 checkboxes/search-eps-minor.html">search-eps-minor</a></td></tr>
 <tr><td><a href="2 checkboxes/search-internship-final-thesis.html">search-internship-final-thesis</a></td></tr>

@@ -8,8 +8,8 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="3 checkboxes/country-eps-final-thesis.html">country-eps-final-thesis</a></td></tr>
-<tr><td><a href="3 checkboxes/country-final-thesis-minor-eps.html">country-final-thesis-minor-eps</a></td></tr>
+<tr><td><a href="../../search/radiobuttons&checkboxes/Country/3 checkboxes/country-eps-final-thesis.html">country-eps-final-thesis</a></td></tr>
+<tr><td><a href="../../search/radiobuttons&checkboxes/Country/3 checkboxes/country-final-thesis-minor-eps.html">country-final-thesis-minor-eps</a></td></tr>
 <tr><td><a href="3 checkboxes/country-internship-final-thesis-eps.html">country-internship-final-thesis-eps</a></td></tr>
 <tr><td><a href="3 checkboxes/country-internship-final-thesis-minor.html">country-internship-final-thesis-minor</a></td></tr>
 <tr><td><a href="3 checkboxes/country-internship-minor-eps.html">country-internship-minor-eps</a></td></tr>

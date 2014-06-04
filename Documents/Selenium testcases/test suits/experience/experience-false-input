@@ -8,7 +8,7 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="false input/experience-upload-required.html">experience-upload-required</a></td></tr>
+<tr><td><a href="../../CMS experience/false input/experience-upload-required.html">experience-upload-required</a></td></tr>
 <tr><td><a href="false input/experience-upload-score0.html">experience-upload-score0</a></td></tr>
 <tr><td><a href="false input/experience-upload-score11.html">experience-upload-score11</a></td></tr>
 <tr><td><a href="false input/experience-upload-number.html">experience-upload-number</a></td></tr>
