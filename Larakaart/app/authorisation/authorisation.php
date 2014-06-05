@@ -2,7 +2,6 @@
 
 //	Pagina bv organisatie 
 //	Nummertje van organisatie
-pu
 
 function checkAdminAccess($id)
 {
