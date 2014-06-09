@@ -8,8 +8,8 @@
 <body>
 <table id="suiteTable" cellpadding="1" cellspacing="1" border="1" class="selenium"><tbody>
 <tr><td><b>Test Suite</b></td></tr>
-<tr><td><a href="false input/activity-update-error-messages.html">activity-update-error-messages</a></td></tr>
-<tr><td><a href="false input/activity-upload-error-messages.html">activity-upload-error-messages</a></td></tr>
+<tr><td><a href="correct input/activity-update.html">activity-update</a></td></tr>
+<tr><td><a href="correct input/activity-upload.html">activity-upload</a></td></tr>
 </tbody></table>
 </body>
 </html>
