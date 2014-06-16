@@ -2,7 +2,7 @@
 
 class AcceptanceController extends BaseController {
 
-	public function studycms()
+	public function acceptanceSystem()
 	{
 		$organizations = Organization::all();
 		$activities = Activity::all();
