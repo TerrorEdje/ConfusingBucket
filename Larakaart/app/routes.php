@@ -115,6 +115,11 @@ Route::group(array('before' => 'guest'), function() {
 			'uses'	=> 'AcceptanceController@updateActivityStatus'
 		));
 		
+		Route::post('experience/status/update', array(
+			'as'	=> 'Update-experience-status',
+			'uses'	=> 'AcceptanceController@updateExperienceStatus'
+		));
+		
 	});
 
 	/*
@@ -248,6 +253,11 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('detailActivity/{id}', array(
 		'as'	=> 'Detail-activity',
 		'uses'	=> 'AcceptanceController@detailActivity'
+	));
+	
+	Route::get('detailExperience/{id}', array(
+		'as'	=> 'Detail-experience',
+		'uses'	=> 'AcceptanceController@detailExperience'
 	));
 
 });
