@@ -48,7 +48,9 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 
 App::error(function(Exception $exception, $code)
 {
-    return View::make('error.default')->with('exception', $exception)->with('code', $code);
+    // return View::make('error.default')->with('exception', $exception)->with('code', $code); 
+    
+    Log::error($exception);
 });
 
 /*
