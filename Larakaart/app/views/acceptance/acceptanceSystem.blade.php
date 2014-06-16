@@ -30,7 +30,9 @@
         </div>
         <div class="tab-pane fade" id="activities">
 			@foreach ($activities as $activity)
-				{{ $activity['name'] }} <br>
+				<a href="#" onClick="load('{{ URL::route('Detail-activity', array($activity['id'])) }}'); return false;">
+					{{ $activity['name'] }}
+				</a><br>
 			@endforeach
         </div>
         <div class="tab-pane fade" id="experiences">

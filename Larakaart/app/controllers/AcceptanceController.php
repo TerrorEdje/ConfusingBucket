@@ -29,5 +29,25 @@ class AcceptanceController extends BaseController {
 		return Redirect::route('Acceptance-system');
 	}
 	
+	public function detailActivity($id)
+	{
+		$statuses = array();
+		$dbStatuses = Status::all();
+		foreach ($dbStatuses as $status) {
+			$statuses[$status->name] = $status->name;
+		}
+		$activity = Activity::find($id);
+		$organization = Organization::find($activity->organization_id);
+		return View::make('acceptance/detailActivity')->with('activity', $activity)->with('organization', $organization)->with('statuses', $statuses);
+	}
+	
+	public function updateActivityStatus()
+	{
+		$activity = Activity::find(Input::get('activityID'));
+		$activity->status = Input::get('status');
+		$activity->save();
+		return Redirect::route('Acceptance-system');
+	}
+	
 }
 ?>
