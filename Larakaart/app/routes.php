@@ -216,6 +216,15 @@ Route::group(array('before' => 'guest'), function() {
 		'as'	=> 'Experience-cms-detail',
 		'uses'	=> 'ExperienceController@experiencecmsDetail'
 	));
+	
+	/*
+	| Acceptance system
+	*/
+	
+	Route::get('acceptanceSystem', array(
+		'as'	=> 'Acceptance-system',
+		'uses'	=> 'AcceptanceController@acceptanceSystem'
+	));
 
 });
 ?>

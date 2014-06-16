@@ -50,6 +50,11 @@
                                             Experience
                                         </a>
                                     </li>
+									<li class="acceptance_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Acceptance-system') }}', 'acceptance_cmsmenu'); return false;">
+                                            Acceptance System
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 							<!--<li class="authtestmenu">
