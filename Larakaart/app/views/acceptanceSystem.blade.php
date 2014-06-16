@@ -48,12 +48,12 @@
 			</div>
         </div>
         <div class="tab-pane fade" id="activities">
-			<div class="panel-group" id="accordion">
+			<div class="panel-group" id="accordionActivities">
 				<div class="panel accordionList" id="activitylist">
 					@foreach ($activities as $activity)
 						<div class="panel-heading">
 							<h1 class="panel-title"> 
-								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#{{ $activity['id']}}">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionActivities" href="#{{ $activity['id']}}">
 									<i class="indicator glyphicon glyphicon-chevron-down text-primary"></i>&nbsp;&nbsp;&nbsp;
 									{{ $activity['name'] }}	
 								</a>
