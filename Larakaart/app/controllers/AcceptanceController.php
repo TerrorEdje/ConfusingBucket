@@ -23,7 +23,7 @@ class AcceptanceController extends BaseController {
 	
 	public function updateOrganizationStatus()
 	{
-		$organization = Organization::find(Input::get('organizationID');
+		$organization = Organization::find(Input::get('organizationID'));
 		$organization->status = Input::get('status');
 		$organization->save();
 		return Redirect::route('Acceptance-system');
