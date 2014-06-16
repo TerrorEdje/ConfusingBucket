@@ -15,7 +15,7 @@ class AcceptanceController extends BaseController {
 		$statuses = array();
 		$dbStatuses = Status::all();
 		foreach ($dbStatuses as $status) {
-			array_push($statuses, $status->name);
+			$statuses[$status->name] = $status->name;
 		}
 		$organization = Organization::find($id);
 		return View::make('acceptance/detailOrganization')->with('organization', $organization)->with('statuses', $statuses);
