@@ -105,7 +105,7 @@ Route::group(array('before' => 'guest'), function() {
 		/*
 		| Acceptance system post methods.
 		*/
-		Route::post('organization/status/add', array(
+		Route::post('organization/status/update', array(
 			'as'	=> 'Update-organization-status',
 			'uses'	=> 'AcceptanceController@updateOrganizationStatus'
 		));

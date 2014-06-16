@@ -21,7 +21,7 @@
             </p>
         </div>
 		<div class="row">
-			{{ Form::open(array('url' => 'activity/update-add', 'post', 'class'=>'form-horizontal')) }}
+			{{ Form::open(array('url' => 'organization/status/update', 'post', 'class'=>'form-horizontal')) }}
 			<label for="name" class="control-label text-primary">Status: </label>
             <div>
                 {{ Form::select('status', $statuses, $organization['status'], array('class'=>'form-control')) }}
