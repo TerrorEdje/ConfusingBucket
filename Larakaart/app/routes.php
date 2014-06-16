@@ -101,6 +101,15 @@ Route::group(array('before' => 'guest'), function() {
 			'as'	=> 'Study-update-add',
 			'uses'	=> 'StudyController@updateStudyAdd'
 		));
+		
+		/*
+		| Acceptance system post methods.
+		*/
+		Route::post('organization/status/add', array(
+			'as'	=> 'Update-organization-status',
+			'uses'	=> 'AcceptanceController@updateOrganizationStatus'
+		));
+		
 	});
 
 	/*
@@ -224,6 +233,11 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('acceptanceSystem', array(
 		'as'	=> 'Acceptance-system',
 		'uses'	=> 'AcceptanceController@acceptanceSystem'
+	));
+	
+	Route::get('detailOrganization/{id}', array(
+		'as'	=> 'Detail-organization',
+		'uses'	=> 'AcceptanceController@detailOrganization'
 	));
 
 });

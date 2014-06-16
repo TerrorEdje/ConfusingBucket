@@ -22,8 +22,16 @@
 
     <div id="myTabContent" class="tab-content">
 		<div class="tab-pane fade in active" id="organizations">
+			@foreach ($organizations as $organization)
+				<a href="#" onClick="load('{{ URL::route('Detail-organization', array($organization['id'])) }}'); return false;">
+					{{ $organization['name'] }} ({{ $organization->getLocation()->city }}, {{ $organization->getLocation()->country }})
+				</a><br>
+			@endforeach
         </div>
         <div class="tab-pane fade" id="activities">
+			@foreach ($activities as $activity)
+				{{ $activity['name'] }} <br>
+			@endforeach
         </div>
         <div class="tab-pane fade" id="experiences">
             @foreach ($experiences as $experience)
