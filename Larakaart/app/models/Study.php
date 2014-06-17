@@ -8,5 +8,7 @@ class Study extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'study';
+
+	protected $fillable = ['name', 'description','school_id'];
 }
 ?>

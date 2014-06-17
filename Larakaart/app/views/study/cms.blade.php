@@ -36,4 +36,6 @@
     $(document).ready(function(){
         $('#accordion').accordionChevrons();
     });
+    
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> » Study CMS');
 </script>

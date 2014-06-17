@@ -8,6 +8,8 @@ class Organization extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'organization';
+
+	protected $fillable = ['name', 'type', 'description', 'location_id', 'website'];
 	
 	public function getLocation()
 	{

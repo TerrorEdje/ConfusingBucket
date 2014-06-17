@@ -31,20 +31,26 @@ class LoginController extends BaseController {
 	        // Send a request with it
 	        $result = json_decode( $googleService->request( 'https://www.googleapis.com/oauth2/v1/userinfo' ), true );
 
+	        $student = new Student();
+	        $student->firstname = $result['given_name'];
+	        $student->surname = $result['family_name'];
+	        $student->email = $result['email'];
+
 	        $user = new User();
 	        $user->google_token = $result['id'];
-	        $user->username = $result['name'];
-	        $user->email = $result['email'];
+	        $user->username 	= $result['name'];
+	        $user->email 		= $result['email'];
+	        $user->google_value = $code;
 
 	        $dbUser = User::where('google_token', '=', $user->google_token)->first();
 
 	        if(!empty($dbUser)){
 
-	        	$this->logginIn($user);
+	        	return $this->logginIn($user);
 
 			}else{
 
-				$this->createUser($user);
+				return $this->createUser($user, $student);
 
 			}
 
@@ -61,67 +67,47 @@ class LoginController extends BaseController {
 
 	private function logginIn(User $user){
 
-		$newLog = Login_log::create(array(
-				'datetime' 	=> '2000-01-01 00:00:00',
-				'gebruiker' => '256416',
-				'token'		=> 'hjfnanl4885'
-			));
-
 		//login try
-		if(Auth::login($user)){
+		if(Auth::attempt(array(
+				'username' 		=> $user->username,
+				'email' 		=> $user->email,
+				'google_token' 	=> $user->google_token
+			), false)){
 
-			/*$hee = new DateTime('now');*/
-
-			/*$newUser = User::create(array(
-				'google_token' 	=> 'hee',
-				'username' 		=> $hee,
-				'email' 		=> 'hoi'
-			));*/
+			$currentDate = new DateTime(date('Y-m-d H:i:s'));
 
 			$newLog = Login_log::create(array(
-				'datetime' 	=> '2000-01-01 00:00:00',
-				'gebruiker' => '256416',
-				'token'		=> 'hjfnanl4885'
+				'datetime' 	=> $currentDate,
+				'gebruiker' => Auth::user()->id,
+				'token'		=> $user->google_value
 			));
 
+			//login loggen
 			if($newLog){
-
-				return Redirect::to('Home');
+                
+                return Redirect::route('Home');
 
 			}else{
 
-				return '111hee';
+				return Redirect::route('Home');
 
 			}
 			
 
 		}else{
 
-			return Redirect::to('Home');
+			return Redirect::route('Home');
 
 		}
 
 	}
 
-	private function createUser(User $user){
+	private function createUser(User $user, Student $student){
 
-		$newUser = User::create(array(
-			'google_token' 	=> $user->google_token,
-			'username' 		=> $user->username,
-			'email' 		=> $user->email
-		));
+		Session::put('newUser', $user);
+		Session::put('newStudent', $student);
 
-		if($newUser){
-
-			$this->logginIn($user);
-
-		}else{
-
-			/* als er gaan account aangemaakt kon worden || ERROR */
-			return Redirect::to('Home')
-    		->with('message', 'Something went wrong please try again!!');
-
-		}
+		return Redirect::route('register');
 
 	}
 
@@ -129,7 +115,7 @@ class LoginController extends BaseController {
 
 		Auth::logout();
 
-		return Redirect::to('/');
+		return Redirect::route('Home');
 
 	}
 

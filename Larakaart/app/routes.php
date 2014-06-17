@@ -6,30 +6,22 @@ Route::get('/', array(
 	'uses'	=> 'IndexController@index'
 ));
 
-Route::get('/logout', array(
-	'as'	=> 'logout',
-	'uses'	=> 'LoginController@logout'
+/*register screen | voor iedereen zichtbaar, in code bevijligd*/
+Route::get('/register', array(
+	'as'	=> 'register',
+	'uses'	=> 'RegisterController@index'
 ));
 
+Route::get('vuldatabase', array(
+		'as'	=> 'vuldatabase',
+		'uses'	=> 'DatabaseController@vullen'
+	));
+
+
 /*
-| voor gasten | niet ingelogde mensen
+| voor gebruikers | ingelogde mensen
 */
-Route::group(array('before' => 'guest'), function() {
-
-	Route::get('organization/list', array(
-		'as'	=> 'organizationlist',
-		'uses'	=> 'OrganizationController@organizationlist'
-	));
-
-	Route::get('organization/list/{ids}', array(
-		'as'	=> 'organizationlist2',
-		'uses'	=> 'OrganizationController@organizationlist'
-	));
-
-	Route::get('organization/detail/{id}', array(
-		'as'	=> 'organizationdetail',
-		'uses'	=> 'OrganizationController@organizationdetail'
-	));
+Route::group(array('before' => 'auth'), function() {
 
 	/*
 	| cross site scripting safe | ALLE POST functies
@@ -47,17 +39,13 @@ Route::group(array('before' => 'guest'), function() {
 			'uses'	=> 'ActivityController@updateActivityAdd'
 		));
 
-		Route::post('login', array(
-			'as'	=> 'google-callback',
-			'uses'	=> 'LoginController@loggedInWithGoogle'
-		));
-
 		/*form experiance | post*/
 		Route::post('experience/add', array(
 			'as'	=> 'Experience-upload-add',
 			'uses'	=> 'ExperienceController@uploadExperienceAdd'
 		));
 		
+
 		/*
 		| Organization CMS post methods.
 		*/
@@ -102,32 +90,7 @@ Route::group(array('before' => 'guest'), function() {
 			'uses'	=> 'StudyController@updateStudyAdd'
 		));
 	});
-
-	/*
-	| NIET cross site scripting safe | ALLE GET functies
-	*/
-
-	/*login | get*/
-	Route::get('login', array(
-		'as'	=> 'login-get',
-		'uses'	=> 'LoginController@loginWithGoogle'
-	));
-
-	/*login van google call back| get CHANGED!!!!*/
-	Route::post('login/google', array(
-		'as'	=> 'google-callback',
-		'uses'	=> 'LoginController@loggedInWithGoogle'
-	));
-
-	/*
-	| Na inloggen deze functies tonen bij bevoegheid || NOG IN TE BOUWEN!!!
-	*/
-	Route::get('vuldatabase', array(
-		'as'	=> 'vuldatabase',
-		'uses'	=> 'DatabaseController@vullen'
-	));
-
-	/* experiance form | get*/
+	/* experience form | get*/
 	Route::get('experience/upload/{id}', array(
 		'as'	=> 'Experience-upload-get',
 		'uses'	=> 'ExperienceController@uploadExperience'
@@ -216,6 +179,92 @@ Route::group(array('before' => 'guest'), function() {
 		'as'	=> 'Experience-cms-detail',
 		'uses'	=> 'ExperienceController@experiencecmsDetail'
 	));
+
+	/* Logout op website */
+	Route::get('/logout', array(
+		'as'	=> 'logout',
+		'uses'	=> 'LoginController@logout'
+	));
+
+});
+
+/*
+| voor gasten | niet ingelogde mensen
+*/
+Route::group(array('before' => 'guest'), function() {
+
+	Route::get('organization/list', array(
+		'as'	=> 'organizationlist',
+		'uses'	=> 'OrganizationController@organizationlist'
+	));
+
+	Route::get('organization/list/{ids}', array(
+		'as'	=> 'organizationlist2',
+		'uses'	=> 'OrganizationController@organizationlist'
+	));
+
+	Route::get('organization/detail/{id}', array(
+		'as'	=> 'organizationdetail',
+		'uses'	=> 'OrganizationController@organizationdetail'
+	));
+
+	/*
+	| cross site scripting safe | ALLE POST functies
+	*/
+	Route::group(array('before' => 'csrf'), function() {
+
+		/* call-back vanaf google, niet aankomen */
+		Route::post('login', array(
+			'as'	=> 'google-callback',
+			'uses'	=> 'LoginController@loggedInWithGoogle'
+		));
+
+		/*login van google call back| get CHANGED!!!!*/
+		Route::post('login/google', array(
+			'as'	=> 'google-callback',
+			'uses'	=> 'LoginController@loggedInWithGoogle'
+		));
+
+		Route::post('register/organization/finish', array(
+			'as'	=> 'Register-organization-post',
+			'uses'	=> 'RegisterController@registerOrganizationPost'
+		));
+
+		Route::post('register/student/finish', array(
+			'as'	=> 'Register-student-post',
+			'uses'	=> 'RegisterController@registerStudentPost'
+		));
+
+	});
+
+	/*
+	| NIET cross site scripting safe | ALLE GET functies
+	*/
+
+	/*login | get*/
+	Route::get('login', array(
+		'as'	=> 'login-get',
+		'uses'	=> 'LoginController@loginWithGoogle'
+	));
+
+	/*choice | get*/
+	Route::get('login/choice', array(
+		'as'	=> 'choice-get',
+		'uses'	=> 'RegisterController@choice'
+	));
+
+	/*register screen student | voor gasten*/
+	Route::get('register/student', array(
+		'as'	=> 'register-student-get',
+		'uses'	=> 'RegisterController@registerStudent'
+	));
+
+	/*register screen organization | voor gasten*/
+	Route::get('register/organization', array(
+		'as'	=> 'register-organization-get',
+		'uses'	=> 'RegisterController@registerOrganization'
+	));
+
 
 });
 ?>

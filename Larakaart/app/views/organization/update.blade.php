@@ -115,4 +115,8 @@
 	</div>
 </form>
 
-
+<script type="text/javascript">    
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> ' +
+                          '» <a href="#" onclick="load(\'{{ URL::route('Organization-cms') }}\', \'organization_cmsmenu\'); return false;">Organization CMS</a> ' +
+                          '» Update Organization');
+</script>
