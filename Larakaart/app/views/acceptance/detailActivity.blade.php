@@ -21,15 +21,15 @@
 		<div>
 		
 		<div class="row">
-			<span class="col-sm-9">{{ $activity['description'] }}</span><br>
+			<span class="col-sm-9">{{ $activity['description'] }}</span>
 		</div>
-		
+		<br><br>
 		<div class="col-sm-6 row">
 			{{ Form::open(array('url' => 'activity/status/update', 'post', 'class'=>'form-horizontal')) }}
 				
-				<p>
-					<label for="name" class="control-label text-primary">Status: </label>
-					{{ Form::select('status', $statuses, $activity['status'], array('class'=>'form-control')) }}
+				<p class="form-group">
+					<label for="name" class="col-sm-2 control-label text-primary">Status: </label>
+					<span class="col-sm-4">{{ Form::select('status', $statuses, $activity['status'], array('class'=>'form-control')) }}</span>
 				</p>
 				<div>
 					<button type="submit" class="btn btn-success">Confirm</button>
