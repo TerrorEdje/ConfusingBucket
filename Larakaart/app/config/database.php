@@ -26,7 +26,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'egjhatti',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,18 @@ return array(
 		
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'databases.aii.avans.nl:3306',
+			'host'      => 'localhost',
+			'database'  => 'Worldmap',
+			'username'  => 'ConfusingDBucket',
+			'password'  => "VC0z*t}1J#xh='?",
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+		
+		'egjhatti' => array(
+			'driver'    => 'mysql',
+			'host'      => 'databases.aii.avans.nl',
 			'database'  => 'egjhatti_db2',
 			'username'  => 'egjhatti',
 			'password'  => "Ab12345",

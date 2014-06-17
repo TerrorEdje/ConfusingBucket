@@ -545,9 +545,10 @@ class Guard {
 	 */
 	protected function refreshRememberToken(UserInterface $user)
 	{
-		$user->setRememberToken($token = str_random(60));
+		//verwijder vanwege error uitloggen
+		/*$user->setRememberToken($token = str_random(60));
 
-		$this->provider->updateRememberToken($user, $token);
+		$this->provider->updateRememberToken($user, $token);*/
 	}
 
 	/**

@@ -5,5 +5,7 @@ class Login_log extends Eloquent {
 	
 	protected $table = 'login_log';
 
+	protected $fillable = array('datetime', 'gebruiker', 'token');
+
 }
 ?>

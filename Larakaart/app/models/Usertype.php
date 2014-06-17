@@ -8,5 +8,9 @@ class Usertype extends Eloquent {
 	 * @var string
 	 */
 	protected $table = 'usertype';
+
+	protected $fillable = ['user_id', 'student_id', 'organization_id', 'admin_id'];
+
+	public static $unguarded = true;
 }
 ?>
