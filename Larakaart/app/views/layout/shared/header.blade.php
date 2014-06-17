@@ -55,6 +55,11 @@
                                             Acceptance System
                                         </a>
                                     </li>
+									<li class="student_cmsmenu">
+                                        <a href="#" onclick="load('{{ URL::route('Student-cms') }}', 'student_cmsmenu'); return false;">
+                                            Student
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
 							<!--<li class="authtestmenu">

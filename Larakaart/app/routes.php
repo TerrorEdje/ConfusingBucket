@@ -259,6 +259,26 @@ Route::group(array('before' => 'guest'), function() {
 		'as'	=> 'Detail-experience',
 		'uses'	=> 'AcceptanceController@detailExperience'
 	));
+	
+	/*
+	| Student cms
+	*/
+	
+	Route::get('student/cms', array(
+		'as'	=> 'Student-cms',
+		'uses'	=> 'StudentController@studentCMS'
+	));
+	
+	Route::get('student/upload', array(
+		'as'	=> 'Student-upload',
+		'uses'	=> 'StudentController@addStudentGet'
+	));
+	
+	Route::get('student/update', array(
+		'as'	=> 'Student-update',
+		'uses'	=> 'StudentController@updateStudentGet'
+	));
+	
 
 });
 ?>
