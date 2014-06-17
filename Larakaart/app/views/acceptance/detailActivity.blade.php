@@ -7,30 +7,40 @@
     </div>
 	
     @if ($activity != null)
-        <div class="row">
+        
+		<div class="col-sm-6row">
             <h1>{{ $activity['name'] }} </h1>
-            <p>
-				<span>{{ $activity['type'] }}</span><br>
-				<span>{{ $activity['description'] }}</span><br>
-				<span>{{ $organization->getLocation()->city }}</span><br>
-				<span>{{ $organization->getLocation()->country }}</span><br>
-            </p>
-        </div>
+			<p><span class="text-primary">{{ $organization->name, ' (', $organization->getLocation()->city, ', ', $organization->getLocation()->country, ')' }}</span></p>
+			<p>
+				<span>{{ $activity['type']}}</span><br>
+				@if ($activity['startdate'] != null && $activity['enddate'] != null)
+					<span>{{ 'Start: ', date('d-m-Y', strtotime($activity['startdate'])) }}</span><br>
+					<span>{{ 'End: ', date('d-m-Y', strtotime($activity['enddate'])) }}</span>
+				@endif 
+			</p>
+		<div>
+		
 		<div class="row">
+			<span class="col-sm-9">{{ $activity['description'] }}</span><br>
+		</div>
+		
+		<div class="col-sm-6 row">
 			{{ Form::open(array('url' => 'activity/status/update', 'post', 'class'=>'form-horizontal')) }}
-			<label for="name" class="control-label text-primary">Status: </label>
-            <div>
-                {{ Form::select('status', $statuses, $activity['status'], array('class'=>'form-control')) }}
-            </div>
-			<div>
-				<button type="submit" class="btn btn-success">Confirm</button>
-			</div>
+				
+				<p>
+					<label for="name" class="control-label text-primary">Status: </label>
+					{{ Form::select('status', $statuses, $activity['status'], array('class'=>'form-control')) }}
+				</p>
+				<div>
+					<button type="submit" class="btn btn-success">Confirm</button>
+				</div>
 			
-			{{ Form::hidden('activityID', $activity['id']) }}
+				{{ Form::hidden('activityID', $activity['id']) }}
 			
 			{{Form::token()}}
-		{{ Form::close() }}	
+			{{ Form::close() }}	
 		</div>
+		
 	@endif
 	
 </div>
