@@ -58,7 +58,11 @@ class AcceptanceController extends BaseController {
 		}
 		$experience = Experience::find($id);
 		$activity = Activity::find($experience->activity_id);
-		return View::make('acceptance/detailExperience')->with('experience', $experience)->with('activity', $activity)->with('statuses', $statuses);
+		$organization = Organization::find($activity->organization_id);
+		$dbStudent = Student::find($experience->student_id);
+		$student = $dbStudent->firstname ." ". $dbStudent->insertion ." ". $dbStudent->surname;
+		return View::make('acceptance/detailExperience')->with('experience', $experience)->with('activity', $activity)
+		->with('organization', $organization)->with('student', $student)->with('statuses', $statuses);
 	}
 	
 	public function updateExperienceStatus()
