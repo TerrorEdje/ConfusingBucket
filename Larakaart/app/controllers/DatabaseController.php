@@ -5,13 +5,13 @@ class DatabaseController extends BaseController {
 	public function vullen()
 	{	
 		# Het toevoegen van admin types
-		/*$admintype = new Admintype;
+		$admintype = new Admintype;
 		$admintype->name = 'admin';
 		$admintype->save();
 
 		$moderatortype = new Admintype;
 		$moderatortype->name = "moderator";
-		$moderatortype->save();*/
+		$moderatortype->save();
 /*-----------------------------------------------------------------*/
 		# Het toevoegen van een status
 		$needsapproval = new Status;
@@ -563,8 +563,25 @@ class DatabaseController extends BaseController {
 		$experience15->student_id= $student15->id;
 		$experience15->status=  $approved->name;
 		$experience15->save();
-/*-----------------------------------------------------------------*/			
-		
+/*-----------------------------------------------------------------*/		
+		# Add admin user'
+		$user = new User;
+		$user->username = "Confusing Bucket";
+		$user->email = "confusingbucket07@gmail.com";
+		$user->google_token = "117306537575775047088";
+		$user->google_value = "4/eYVzta-VaSS90D8hmhxluOzLS7gU.4sC9XzBffS4SOl05ti8ZT3YRplBTjQI";
+		$user->save();
+
+		$admin = new Admin;
+		$admin->firstname = "Confusing";
+		$admin->surname = "Bucket";
+		$admin->admintype_id = $admintype->id;
+		$admin->save();
+
+		$userType = new Usertype;
+		$userType->user_id = $user->id;
+		$userType->admin_id = $admin->id;
+		$userType->save();		
 
 			
 		return View::make('gevuld');	
