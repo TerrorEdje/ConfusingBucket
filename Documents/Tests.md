@@ -706,3 +706,61 @@ Controleren of de breadcrumbs kloppen
 
 **Verwacht resultaat:**
 Voor alle pagina's verschijnt een breadcrumb en de links naar de vorige pagina's werken. 
+
+##Testcase 20.1: acceptance system -> organizations status
+
+**Test:**
+Controleren of de status op de geselecteerde status blijft staan
+
+**Stappen:**
+1. Open de site
+2. Klik op CMS
+3. Klik op Acceptance System
+4. Klik op een willekeurige organization
+5. Verander de status
+6. Klik op 'Confirm'
+7. Klik op dezelfde organization als hierboven.
+8. Controleer of de status nog staat op de status die hieborven is gekozen
+
+**Verwacht resultaat:**
+De status is correct opgeslagen.
+
+##Testcase 20.2: acceptance system -> activities status
+
+**Test:**
+Controleren of de status op de geselecteerde status blijft staan
+
+**Stappen:**
+1. Open de site
+2. Klik op CMS
+3. Klik op Acceptance System
+4. Klik op Activities
+5. Klik op een willekeurige activity
+6. Verander de status
+7. Klik op 'Confirm'
+8. Klik op Activities
+9. Klik op dezelfde activity als hierboven.
+10. Controleer of de status nog staat op de status die hieborven is gekozen
+
+**Verwacht resultaat:**
+De status is correct opgeslagen.
+
+##Testcase 20.3: acceptance system -> experiences status
+
+**Test:**
+Controleren of de status op de geselecteerde status blijft staan
+
+**Stappen:**
+1. Open de site
+2. Klik op CMS
+3. Klik op Acceptance System
+4. Klik op Experiences
+5. Klik op een willekeurige experience
+6. Verander de status
+7. Klik op 'Confirm'
+8. Klik op Experiences
+9. Klik op dezelfde experience als hierboven.
+10. Controleer of de status nog staat op de status die hieborven is gekozen
+
+**Verwacht resultaat:**
+De status is correct opgeslagen.
