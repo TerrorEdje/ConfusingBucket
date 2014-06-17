@@ -10,9 +10,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
+	
 	protected $table = 'user';
 
-	protected $fillable = ['username', 'email', 'google_token'];
+	protected $fillable = ['username', 'email', 'google_token', 'google_value'];
 
 	/**
 	 * Get the unique identifier for the user.

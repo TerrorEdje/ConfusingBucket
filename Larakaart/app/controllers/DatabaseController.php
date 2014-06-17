@@ -4,6 +4,15 @@ class DatabaseController extends BaseController {
 
 	public function vullen()
 	{	
+		# Het toevoegen van admin types
+		/*$admintype = new Admintype;
+		$admintype->name = 'admin';
+		$admintype->save();
+
+		$moderatortype = new Admintype;
+		$moderatortype->name = "moderator";
+		$moderatortype->save();*/
+/*-----------------------------------------------------------------*/
 		# Het toevoegen van een status
 		$needsapproval = new Status;
 		$needsapproval->name = "Needsapproval";
@@ -556,23 +565,7 @@ class DatabaseController extends BaseController {
 		$experience15->save();
 /*-----------------------------------------------------------------*/			
 		
-		
-		/*# Het toevoegen van crud operaties
-		$create = new Crud_operation();
-		$create->type = "create";
-		$create->save();
-		
-		$delete = new Crud_operation();
-		$delete->type = "delete";
-		$delete->save();
-		
-		$read = new Crud_operation();
-		$read->type = "read";
-		$read->save();
-		
-		$update = new Crud_operation();
-		$update->type = "update";
-		$update->save();*/
+
 			
 		return View::make('gevuld');	
 	}

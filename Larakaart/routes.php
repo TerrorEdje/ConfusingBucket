@@ -12,11 +12,6 @@ Route::get('/register', array(
 	'uses'	=> 'RegisterController@index'
 ));
 
-Route::get('vuldatabase', array(
-		'as'	=> 'vuldatabase',
-		'uses'	=> 'DatabaseController@vullen'
-	));
-
 
 /*
 | voor gebruikers | ingelogde mensen
@@ -89,25 +84,6 @@ Route::group(array('before' => 'auth'), function() {
 			'as'	=> 'Study-update-add',
 			'uses'	=> 'StudyController@updateStudyAdd'
 		));
-		
-		/*
-		| Acceptance system post methods.
-		*/
-		Route::post('organization/status/update', array(
-			'as'	=> 'Update-organization-status',
-			'uses'	=> 'AcceptanceController@updateOrganizationStatus'
-		));
-		
-		Route::post('activity/status/update', array(
-			'as'	=> 'Update-activity-status',
-			'uses'	=> 'AcceptanceController@updateActivityStatus'
-		));
-		
-		Route::post('experience/status/update', array(
-			'as'	=> 'Update-experience-status',
-			'uses'	=> 'AcceptanceController@updateExperienceStatus'
-		));
-		
 	});
 	/* experience form | get*/
 	Route::get('experience/upload/{id}', array(
@@ -198,55 +174,16 @@ Route::group(array('before' => 'auth'), function() {
 		'as'	=> 'Experience-cms-detail',
 		'uses'	=> 'ExperienceController@experiencecmsDetail'
 	));
-	
-	/*
-	| Acceptance system
-	*/
-	
-	Route::get('acceptanceSystem', array(
-		'as'	=> 'Acceptance-system',
-		'uses'	=> 'AcceptanceController@acceptanceSystem'
-	));
-	
-	Route::get('detailOrganization/{id}', array(
-		'as'	=> 'Detail-organization',
-		'uses'	=> 'AcceptanceController@detailOrganization'
-	));
-	
-	Route::get('detailActivity/{id}', array(
-		'as'	=> 'Detail-activity',
-		'uses'	=> 'AcceptanceController@detailActivity'
-	));
-	
-	Route::get('detailExperience/{id}', array(
-		'as'	=> 'Detail-experience',
-		'uses'	=> 'AcceptanceController@detailExperience'
-	));
-	
-	/*
-	| Student cms
-	*/
-	
-	Route::get('student/cms', array(
-		'as'	=> 'Student-cms',
-		'uses'	=> 'StudentController@studentCMS'
-	));
-	
-	Route::get('student/upload', array(
-		'as'	=> 'Student-upload',
-		'uses'	=> 'StudentController@addStudentGet'
-	));
-	
-	Route::get('student/update', array(
-		'as'	=> 'Student-update',
-		'uses'	=> 'StudentController@updateStudentGet'
-	));
-	
 
 	/* Logout op website */
 	Route::get('/logout', array(
 		'as'	=> 'logout',
 		'uses'	=> 'LoginController@logout'
+	));
+
+	Route::get('vuldatabase', array(
+		'as'	=> 'vuldatabase',
+		'uses'	=> 'DatabaseController@vullen'
 	));
 
 });
