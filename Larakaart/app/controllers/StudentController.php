@@ -10,7 +10,9 @@ class StudentController extends BaseController {
 	
 	public function addStudentGet()
 	{
-		return View::make('student/upload');
+		//$studies = Study::all();
+		$studies = array('' => 'Select...') + Study::lists('name','name');
+		return View::make('student/upload')->with('studies', $studies);
 	}
 	
 	public function updateStudentGet()
@@ -23,7 +25,7 @@ class StudentController extends BaseController {
 		$organization = Organization::find(Input::get('organizationID'));
 		$organization->status = Input::get('status');
 		$organization->save();
-		//return Redirect::route('Acceptance-system');
+		return Redirect::route('Student-cms');
 	}
 	
 	
