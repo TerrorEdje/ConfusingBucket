@@ -29,5 +29,5 @@
         $('#accordion').accordionChevrons();
     });
     
-    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> » Organizations');
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> &raquo; Organizations');
 </script>

@@ -61,5 +61,5 @@
         $('#accordion').accordionChevrons();
     });
     
-    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> » Activity CMS');
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> &raquo; Activity CMS');
 </script>
