@@ -29,5 +29,5 @@
         $('#accordion').accordionChevrons();
     });
     
-    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> » Experience CMS');
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> &raquo; Experience CMS');
 </script>

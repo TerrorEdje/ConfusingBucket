@@ -125,6 +125,6 @@
 
 <script type="text/javascript">    
     $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> ' +
-                          '» <a href="#" onclick="load(\'{{ URL::route('Experience-cms-list') }}\', \'experience_cmsmenu\'); return false;">Experience CMS</a> ' +
-                          '» Details');
+                          '&raquo; <a href="#" onclick="load(\'{{ URL::route('Experience-cms-list') }}\', \'experience_cmsmenu\'); return false;">Experience CMS</a> ' +
+                          '&raquo; Details');
 </script>

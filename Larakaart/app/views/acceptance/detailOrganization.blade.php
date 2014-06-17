@@ -24,9 +24,9 @@
                 <a target="_blank" href="http://{{$organization['website']}}">{{ $organization['website'] }}</a>
             </p>
 			{{ Form::open(array('url' => 'organization/status/update', 'post', 'class'=>'form-horizontal')) }}
-			<p>
-				<label for="name" class="control-label text-primary">Status: </label>
-				{{ Form::select('status', $statuses, $organization['status'], array('class'=>'form-control')) }}
+			<p class="form-group">
+				<label for="name" class="col-sm-2 control-label text-primary">Status: </label>
+				<span class="col-sm-4">{{ Form::select('status', $statuses, $organization['status'], array('class'=>'form-control')) }}</span>
 			</p>
 			<div>
 				<button type="submit" class="btn btn-success">Confirm</button>
@@ -35,12 +35,12 @@
 			{{ Form::hidden('organizationID', $organization['id']) }}
 			
 			{{Form::token()}}
-		{{ Form::close() }}	
+			{{ Form::close() }}	
 		</div>
 	@endif
 	
 </div>
 
 <script type="text/javascript"> 
-    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> » Acceptance System');
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> &raquo; <a href="#" onclick="load(\'{{ URL::route('Acceptance-system') }}\', \'acceptance_cmsmenu\'); return false;">Acceptance System</a> &raquo; {{ $organization['name'] }} ');
 </script>
