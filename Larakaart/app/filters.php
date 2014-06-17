@@ -36,7 +36,10 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (!Auth::check()) 
+	{
+		return "<h3><span class='text-danger';>You are not authorized to access this page.</span></h3>";
+	}
 });
 
 
@@ -58,7 +61,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	//if (Auth::check()) return Redirect::route('Home');
 });
 
 /*

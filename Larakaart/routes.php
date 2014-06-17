@@ -12,11 +12,6 @@ Route::get('/register', array(
 	'uses'	=> 'RegisterController@index'
 ));
 
-Route::get('vuldatabase', array(
-		'as'	=> 'vuldatabase',
-		'uses'	=> 'DatabaseController@vullen'
-	));
-
 
 /*
 | voor gebruikers | ingelogde mensen
@@ -184,6 +179,11 @@ Route::group(array('before' => 'auth'), function() {
 	Route::get('/logout', array(
 		'as'	=> 'logout',
 		'uses'	=> 'LoginController@logout'
+	));
+
+	Route::get('vuldatabase', array(
+		'as'	=> 'vuldatabase',
+		'uses'	=> 'DatabaseController@vullen'
 	));
 
 });
