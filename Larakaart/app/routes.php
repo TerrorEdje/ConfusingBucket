@@ -110,6 +110,16 @@ Route::group(array('before' => 'guest'), function() {
 			'uses'	=> 'AcceptanceController@updateOrganizationStatus'
 		));
 		
+		Route::post('activity/status/update', array(
+			'as'	=> 'Update-activity-status',
+			'uses'	=> 'AcceptanceController@updateActivityStatus'
+		));
+		
+		Route::post('experience/status/update', array(
+			'as'	=> 'Update-experience-status',
+			'uses'	=> 'AcceptanceController@updateExperienceStatus'
+		));
+		
 	});
 
 	/*
@@ -238,6 +248,16 @@ Route::group(array('before' => 'guest'), function() {
 	Route::get('detailOrganization/{id}', array(
 		'as'	=> 'Detail-organization',
 		'uses'	=> 'AcceptanceController@detailOrganization'
+	));
+	
+	Route::get('detailActivity/{id}', array(
+		'as'	=> 'Detail-activity',
+		'uses'	=> 'AcceptanceController@detailActivity'
+	));
+	
+	Route::get('detailExperience/{id}', array(
+		'as'	=> 'Detail-experience',
+		'uses'	=> 'AcceptanceController@detailExperience'
 	));
 
 });
