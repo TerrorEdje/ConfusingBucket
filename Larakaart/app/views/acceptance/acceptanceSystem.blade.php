@@ -41,7 +41,7 @@
         <div class="tab-pane fade" id="experiences">
             @foreach ($experiences as $experience)
 				<a href="#" onClick="load('{{ URL::route('Detail-experience', array($experience['id'])) }}'); return false;">
-					<h4>{{ $experience['id'] }}</h4>
+					<h4>{{ $student }} </h4>
 				</a>
 			@endforeach
         </div>
