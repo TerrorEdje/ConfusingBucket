@@ -33,5 +33,5 @@
         $('#accordion').accordionChevrons();
     });
     
-    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> » Organization CMS');
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> &raquo; Organization CMS');
 </script>

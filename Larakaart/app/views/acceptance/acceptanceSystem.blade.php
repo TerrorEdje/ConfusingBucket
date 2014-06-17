@@ -24,7 +24,7 @@
 		<div class="tab-pane fade in active" id="organizations">
 			<br>
 			@foreach ($organizations as $organization)
-				<div class="">
+				<div>
 					<a href="#" onClick="load('{{ URL::route('Detail-organization', array($organization['id'])) }}'); return false;" id="text-primary">
 						<h4> {{ $organization['name'] }} ({{ $organization->getLocation()->city }}, {{ $organization->getLocation()->country }}) </h4>
 					</a>
@@ -34,15 +34,15 @@
         <div class="tab-pane fade" id="activities">
 			@foreach ($activities as $activity)
 				<a href="#" onClick="load('{{ URL::route('Detail-activity', array($activity['id'])) }}'); return false;">
-					{{ $activity['name'] }}
-				</a><br>
+					<h4>{{ $activity['name'] }}</h4>
+				</a>
 			@endforeach
         </div>
         <div class="tab-pane fade" id="experiences">
             @foreach ($experiences as $experience)
 				<a href="#" onClick="load('{{ URL::route('Detail-experience', array($experience['id'])) }}'); return false;">
-					{{ $experience['id'] }}
-				</a><br>
+					<h4>{{ $experience['id'] }}</h4>
+				</a>
 			@endforeach
         </div>
     </div>
@@ -50,5 +50,5 @@
 </div>
 
 <script type="text/javascript"> 
-    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> » Acceptance System');
+    $('#breadcrumb').html('<a href="#" onclick="load(\'./?nolayout\', \'homemenu\'); return false;">Home</a> &raquo; Acceptance System');
 </script>
