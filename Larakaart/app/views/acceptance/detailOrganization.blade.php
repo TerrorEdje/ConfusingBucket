@@ -7,25 +7,27 @@
     </div>
 	
     @if ($organization != null)
-        <div class="row">
+        <div class="col-sm-6 row">
             <h1>{{ $organization['name'] }} </h1>
             <p>
-                <span>{{ $organization['type'] }}</span><br>
-				<span>{{ $organization['descrption'] }}</span><br>
-				<span>{{ $organization->getLocation()->city }}</span><br>
+                <span class="text-primary">{{ $organization['type'] }}</span><br>
+		</div>
+		<div class="row">
+				<span class="col-sm-9">{{ $organization['description'] }}</span><br>
+		</div>
+		<div class="col-sm-6 row">
+				<span>{{ $organization->getLocation()->city }}, </span>
 				<span>{{ $organization->getLocation()->country }}</span><br>
-				<span>{{ $organization->getLocation()->streetname }}</span><br>
-				<span>{{ $organization->getLocation()->number }}</span><br>
 				<span>{{ $organization->getLocation()->zipcode }}</span><br>
+				<span>{{ $organization->getLocation()->streetname }}</span>
+				<span>{{ $organization->getLocation()->number }}</span><br>
                 <a target="_blank" href="http://{{$organization['website']}}">{{ $organization['website'] }}</a>
             </p>
-        </div>
-		<div class="row">
 			{{ Form::open(array('url' => 'organization/status/update', 'post', 'class'=>'form-horizontal')) }}
-			<label for="name" class="control-label text-primary">Status: </label>
-            <div>
-                {{ Form::select('status', $statuses, $organization['status'], array('class'=>'form-control')) }}
-            </div>
+			<p>
+				<label for="name" class="control-label text-primary">Status: </label>
+				{{ Form::select('status', $statuses, $organization['status'], array('class'=>'form-control')) }}
+			</p>
 			<div>
 				<button type="submit" class="btn btn-success">Confirm</button>
 			</div>
