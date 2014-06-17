@@ -26,7 +26,7 @@
 			{{ Form::open(array('url' => 'organization/status/update', 'post', 'class'=>'form-horizontal')) }}
 			<p class="form-group">
 				<label for="name" class="col-sm-2 control-label text-primary">Status: </label>
-				<span class="col-sm-4">{{ Form::select('status', $statuses, $organization['status'], array('class'=>'form-control')) }}</span>
+				<span class="col-sm-5">{{ Form::select('status', $statuses, $organization['status'], array('class'=>'form-control')) }}</span>
 			</p>
 			<div>
 				<button type="submit" class="btn btn-success">Confirm</button>

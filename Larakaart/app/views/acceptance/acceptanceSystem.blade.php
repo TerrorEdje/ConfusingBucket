@@ -39,9 +39,9 @@
 			@endforeach
         </div>
         <div class="tab-pane fade" id="experiences">
-            @foreach ($experiences as $experience)
-				<a href="#" onClick="load('{{ URL::route('Detail-experience', array($experience['id'])) }}'); return false;">
-					<h4>{{ $student }} </h4>
+            @foreach ($experiences as $infoExperience)
+				<a href="#" onClick="load('{{ URL::route('Detail-experience', array($infoExperience['experience']->id)) }}'); return false;">
+					<h4>{{ $infoExperience['student'], ' (', $infoExperience['activity']->name, ')' }} </h4>
 				</a>
 			@endforeach
         </div>

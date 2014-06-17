@@ -6,7 +6,16 @@ class AcceptanceController extends BaseController {
 	{
 		$organizations = Organization::all();
 		$activities = Activity::all();
-		$experiences = Experience::all();
+		$experiences = array();
+		$dbExperiences = Experience::all();
+		foreach ($dbExperiences as $experience) {
+			$infoExperience = array();
+			$infoExperience['experience'] = $experience;
+			$student = Student::find($experience->student_id);
+			$infoExperience['student'] = $student->firstname ." ". $student->insertion ." ". $student->surname;
+			$infoExperience['activity'] = Activity::find($experience->activity_id);
+			array_push($experiences, $infoExperience);
+		}
 		return View::make('acceptance/acceptanceSystem')->with('organizations', $organizations)->with('activities', $activities)->with('experiences', $experiences);
 	}
 	
