@@ -599,12 +599,12 @@ class DatabaseController extends BaseController {
 		$L0055->longitude=-3,8028812;
 		$L0055->save();
 		
-		$cantabria = new Organization;
-		$cantabria->name="Universidad de Cantabria";
-		$cantabria->type="School";
-		$cantabria->description="Universidad de Cantabria";
-		$cantabria->status="Approved";
-		$cantabria->save();
+		$L0055O = new Organization;
+		$L0055O->name="Universidad de Cantabria";
+		$L0055O->type="School";
+		$L0055O->description="Universidad de Cantabria";
+		$L0055O->status="Approved";
+		$L0055O->save();
 		
 		
 		$L0056 = new Location;
@@ -617,12 +617,12 @@ class DatabaseController extends BaseController {
 		$L0056->longitude=6,6414898;
 		$L0056->save();
 		
-		$gestion = new Organization;
-		$gestion->name="Haute Ecole d&#39;Ing&eacute;nierie et de Gestion du Canton de Vaud";
-		$gestion->type="School";
-		$gestion->description="Haute Ecole d&#39;Ing&eacute;nierie et de Gestion du Canton de Vaud";
-		$gestion->status="Approved";
-		$gestion->save();
+		$L0056O = new Organization;
+		$L0056O->name="Haute Ecole d&#39;Ing&eacute;nierie et de Gestion du Canton de Vaud";
+		$L0056O->type="School";
+		$L0056O->description="Haute Ecole d&#39;Ing&eacute;nierie et de Gestion du Canton de Vaud";
+		$L0056O->status="Approved";
+		$L0056O->save();
 		
 		
 		
@@ -636,12 +636,12 @@ class DatabaseController extends BaseController {
 		$L0057->longitude=27,2192191;
 		$L0057->save();
 		
-		$ege = new Organization;
-		$ege->name="Ege University";
-		$ege->type="School";
-		$ege->description="Ege University";
-		$ege->status="Approved";
-		$ege->save();
+		$L0057O = new Organization;
+		$L0057O->name="Ege University";
+		$L0057O->type="School";
+		$L0057O->description="Ege University";
+		$L0057O->status="Approved";
+		$L0057O->save();
 		
 		
 		
@@ -655,12 +655,12 @@ class DatabaseController extends BaseController {
 		$L0058->longitude=27,2192191;
 		$L0058->save();
 		
-		$yasar = new Organization;
-		$yasar->name="Yasar University";
-		$yasar->type="School";
-		$yasar->description="Yasar University";
-		$yasar->status="Approved";
-		$yasar->save();
+		$L0058O = new Organization;
+		$L0058O->name="Yasar University";
+		$L0058O->type="School";
+		$L0058O->description="Yasar University";
+		$L0058O->status="Approved";
+		$L0058O->save();
 		
 		
 		
@@ -674,12 +674,12 @@ class DatabaseController extends BaseController {
 		$L0059->longitude=-88,5420061;
 		$L0059->save();
 		
-		$michigan = new Organization;
-		$michigan->name="Michigan Technological University";
-		$michigan->type="School";
-		$michigan->description="Michigan Technological University";
-		$michigan->status="Approved";
-		$michigan->save();
+		$L0059O = new Organization;
+		$L0059O->name="Michigan Technological University";
+		$L0059O->type="School";
+		$L0059O->description="Michigan Technological University";
+		$L0059O->status="Approved";
+		$L0059O->save();
 		
 		
 		
@@ -693,12 +693,12 @@ class DatabaseController extends BaseController {
 		$L0060->longitude=103,2062792;
 		$L0060->save();
 		
-		$sdakota = new Organization;
-		$sdakota->name="South Dakota School of Mines and Technology";
-		$sdakota->type="School";
-		$sdakota->description="South Dakota School of Mines and Technology";
-		$sdakota->status="Approved";
-		$sdakota->save();
+		$L0060O = new Organization;
+		$L0060O->name="South Dakota School of Mines and Technology";
+		$L0060O->type="School";
+		$L0060O->description="South Dakota School of Mines and Technology";
+		$L0060O->status="Approved";
+		$L0060O->save();
 		
 		
 		
@@ -712,12 +712,12 @@ class DatabaseController extends BaseController {
 		$L0061->longitude=26,0537875;
 		$L0061->save();
 		
-		$bucharest = new Organization;
-		$bucharest->name="University &quot;Politehnica&quot; of Bucharest";
-		$bucharest->type="School";
-		$bucharest->description="University &quot;Politehnica&quot; of Bucharest";
-		$bucharest->status="Approved";
-		$bucharest->save();
+		$L0061O = new Organization;
+		$L0061O->name="University &quot;Politehnica&quot; of Bucharest";
+		$L0061O->type="School";
+		$L0061O->description="University &quot;Politehnica&quot; of Bucharest";
+		$L0061O->status="Approved";
+		$L0061O->save();
 		
 		
 		
@@ -731,12 +731,12 @@ class DatabaseController extends BaseController {
 		$L0062->longitude=14,550072;
 		$L0062->save();
 		
-		$polten = new Organization;
-		$polten->name="Fachhochschule St&#46; P&ouml;lten";
-		$polten->type="School";
-		$polten->description="Fachhochschule St&#46; P&ouml;lten";
-		$polten->status="Approved";
-		$polten->save();
+		$L0062O = new Organization;
+		$L0062O->name="Fachhochschule St&#46; P&ouml;lten";
+		$L0062O->type="School";
+		$L0062O->description="Fachhochschule St&#46; P&ouml;lten";
+		$L0062O->status="Approved";
+		$L0062O->save();
 		
 		
 		
@@ -750,13 +750,189 @@ class DatabaseController extends BaseController {
 		$L0063->longitude=14,550073;
 		$L0063->save();
 		
-		$medien = new Organization;
-		$medien->name="Fachhochschule der Medi&euml;n";
-		$medien->type="School";
-		$medien->description="Fachhochschule der Medi&euml;n";
-		$medien->status="Approved";
-		$medien->save();
-	}
-
+		$L0063O = new Organization;
+		$L0063O->name="Fachhochschule der Medi&euml;n";
+		$L0063O->type="School";
+		$L0063O->description="Fachhochschule der Medi&euml;n";
+		$L0063O->status="Approved";
+		$L0063O->save();
+		
+		
+		
+		$S1 = new Student;
+		$S1->firstname="Erwin";
+		$S1->surname="Roeters";
+		$S1->save();
+		
+		$S2 = new Student;
+		$S2->firstname="Yannik";
+		$S2->surname="Hegge";
+		$S2->save();
+		
+		$S3 = new Student;
+		$S3->firstname="Karlijn";
+		$S3->insertion="van den";
+		$S3->surname="Hoogenhof";
+		$S3->save();
+		
+		$S4 = new Student;
+		$S4->firstname="Teun";
+		$S4->insertion="van den";
+		$S4->surname="Roosmalen";
+		$S4->save();
+		
+		$S5 = new Student;
+		$S5->firstname="Peter";
+		$S5->surname="Balk";
+		$S5->save();
+		
+		$S6 = new Student;
+		$S6->firstname="Leander";
+		$S6->insertion="van";
+		$S6->surname="Ooijen";
+		$S6->save();
+		
+		$S7 = new Student;
+		$S7->firstname="Niek";
+		$S7->surname="Groebb&eacute;";
+		$S7->save();
+		
+		$S8 = new Student;
+		$S8->firstname="Roel";
+		$S8->surname="Schouten";
+		$S8->save();
+		
+		$S9 = new Student;
+		$S9->firstname="Nico";
+		$S9->surname="Kranendonk";
+		$S9->save();
+		
+		$S10 = new Student;
+		$S10->firstname="Peter";
+		$S10->surname="Manders";
+		$S10->save();
+		
+		$S11 = new Student;
+		$S11->firstname="Shamon";
+		$S11->surname="Jansen";
+		$S11->save();
+		
+		$S12 = new Student;
+		$S12->firstname="Tonio";
+		$S12->surname="Hendrikx";
+		$S12->save();
+		
+		$S13 = new Student;
+		$S13->firstname="Roy";
+		$S13->insertion="van";
+		$S13->surname="Vugt";
+		$S13->save();
+		
+		$S14 = new Student;
+		$S14->firstname="Nicolette";
+		$S14->surname="Kramers";
+		$S14->save();
+		
+		$S15 = new Student;
+		$S15->firstname="Sander";
+		$S15->surname="Peeters";
+		$S15->save();
+		
+		$S16 = new Student;
+		$S16->firstname="Max";
+		$S16->insertion="van de";
+		$S16->surname="Ven";
+		$S16->save();
+		
+		$S17 = new Student;
+		$S17->firstname="Vincent";
+		$S17->surname="Ende";
+		$S17->save();
+		
+		$S18 = new Student;
+		$S18->firstname="Sharon";
+		$S18->insertion="van der";
+		$S18->surname="Geest";
+		$S18->save();
+		
+		$S19 = new Student;
+		$S19->firstname="Rutger";
+		$S19->insertion="van";
+		$S19->surname="Breugel";
+		$S19->save();
+		
+		$S20 = new Student;
+		$S20->firstname="John";
+		$S20->surname="Huiskes";
+		$S20->save();
+		
+		$S21 = new Student;
+		$S21->firstname="Marijn";
+		$S21->surname="Tax";
+		$S21->save();
+		
+		$S22 = new Student;
+		$S22->firstname="Willem";
+		$S22->surname="Schuit";
+		$S22->save();
+		
+		$S23 = new Student;
+		$S23->firstname="Wesley";
+		$S23->insertion="van den";
+		$S23->surname="Wildenberg";
+		$S23->save();
+		
+		$S24 = new Student;
+		$S24->firstname="Maghaidy";
+		$S24->surname="Dapauw";
+		$S24->save();
+		
+		$S25 = new Student;
+		$S25->firstname="Nikki";
+		$S25->insertion="van";
+		$S25->surname="Rosmalen";
+		$S25->save();
+		
+		$S26 = new Student;
+		$S26->firstname="Rens";
+		$S26->insertion="van den";
+		$S26->surname="Biggelaar";
+		$S26->save();
+		
+		$S27 = new Student;
+		$S27->firstname="Eli";
+		$S27->surname="Rongen";
+		$S27->save();
+		
+		$S28 = new Student;
+		$S28->firstname="Maurits";
+		$S28->surname="Smits";
+		$S28->save();
+		
+		
+		
+		$A0001 = new Activity;
+		$A0001->name="EPS bij Oslo University College";
+		$A0001->description="EPS bij Oslo University College";
+		$A0001->type=$eps->name;
+		$A0001->save();
+		
+		$A0002 = new Activity;
+		$A0002->name="EPS bij Novia University of Applied Sciences";
+		$A0002->description="EPS bij Novia University of Applied Sciences";
+		$A0002->type=$eps->name;
+		$A0002->save();
+		
+		$A0003 = new Activity;
+		$A0003->name="EPS bij Universidad Polit&eacute;cnica de Valencia";
+		$A0003->description="EPS bij Universidad Polit&eacute;cnica de Valencia";
+		$A0003->type=$eps->name;
+		$A0003->save();
+		
+		$A0004 = new Activity;
+		$A0004->name="EPS bij Ecole Nationale d&#39;Ing&eacute;nieurs de Tarbes";
+		$A0004->description="EPS bij Ecole Nationale d&#39;Ing&eacute;nieurs de Tarbes";
+		$A0004->type=$eps->name;
+		$A0004->save();
 }
 ?>
