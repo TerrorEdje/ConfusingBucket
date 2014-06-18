@@ -12,15 +12,24 @@
 		<legend class="the-legend text-primary">Information about the activity:</legend>
         <input name="activity_id" type="hidden" value="{{$activity['id']}}">
         <div class="col-sm-6">
-            <div class="form-group">
-                <label for="name" class="col-sm-3 control-label text-primary">Organization: </label>
-                <div class="col-sm-9">
-                    {{Form::select('organization',$organizations, $activity['organization_id'], array('class'=>'form-control')) }}
+            @if (checkAccess("Admin"))
+                <div class="form-group">
+                    <label for="name" class="col-sm-3 control-label text-primary">Organization: </label>
+                    <div class="col-sm-9">
+                        {{Form::select('organization',$organizations, $activity['organization_id'], array('class'=>'form-control')) }}
+                    </div>
+                    <div class="col-sm-offset-3 col-sm-9 has-error">
+                        {{ $errors->first('organization', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
+                    </div>
                 </div>
-                <div class="col-sm-offset-3 col-sm-9 has-error">
-                    {{ $errors->first('organization', '<span class="text-danger"><span class="glyphicon glyphicon-remove form-control-feedback"></span> :message</span>') }}
-                </div>
-            </div>
+            @elseif (checkAccess("Organization"))
+                <?php
+                    $user = User::find(Auth::user()->id);
+                    $usertype = Usertype::where('user_id','=',$user->id)->first();
+                ?>
+                {{ Form::hidden('organization',$usertype->organization_id) }}
+            @endif
+            
             
             <div class="form-group">
                 <label for="name" class="col-sm-3 control-label text-primary">Type: </label>

@@ -4,11 +4,19 @@ class ActivityController extends BaseController {
 	
     public function Activitycms()
 	{
-        $sortedActivities = array();
+        if (checkAccess("Organization"))
+        {
+        	$user = User::find(Auth::user()->id);
+			$usertype = Usertype::where('user_id','=',$user->id)->first();
+			$organizations = Organization::where('id','=',$usertype->organization_id)->where('status', '=', 'Approved')->get();
+        }
+        else
+        {
+        	$organizations = Organization::orderBy('name', 'asc')->where('status', '=', 'Approved')->get();
+        }
         
+        $sortedActivities = array();
         $i = 0;
-        //$organizations = Organization::all();
-        $organizations = Organization::orderBy('name', 'asc')->where('status', '=', 'Approved')->get();
         foreach ($organizations as $organization)
         {
             $sortedActivities[$i]['organization_name'] = $organization['name'];
