@@ -36,7 +36,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (!Auth::check()) 
+	if (Auth::check()) 
 	{
 		return "<h3><span class='text-danger';>You are not authorized to access this page.</span></h3>";
 	}

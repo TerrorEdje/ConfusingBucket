@@ -108,6 +108,20 @@ Route::group(array('before' => 'auth'), function() {
 			'uses'	=> 'AcceptanceController@updateExperienceStatus'
 		));
 		
+		/*
+		| Student post methods.
+		*/		
+		Route::post('student/upload', array(
+			'as'	=> 'Student-upload',
+			'uses'	=> 'StudentController@addStudentPost'
+		));
+		
+		Route::post('student/update', array(
+			'as'	=> 'Student-update-post',
+			'uses'	=> 'StudentController@updateStudentPost'
+		));
+		
+		
 	});
 	/* experience form | get*/
 	Route::get('experience/upload/{id}', array(
@@ -237,7 +251,7 @@ Route::group(array('before' => 'auth'), function() {
 		'uses'	=> 'StudentController@addStudentGet'
 	));
 	
-	Route::get('student/update', array(
+	Route::get('student/update/{id}', array(
 		'as'	=> 'Student-update',
 		'uses'	=> 'StudentController@updateStudentGet'
 	));
