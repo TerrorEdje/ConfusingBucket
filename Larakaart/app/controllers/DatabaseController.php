@@ -589,6 +589,185 @@ class DatabaseController extends BaseController {
 	
 	public function vullenNieuw()
 	{
+		$L0028 = new Location;
+		$L0028->country="Germany";
+		$L0028->city="Fulda";
+		$L0028->streetname="Marquardstrasse";
+		$L0028->number="35";
+		$L0028->zipcode="36039";
+		$L0028->latitude= 50,5640812;
+		$L0028->longitude= 9,6855138;
+		$L0028->save();
+		
+		$L0028O = new Organization;
+		$L0028O->name="Hochschule Fulda";
+		$L0028O->type="School";
+		$L0028O->description="Hochschule Fulda";
+		$L0028O->status="Approved";
+		$L0028O->save();
+	
+	
+
+		$L0029 = new Location;
+		$L0029->country="Germany";
+		$L0029->city="Kiel";
+		$L0029->streetname="Grenzstraße";
+		$L0029->number="5";
+		$L0029->zipcode="24149";
+		$L0029->latitude= 50,5640812;
+		$L0029->longitude= 9,6855139;
+		$L0029->save();
+		
+		$L0029O = new Organization;
+		$L0029O->name="Kiel University of Applied Sciences";
+		$L0029O->type="School";
+		$L0029O->description="Kiel University of Applied Sciences";
+		$L0029O->status="Approved";
+		$L0029O->save();
+	
+
+
+		$L0030 = new Location;
+		$L0030->country="Germany";
+		$L0030->city="Erfurt";
+		$L0030->streetname="Altonaerstrasse";
+		$L0030->number="25";
+		$L0030->zipcode="99085";
+		$L0030->latitude= 51,165691;
+		$L0030->longitude= 10,451526;
+		$L0030->save();
+		
+		$L0030O = new Organization;
+		$L0030O->name="Fachhochschule Erfurt";
+		$L0030O->type="School";
+		$L0030O->description="Fachhochschule Erfurt";
+		$L0030O->website="www.fh-erfurt.de";
+		$L0030O->status="Approved";
+		$L0030O->save();
+		
+
+		
+		$L0031 = new Location;
+		$L0031->country="Germany";
+		$L0031->city="Hamburg";
+		$L0031->streetname="Stiftstrasse";
+		$L0031->number="69";
+		$L0031->zipcode="20099";
+		$L0031->latitude= 53,5580847;
+		$L0031->longitude= 10,0119789;
+		$L0031->save();
+		
+		$L0031O = new Organization;
+		$L0031O->name="Hochschule Fur Agewandte Wissenschaften";
+		$L0031O->type="School";
+		$L0031O->description="Hochschule Fur Agewandte Wissenschaften";
+		$L0031O->status="Approved";
+		$L0031O->save();
+		
+		
+
+		$L0032 = new Location;
+		$L0032->country="Germany";
+		$L0032->city="Konstanz";
+		$L0032->streetname="Brauneggerstrasse";
+		$L0032->number="55";
+		$L0032->zipcode="D-78462";
+		$L0032->latitude= 47,6610948;
+		$L0032->longitude= 9,1764916;
+		$L0032->save();
+		
+		$L0032O = new Organization;
+		$L0032O->name="Fachhochschule Konstanz";
+		$L0032O->type="School";
+		$L0032O->description="Fachhochschule Konstanz";
+		$L0032O->status="Approved";
+		$L0032O->save();
+		
+		
+
+		$L0033 = new Location;
+		$L0033->country="Germany";
+		$L0033->city="Krefeld";
+		$L0033->streetname="Reinarzstrasse";
+		$L0033->number="49";
+		$L0033->zipcode="D-47805";
+		$L0033->latitude= 51,31681;
+		$L0033->longitude= 6,5712;
+		$L0033->save();
+		
+		$L0033O = new Organization;
+		$L0033O->name="Fachhochschule Niederrhein";
+		$L0033O->type="School";
+		$L0033O->description="Fachhochschule Niederrhein";
+		$L0033O->status="Approved";
+		$L0033O->save();
+		
+
+		
+		$L0034 = new Location;
+		$L0034->country="Germany";
+		$L0034->city="Kiel";
+		$L0034->streetname="Grentzstrasse";
+		$L0034->number="3";
+		$L0034->zipcode="D-24149";
+		$L0034->latitude= 54,3299746;
+		$L0034->longitude= 10,1790644;
+		$L0034->save();
+		
+		$L0034O = new Organization;
+		$L0034O->name="Faculty of Mechanical Engineering";
+		$L0034O->type="School";
+		$L0034O->description="Faculty of Mechanical Engineering";
+		$L0034O->website="www.fh-kiel.de";
+		$L0034O->status="Approved";
+		$L0034O->save();
+		
+
+		
+		$L0035 = new Location;
+		$L0035->country="Germany";
+		$L0035->city="Heilbronn";
+		$L0035->streetname="Max-Planck-Strasse";
+		$L0035->number="39";
+		$L0035->zipcode="D-74081";
+		$L0035->latitude= 49,12194;
+		$L0035->longitude= 9,21092;
+		$L0035->save();
+		
+		$L0035O = new Organization;
+		$L0035O->name="Hochschule Heilbronn";
+		$L0035O->type="School";
+		$L0035O->description="Hochschule Heilbronn";
+		$L0035O->status="Approved";
+		$L0035O->save();
+		
+		
+
+		$L0036 = new Location;
+		$L0036->country="Germany";
+		$L0036->city="Krefeld";
+		$L0036->streetname="Reinartzstrasse";
+		$L0036->number="49";
+		$L0036->zipcode="47805";
+		$L0036->latitude= 51,31681;
+		$L0036->longitude= 6,5712;
+		$L0036->save();
+		
+		$L0036O = new Organization;
+		$L0036O->name="Hochschule Niederrhein";
+		$L0036O->type="School";
+		$L0036O->description="Hochschule Niederrhein";
+		$L0036O->status="Approved";
+		$L0036O->save();
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		$L0055 = new Location;
 		$L0055->country="Spain";
 		$L0055->city="Santander";
