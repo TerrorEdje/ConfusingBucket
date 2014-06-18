@@ -27,7 +27,7 @@ class StudentController extends BaseController {
 		(
 			'firstname' => 'required',
 			'surname' => 'required',
-			'email' => 'required|email',
+			'email' => 'email',
 			'study' => 'required'		
 		);
 		
@@ -41,7 +41,7 @@ class StudentController extends BaseController {
 		
 		if($validator->fails())
 		{
-			$studies = array('' => 'Select...') + Study::lists('name','name');
+			$studies = array('' => 'Select...') + Study::lists('name','id');
 			return Redirect::to('student/upload')->with('studies', $studies)->withErrors($validator->messages())->withInput();
 		}
 		else
@@ -59,11 +59,38 @@ class StudentController extends BaseController {
 	
 	public function updateStudentPost()
 	{
+		$rules = array
+		(
+			'firstname' => 'required',
+			'surname' => 'required',
+			'email' => 'email',
+			'study' => 'required'		
+		);
 		
-	
-	
-	
-		return Redirect::route('Student-cms');
+		$messages = array
+		(
+			'required' => ':attribute is a required field.',
+			'email' => 'this is not a valid email.'
+		);
+		
+		$validator = Validator::make(Input::all(),$rules,$messages);
+		
+		if($validator->fails())
+		{
+			$studies = array('' => 'Select...') + Study::lists('name','id');
+			return Redirect::route('Student-update',Input::get('student_id'))->with('studies', $studies)->withErrors($validator->messages())->withInput();
+		}
+		else
+		{
+			$student = Student::find(Input::get('student_id'));
+			$student->firstname = Input::get('firstname');
+			$student->insertion = Input::get('insertion');
+			$student->surname = Input::get('surname');
+			$student->email	= Input::get('email');
+			$student->study_id = Input::get('study');
+			$student->save();
+			return 'The student has been updated.';
+		}
 	}
 	
 	

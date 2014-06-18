@@ -116,8 +116,8 @@ Route::group(array('before' => 'auth'), function() {
 			'uses'	=> 'StudentController@addStudentPost'
 		));
 		
-		Route::post('student/update/{id}', array(
-			'as'	=> 'Student-update',
+		Route::post('student/update', array(
+			'as'	=> 'Student-update-post',
 			'uses'	=> 'StudentController@updateStudentPost'
 		));
 		
@@ -251,7 +251,7 @@ Route::group(array('before' => 'auth'), function() {
 		'uses'	=> 'StudentController@addStudentGet'
 	));
 	
-	Route::get('student/update', array(
+	Route::get('student/update/{id}', array(
 		'as'	=> 'Student-update',
 		'uses'	=> 'StudentController@updateStudentGet'
 	));
