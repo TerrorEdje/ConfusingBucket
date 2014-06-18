@@ -38,15 +38,19 @@
 					</div>
 				</div>
 				
-				<div class="form-group">
-					<label for="name" class="col-sm-4 control-label text-primary">Student: </label>
-					<div class="col-sm-4">
-						{{ Form::select('student', $students, Input::old('name'), array('class' => 'form-control')) }}
+				@if(checkAccess('Admin'))
+					<div class="form-group">
+						<label for="name" class="col-sm-4 control-label text-primary">Student: </label>
+						<div class="col-sm-4">
+							{{ Form::select('student', $students, Input::old('name'), array('class' => 'form-control')) }}
+						</div>
+						<div class="col-sm-offset-4 col-sm-8 has-error">
+							{{ $errors->first('student', '<span class="text-danger"><span class="glyphicon glyphicon-remove"></span> :message</span>') }}
+						</div>
 					</div>
-					<div class="col-sm-offset-4 col-sm-8 has-error">
-						{{ $errors->first('student', '<span class="text-danger"><span class="glyphicon glyphicon-remove"></span> :message</span>') }}
-					</div>
-				</div>
+				@elseif(checkAccess('Student'))
+					{{ Form::hidden('student', Auth::user->id) }}
+				@endif
 				
 				<div class="form-group">
 					<div class="col-sm-offset-4 col-sm-8">
