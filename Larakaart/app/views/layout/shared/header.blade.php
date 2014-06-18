@@ -22,36 +22,47 @@
 									Organizations
 								</a>
 							</li>
-                            <li class="dropdown activity_cmsmenu experience_uploadmenu organization_cmsmenu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li class="activity_cmsmenu">
-                                        <a href="#" onclick="load('{{ URL::route('Activity-cms') }}', 'activity_cmsmenu'); return false;">
-                                            Activity
-                                        </a>
-                                    </li>
-                                    <li class="organization_cmsmenu">
-                                        <a href="#" onclick="load('{{ URL::route('Organization-cms') }}', 'organization_cmsmenu'); return false;">
-                                            Organization
-                                        </a>
-                                    </li>
-									<li class="school_cmsmenu">
-                                        <a href="#" onclick="load('{{ URL::route('School-cms') }}', 'school_cmsmenu'); return false;">
-                                            School
-                                        </a>
-                                    </li>
-									<li class="study_cmsmenu">
-                                        <a href="#" onclick="load('{{ URL::route('Study-cms') }}', 'study_cmsmenu'); return false;">
-                                            Study
-										</a>
-									</li>
-									<li class="experience_cmsmenu">
-                                        <a href="#" onclick="load('{{ URL::route('Experience-cms-list') }}', 'experience_cmsmenu'); return false;">
-                                            Experience
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+							@if(checkAccess("Student"))
+								<li class="">
+									<a href="#" onclick="load('{{ URL::route('Experience-upload-get') }}'); return false;">
+										Add expierence
+									</a>
+								</li>
+							@endif
+							@if(checkAccess("Admin","Organization"))
+	                            <li class="dropdown activity_cmsmenu experience_uploadmenu organization_cmsmenu">
+	                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS <b class="caret"></b></a>
+	                                <ul class="dropdown-menu">
+	                                    <li class="activity_cmsmenu">
+	                                        <a href="#" onclick="load('{{ URL::route('Activity-cms') }}', 'activity_cmsmenu'); return false;">
+	                                            Activity
+	                                        </a>
+	                                    </li>
+	                                    <li class="organization_cmsmenu">
+	                                        <a href="#" onclick="load('{{ URL::route('Organization-cms') }}', 'organization_cmsmenu'); return false;">
+	                                            Organization
+	                                        </a>
+	                                    </li>
+	                                    @if(checkAccess("Admin"))
+											<li class="school_cmsmenu">
+		                                        <a href="#" onclick="load('{{ URL::route('School-cms') }}', 'school_cmsmenu'); return false;">
+		                                            School
+		                                        </a>
+		                                    </li>
+											<li class="study_cmsmenu">
+		                                        <a href="#" onclick="load('{{ URL::route('Study-cms') }}', 'study_cmsmenu'); return false;">
+		                                            Study
+												</a>
+											</li>
+											<li class="experience_cmsmenu">
+		                                        <a href="#" onclick="load('{{ URL::route('Experience-cms-list') }}', 'experience_cmsmenu'); return false;">
+		                                            Experience
+		                                        </a>
+		                                    </li>
+	                                    @endif
+	                                </ul>
+	                            </li>
+                            @endif
 							<!--<li class="authtestmenu">
 								<a href="#" onclick="load('authtest.php'); return false;">
 									Admin

@@ -5,15 +5,50 @@
 
 function checkAdminAccess()
 {
-	if($Auth::user() != null) {
+	if(Auth::user() != null) {
 
 		$user = User::find(Auth::user()->id);
-		$usertype = Usertype::find($user->id);
+		$usertype = Usertype::where('user_id','=',$user->id)->first();
 
 		if($usertype != null) {
 			if ($usertype->admin_id != 0)
 			{
 				return true;
+			}
+		}
+	}
+
+	return false;
+}
+
+function checkAccess()
+{
+	$allowedRights = func_get_args();
+	if(Auth::check()) {
+		$user = User::find(Auth::user()->id);
+		$usertype = Usertype::where('user_id','=',$user->id)->first();
+		foreach($allowedRights as $allowed)
+		{
+			if ($allowed == "Admin")
+			{
+				if ($usertype->admin_id != 0)
+				{
+					return true;
+				}
+			}
+			if ($allowed == "Organization")
+			{
+				if ($usertype->organization_id != 0)
+				{
+					return true;
+				}
+			}
+			if ($allowed == "Student")
+			{
+				if ($usertype->student_id != 0)
+				{
+					return true;
+				}
 			}
 		}
 	}
