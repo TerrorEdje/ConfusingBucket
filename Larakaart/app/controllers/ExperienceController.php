@@ -14,11 +14,11 @@ class ExperienceController extends BaseController {
 	{
 		$organization = Organization::find($id);
 		
-		$activities = Activity::where('organization_id','=',$id)->get();
+		$activities = Activity::where('organization_id','=',$id)->where('status', '=', 'Approved')->get();
 		$experiences = array();
 		foreach ($activities as $activity)
 		{
-			$tempexperience = Experience::where('activity_id','=',$activity->id)->get();
+			$tempexperience = Experience::where('activity_id','=',$activity->id)->where('status', '=', 'Approved')->get();
 			foreach($tempexperience as $experience)
 			{
 				array_push($experiences,$experience);
@@ -38,7 +38,7 @@ class ExperienceController extends BaseController {
 	
 	public function uploadExperience($id)
 	{	
-		$dbActivities = Activity::where('organization_id', '=', $id)->get();
+		$dbActivities = Activity::where('organization_id', '=', $id)->where('status', '=', 'Approved')->get();
 		
 		$infoActivities = array();
 		foreach ($dbActivities as $activity) {
@@ -87,7 +87,7 @@ class ExperienceController extends BaseController {
 		if($validator->fails())
 		{		
 			$id = Input::get('orgID');
-			$dbActivities = Activity::where('organization_id', '=', $id)->get();
+			$dbActivities = Activity::wherewhere('organization_id', '=', $id)->where('status', '=', 'Approved')->get();
 		
 			$infoActivities = array();
 			foreach ($dbActivities as $activity) {

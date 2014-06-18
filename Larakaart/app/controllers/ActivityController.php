@@ -8,11 +8,11 @@ class ActivityController extends BaseController {
         
         $i = 0;
         //$organizations = Organization::all();
-        $organizations = Organization::orderBy('name', 'asc')->get();
+        $organizations = Organization::orderBy('name', 'asc')->where('status', '=', 'Approved')->get();
         foreach ($organizations as $organization)
         {
             $sortedActivities[$i]['organization_name'] = $organization['name'];
-            $sortedActivities[$i]['activities'] = Activity::where('organization_id', '=', $organization['id'])->get();
+            $sortedActivities[$i]['activities'] = Activity::where('organization_id', '=', $organization['id'])->where('status', '=', 'Approved')->get();
             $i++;
         }
 		return View::make('activity/cms',array('sortedActivities' => $sortedActivities));

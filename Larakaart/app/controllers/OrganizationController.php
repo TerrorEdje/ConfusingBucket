@@ -7,11 +7,11 @@ class OrganizationController extends BaseController {
 		$errors = array();		
 		$organization = Organization::find($id);
 		
-		$activities = Activity::where('organization_id','=',$id)->get();
+		$activities = Activity::where('organization_id','=',$id)->where('status', '=', 'Approved')->get();
 		$experiences = array();
 		foreach ($activities as $activity)
 		{
-			$tempexperience = Experience::where('activity_id','=',$activity->id)->get();
+			$tempexperience = Experience::where('activity_id','=',$activity->id)->where('status', '=', 'Approved')->get();
 			foreach($tempexperience as $experience)
 			{
 				array_push($experiences,$experience);
@@ -34,7 +34,7 @@ class OrganizationController extends BaseController {
 		{
 			$ids = explode(",", $ids);
 			
-			$DBorganizations = Organization::orderBy('name','asc')->get();
+			$DBorganizations = Organization::orderBy('name','asc')->where('status', '=', 'Approved')->get();
 			
 			
             $organizations = array();
@@ -49,7 +49,7 @@ class OrganizationController extends BaseController {
 		}
 		else
 		{
-			$organizations = Organization::orderBy('name','asc')->get();
+			$organizations = Organization::orderBy('name','asc')->where('status', '=', 'Approved')->get();
 
 		}
 		
@@ -58,7 +58,7 @@ class OrganizationController extends BaseController {
 	
 	public function organizationcms()
 	{
-		$organizations = Organization::orderBy('name','asc')->get();
+		$organizations = Organization::orderBy('name','asc')->where('status', '=', 'Approved')->get();
 		return View::make('organization/cms',array('organizations' => $organizations));
 	}
 	
