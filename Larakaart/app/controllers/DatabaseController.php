@@ -569,6 +569,177 @@ class DatabaseController extends BaseController {
 			
 		return View::make('gevuld');	
 	}
+	
+	public function vullenNieuw()
+	{
+		$L0055 = new Location;
+		$L0055->country="Spain";
+		$L0055->city="Santander";
+		$L0055->streetname="Avda. Los Castros";
+		$L0055->number="s&#47;n";
+		$L0055->zipcode="39005";
+		$L0055->latitude=43,4705812;
+		$L0055->longitude=-3,8028812;
+		$L0055->save();
+		
+		$cantabria = new Organization;
+		$cantabria->name="Universidad de Cantabria";
+		$cantabria->type="School";
+		$cantabria->description="Universidad de Cantabria";
+		$cantabria->status="Approved";
+		$cantabria->save();
+		
+		
+		$L0056 = new Location;
+		$L0056->country="Switzerland";
+		$L0056->city="Yverdon&#45;Les&#45;Bains";
+		$L0056->streetname="Route de Cheseaux";
+		$L0056->number="1 CP";
+		$L0056->zipcode="CH&#45;1401";
+		$L0056->latitude=46,7782175;
+		$L0056->longitude=6,6414898;
+		$L0056->save();
+		
+		$gestion = new Organization;
+		$gestion->name="Haute Ecole d&#39;Ing&eacute;nierie et de Gestion du Canton de Vaud";
+		$gestion->type="School";
+		$gestion->description="Haute Ecole d&#39;Ing&eacute;nierie et de Gestion du Canton de Vaud";
+		$gestion->status="Approved";
+		$gestion->save();
+		
+		
+		
+		$L0057 = new Location;
+		$L0057->country="Turkey";
+		$L0057->city="Bornova Izmir";
+		$L0057->streetname="Caddesi";
+		$L0057->number="12";
+		$L0057->zipcode="35040";
+		$L0057->latitude=38,466414;
+		$L0057->longitude=27,2192191;
+		$L0057->save();
+		
+		$ege = new Organization;
+		$ege->name="Ege University";
+		$ege->type="School";
+		$ege->description="Ege University";
+		$ege->status="Approved";
+		$ege->save();
+		
+		
+		
+		$L0058 = new Location;
+		$L0058->country="Turkey";
+		$L0058->city="Bornova Izmir";
+		$L0058->streetname="Caddesi";
+		$L0058->number="35&#45;37";
+		$L0058->zipcode="35040";
+		$L0058->latitude=38,466414;
+		$L0058->longitude=27,2192191;
+		$L0058->save();
+		
+		$yasar = new Organization;
+		$yasar->name="Yasar University";
+		$yasar->type="School";
+		$yasar->description="Yasar University";
+		$yasar->status="Approved";
+		$yasar->save();
+		
+		
+		
+		$L0059 = new Location;
+		$L0059->country="USA";
+		$L0059->city="Houghton";
+		$L0059->streetname="Townsend Drive";
+		$L0059->number="1400";
+		$L0059->zipcode="49931";
+		$L0059->latitude=47,1177282;
+		$L0059->longitude=-88,5420061;
+		$L0059->save();
+		
+		$michigan = new Organization;
+		$michigan->name="Michigan Technological University";
+		$michigan->type="School";
+		$michigan->description="Michigan Technological University";
+		$michigan->status="Approved";
+		$michigan->save();
+		
+		
+		
+		$L0060 = new Location;
+		$L0060->country="USA";
+		$L0060->city="Rapid City";
+		$L0060->streetname="St&#46; Joseph Street";
+		$L0060->number="501 E&#46;";
+		$L0060->zipcode="57701-3995";
+		$L0060->latitude=44,0736727;
+		$L0060->longitude=103,2062792;
+		$L0060->save();
+		
+		$sdakota = new Organization;
+		$sdakota->name="South Dakota School of Mines and Technology";
+		$sdakota->type="School";
+		$sdakota->description="South Dakota School of Mines and Technology";
+		$sdakota->status="Approved";
+		$sdakota->save();
+		
+		
+		
+		$L0061 = new Location;
+		$L0061->country="Romania";
+		$L0061->city="Bucuresti";
+		$L0061->streetname="Splaiul Independentei";
+		$L0061->number="313";
+		$L0061->zipcode="RO&#45;060042";
+		$L0061->latitude=44,4438839;
+		$L0061->longitude=26,0537875;
+		$L0061->save();
+		
+		$bucharest = new Organization;
+		$bucharest->name="University &quot;Politehnica&quot; of Bucharest";
+		$bucharest->type="School";
+		$bucharest->description="University &quot;Politehnica&quot; of Bucharest";
+		$bucharest->status="Approved";
+		$bucharest->save();
+		
+		
+		
+		$L0062 = new Location;
+		$L0062->country="Austria";
+		$L0062->city="St. P&ouml;lten";
+		$L0062->streetname="Matthias Corvinus&#45;Stra&szlig;e";
+		$L0062->number="15";
+		$L0062->zipcode="A&#45;3100";
+		$L0062->latitude=47,516231;
+		$L0062->longitude=14,550072;
+		$L0062->save();
+		
+		$polten = new Organization;
+		$polten->name="Fachhochschule St&#46; P&ouml;lten";
+		$polten->type="School";
+		$polten->description="Fachhochschule St&#46; P&ouml;lten";
+		$polten->status="Approved";
+		$polten->save();
+		
+		
+		
+		$L0063 = new Location;
+		$L0063->country="Germany";
+		$L0063->city="Stuttgart";
+		$L0063->streetname="Nobelstra&szlig;e";
+		$L0063->number="1";
+		$L0063->zipcode="70569";
+		$L0063->latitude=47,516231;
+		$L0063->longitude=14,550073;
+		$L0063->save();
+		
+		$medien = new Organization;
+		$medien->name="Fachhochschule der Medi&euml;n";
+		$medien->type="School";
+		$medien->description="Fachhochschule der Medi&euml;n";
+		$medien->status="Approved";
+		$medien->save();
+	}
 
 }
 ?>
