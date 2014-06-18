@@ -58,6 +58,12 @@ class OrganizationController extends BaseController {
 	
 	public function organizationcms()
 	{
+		if (checkAccess("Organization"))
+		{
+			$user = User::find(Auth::user()->id);
+			$usertype = Usertype::where('user_id','=',$user->id)->first();
+			return Redirect::route('Organization-update-get',$usertype->organization_id);
+		}
 		$organizations = Organization::orderBy('name','asc')->get();
 		return View::make('organization/cms',array('organizations' => $organizations));
 	}

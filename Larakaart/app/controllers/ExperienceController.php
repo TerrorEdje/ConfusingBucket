@@ -38,8 +38,12 @@ class ExperienceController extends BaseController {
 	
 	public function uploadExperience($id)
 	{	
-		$dbActivities = Activity::where('organization_id', '=', $id)->get();
-		
+		if (isset($id))
+			$dbActivities = Activity::where('organization_id', '=', $id)->where('status','=','Approved')->get();
+
+		if ($dbActivities->count() == 0)
+			$dbActivities = Activity::where('status','=','Approved')->get();
+
 		$infoActivities = array();
 		foreach ($dbActivities as $activity) {
 			$infoActivities[$activity->id] = $activity->name;

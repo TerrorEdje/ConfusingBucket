@@ -49,7 +49,11 @@
 						</div>
 					</div>
 				@elseif(checkAccess('Student'))
-					{{ Form::hidden('student', Auth::user->id) }}
+					<?php
+						$user = User::find(Auth::user()->id);
+						$usertype = Usertype::where('user_id','=',$user->id)->first();
+					?>
+					{{ Form::hidden('student', $usertype->student_id) }}
 				@endif
 				
 				<div class="form-group">
