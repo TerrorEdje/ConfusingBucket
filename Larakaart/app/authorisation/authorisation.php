@@ -3,7 +3,7 @@
 //	Pagina bv organisatie 
 //	Nummertje van organisatie
 
-function checkAdminAccess($id)
+function checkAdminAccess()
 {
 	if($Auth::user() != null) {
 
@@ -11,7 +11,7 @@ function checkAdminAccess($id)
 		$usertype = Usertype::find($user->id);
 
 		if($usertype != null) {
-			if ($usertype->$admin_id != 0)
+			if ($usertype->admin_id != 0)
 			{
 				return true;
 			}
@@ -63,12 +63,12 @@ function checkPageAcces($pageType, $id) {
 		$usertype = Usertype::find($user->id);
 
 		if($pageType == "organization") {
-			if( $usertype->organization_id != null) {
+			if( $usertype->organization_id != $id) {
 				return true;
 			}
 		}
 		if($pageType == "student") {
-			if($usertype->student_id != null ) {
+			if($usertype->student_id != $id ) {
 				return true;
 			}
 		}

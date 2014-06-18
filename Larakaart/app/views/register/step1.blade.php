@@ -26,7 +26,7 @@
 
 	<div class="subNote">
 	
-		<p class="text-primary">If you abourt the registration you can't loggin and have to do it all over next time</p>
+		<p class="text-primary">If you cancel the registration you have to do it again next time.</p>
 
 		<br />
 
