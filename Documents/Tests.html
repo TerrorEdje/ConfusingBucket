@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Tests.html</title>
+  <meta name="generator" content="haroopad 0.9.1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>html{height:100%}body{margin:0!important;padding:5px 20px!important;background-color:#fff;font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',Helvetica,nanumgothic,sans-serif,Menlo,Monaco,monospace;font-size:.9em;overflow-x:hidden;overflow-y:auto}h1,h2,h3,h4,h5,h6,br{clear:both}body >:first-child{margin-top:0!important}img.plugin{box-shadow:0 1px 3px rgba(0,0,0,.1);border-radius:3px}iframe{border:0}figure{-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end:0}.oembeded .oembed_photo{display:inline-block}.spinner{display:inline-block;width:10px;height:10px;margin-bottom:-.1em;border:2px solid rgba(0,0,0,.5);border-top-color:transparent;border-radius:100%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}.spinner:after{content:'';display:block;width:0;height:0;position:absolute;top:-6px;left:0;border:4px solid transparent;border-bottom-color:rgba(0,0,0,.5);-webkit-transform:rotate(45deg);transform:rotate(45deg)}@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}@keyframes spin{to{transform:rotate(360deg)}}.markdown{padding:20px}.markdown a{text-decoration:none;vertical-align:baseline}.markdown a:hover{text-decoration:underline}.markdown h1{font-size:2.2em;font-weight:700;margin:1.5em 0 1em}.markdown h2{font-size:1.8em;font-weight:700;margin:1.275em 0 .85em}.markdown h3{font-size:1.6em;font-weight:700;margin:1.125em 0 .75em}.markdown h4{font-size:1.4em;font-weight:700;margin:.99em 0 .66em}.markdown h5{font-size:1.2em;font-weight:700;margin:.855em 0 .57em}.markdown h6{font-size:1em;font-weight:700;margin:.75em 0 .5em}.markdown h1:first-child,.markdown h2:first-child,.markdown h3:first-child,.markdown h4:first-child,.markdown h5:first-child,.markdown h6:first-child{margin-top:0}.markdown h1+p,.markdown h2+p,.markdown h3+p,.markdown h4+p,.markdown h5+p,.markdown h6+p{margin-top:0}.markdown hr{border:1px solid #ccc}.markdown p{margin:1em 0;word-wrap:break-word}.markdown ol{list-style-type:decimal}.markdown li{display:list-item;line-height:1.4em}.markdown blockquote{margin:1em 20px}.markdown blockquote>:first-child{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown blockquote cite:before{content:'\2014 \00A0'}.markdown .code{border-radius:3px;word-break:break-all;word-wrap:break-word}.markdown pre{border-radius:3px;word-break:break-all;word-wrap:break-word;overflow:auto}.markdown pre code{display:block}.markdown pre>code{border:1px solid #ccc;white-space:pre;padding:.5em;margin:0}.markdown code{border-radius:3px;word-break:break-all;word-wrap:break-word;border:1px solid #ccc;padding:0 5px;margin:0 2px}.markdown img{max-width:100%}.markdown table{padding:0;border-collapse:collapse;border-spacing:0}.markdown table tr th,.markdown table tr td{border:1px solid #ccc;margin:0;padding:6px 13px}.markdown table tr th{font-weight:700}.markdown table tr th>:first-child{margin-top:0}.markdown table tr th>:last-child{margin-bottom:0}.markdown table tr td>:first-child{margin-top:0}.markdown table tr td>:last-child{margin-bottom:0}.markdown{}.markdown em.underline{font-style:normal;text-decoration:underline}.markdown strong.highlight{font-style:normal;background-color:#fdffb6;-webkit-box-shadow:#fdffb6 0 0 5px;-moz-box-shadow:#fdffb6 0 0 5px;box-shadow:#fdffb6 0 0 5px;font-weight:400}@import url(http://fonts.googleapis.com/css?family=Tauri);@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700);.haroopad{padding:20px;color:#222;font-size:15px;font-family:'Roboto Condensed',Tauri,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",AppleSDGothicNeo-Medium,'Segoe UI','Malgun Gothic',Verdana,Tahoma,sans-serif;background:#fff;-webkit-font-smoothing:antialiased}.haroopad a{color:#3269a0}.haroopad a:hover{color:#4183c4}.haroopad h2{border-bottom:1px solid #e6e6e6}.haroopad h6{color:#777}.haroopad hr{border:1px solid #e6e6e6}.haroopad p>code{font-family:Consolas,Inconsolata,Courier,monospace;color:#BD006A}.haroopad pre>code{font-size:1em;font-family:Consolas,Inconsolata,Courier,monospace;letter-spacing:-1px;font-weight:700}.haroopad blockquote{border-left:4px solid #e6e6e6;padding:0 15px;font-style:italic}.haroopad table{background-color:#fafafa}.haroopad table tr th,.haroopad table tr td{border:1px solid #e6e6e6}.haroopad table tr:nth-child(2n){background-color:#f2f2f2}pre code{display:block;padding:.5em;background:#fdf6e3;color:#657b83}pre .comment,pre .template_comment,pre .diff .header,pre .doctype,pre .pi,pre .lisp .string,pre .javadoc{color:#93a1a1;font-style:italic}pre .keyword,pre .winutils,pre .method,pre .addition,pre .css .tag,pre .request,pre .status,pre .nginx .title{color:#859900}pre .number,pre .command,pre .string,pre .tag .value,pre .rules .value,pre .phpdoc,pre .tex .formula,pre .regexp,pre .hexcolor{color:#2aa198}pre .title,pre .localvars,pre .chunk,pre .decorator,pre .built_in,pre .identifier,pre .vhdl .literal,pre .id,pre .css .function{color:#268bd2}pre .attribute,pre .variable,pre .lisp .body,pre .smalltalk .number,pre .constant,pre .class .title,pre .parent,pre .haskell .type{color:#b58900}pre .preprocessor,pre .preprocessor .keyword,pre .shebang,pre .symbol,pre .symbol .string,pre .diff .change,pre .special,pre .attr_selector,pre .important,pre .subst,pre .cdata,pre .clojure .title,pre .css .pseudo{color:#cb4b16}pre .deletion{color:#dc322f}pre .tex .formula{background:#eee8d5}footer{position:fixed;font-size:.8em;text-align:right;bottom:0;margin-left:-25px;height:20px;width:100%}</style>
+</head>
+<body class="markdown haroopad">
+
+  <h1>Tests</h1><h1>Template</h1><h2>Testcase :</h2><p><strong>Test:</strong></p><p><strong>Stappen:</strong></p><p><strong>Verwacht resultaat:</strong></p><h2>Testcase 1: Google maps API</h2><p><strong>Test:</strong>
+Werkt de map</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website.</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De kaart moet in het browser venster verschijnen</p><h2>Testcase 2: Google maps API Markers</h2><p><strong>Test:</strong>
+Werkt het uitlezen van de markers uit de database.</p><p><strong>Stappen:</strong></p><ol>
+<li>Vul de database met het vulscript</li>
+<li>Open de website.</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Op de kaart staat een marker in Vaasa (Finland).</p><h2>Testcase 3.1: Data uit de database halen. (Repositories en Models)</h2><p><strong>Test:</strong>
+Er wordt data uit de database gehaald.</p><p><strong>Stappen:</strong></p><ol>
+<li>Vul de database met het vulscript</li>
+<li>Open de website.</li>
+<li>Klik op Organizations</li>
+<li>Klik willekeurig op de organisaties</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Controleer of de volgende records er staan:</p><ol>
+<li>Kraft Foods (Herentals, Belgium)</li>
+<li>Weltec Centre for Smart Product (Wellington, New Zealand)</li>
+<li>Copenhagen University of Engineering (Copenhagen, Denmark)</li>
+<li>Novia University of Applied Sciences (Vaasa, Finland)</li>
+<li>Universidad Politecnica de Valencia (Valencia, Spain)</li>
+<li>Noorwegen, Buskerud University (Kongsberg, Norway)</li>
+<li>Australian Centre for Field Robotics (Sydney, Australia)</li>
+<li>Suralco LLC (Paramaribo, Suriname)</li>
+</ol><p>Bij klikken op een organisatie wordt de accordion uitgevouwen voor die organisatie. Als er een andere al open stond, wordt die tegelijk gesloten.</p><p>Als er op een organisatie is geklikt, zijn de volgende dingen te zien:</p><ol>
+<li>Type van de organisatie (Company of School)</li>
+<li>Een omschrijving van de organisatie (Lorem Ipsum)</li>
+<li>Een link (Learn more)</li>
+</ol><h2>Testcase 3.2: Data uit de database halen. (Repositories en Models)</h2><p><strong>Test:</strong>
+Wordt data uit de database gehaald.</p><p><strong>Stappen:</strong></p><ol>
+<li>Vul de database met het vulscript.</li>
+<li>Open de website.</li>
+<li>Klik op de marker met een ‘3’ erin.</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Er wordt een lijst met de volgende 3 records getoont:</p><ol>
+<li>Kraft Foods (Herentals, Belgium)</li>
+<li>Copenhagen University of Engineering (Copenhagen, Denmark)</li>
+<li>Noorwegen, Buskerud University (Kongsberg, Norway)</li>
+</ol><h2>Testcase 4.1: Detail organization weergeven op de website (accordion)</h2><p><strong>Test:</strong>
+Details van een organization worden weergegeven.</p><p><strong>Stappen:</strong></p><ol>
+<li>Vul de database met het vulscript.</li>
+<li>Open de website.</li>
+<li>Klik op Organizations.</li>
+<li>Klik op de eerste organisatie.</li>
+<li>Klik op Learn more</li>
+<li><ol>
+<li>Klik op about</li>
+<li>Klik op Activities</li>
+<li>Klik op Experiences</li>
+</ol>
+</li>
+</ol><p><strong>Verwacht resultaat:</strong></p><ol>
+<li>About:
+Je komt op een pagina met informatie van de organization Kraft Foods. Gegevens:<ol>
+<li>Herentals</li>
+<li>Belgium.</li>
+</ol>
+</li>
+<li>Activities:
+Je komt op een pagina met een activity van de organisatie Kraft Foods. Gegevens:<ol>
+<li>Final thesis Kraft Foods</li>
+<li>closed</li>
+<li>Industrial Engineering</li>
+<li>Start: 01-01-2012</li>
+<li>End: 01-01-2013</li>
+</ol>
+</li>
+<li>Experiances:
+Je komt op een pagina met twee experiences van studenten over Kraft Foods. Gegevens:<ol>
+<li>Donald Rutgers</li>
+<li>Jorick Dam</li>
+</ol>
+</li>
+</ol><h2>Testcase 4.2: Detail organization weergeven op de website (marker)</h2><p><strong>Test:</strong>
+Details van een organization worden weergegeven</p><p><strong>Stappen:</strong></p><ol>
+<li>Vul de database met het vulscript.</li>
+<li>Open de website.</li>
+<li>Klik op de marker die in Vaasa staat.</li>
+</ol><p><strong>Verwacht resultaat:</strong></p><ol>
+<li>About:
+Je komt op een pagina met informatie van de organization Novia University of Applied Sciences. Gegevens:<ol>
+<li>Vaasa</li>
+<li>Finland.</li>
+</ol>
+</li>
+<li>Activities:
+Je komt op een pagina met een activity van de organisatie Novia University of Applied Sciences. Gegevens:<ol>
+<li>EPS Novia University of Applied Sciences</li>
+<li>closed</li>
+<li>EPS</li>
+<li>Computer Sience</li>
+<li>Start: 01-01-2012</li>
+<li>End: 01-01-2013</li>
+</ol>
+</li>
+<li>Experiences:
+Je komt op een pagina met de experience van een student over Novia University of Applied Sciences. Gegevens:<ol>
+<li>Rudy Chambon</li>
+</ol>
+</li>
+</ol><h2>Testcase 8: Markers groeperen</h2><p><strong>Test:</strong>
+Kijken of de markers groeperen</p><p><strong>Stappen:</strong></p><ol>
+<li>Vul de database met het vulscript.</li>
+<li>In Europa staan 3 markers op elkaar.<ol>
+<li>Kraft Foods (Herentals, Belgium)</li>
+<li>Copenhagen University of Engineering (Copenhagen, Denmark)</li>
+<li>Noorwegen, Buskerud University (Kongsberg, Norway)</li>
+</ol>
+</li>
+<li>Klik op de groep</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Het aantal op de groep komt overeen met het aantal stories in de lijst (accordion)</p><h2>Testcase 9: Zoek functionaliteit</h2><p><strong>Test:</strong>
+Controleren of de zoekfunctie klopt</p><p><strong>Stappen:</strong></p><ol>
+<li>Vul de database met het vulscript.</li>
+<li>Vul de volgende gegens in:<br>Copenhagen<br>City<br>Type: Minor (rest niet)<br>Year: 2012-2013<br>Study: Communication and Multimedia Designe</li>
+<li>Het jaar en de study moeten een auto-aanvul suggestie krijgen. De zoekbalk moet een suggestie krijgen voor stad of land (gelijk aan de keuze)</li>
+<li>Klik op Search</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Er staat 1 marker in Copenhagen. De rest van de markers zijn weg. 
+Als je op reset klikt, moeten alle velden naar de stadaard gezet worden en alle markers moeten weer verschijnen.</p><h2>Testcase 10.1: Validatie Upload Activity (required fields)</h2><p><strong>Test:</strong>
+Controleren of de required fields ingevuld moeten worden</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op “Upload Activity”</li>
+<li>Vul helemaal niks in</li>
+<li>Klik op de groene knop - Upload Activity</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De pagina wordt opnieuw getoont met onder alle velden, behalve Study, Start date en End date, het bericht dat het een verplicht veld is.</p><h2>Testcase 10.2: Validatie Upload Activity (input type)</h2><p><strong>Test:</strong>
+Controleren of de input type correct wordt gevalideerd</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op “Upload Activity”</li>
+<li>Selecteer een Organization</li>
+<li>Selecteer een Type</li>
+<li>Vul een Name in</li>
+<li>Selecteer een Study</li>
+<li>Vul bij Start date iets in wat géén datum is</li>
+<li>Vul bij End date iets in wat géén datum is</li>
+<li>Selecteer een Status</li>
+<li>Vul een Description in</li>
+<li>Klik op de groene knop - Upload Activity</li>
+</ol><p><strong>Verwacht resultaat</strong>
+De pagina wordt getoont met onder de volgende velden het bijbehorende bericht:</p><ol>
+<li>Start date:<ul>
+<li>Start date should be a date</li>
+</ul>
+</li>
+<li>End date:<ul>
+<li>Start date should be a date</li>
+</ul>
+</li>
+</ol><h2>Testcase 10.3: Validatie Upload Activity (Start date en End date)</h2><p><strong>Test:</strong>
+Controleren of de End date een datum na de Start date moet zijn</p><p><strong>Stappen</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op “Upload Activity”</li>
+<li>Selecteer een Organization</li>
+<li>Selecteer een Type</li>
+<li>Vul een Name in</li>
+<li>Selecteer een Study</li>
+<li>Selecteer een Start date</li>
+<li>Selecteer een End date die een datum is vóór de Start date</li>
+<li>Selecteer een Status</li>
+<li>Vul een Description in</li>
+<li>Klik op de groene knop - Upload Activity</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De pagina wordt getoont met onder het End date veld het volgende bericht:</p><ul>
+<li>End date should be a date after the start date</li>
+</ul><h2>Testcase 10.4: Validatie Upload Acitvity (alles correct)</h2><p><strong>Test:</strong>
+Controleren of data in de database komt te staan als alle velden correct zijn ingevuld</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op “Upload Activity”</li>
+<li>Vul alle velden correct in</li>
+<li>Klik op de groene knop - Upload Activity</li>
+<li>Ga naar Organizations</li>
+<li>Klik op de Organization die je bij het upload hebt gekozen</li>
+<li>Klik op Learn more</li>
+<li>Klik op Activities</li>
+<li>Kijk of de net geüploade activity in de lijst staat</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De data wordt in de database opgeslagen en de nieuwe Activity is te vinden bij Organizations.</p><h2>Testcase 11.1: Validatie Upload Experience (required fields)</h2><p><strong>Test:</strong>
+Controleren of de required fields ingevuld moeten worden</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op cms</li>
+<li>Kies experience</li>
+<li>Selecteer een organisatie</li>
+<li>Klik op Learn more</li>
+<li>Klik bij het tabje Experiences op “Upload”</li>
+<li>Vul helemaal niks in</li>
+<li>Klik op de groene knop - Upload Experience</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Onder de velden Activity en Description komt een  bericht te staan dat het veld verplicht is.</p><h2>Testcase 11.2: Validate Upload Experience (input type numeric)</h2><p><strong>Test:</strong>
+Controleren of de input type correct wordt gevalideerd</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op cms</li>
+<li>Kies experience</li>
+<li>Selecteer een organisatie</li>
+<li>Klik op Learn more</li>
+<li>Klik bij het tabje Experiences op “Upload”</li>
+<li>Selecteer een activity</li>
+<li>Vul een description in</li>
+<li>Vul iets in (alles behalve alleen cijfers is goed)</li>
+<li>Selecteer een student</li>
+<li>Klik op de groene knop - Upload Experience</li>
+</ol><p><strong>Verwacht resultaat</strong>
+Onder het veld score komt een bericht dat het veld met enkel cijfers ingevuld mag worden.</p><h2>Testcase 11.3: Validatie Upload Experience (input value)</h2><p><strong>Test:</strong>
+Controleren of de input van score bestaat uit cijfers van 1 tot 10</p><p><strong>Stappen</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op cms</li>
+<li>Kies experience</li>
+<li>Selecteer een organisatie</li>
+<li>Klik op Learn more</li>
+<li>Klik bij het tabje Experiences op “Upload”</li>
+<li>Selecteer een activity</li>
+<li>Vul een description in</li>
+<li>Vul een cijfer in (alles behalve de cijfers 1-10 mag)</li>
+<li>Selecteer een student</li>
+<li>Klik op de groene knop - Upload Experience</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Onder het veld score komt een bericht te staan dat het veld ingevuld moet worden met een cijfer tussen 1 en 10.</p><h2>Testcase 11.4: Validatie Upload Experience (alles correct)</h2><p><strong>Test:</strong>
+Controleren of de data in de database wordt opgeslagen en alle velden correct zijn ingevuld</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op cms</li>
+<li>Kies experience</li>
+<li>Selecteer een organisatie</li>
+<li>Klik op Learn more</li>
+<li>Klik bij het tabje Experiences op “Upload”</li>
+<li>Vul alle velden correct in</li>
+<li>Klik op de groene knop - Upload Experience</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De data wordt in de database opgeslagen en de nieuwe Experience is te vinden bij Organizations.</p><h2>Testcase 12.1: Upload Organisatie</h2><p><strong>Test:</strong> Controleren of uploaden van een nieuwe organisatie werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website. Ga naar CMS en klik daar op organisatie.</li>
+<li>Klik op de knop Upload.</li>
+<li>Vul alle velden in.</li>
+<li>Klik op Upload Organisatie.</li>
+<li>Controlleer of de geüploade organisatie in de lijst van organisaties staat.</li>
+</ol><p><strong>Verwacht resultaat:</strong> De geüploade organisatie staat in de lijst van organisaties met de opgegeven gegevens.</p><h2>Testcase 12.2: Validatie upload Organisatie</h2><p><strong>Test:</strong> Controleren of de validatie van het uploaden van een nieuwe organisatie werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website. Ga naar CMS en klik daar op organisatie.</li>
+<li>Klik op de knop Upload.</li>
+<li>Vul geen velden in.</li>
+<li>Klik op Upload Organisatie.</li>
+</ol><p><strong>Verwacht resultaat:</strong> Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.</p><h2>Testcase 13.1: Update Organisatie</h2><p><strong>Test:</strong> Controleren of updaten van een nieuwe organisatie werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website. Ga naar CMS en klik daar op organisatie.</li>
+<li>Klik op een organisatie en vervolgens op update.</li>
+<li>Verander de description van de organisatie.</li>
+<li>Klik op Update Organisatie.</li>
+<li>Controlleer of de geüpdate organisatie in de lijst van organisaties staat.</li>
+</ol><p><strong>Verwacht resultaat:</strong> De geüpdate organisatie staat in de lijst van organisaties met de nieuwe gegevens.</p><h2>Testcase 13.2: Validatie update Organisatie</h2><p><strong>Test:</strong> Controleren of de validatie van het uploaden van een nieuwe organisatie werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website. Ga naar CMS en klik daar op organisatie.</li>
+<li>Klik op een organisatie en vervolgens op update.</li>
+<li>Verwijder de description van de organisatie.</li>
+<li>Klik op Update Organisatie.</li>
+</ol><p><strong>Verwacht resultaat:</strong> Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden dat ze required zijn.</p><h2>Testcase 13.3: Organisatie CMS</h2><p><strong>Test:</strong>
+Test of het organization CMS werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “Organization”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult nu een scherm zien met organisaties, als je op een organisatie klikt dan zal je een update knop en beschrijving zien.</p><h2>Testcase 14.1: Inloggen</h2><p><strong>Test:</strong>
+Zien of inloggen via google Oauth werkt. (Werkt alleen op de server)</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website, klik op login in het menu om in te loggen.</li>
+<li>Kies een Google account op de verwijzingspagina.</li>
+<li>Ga akkoord met de voorwaarden door op accepteren te drukken.</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je wordt teruggestuurd naar de website van Confusing Bucket. Ben je een nieuwe gebruiker, dan wordt je in de tabel User in de database gezet, ben je een bestaande gebruiker dan wordt je bestaande data uit de user tabel gehaald.</p><h2>Testcase 14.2: Menu verandert na inloggen</h2><p><strong>Test:</strong>
+Menu balk veranderd mee</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website, ga naar de pagina om in te loggen.</li>
+<li>Log correct in. (Zie testcase 9)</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+In de menu balk staat nu een logout link in plaats van een login link.</p><h2>Testcase 14.3: Uitloggen</h2><p><strong>Test:</strong>
+Test of uitloggen werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Login op de website. (Zie testcase 9)</li>
+<li>Druk op de logout link in het menu.</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+In de menu balk staat nu een login link in plaats van een logout link. En de sessie is verdwenen. (Dit is te zien door het niet kunnen uploaden van een experience of activity).</p><h2>Testcase 14.4: Registreren als organisatie</h2><p><strong>Test:</strong>
+Controleren of de organisatie in de database staat</p><p><strong>Stappen:</strong></p><ol>
+<li>Login op de website. (Zie testcase 9)</li>
+<li>Vul het formulier in waarmee een organisatie wordt geregistreerd.</li>
+<li>Druk op de knop waarop ‘register organisation &amp; login staat’.</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De registratie is voltooid, de eigenaar is ingelogd en in de Database is een nieuwe organisatie toegevoegd.</p><h2>Testcase 15.1: Activity update</h2><p><strong>Test:</strong> Controleren of updaten van een nieuwe organisatie werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website. Ga naar CMS en klik daar op activity.</li>
+<li>Klik op een organisatie.</li>
+<li>Kies een activity en klik daaronder op update.</li>
+<li>Verander de description van de activity.</li>
+<li>Klik op Update Activity.</li>
+<li>Controlleer of de geüpdate velden met de nieuwe waarde in de database staat.</li>
+</ol><p><strong>Verwacht resultaat:</strong> De activity heeft nu andere gegevens.</p><h2>Testcase 15.2: Activity update validatie</h2><p><strong>Test:</strong> Controleren of de validatie werkt bij het updaten van een activity.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website. Ga naar CMS en klik daar op activity.</li>
+<li>Klik op een organisatie.</li>
+<li>Kies een activity en klik daaronder op update.</li>
+<li>Verwijder de description van de activity.</li>
+<li>Klik op Update Organisatie.</li>
+</ol><p><strong>Verwacht resultaat:</strong> Je komt op hetzelfde scherm terecht maar er staat bij de benodigde velden een error weergeven.</p><h2>Testcase 15.3: Activity CMS</h2><p><strong>Test:</strong> Controleren of het activity CMS werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website. </li>
+<li>Klik onder het kopje van CMS op “Activity”.</li>
+</ol><p><strong>Verwacht resultaat:</strong> Je zult nu een scherm zien met activities, als je op een activity klikt dan zal je gegevens en een update knop zien.</p><h2>Testcase 16.1: School Upload validatie</h2><p><strong>Test:</strong>
+Test of de validatie van upload school werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “School”</li>
+<li>Klik op “Upload”</li>
+<li>Voer hier helemaal NIKS in</li>
+<li>Klik op “Upload School”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.</p><h2>Testcase 16.2: School upload</h2><p><strong>Test:</strong>
+Test of het uploaden van een school werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “School”</li>
+<li>Klik op “Upload”</li>
+<li>Voer een naam en een website in.</li>
+<li>Klik op “Upload School”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult nu een bericht krijgen dat de school is geüpload.</p><h2>Testcase 16.3: School CMS</h2><p><strong>Test:</strong>
+Test of het school CMS werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “School”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult nu een scherm zien met scholen, als je op een school klikt dan zal je een update knop en website zien.</p><h2>Testcase 16.4: School update validatie</h2><p><strong>Test:</strong>
+Test of de validatie van update school werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “School”</li>
+<li>Klik op een school en daarna update</li>
+<li>Voer hier helemaal NIKS in</li>
+<li>Klik op “Update School”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.</p><h2>Testcase 16.5: School update</h2><p><strong>Test:</strong>
+Test of het updaten van een school werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “School”</li>
+<li>Klik op een school en daarna update</li>
+<li>Voer een naam en een website in.</li>
+<li>Klik op “Update School”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult nu een bericht krijgen dat de school is geupdate.</p><h2>Testcase 17.1: Study Upload validatie</h2><p><strong>Test:</strong>
+Test of de validatie van upload study werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “Study”</li>
+<li>Klik op “Upload”</li>
+<li>Voer hier helemaal NIKS in</li>
+<li>Klik op “Upload Study”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.</p><h2>Testcase 17.2: Study Upload</h2><p><strong>Test:</strong>
+Test of het uploaden van een study werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “Study”</li>
+<li>Klik op “Upload”</li>
+<li>Voer een naam en selecteer een school in.</li>
+<li>Klik op “Upload Study”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult nu een bericht krijgen dat de study is geüpload.</p><h2>Testcase 17.3: Study CMS</h2><p><strong>Test:</strong>
+Test of het study CMS werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “Study”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult nu een scherm zien met scholen, als je op een school klikt dan zal je bijbehorende studies zien met een update knop.</p><h2>Testcase 17.4: Study update validatie</h2><p><strong>Test:</strong>
+Test of de validatie van update study werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “Study”</li>
+<li>Klik op een school, en kies daarna update bij een study</li>
+<li>Voer hier helemaal NIKS in</li>
+<li>Klik op “Update Study”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult op de pagina blijven, maar onder de textvelden staan errors weergeven.</p><h2>Testcase 17.5: Study update</h2><p><strong>Test:</strong>
+Test of het updaten van een study werkt.</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de website</li>
+<li>Klik in het menu kopje CMS op “Study”</li>
+<li>Klik op een school, en kies daarna update bij een study</li>
+<li>Voer een naam en selecteer een school in.</li>
+<li>Klik op “Update Study”</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Je zult nu een bericht krijgen dat de study is geupdate.</p><h2>Testcase 18.1: Validatie Update Experience (required fields)</h2><p><strong>Test:</strong>
+Controleren of de required fields ingevuld moeten worden</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op cms</li>
+<li>Kies experience</li>
+<li>Selecteer een organisatie</li>
+<li>Klik op Learn more</li>
+<li>Klik bij het tabje Experiences op “Update” bij een experience</li>
+<li>Maak alle velden leeg (in zoverre het mogelijk is)</li>
+<li>Klik op de groene knop - Upload Experience</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Onder het veld Description komt een bericht te staan dat het veld verplicht is.</p><h2>Testcase 18.2: Validate Update Experience (input type numeric)</h2><p><strong>Test:</strong>
+Controleren of de input type correct wordt gevalideerd</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op cms</li>
+<li>Kies experience</li>
+<li>Selecteer een organisatie</li>
+<li>Klik op Learn more</li>
+<li>Klik bij het tabje Experiences op “Update” bij een experience</li>
+<li>Pas de description aan</li>
+<li>Vul iets in bij score (alles behalve alleen cijfers is goed)</li>
+<li>Selecteer een student</li>
+<li>Klik op de groene knop - Upload Experience</li>
+</ol><p><strong>Verwacht resultaat</strong>
+Onder het veld score komt een bericht dat het veld met enkel cijfers ingevuld mag worden.</p><h2>Testcase 18.3: Validatie Update Experience (input value)</h2><p><strong>Test:</strong>
+Controleren of de input van score bestaat uit cijfers van 1 tot 10</p><p><strong>Stappen</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op cms</li>
+<li>Kies experience</li>
+<li>Selecteer een organisatie</li>
+<li>Klik op Learn more</li>
+<li>Klik bij het tabje Experiences op “Update” bij een experience</li>
+<li>Pas de description aan</li>
+<li>Vul een cijfer in bij score (alles behalve de cijfers 1-10 mag)</li>
+<li>Selecteer een student</li>
+<li>Klik op de groene knop - Upload Experience</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Onder het veld score komt een bericht te staan dat het veld ingevuld moet worden met een cijfer tussen 1 en 10.</p><h2>Testcase 18.4: Validatie Update Experience (alles correct)</h2><p><strong>Test:</strong>
+Controleren of de data in de database wordt opgeslagen en alle velden correct zijn ingevuld</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op cms</li>
+<li>Kies experience</li>
+<li>Selecteer een organisatie</li>
+<li>Klik op Learn more</li>
+<li>Klik bij het tabje Experiences op “Update” bij een experience</li>
+<li>Vul alle velden correct in</li>
+<li>Klik op de groene knop - Upload Experience</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De gewijzigde data wordt in de database opgeslagen en de gewijzigde Experience is te vinden bij Organizations.</p><h2>Testcase 19: breadcrumbs</h2><p><strong>Test:</strong>
+Controleren of de breadcrumbs kloppen</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op organizations</li>
+<li>Controleer of de breadcrumb klopt (“Home » Organizations”)</li>
+<li>Open een organization en klik op learn more</li>
+<li>Controleer of de breadcrumb klopt (“Home » Organizations » Detauils”)</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+Voor alle pagina’s verschijnt een breadcrumb en de links naar de vorige pagina’s werken. </p><h2>Testcase 20.1: acceptance system -&gt; organizations status</h2><p><strong>Test:</strong>
+Controleren of de status op de geselecteerde status blijft staan</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op CMS</li>
+<li>Klik op Acceptance System</li>
+<li>Klik op een willekeurige organization</li>
+<li>Verander de status</li>
+<li>Klik op ‘Confirm’</li>
+<li>Klik op dezelfde organization als hierboven.</li>
+<li>Controleer of de status nog staat op de status die hieborven is gekozen</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De status is correct opgeslagen.</p><h2>Testcase 20.2: acceptance system -&gt; activities status</h2><p><strong>Test:</strong>
+Controleren of de status op de geselecteerde status blijft staan</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op CMS</li>
+<li>Klik op Acceptance System</li>
+<li>Klik op Activities</li>
+<li>Klik op een willekeurige activity</li>
+<li>Verander de status</li>
+<li>Klik op ‘Confirm’</li>
+<li>Klik op Activities</li>
+<li>Klik op dezelfde activity als hierboven.</li>
+<li>Controleer of de status nog staat op de status die hieborven is gekozen</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De status is correct opgeslagen.</p><h2>Testcase 20.3: acceptance system -&gt; experiences status</h2><p><strong>Test:</strong>
+Controleren of de status op de geselecteerde status blijft staan</p><p><strong>Stappen:</strong></p><ol>
+<li>Open de site</li>
+<li>Klik op CMS</li>
+<li>Klik op Acceptance System</li>
+<li>Klik op Experiences</li>
+<li>Klik op een willekeurige experience</li>
+<li>Verander de status</li>
+<li>Klik op ‘Confirm’</li>
+<li>Klik op Experiences</li>
+<li>Klik op dezelfde experience als hierboven.</li>
+<li>Controleer of de status nog staat op de status die hieborven is gekozen</li>
+</ol><p><strong>Verwacht resultaat:</strong>
+De status is correct opgeslagen.</p>
+
+<footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
+</body>
+</html>
