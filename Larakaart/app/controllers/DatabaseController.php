@@ -849,6 +849,78 @@ class DatabaseController extends BaseController {
 		$L0050O->location_id = $L0050->id;
 		$L0050O->save();
 		
+		$L0051 = new Location;
+		$L0051->country="Spain";
+		$L0051->city="Santandar";
+		$L0051->streetname="Avda. de los Castros";
+		$L0051->number="1";
+		$L0051->zipcode="39005";
+		$L0051->latitude=22,321702;
+		$L0051->longitude=114,177987;
+		$L0051->save();
+		
+		$L0051O = new Organization;
+		$L0051O->name="Universidad de Cantabria";
+		$L0051O->type="School";
+		$L0051O->description="Universidad de Cantabria";
+		$L0051O->status="Approved";
+		$L0051O->location_id = $L0051->id;
+		$L0051O->save();
+		
+		$L0052 = new Location;
+		$L0052->country="Spain";
+		$L0052->city="Valencia";
+		$L0052->streetname="Camino de Vera";
+		$L0052->number="1";
+		$L0052->zipcode="46022";
+		$L0052->latitude=22,321702;
+		$L0052->longitude=114,177987;
+		$L0052->save();
+		
+		$L0052O = new Organization;
+		$L0052O->name="Universidad Politecnica de Valencia";
+		$L0052O->type="School";
+		$L0052O->description="Universidad Politecnica de Valencia";
+		$L0052O->status="Approved";
+		$L0052O->location_id = $L0052->id;
+		$L0052O->save();
+		
+		$L0053 = new Location;
+		$L0053->country="Spain";
+		$L0053->city="Valladolid";
+		$L0053->streetname="Casa del Estudiante Real de Burgos";
+		$L0053->number="1";
+		$L0053->zipcode="47011";
+		$L0053->latitude=22,321702;
+		$L0053->longitude=114,177987;
+		$L0053->save();
+		
+		$L0053O = new Organization;
+		$L0053O->name="Universidad de Valladolid";
+		$L0053O->type="School";
+		$L0053O->description="Universidad de Valladolid";
+		$L0053O->status="Approved";
+		$L0053O->location_id = $L0053->id;
+		$L0053O->save();
+		
+		$L0054 = new Location;
+		$L0054->country="Spain";
+		$L0054->city="Valladolid";
+		$L0054->streetname="C/Francisco Mendizabal";
+		$L0054->number="1";
+		$L0054->zipcode="8800";
+		$L0054->latitude=41,6400908;
+		$L0054->longitude=-4,7562159;
+		$L0054->save();
+		
+		$L0054O = new Organization;
+		$L0054O->name="Univ. Politechna Valladolid";
+		$L0054O->type="School";
+		$L0054O->description="Univ. Politechna Valladolid";
+		$L0054O->status="Approved";
+		$L0054O->location_id = $L0054->id;
+		$L0054O->save();
+		
 		$L0055 = new Location;
 		$L0055->country="Spain";
 		$L0055->city="Santander";
