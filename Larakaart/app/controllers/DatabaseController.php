@@ -72,7 +72,7 @@ class DatabaseController extends BaseController {
 		$avans->save();
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van locaties: Afstuderen
-		$herentals = new Location;
+		/*$herentals = new Location;
 		$herentals->country = "Belgium";
 		$herentals->city = "Herentals";
 		$herentals->latitude = 51.17685;
@@ -129,10 +129,10 @@ class DatabaseController extends BaseController {
 		$paramaribo->city = "Paramaribo";
 		$paramaribo->latitude = 5.85204;
 		$paramaribo->longitude =  	-55.20383;
-		$paramaribo->save();
+		$paramaribo->save();*/
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van de organisaties: Afstuderen
-		$kraft = new Organization;
+		/*$kraft = new Organization;
 		$kraft->name = "Kraft Foods";
 		$kraft->type = $company->name;
 		$kraft->location_id = $herentals->id;
@@ -197,10 +197,10 @@ class DatabaseController extends BaseController {
 		$suralco->location_id = $paramaribo->id;
 		$suralco->status=  $approved->name;
 		$suralco->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$suralco->save();
+		$suralco->save();*/
 /*-----------------------------------------------------------------*/		
 		# Het toevoegen van opleidingen
-		$ie = new Study;
+		/*$ie = new Study;
 		$ie->name = "Industrial Engineering";
 		$ie->school_id = $avans->id;
 		$ie->save();
@@ -228,10 +228,10 @@ class DatabaseController extends BaseController {
 		$cmd = new Study;
 		$cmd->name = "Communication and Multimedia Design";
 		$cmd->school_id = $avans->id;
-		$cmd->save();
+		$cmd->save();*/
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van studenten: Afstuderen
-		$student1 = new Student;
+		/*$student1 = new Student;
 		$student1->firstname = "Donald";
 		$student1->surname = "Rutgers";
 		$student1->study_id = $ie->id; 
@@ -326,10 +326,10 @@ class DatabaseController extends BaseController {
 		$student15->firstname = "Kevin";
 		$student15->surname = "Tai-Tin-Woei";
 		$student15->study_id = $ie->id;
-		$student15->save();
+		$student15->save();*/
 /*-----------------------------------------------------------------*/			
 		# Het toevoegen van Activity: Afstuderen
-		$Activity1 = new Activity;
+		/*$Activity1 = new Activity;
 		$Activity1->name = "Final thesis Kraft Foods";
 		$Activity1->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
 		$Activity1->type = $finalThesis->name;
@@ -438,10 +438,10 @@ class DatabaseController extends BaseController {
 		$Activity9->enddate = '2013-01-01';
 		$Activity9->study_id = $ie->id;
 		$Activity9->status=  $approved->name;
-		$Activity9->save();
+		$Activity9->save();*/
 /*-----------------------------------------------------------------*/		
 		# Add experiences for final thesis'
-		$experience1 = new Experience;
+		/*$experience1 = new Experience;
 		$experience1->Activity_id=$Activity1->id;
 		$experience1->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
 		$experience1->accepted=1;
@@ -562,7 +562,7 @@ class DatabaseController extends BaseController {
 		$experience15->accepted=1;
 		$experience15->student_id= $student15->id;
 		$experience15->status=  $approved->name;
-		$experience15->save();
+		$experience15->save();*/
 /*-----------------------------------------------------------------*/		
 		# Add admin user'
 		$user = new User;
@@ -583,7 +583,7 @@ class DatabaseController extends BaseController {
 		$userType->admin_id = $admin->id;
 		$userType->save();		
 
-			
+		vullenNieuw();
 		return View::make('gevuld');	
 	}
 	
@@ -604,9 +604,8 @@ class DatabaseController extends BaseController {
 		$L0028O->type="School";
 		$L0028O->description="Hochschule Fulda";
 		$L0028O->status="Approved";
+		$L0028O->location_id = $L0028->id;
 		$L0028O->save();
-	
-	
 
 		$L0029 = new Location;
 		$L0029->country="Germany";
@@ -616,6 +615,7 @@ class DatabaseController extends BaseController {
 		$L0029->zipcode="24149";
 		$L0029->latitude= 50,5640812;
 		$L0029->longitude= 9,6855139;
+		$L0029O->location_id = $L0029->id;
 		$L0029->save();
 		
 		$L0029O = new Organization;
@@ -624,8 +624,6 @@ class DatabaseController extends BaseController {
 		$L0029O->description="Kiel University of Applied Sciences";
 		$L0029O->status="Approved";
 		$L0029O->save();
-	
-
 
 		$L0030 = new Location;
 		$L0030->country="Germany";
@@ -643,10 +641,9 @@ class DatabaseController extends BaseController {
 		$L0030O->description="Fachhochschule Erfurt";
 		$L0030O->website="www.fh-erfurt.de";
 		$L0030O->status="Approved";
+		$L0030O->location_id = $L0030->id;
 		$L0030O->save();
-		
 
-		
 		$L0031 = new Location;
 		$L0031->country="Germany";
 		$L0031->city="Hamburg";
@@ -662,9 +659,8 @@ class DatabaseController extends BaseController {
 		$L0031O->type="School";
 		$L0031O->description="Hochschule Fur Agewandte Wissenschaften";
 		$L0031O->status="Approved";
+		$L0031O->location_id = $L0031->id;
 		$L0031O->save();
-		
-		
 
 		$L0032 = new Location;
 		$L0032->country="Germany";
@@ -681,9 +677,8 @@ class DatabaseController extends BaseController {
 		$L0032O->type="School";
 		$L0032O->description="Fachhochschule Konstanz";
 		$L0032O->status="Approved";
+		$L0032O->location_id = $L0032->id;
 		$L0032O->save();
-		
-		
 
 		$L0033 = new Location;
 		$L0033->country="Germany";
@@ -700,10 +695,9 @@ class DatabaseController extends BaseController {
 		$L0033O->type="School";
 		$L0033O->description="Fachhochschule Niederrhein";
 		$L0033O->status="Approved";
+		$L0033O->location_id = $L0033->id;
 		$L0033O->save();
-		
 
-		
 		$L0034 = new Location;
 		$L0034->country="Germany";
 		$L0034->city="Kiel";
@@ -720,10 +714,9 @@ class DatabaseController extends BaseController {
 		$L0034O->description="Faculty of Mechanical Engineering";
 		$L0034O->website="www.fh-kiel.de";
 		$L0034O->status="Approved";
+		$L0034O->location_id = $L0034->id;
 		$L0034O->save();
-		
 
-		
 		$L0035 = new Location;
 		$L0035->country="Germany";
 		$L0035->city="Heilbronn";
@@ -739,9 +732,8 @@ class DatabaseController extends BaseController {
 		$L0035O->type="School";
 		$L0035O->description="Hochschule Heilbronn";
 		$L0035O->status="Approved";
+		$L0035O->location_id = $L0035->id;
 		$L0035O->save();
-		
-		
 
 		$L0036 = new Location;
 		$L0036->country="Germany";
@@ -758,6 +750,7 @@ class DatabaseController extends BaseController {
 		$L0036O->type="School";
 		$L0036O->description="Hochschule Niederrhein";
 		$L0036O->status="Approved";
+		$L0036O->location_id = $L0036->id;
 		$L0036O->save();
 		
 		
@@ -766,7 +759,95 @@ class DatabaseController extends BaseController {
 		
 		
 		
+		$L0046 = new Location;
+		$L0046->country="Polan";
+		$L0046->city="Lodz";
+		$L0046->streetname="Skorupki";
+		$L0046->number="68";
+		$L0046->zipcode="90-924";
+		$L0046->latitude=51,7486936;
+		$L0046->longitude=19,4554181;
+		$L0046->save();
 		
+		$L0046O = new Organization;
+		$L0046O->name="Technical University of Lodz";
+		$L0046O->type="School";
+		$L0046O->description="Technical University of Lodz";
+		$L0046O->status="Approved";
+		$L0046O->location_id = $L0046->id;
+		$L0046O->save();
+		
+		$L0047 = new Location;
+		$L0047->country="Portugal";
+		$L0047->city="Lisboa";
+		$L0047->streetname="Campus de Benfica do IPL";
+		$L0047->number="1";
+		$L0047->zipcode="1549-014";
+		$L0047->latitude=38,7222524;
+		$L0047->longitude=-9,1393366;
+		$L0047->save();
+		
+		$L0047O = new Organization;
+		$L0047O->name="Instituto Politécnico de Lisboa. Escola Superior de Comunicao Social";
+		$L0047O->type="School";
+		$L0047O->description="Instituto Politécnico de Lisboa. Escola Superior de Comunicao Social";
+		$L0047O->status="Approved";
+		$L0047O->location_id = $L0047->id;
+		$L0047O->save();
+		
+		$L0048 = new Location;
+		$L0048->country="Portugal";
+		$L0048->city="Porto";
+		$L0048->streetname="Rua Dr. Antonio Bernardino de Almeida";
+		$L0048->number="431";
+		$L0048->zipcode="4200-072";
+		$L0048->latitude=31,9159271;
+		$L0048->longitude=34,8654685;
+		$L0048->save();
+		
+		$L0048O = new Organization;
+		$L0048O->name="Instituto Superior de Engenharia do Porto";
+		$L0048O->type="School";
+		$L0048O->description="Instituto Superior de Engenharia do Porto";
+		$L0048O->status="Approved";
+		$L0048O->location_id = $L0048->id;
+		$L0048O->save();
+		
+		$L0049 = new Location;
+		$L0049->country="Spain";
+		$L0049->city="Barcelona";
+		$L0049->streetname="Carrer Jordi Girona";
+		$L0049->number="31";
+		$L0049->zipcode="8034";
+		$L0049->latitude=41,3892001;
+		$L0049->longitude=2,1175024;
+		$L0049->save();
+		
+		$L0049O = new Organization;
+		$L0049O->name="Universitat Politecnica de Catalunya (UPC), Terrassa";
+		$L0049O->type="School";
+		$L0049O->description="Universitat Politecnica de Catalunya (UPC), Terrassa";
+		$L0049O->status="Approved";
+		$L0049O->location_id = $L0049->id;
+		$L0049O->save();
+		
+		$L0050 = new Location;
+		$L0050->country="Spain";
+		$L0050->city="Vilanova i la Geltru";
+		$L0050->streetname="Av. Victor Balaguer";
+		$L0050->number="1";
+		$L0050->zipcode="8800";
+		$L0050->latitude=22,321702;
+		$L0050->longitude=114,177987;
+		$L0050->save();
+		
+		$L0050O = new Organization;
+		$L0050O->name="Escola Politecnica Superior denginyeria de Vilanova i la Geltru";
+		$L0050O->type="School";
+		$L0050O->description="Escola Politecnica Superior denginyeria de Vilanova i la Geltru";
+		$L0050O->status="Approved";
+		$L0050O->location_id = $L0050->id;
+		$L0050O->save();
 		
 		$L0055 = new Location;
 		$L0055->country="Spain";
@@ -783,8 +864,8 @@ class DatabaseController extends BaseController {
 		$L0055O->type="School";
 		$L0055O->description="Universidad de Cantabria";
 		$L0055O->status="Approved";
+		$L0055O->location_id = $L0055->id;
 		$L0055O->save();
-		
 		
 		$L0056 = new Location;
 		$L0056->country="Switzerland";
@@ -801,9 +882,8 @@ class DatabaseController extends BaseController {
 		$L0056O->type="School";
 		$L0056O->description="Haute Ecole d&#39;Ing&eacute;nierie et de Gestion du Canton de Vaud";
 		$L0056O->status="Approved";
+		$L0056O->location_id = $L0056->id;
 		$L0056O->save();
-		
-		
 		
 		$L0057 = new Location;
 		$L0057->country="Turkey";
@@ -820,9 +900,8 @@ class DatabaseController extends BaseController {
 		$L0057O->type="School";
 		$L0057O->description="Ege University";
 		$L0057O->status="Approved";
+		$L0057O->location_id = $L0057->id;
 		$L0057O->save();
-		
-		
 		
 		$L0058 = new Location;
 		$L0058->country="Turkey";
@@ -839,10 +918,9 @@ class DatabaseController extends BaseController {
 		$L0058O->type="School";
 		$L0058O->description="Yasar University";
 		$L0058O->status="Approved";
+		$L0058O->location_id = $L0058->id;
 		$L0058O->save();
-		
-		
-		
+
 		$L0059 = new Location;
 		$L0059->country="USA";
 		$L0059->city="Houghton";
@@ -858,10 +936,9 @@ class DatabaseController extends BaseController {
 		$L0059O->type="School";
 		$L0059O->description="Michigan Technological University";
 		$L0059O->status="Approved";
+		$L0059O->location_id = $L0059->id;
 		$L0059O->save();
-		
-		
-		
+
 		$L0060 = new Location;
 		$L0060->country="USA";
 		$L0060->city="Rapid City";
@@ -877,10 +954,9 @@ class DatabaseController extends BaseController {
 		$L0060O->type="School";
 		$L0060O->description="South Dakota School of Mines and Technology";
 		$L0060O->status="Approved";
+		$L0060O->location_id = $L0060->id;
 		$L0060O->save();
-		
-		
-		
+
 		$L0061 = new Location;
 		$L0061->country="Romania";
 		$L0061->city="Bucuresti";
@@ -896,10 +972,9 @@ class DatabaseController extends BaseController {
 		$L0061O->type="School";
 		$L0061O->description="University &quot;Politehnica&quot; of Bucharest";
 		$L0061O->status="Approved";
+		$L0061O->location_id = $L0061->id;
 		$L0061O->save();
-		
-		
-		
+
 		$L0062 = new Location;
 		$L0062->country="Austria";
 		$L0062->city="St. P&ouml;lten";
@@ -915,10 +990,9 @@ class DatabaseController extends BaseController {
 		$L0062O->type="School";
 		$L0062O->description="Fachhochschule St&#46; P&ouml;lten";
 		$L0062O->status="Approved";
+		$L0062O->location_id = $L0062->id;
 		$L0062O->save();
-		
-		
-		
+
 		$L0063 = new Location;
 		$L0063->country="Germany";
 		$L0063->city="Stuttgart";
@@ -934,10 +1008,9 @@ class DatabaseController extends BaseController {
 		$L0063O->type="School";
 		$L0063O->description="Fachhochschule der Medi&euml;n";
 		$L0063O->status="Approved";
+		$L0063O->location_id = $L0063->id;
 		$L0063O->save();
-		
-		
-		
+
 		$S1 = new Student;
 		$S1->firstname="Erwin";
 		$S1->surname="Roeters";
