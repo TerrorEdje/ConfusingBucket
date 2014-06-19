@@ -2,591 +2,6 @@
 
 class DatabaseController extends BaseController {
 
-	public function vullen()
-	{	
-		# Het toevoegen van admin types
-		$admintype = new Admintype;
-		$admintype->name = 'admin';
-		$admintype->save();
-
-		$moderatortype = new Admintype;
-		$moderatortype->name = "moderator";
-		$moderatortype->save();
-/*-----------------------------------------------------------------*/
-		# Het toevoegen van een status
-		$needsapproval = new Status;
-		$needsapproval->name = "Needsapproval";
-		$needsapproval->save();	
-		
-		$removed = new Status;
-		$removed->name = "Removed";
-		$removed->save();	
-		
-		$approved = new Status;
-		$approved->name = "Approved";
-		$approved->save();	
-		
-		$declined = new Status;
-		$declined->name = "Declined";
-		$declined->save();	
-/*-----------------------------------------------------------------*/		
-		# Het toevoegen van organization types
-		$school = new Organization_type;
-		$school->name = "School";
-		$school->save();
-		
-		$company = new Organization_type;
-		$company->name = "Company";
-		$company->save();
-/*-----------------------------------------------------------------*/			
-		# Het toevoegen van de Activity types
-		$internship = new Activity_type;
-		$internship->name = "Internship";
-		$internship->save();
-		
-		$eps = new Activity_type;
-		$eps->name = "EPS";
-		$eps->save();
-		
-		$finalThesis = new Activity_type;
-		$finalThesis->name = "Final thesis";
-		$finalThesis->save();
-		
-		$minor = new Activity_type;
-		$minor->name = "Minor";
-		$minor->save();
-/*-----------------------------------------------------------------*/		
-		# Het toevoegen van Activity_status
-		$open = new Activity_status;
-		$open->name = "Open";
-		$open->save();
-		
-		$closed = new Activity_status;
-		$closed->name = "Closed";
-		$closed->save();
-/*-----------------------------------------------------------------*/			
-		# Het toevoegen van scholen
-		$avans = new School;
-		$avans->name = "Avans Hogeschool";
-		$avans->website = "www.avans.nl";
-		$avans->save();
-/*-----------------------------------------------------------------*/			
-		# Het toevoegen van locaties: Afstuderen
-		/*$herentals = new Location;
-		$herentals->country = "Belgium";
-		$herentals->city = "Herentals";
-		$herentals->latitude = 51.17685;
-		$herentals->longitude = 4.83559;
-		$herentals->save();
-		
-		$wellington = new Location;
-		$wellington->country = "New Zealand";
-		$wellington->city = "Wellington";
-		$wellington->latitude = -41.28646;
-		$wellington->longitude = 174.77624;
-		$wellington->save();
-
-		# Het toevoegen van locaties: EPS
-		$copenhagen = new Location;
-		$copenhagen->country = "Denmark";
-		$copenhagen->city = "Copenhagen";
-		$copenhagen->latitude = 55.67610;
-		$copenhagen->longitude = 12.56834;
-		$copenhagen->save();
-		
-		$vaasa = new Location;
-		$vaasa->country = "Finland";
-		$vaasa->city = "Vaasa";
-		$vaasa->latitude = 63.09514;
-		$vaasa->longitude = 21.61651;
-		$vaasa->save();
-		
-		# Het toevoegen van locaties: Minor
-		$valencia = new Location;
-		$valencia->country = "Spain";
-		$valencia->city = "Valencia";
-		$valencia->latitude = 39.46991;
-		$valencia->longitude = -0.37629;
-		$valencia->save();
-		
-		$kongsberg = new Location;
-		$kongsberg->country = "Norway";
-		$kongsberg->city = "Kongsberg";
-		$kongsberg->latitude = 59.66888;
-		$kongsberg->longitude =  	9.65019;
-		$kongsberg->save();
-		
-		# Het toevoegen van locaties: Stage
-		$sydney = new Location;
-		$sydney->country = "Australia";
-		$sydney->city = "Sydney";
-		$sydney->latitude = -33.86749;
-		$sydney->longitude =  	151.20699;
-		$sydney->save();
-		
-		$paramaribo = new Location;
-		$paramaribo->country = "Suriname";
-		$paramaribo->city = "Paramaribo";
-		$paramaribo->latitude = 5.85204;
-		$paramaribo->longitude =  	-55.20383;
-		$paramaribo->save();*/
-/*-----------------------------------------------------------------*/			
-		# Het toevoegen van de organisaties: Afstuderen
-		/*$kraft = new Organization;
-		$kraft->name = "Kraft Foods";
-		$kraft->type = $company->name;
-		$kraft->location_id = $herentals->id;
-		$kraft->status=  $approved->name;
-		$kraft->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$kraft->save();
-		
-		$weltec = new Organization;
-		$weltec->name = "Weltec Centre for Smart Product";
-		$weltec->type = $company->name;
-		$weltec->location_id = $wellington->id;
-		$weltec->status=  $approved->name;
-		$weltec->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$weltec->save();
-		
-		# Het toevoegen van de organisaties: EPS
-		$copenhagenUni = new Organization;
-		$copenhagenUni->name = "Copenhagen University of Engineering";
-		$copenhagenUni->type = $school->name;
-		$copenhagenUni->location_id = $copenhagen->id;
-		$copenhagenUni->status=  $approved->name;
-		$copenhagenUni->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$copenhagenUni->save();
-		
-		$novia = new Organization;
-		$novia->name = "Novia University of Applied Sciences";
-		$novia->type = $school->name;
-		$novia->location_id = $vaasa->id;
-		$novia->status=  $approved->name;
-		$novia->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$novia->save();
-		
-		# Het toevoegen van de organisaties: Minor
-		$politecnica = new Organization;
-		$politecnica->name = "Universidad Politecnica de Valencia";
-		$politecnica->type = $school->name;
-		$politecnica->location_id = $valencia->id;
-		$politecnica->status=  $approved->name;
-		$politecnica->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$politecnica->save();
-		
-		$buskerud = new Organization;
-		$buskerud->name = "Noorwegen, Buskerud University";
-		$buskerud->type = $school->name;
-		$buskerud->location_id = $kongsberg->id;
-		$buskerud->status=  $approved->name;
-		$buskerud->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$buskerud->save();
-		
-		# Het toevoegen van de organisaties: Stage
-		$robotics = new Organization;
-		$robotics->name = "Australian Centre for Field Robotics";
-		$robotics->type = $company->name;
-		$robotics->location_id = $sydney->id;
-		$robotics->status=  $approved->name;
-		$robotics->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$robotics->save();
-		
-		$suralco = new Organization;
-		$suralco->name = "Suralco LLC";
-		$suralco->type = $company->name;
-		$suralco->location_id = $paramaribo->id;
-		$suralco->status=  $approved->name;
-		$suralco->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$suralco->save();*/
-/*-----------------------------------------------------------------*/		
-		# Het toevoegen van opleidingen
-		/*$ie = new Study;
-		$ie->name = "Industrial Engineering";
-		$ie->school_id = $avans->id;
-		$ie->save();
-		
-		$me = new Study;
-		$me->name = "Mechanical Engineering";
-		$me->school_id = $avans->id;
-		$me->save();
-
-		$ce = new Study;
-		$ce->name = "Computer Engineering";
-		$ce->school_id = $avans->id;
-		$ce->save();
-		
-		$cs = new Study;
-		$cs->name = "Computer Science";
-		$cs->school_id = $avans->id;
-		$cs->save();
-		
-		$ee = new Study;
-		$ee->name = "Electrical Engineering";
-		$ee->school_id = $avans->id;
-		$ee->save();
-		
-		$cmd = new Study;
-		$cmd->name = "Communication and Multimedia Design";
-		$cmd->school_id = $avans->id;
-		$cmd->save();*/
-/*-----------------------------------------------------------------*/			
-		# Het toevoegen van studenten: Afstuderen
-		/*$student1 = new Student;
-		$student1->firstname = "Donald";
-		$student1->surname = "Rutgers";
-		$student1->study_id = $ie->id; 
-		$student1->save();
-		
-		$student2 = new Student;	
-		$student2->firstname = "Jorick";
-		$student2->surname = "Dam";
-		$student2->study_id = $ie->id; 
-		$student2->save();
-		
-		$student3 = new Student;
-		$student3->firstname = "Arthur";
-		$student3->surname = "Kampschoer";
-		$student3->study_id = $me->id;
-		$student3->save();
-	
-		# Het toevoegen van studenten: EPS
-		$student4 = new Student;
-		$student4->firstname = "Bram";
-		$student4->surname = "Bosch";
-		$student4->study_id = $ce->id;
-		$student4->save();
-		
-		$student5 = new Student;
-		$student5->firstname = "Paul";
-		$student5->surname = "Claessens";
-		$student5->study_id = $ce->id;
-		$student5->save();
-		
-		$student6 = new Student;
-		$student6->firstname = "Rudy";
-		$student6->surname = "Chambon";
-		$student6->study_id = $cs->id;
-		$student6->save();
-		
-		$student7 = new Student;
-		$student7->firstname = "Rick";
-		$student7->insertion = "van";
-		$student7->surname = "Uden";
-		$student7->study_id = $ee->id;
-		$student7->save();
-		
-		# Het toevoegen van studenten: Minor
-		$student8 = new Student;
-		$student8->firstname = "Joey";
-		$student8->insertion = "van der";
-		$student8->surname = "Veeken";
-		$student8->study_id = $cmd->id;
-		$student8->save();
-		
-		$student9 = new Student;
-		$student9->firstname = "Dominique";
-		$student9->surname = "Lankheet";
-		$student9->study_id = $cmd->id;
-		$student9->save();
-		
-		$student10 = new Student;
-		$student10->firstname = "Paul";
-		$student10->surname = "Plantaz";
-		$student10->study_id = $cmd->id;
-		$student10->save();
-		
-		$student11 = new Student;
-		$student11->firstname = "Linda";
-		$student11->surname = "Janssen";
-		$student11->study_id = $cmd->id;
-		$student11->save();
-		
-		# Het toevoegen van studenten: Stage
-		$student12 = new Student;
-		$student12->firstname = "Luc";
-		$student12->insertion = "de";
-		$student12->surname = "Wolf";
-		$student12->study_id = $me->id;
-		$student12->save();
-		
-		$student13 = new Student;
-		$student13->firstname = "Lukas";
-		$student13->insertion = "van der";
-		$student13->surname = "Linden";
-		$student13->study_id = $me->id;
-		$student13->save();
-		
-		$student14 = new Student;
-		$student14->firstname = "Pepijn";
-		$student14->surname = "Veldhuizen";
-		$student14->study_id = $ie->id;
-		$student14->save();
-		
-		$student15 = new Student;
-		$student15->firstname = "Kevin";
-		$student15->surname = "Tai-Tin-Woei";
-		$student15->study_id = $ie->id;
-		$student15->save();*/
-/*-----------------------------------------------------------------*/			
-		# Het toevoegen van Activity: Afstuderen
-		/*$Activity1 = new Activity;
-		$Activity1->name = "Final thesis Kraft Foods";
-		$Activity1->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity1->type = $finalThesis->name;
-		$Activity1->activity_status = $closed->name;
-		$Activity1->organization_id = $kraft->id;
-		$Activity1->startdate = '2012-01-01';
-		$Activity1->enddate = '2013-01-01';
-		$Activity1->study_id = $ie->id;
-		$Activity1->status=  $approved->name;
-		$Activity1->save();
-		
-		$Activity2 = new Activity;
-		$Activity2->name = "Final thesis Weltec Centre for Smart Product";
-		$Activity2->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity2->type = $finalThesis->name;
-		$Activity2->activity_status = $closed->name;
-		$Activity2->organization_id = $weltec->id;
-		$Activity2->startdate = '2012-01-01';
-		$Activity2->enddate = '2013-01-01';
-		$Activity2->study_id = $me->id;
-		$Activity2->status=  $approved->name;
-		$Activity2->save();
-
-		# Het toevoegen van Activity: EPS
-		$Activity3 = new Activity;
-		$Activity3->name = "EPS Copenhagen University of Engineering";
-		$Activity3->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity3->type = $eps->name;
-		$Activity3->activity_status = $closed->name;
-		$Activity3->organization_id = $copenhagenUni->id;
-		$Activity3->startdate = '2012-01-01';
-		$Activity3->enddate = '2013-01-01';
-		$Activity3->study_id = $ce->id;
-		$Activity3->status=  $approved->name;
-		$Activity3->save();
-		
-		$Activity4 = new Activity;
-		$Activity4->name = "EPS Novia University of Applied Sciences";
-		$Activity4->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity4->type = $eps->name;
-		$Activity4->activity_status = $closed->name;
-		$Activity4->organization_id = $novia->id;
-		$Activity4->startdate = '2012-01-01';
-		$Activity4->enddate = '2013-01-01';
-		$Activity4->study_id = $cs->id;
-		$Activity4->status=  $approved->name;
-		$Activity4->save();
-		
-		# Het toevoegen van Activity: Minor
-		$Activity5 = new Activity;
-		$Activity5->name = "Minor Universidad Politecnica de Valencia";
-		$Activity5->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity5->type = $minor->name;
-		$Activity5->activity_status = $closed->name;
-		$Activity5->organization_id = $politecnica->id;
-		$Activity5->startdate = '2012-01-01';
-		$Activity5->enddate = '2013-01-01';
-		$Activity5->study_id = $cmd->id;
-		$Activity5->status=  $approved->name;
-		$Activity5->save();
-		
-		$Activity6 = new Activity;
-		$Activity6->name = "Minor Noorwegen, Buskerud University";
-		$Activity6->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity6->type = $minor->name;
-		$Activity6->activity_status = $closed->name;
-		$Activity6->organization_id = $buskerud->id;
-		$Activity6->startdate = '2012-01-01';
-		$Activity6->enddate = '2013-01-01';
-		$Activity6->study_id = $cmd->id;
-		$Activity6->status=  $approved->name;
-		$Activity6->save();
-		
-		$Activity7 = new Activity;
-		$Activity7->name = "Minor Copenhagen University of Engineering";
-		$Activity7->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity7->type = $minor->name;
-		$Activity7->activity_status = $closed->name;
-		$Activity7->organization_id = $copenhagenUni->id;
-		$Activity7->startdate = '2012-01-01';
-		$Activity7->enddate = '2013-01-01';
-		$Activity7->study_id = $cmd->id;
-		$Activity7->status=  $approved->name;
-		$Activity7->save();
-		
-		# Het toevoegen van Activity: Stage
-		$Activity8 = new Activity;
-		$Activity8->name = "Internship Australian Centre for Field Robotics";
-		$Activity8->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity8->type = $internship->name;
-		$Activity8->activity_status = $closed->name;
-		$Activity8->organization_id = $robotics->id;
-		$Activity8->startdate = '2012-01-01';
-		$Activity8->enddate = '2013-01-01';
-		$Activity8->study_id = $me->id;
-		$Activity8->status=  $approved->name;
-		$Activity8->save();
-		
-		$Activity9 = new Activity;
-		$Activity9->name = "Internship Suralco LLC";
-		$Activity9->description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
-		$Activity9->type = $internship->name;
-		$Activity9->activity_status = $closed->name;
-		$Activity9->organization_id = $suralco->id;
-		$Activity9->startdate = '2012-01-01';
-		$Activity9->enddate = '2013-01-01';
-		$Activity9->study_id = $ie->id;
-		$Activity9->status=  $approved->name;
-		$Activity9->save();*/
-/*-----------------------------------------------------------------*/		
-		# Add experiences for final thesis'
-		/*$experience1 = new Experience;
-		$experience1->Activity_id=$Activity1->id;
-		$experience1->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience1->accepted=1;
-		$experience1->student_id=$student1->id;
-		$experience1->status=  $approved->name;
-		$experience1->save();
-		
-		$experience2 = new Experience;
-		$experience2->Activity_id=$Activity1->id;
-		$experience2->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience2->accepted=1;
-		$experience2->student_id=$student2->id;
-		$experience2->status=  $approved->name;
-		$experience2->save();
-		
-		$experience3 = new Experience;
-		$experience3->Activity_id=$Activity2->id;
-		$experience3->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience3->accepted=1;
-		$experience3->student_id=$student3->id;
-		$experience3->status=  $approved->name;
-		$experience3->save();
-		
-		# Add experiences for EPS
-		$experience4 = new Experience;
-		$experience4->Activity_id=$Activity3->id;
-		$experience4->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience4->accepted=1;
-		$experience4->student_id=$student4->id;
-		$experience4->status=  $approved->name;
-		$experience4->save();
-		
-		$experience5 = new Experience;
-		$experience5->Activity_id=$Activity3->id;
-		$experience5->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience5->accepted=1;
-		$experience5->student_id=$student5->id;
-		$experience5->status=  $approved->name;
-		$experience5->save();
-		
-		$experience6 = new Experience;
-		$experience6->Activity_id=$Activity4->id;
-		$experience6->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience6->accepted=1;
-		$experience6->student_id=$student6->id;
-		$experience6->status=  $approved->name;
-		$experience6->save();
-		
-		$experience7 = new Experience;
-		$experience7->Activity_id=$Activity3->id;
-		$experience7->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience7->accepted=1;
-		$experience7->student_id=$student7->id;
-		$experience7->status=  $approved->name;
-		$experience7->save();
-		
-		# Add experiences for minors
-		$experience8 = new Experience;
-		$experience8->Activity_id=$Activity5->id;
-		$experience8->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience8->accepted=1;
-		$experience8->student_id=$student8->id;
-		$experience8->status=  $approved->name;
-		$experience8->save();
-		
-		$experience9 = new Experience;
-		$experience9->Activity_id=$Activity5->id;
-		$experience9->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience9->accepted=1;
-		$experience9->student_id=$student9->id;
-		$experience9->status=  $approved->name;
-		$experience9->save();
-		
-		$experience10 = new Experience;
-		$experience10->Activity_id=$Activity6->id;
-		$experience10->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience10->accepted=1;
-		$experience10->student_id=$student10->id;
-		$experience10->status=  $approved->name;
-		$experience10->save();
-		
-		$experience11 = new Experience;
-		$experience11->Activity_id=$Activity7->id;
-		$experience11->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience11->accepted=1;
-		$experience11->student_id=$student11->id;
-		$experience11->status=  $approved->name;
-		$experience11->save();
-		
-		# Add experiences for internships
-		$experience12 = new Experience;
-		$experience12->Activity_id=$Activity8->id;
-		$experience12->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience12->accepted=1;
-		$experience12->student_id=$student12->id;
-		$experience12->status=  $approved->name;
-		$experience12->save();
-		
-		$experience13 = new Experience;
-		$experience13->Activity_id=$Activity8->id;
-		$experience13->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience13->accepted=1;
-		$experience13->student_id=$student13->id;
-		$experience13->status=  $approved->name;
-		$experience13->save();
-		
-		$experience14 = new Experience;
-		$experience14->Activity_id=$Activity9->id;
-		$experience14->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience14->accepted=1;
-		$experience14->student_id=$student14->id;
-		$experience14->status=  $approved->name;
-		$experience14->save();
-		
-		$experience15 = new Experience;
-		$experience15->Activity_id=$Activity9->id;
-		$experience15->description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus, vulputate ut ultricies quis, vestibulum interdum sem. Etiam dui ante, tempor quis justo in, pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla, pulvinar libero eget, dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis, dignissim velit eget, dapibus mauris. In sit amet sapien ultrices, commodo dui viverra, adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
-		$experience15->accepted=1;
-		$experience15->student_id= $student15->id;
-		$experience15->status=  $approved->name;
-		$experience15->save();*/
-/*-----------------------------------------------------------------*/		
-		# Add admin user'
-		$user = new User;
-		$user->username = "Confusing Bucket";
-		$user->email = "confusingbucket07@gmail.com";
-		$user->google_token = "117306537575775047088";
-		$user->google_value = "4/eYVzta-VaSS90D8hmhxluOzLS7gU.4sC9XzBffS4SOl05ti8ZT3YRplBTjQI";
-		$user->save();
-
-		$admin = new Admin;
-		$admin->firstname = "Confusing";
-		$admin->surname = "Bucket";
-		$admin->admintype_id = $admintype->id;
-		$admin->save();
-
-		$userType = new Usertype;
-		$userType->user_id = $user->id;
-		$userType->admin_id = $admin->id;
-		$userType->save();		
-
-		vullenNieuw();
-		return View::make('gevuld');	
-	}
-	
 	public function vullenNieuw()
 	{
         $L0019 = new Location;
@@ -595,8 +10,8 @@ class DatabaseController extends BaseController {
 		$L0019->streetname="avenue d'Azereix";
 		$L0019->number="47";
 		$L0019->zipcode="65016";
-		$L0019->latitude= -22,2075244;
-		$L0019->longitude= -49,6477946;
+		$L0019->latitude= -22.2075244;
+		$L0019->longitude= -49.6477946;
 		$L0019->save();
 		
 		$L0019O = new Organization;
@@ -613,8 +28,8 @@ class DatabaseController extends BaseController {
 		$L0011->streetname="Keskuskatu";
 		$L0011->number="34";
 		$L0011->zipcode="60101";
-		$L0011->latitude= 61,92411;
-		$L0011->longitude= 25,748151;
+		$L0011->latitude= 61.92411;
+		$L0011->longitude= 25.748151;
 		$L0011->save();
 		
 		$L0011O = new Organization;
@@ -631,8 +46,8 @@ class DatabaseController extends BaseController {
 		$L0020->streetname="Rue du Maréchal Joffre";
 		$L0020->number="3";
 		$L0020->zipcode="34103";
-		$L0020->latitude= -22,2075244;
-		$L0020->longitude= -49,6477947;
+		$L0020->latitude= -22.2075244;
+		$L0020->longitude= -49.6477947;
 		$L0020->save();
 		
 		$L0020O = new Organization;
@@ -649,8 +64,8 @@ class DatabaseController extends BaseController {
 		$L0021->streetname="Rue du Maréchal Joffre";
 		$L0021->number="3";
 		$L0021->zipcode="34103";
-		$L0021->latitude= -22,2075244;
-		$L0021->longitude= -49,6477948;
+		$L0021->latitude= -22.2075244;
+		$L0021->longitude= -49.6477948;
 		$L0021->save();
 		
 		$L0021O = new Organization;
@@ -667,8 +82,8 @@ class DatabaseController extends BaseController {
 		$L0022->streetname="Avenue Albert Einstein";
 		$L0022->number="23";
 		$L0022->zipcode="17071";
-		$L0022->latitude= 55,6617719;
-		$L0022->longitude= 11,6216066;
+		$L0022->latitude= 55.6617719;
+		$L0022->longitude= 11.6216066;
 		$L0022->save();
 		
 		$L0022O = new Organization;
@@ -684,8 +99,8 @@ class DatabaseController extends BaseController {
 		$L0023->city="Le Mans cedex";
 		$L0023->streetname="Ave Olivier Messiaen";
 		$L0023->zipcode="72085";
-		$L0023->latitude= 48,016925;
-		$L0023->longitude= 0,159578;
+		$L0023->latitude= 48.016925;
+		$L0023->longitude= 0.159578;
 		$L0023->save();
 		
 		$L0023O = new Organization;
@@ -702,8 +117,8 @@ class DatabaseController extends BaseController {
 		$L0024->streetname="Hermann-von-Helmholz-Platz";
 		$L0024->number="1";
 		$L0024->zipcode="76344";
-		$L0024->latitude= 49,091741;
-		$L0024->longitude= 8,4283849;
+		$L0024->latitude= 49.091741;
+		$L0024->longitude= 8.4283849;
 		$L0024->save();
         
 		$L0024O = new Organization;
@@ -720,8 +135,8 @@ class DatabaseController extends BaseController {
 		$L0025->streetname="Luxemburger Straße";
 		$L0025->number="10";
 		$L0025->zipcode="13353";
-		$L0025->latitude= 52,5411171;
-		$L0025->longitude= 13,3509304;
+		$L0025->latitude= 52.5411171;
+		$L0025->longitude= 13.3509304;
 		$L0025->save();
 		
 		$L0025O = new Organization;
@@ -738,8 +153,8 @@ class DatabaseController extends BaseController {
 		$L0026->streetname="Berliner Tor";
 		$L0026->number="5";
 		$L0026->zipcode="20099";
-		$L0026->latitude= 53,557079;
-		$L0026->longitude= 10,023018;
+		$L0026->latitude= 53.557079;
+		$L0026->longitude= 10.023018;
 		$L0026->save();
         
 		$L0026O = new Organization;
@@ -756,8 +171,8 @@ class DatabaseController extends BaseController {
 		$L0027->streetname="Schneiderhof";
 		$L0027->number="1";
 		$L0027->zipcode="54293";
-		$L0027->latitude= 49,795724;
-		$L0027->longitude= 6,6790269;
+		$L0027->latitude= 49.795724;
+		$L0027->longitude= 6.6790269;
 		$L0027->save();
 		
 		$L0027O = new Organization;
@@ -774,8 +189,8 @@ class DatabaseController extends BaseController {
 		$L0028->streetname="Marquardstrasse";
 		$L0028->number="35";
 		$L0028->zipcode="36039";
-		$L0028->latitude= 50,5640812;
-		$L0028->longitude= 9,6855138;
+		$L0028->latitude= 50.5640812;
+		$L0028->longitude= 9.6855138;
 		$L0028->save();
 		
 		$L0028O = new Organization;
@@ -792,9 +207,9 @@ class DatabaseController extends BaseController {
 		$L0029->streetname="Grenzstraße";
 		$L0029->number="5";
 		$L0029->zipcode="24149";
-		$L0029->latitude= 50,5640812;
-		$L0029->longitude= 9,6855139;
-		$L0029O->location_id = $L0029->id;
+		$L0029->latitude= 50.5640812;
+		$L0029->longitude= 9.6855139;
+		
 		$L0029->save();
 		
 		$L0029O = new Organization;
@@ -802,6 +217,7 @@ class DatabaseController extends BaseController {
 		$L0029O->type="School";
 		$L0029O->description="Kiel University of Applied Sciences";
 		$L0029O->status="Approved";
+		$L0029O->location_id = $L0029->id;
 		$L0029O->save();
 
 		$L0030 = new Location;
@@ -810,8 +226,8 @@ class DatabaseController extends BaseController {
 		$L0030->streetname="Altonaerstrasse";
 		$L0030->number="25";
 		$L0030->zipcode="99085";
-		$L0030->latitude= 51,165691;
-		$L0030->longitude= 10,451526;
+		$L0030->latitude= 51.165691;
+		$L0030->longitude= 10.451526;
 		$L0030->save();
 		
 		$L0030O = new Organization;
@@ -829,8 +245,8 @@ class DatabaseController extends BaseController {
 		$L0031->streetname="Stiftstrasse";
 		$L0031->number="69";
 		$L0031->zipcode="20099";
-		$L0031->latitude= 53,5580847;
-		$L0031->longitude= 10,0119789;
+		$L0031->latitude= 53.5580847;
+		$L0031->longitude= 10.0119789;
 		$L0031->save();
 		
 		$L0031O = new Organization;
@@ -847,8 +263,8 @@ class DatabaseController extends BaseController {
 		$L0032->streetname="Brauneggerstrasse";
 		$L0032->number="55";
 		$L0032->zipcode="D-78462";
-		$L0032->latitude= 47,6610948;
-		$L0032->longitude= 9,1764916;
+		$L0032->latitude= 47.6610948;
+		$L0032->longitude= 9.1764916;
 		$L0032->save();
 		
 		$L0032O = new Organization;
@@ -865,8 +281,8 @@ class DatabaseController extends BaseController {
 		$L0033->streetname="Reinarzstrasse";
 		$L0033->number="49";
 		$L0033->zipcode="D-47805";
-		$L0033->latitude= 51,31681;
-		$L0033->longitude= 6,5712;
+		$L0033->latitude= 51.31681;
+		$L0033->longitude= 6.5712;
 		$L0033->save();
 		
 		$L0033O = new Organization;
@@ -883,8 +299,8 @@ class DatabaseController extends BaseController {
 		$L0034->streetname="Grentzstrasse";
 		$L0034->number="3";
 		$L0034->zipcode="D-24149";
-		$L0034->latitude= 54,3299746;
-		$L0034->longitude= 10,1790644;
+		$L0034->latitude= 54.3299746;
+		$L0034->longitude= 10.1790644;
 		$L0034->save();
 		
 		$L0034O = new Organization;
@@ -902,8 +318,8 @@ class DatabaseController extends BaseController {
 		$L0035->streetname="Max-Planck-Strasse";
 		$L0035->number="39";
 		$L0035->zipcode="D-74081";
-		$L0035->latitude= 49,12194;
-		$L0035->longitude= 9,21092;
+		$L0035->latitude= 49.12194;
+		$L0035->longitude= 9.21092;
 		$L0035->save();
 		
 		$L0035O = new Organization;
@@ -920,8 +336,8 @@ class DatabaseController extends BaseController {
 		$L0036->streetname="Reinartzstrasse";
 		$L0036->number="49";
 		$L0036->zipcode="47805";
-		$L0036->latitude= 51,31681;
-		$L0036->longitude= 6,5712;
+		$L0036->latitude= 51.31681;
+		$L0036->longitude= 6.5712;
 		$L0036->save();
 		
 		$L0036O = new Organization;
@@ -944,8 +360,8 @@ class DatabaseController extends BaseController {
 		$L0046->streetname="Skorupki";
 		$L0046->number="68";
 		$L0046->zipcode="90-924";
-		$L0046->latitude=51,7486936;
-		$L0046->longitude=19,4554181;
+		$L0046->latitude=51.7486936;
+		$L0046->longitude=19.4554181;
 		$L0046->save();
 		
 		$L0046O = new Organization;
@@ -962,8 +378,8 @@ class DatabaseController extends BaseController {
 		$L0047->streetname="Campus de Benfica do IPL";
 		$L0047->number="1";
 		$L0047->zipcode="1549-014";
-		$L0047->latitude=38,7222524;
-		$L0047->longitude=-9,1393366;
+		$L0047->latitude=38.7222524;
+		$L0047->longitude=-9.1393366;
 		$L0047->save();
 		
 		$L0047O = new Organization;
@@ -980,8 +396,8 @@ class DatabaseController extends BaseController {
 		$L0048->streetname="Rua Dr. Antonio Bernardino de Almeida";
 		$L0048->number="431";
 		$L0048->zipcode="4200-072";
-		$L0048->latitude=31,9159271;
-		$L0048->longitude=34,8654685;
+		$L0048->latitude=31.9159271;
+		$L0048->longitude=34.8654685;
 		$L0048->save();
 		
 		$L0048O = new Organization;
@@ -998,14 +414,14 @@ class DatabaseController extends BaseController {
 		$L0049->streetname="Carrer Jordi Girona";
 		$L0049->number="31";
 		$L0049->zipcode="8034";
-		$L0049->latitude=41,3892001;
-		$L0049->longitude=2,1175024;
+		$L0049->latitude=41.3892001;
+		$L0049->longitude=2.1175024;
 		$L0049->save();
 		
 		$L0049O = new Organization;
-		$L0049O->name="Universitat Politecnica de Catalunya (UPC), Terrassa";
+		$L0049O->name="Universitat Politecnica de Catalunya (UPC). Terrassa";
 		$L0049O->type="School";
-		$L0049O->description="Universitat Politecnica de Catalunya (UPC), Terrassa";
+		$L0049O->description="Universitat Politecnica de Catalunya (UPC). Terrassa";
 		$L0049O->status="Approved";
 		$L0049O->location_id = $L0049->id;
 		$L0049O->save();
@@ -1016,8 +432,8 @@ class DatabaseController extends BaseController {
 		$L0050->streetname="Av. Victor Balaguer";
 		$L0050->number="1";
 		$L0050->zipcode="8800";
-		$L0050->latitude=22,321702;
-		$L0050->longitude=114,177987;
+		$L0050->latitude=22.321702;
+		$L0050->longitude=114.177987;
 		$L0050->save();
 		
 		$L0050O = new Organization;
@@ -1034,8 +450,8 @@ class DatabaseController extends BaseController {
 		$L0051->streetname="Avda. de los Castros";
 		$L0051->number="1";
 		$L0051->zipcode="39005";
-		$L0051->latitude=22,321702;
-		$L0051->longitude=114,177987;
+		$L0051->latitude=22.321702;
+		$L0051->longitude=114.177987;
 		$L0051->save();
 		
 		$L0051O = new Organization;
@@ -1052,8 +468,8 @@ class DatabaseController extends BaseController {
 		$L0052->streetname="Camino de Vera";
 		$L0052->number="1";
 		$L0052->zipcode="46022";
-		$L0052->latitude=22,321702;
-		$L0052->longitude=114,177987;
+		$L0052->latitude=22.321702;
+		$L0052->longitude=114.177987;
 		$L0052->save();
 		
 		$L0052O = new Organization;
@@ -1070,8 +486,8 @@ class DatabaseController extends BaseController {
 		$L0053->streetname="Casa del Estudiante Real de Burgos";
 		$L0053->number="1";
 		$L0053->zipcode="47011";
-		$L0053->latitude=22,321702;
-		$L0053->longitude=114,177987;
+		$L0053->latitude=22.321702;
+		$L0053->longitude=114.177987;
 		$L0053->save();
 		
 		$L0053O = new Organization;
@@ -1088,8 +504,8 @@ class DatabaseController extends BaseController {
 		$L0054->streetname="C/Francisco Mendizabal";
 		$L0054->number="1";
 		$L0054->zipcode="8800";
-		$L0054->latitude=41,6400908;
-		$L0054->longitude=-4,7562159;
+		$L0054->latitude=41.6400908;
+		$L0054->longitude=-4.7562159;
 		$L0054->save();
 		
 		$L0054O = new Organization;
@@ -1106,8 +522,8 @@ class DatabaseController extends BaseController {
 		$L0055->streetname="Avda. Los Castros";
 		$L0055->number="s&#47;n";
 		$L0055->zipcode="39005";
-		$L0055->latitude=43,4705812;
-		$L0055->longitude=-3,8028812;
+		$L0055->latitude=43.4705812;
+		$L0055->longitude=-3.8028812;
 		$L0055->save();
 		
 		$L0055O = new Organization;
@@ -1124,8 +540,8 @@ class DatabaseController extends BaseController {
 		$L0056->streetname="Route de Cheseaux";
 		$L0056->number="1 CP";
 		$L0056->zipcode="CH&#45;1401";
-		$L0056->latitude=46,7782175;
-		$L0056->longitude=6,6414898;
+		$L0056->latitude=46.7782175;
+		$L0056->longitude=6.6414898;
 		$L0056->save();
 		
 		$L0056O = new Organization;
@@ -1142,8 +558,8 @@ class DatabaseController extends BaseController {
 		$L0057->streetname="Caddesi";
 		$L0057->number="12";
 		$L0057->zipcode="35040";
-		$L0057->latitude=38,466414;
-		$L0057->longitude=27,2192191;
+		$L0057->latitude=38.466414;
+		$L0057->longitude=27.2192191;
 		$L0057->save();
 		
 		$L0057O = new Organization;
@@ -1160,8 +576,8 @@ class DatabaseController extends BaseController {
 		$L0058->streetname="Caddesi";
 		$L0058->number="35&#45;37";
 		$L0058->zipcode="35040";
-		$L0058->latitude=38,466414;
-		$L0058->longitude=27,2192191;
+		$L0058->latitude=38.466414;
+		$L0058->longitude=27.2192191;
 		$L0058->save();
 		
 		$L0058O = new Organization;
@@ -1178,8 +594,8 @@ class DatabaseController extends BaseController {
 		$L0059->streetname="Townsend Drive";
 		$L0059->number="1400";
 		$L0059->zipcode="49931";
-		$L0059->latitude=47,1177282;
-		$L0059->longitude=-88,5420061;
+		$L0059->latitude=47.1177282;
+		$L0059->longitude=-88.5420061;
 		$L0059->save();
 		
 		$L0059O = new Organization;
@@ -1196,8 +612,8 @@ class DatabaseController extends BaseController {
 		$L0060->streetname="St&#46; Joseph Street";
 		$L0060->number="501 E&#46;";
 		$L0060->zipcode="57701-3995";
-		$L0060->latitude=44,0736727;
-		$L0060->longitude=103,2062792;
+		$L0060->latitude=44.0736727;
+		$L0060->longitude=103.2062792;
 		$L0060->save();
 		
 		$L0060O = new Organization;
@@ -1214,8 +630,8 @@ class DatabaseController extends BaseController {
 		$L0061->streetname="Splaiul Independentei";
 		$L0061->number="313";
 		$L0061->zipcode="RO&#45;060042";
-		$L0061->latitude=44,4438839;
-		$L0061->longitude=26,0537875;
+		$L0061->latitude=44.4438839;
+		$L0061->longitude=26.0537875;
 		$L0061->save();
 		
 		$L0061O = new Organization;
@@ -1232,8 +648,8 @@ class DatabaseController extends BaseController {
 		$L0062->streetname="Matthias Corvinus&#45;Stra&szlig;e";
 		$L0062->number="15";
 		$L0062->zipcode="A&#45;3100";
-		$L0062->latitude=47,516231;
-		$L0062->longitude=14,550072;
+		$L0062->latitude=47.516231;
+		$L0062->longitude=14.550072;
 		$L0062->save();
 		
 		$L0062O = new Organization;
@@ -1250,8 +666,8 @@ class DatabaseController extends BaseController {
 		$L0063->streetname="Nobelstra&szlig;e";
 		$L0063->number="1";
 		$L0063->zipcode="70569";
-		$L0063->latitude=47,516231;
-		$L0063->longitude=14,550073;
+		$L0063->latitude=47.516231;
+		$L0063->longitude=14.550073;
 		$L0063->save();
 		
 		$L0063O = new Organization;
@@ -1439,5 +855,592 @@ class DatabaseController extends BaseController {
 		$A0004->type=$eps->name;
 		$A0004->organization_id = $L0019O->id;
 		$A0004->save();
+		
+		return View::make('gevuld');
+	}
+
+	public function vullen()
+	{	
+		# Het toevoegen van admin types
+		/*$admintype = new Admintype;
+		$admintype->id = 0;
+		$admintype->name = 'admin';
+		$admintype->save();*/
+/*-----------------------------------------------------------------*/
+		/*# Het toevoegen van een status
+		$needsapproval = new Status;
+		$needsapproval->name = "Needsapproval";
+		$needsapproval->save();	
+		
+		$removed = new Status;
+		$removed->name = "Removed";
+		$removed->save();	
+		
+		$approved = new Status;
+		$approved->name = "Approved";
+		$approved->save();	
+		
+		$declined = new Status;
+		$declined->name = "Declined";
+		$declined->save();	*/
+/*-----------------------------------------------------------------*/		
+		/*# Het toevoegen van organization types
+		$school = new Organization_type;
+		$school->name = "School";
+		$school->save();
+		
+		$company = new Organization_type;
+		$company->name = "Company";
+		$company->save();*/
+/*-----------------------------------------------------------------*/			
+		/*# Het toevoegen van de Activity types
+		$internship = new Activity_type;
+		$internship->name = "Internship";
+		$internship->save();
+		
+		$eps = new Activity_type;
+		$eps->name = "EPS";
+		$eps->save();
+		
+		$finalThesis = new Activity_type;
+		$finalThesis->name = "Final thesis";
+		$finalThesis->save();
+		
+		$minor = new Activity_type;
+		$minor->name = "Minor";
+		$minor->save();*/
+/*-----------------------------------------------------------------*/		
+		/*# Het toevoegen van Activity_status
+		$open = new Activity_status;
+		$open->name = "Open";
+		$open->save();
+		
+		$closed = new Activity_status;
+		$closed->name = "Closed";
+		$closed->save();*/
+/*-----------------------------------------------------------------*/			
+		/*# Het toevoegen van scholen
+		$avans = new School;
+		$avans->name = "Avans Hogeschool";
+		$avans->website = "www.avans.nl";
+		$avans->save();*/
+/*-----------------------------------------------------------------*/			
+		# Het toevoegen van locaties: Afstuderen
+		/*$herentals = new Location;
+		$herentals->country = "Belgium";
+		$herentals->city = "Herentals";
+		$herentals->latitude = 51.17685;
+		$herentals->longitude = 4.83559;
+		$herentals->save();
+		
+		$wellington = new Location;
+		$wellington->country = "New Zealand";
+		$wellington->city = "Wellington";
+		$wellington->latitude = -41.28646;
+		$wellington->longitude = 174.77624;
+		$wellington->save();
+
+		# Het toevoegen van locaties: EPS
+		$copenhagen = new Location;
+		$copenhagen->country = "Denmark";
+		$copenhagen->city = "Copenhagen";
+		$copenhagen->latitude = 55.67610;
+		$copenhagen->longitude = 12.56834;
+		$copenhagen->save();
+		
+		$vaasa = new Location;
+		$vaasa->country = "Finland";
+		$vaasa->city = "Vaasa";
+		$vaasa->latitude = 63.09514;
+		$vaasa->longitude = 21.61651;
+		$vaasa->save();
+		
+		# Het toevoegen van locaties: Minor
+		$valencia = new Location;
+		$valencia->country = "Spain";
+		$valencia->city = "Valencia";
+		$valencia->latitude = 39.46991;
+		$valencia->longitude = -0.37629;
+		$valencia->save();
+		
+		$kongsberg = new Location;
+		$kongsberg->country = "Norway";
+		$kongsberg->city = "Kongsberg";
+		$kongsberg->latitude = 59.66888;
+		$kongsberg->longitude =  	9.65019;
+		$kongsberg->save();
+		
+		# Het toevoegen van locaties: Stage
+		$sydney = new Location;
+		$sydney->country = "Australia";
+		$sydney->city = "Sydney";
+		$sydney->latitude = -33.86749;
+		$sydney->longitude =  	151.20699;
+		$sydney->save();
+		
+		$paramaribo = new Location;
+		$paramaribo->country = "Suriname";
+		$paramaribo->city = "Paramaribo";
+		$paramaribo->latitude = 5.85204;
+		$paramaribo->longitude =  	-55.20383;
+		$paramaribo->save();*/
+/*-----------------------------------------------------------------*/			
+		# Het toevoegen van de organisaties: Afstuderen
+		/*$kraft = new Organization;
+		$kraft->name = "Kraft Foods";
+		$kraft->type = $company->name;
+		$kraft->location_id = $herentals->id;
+		$kraft->status=  $approved->name;
+		$kraft->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$kraft->save();
+		
+		$weltec = new Organization;
+		$weltec->name = "Weltec Centre for Smart Product";
+		$weltec->type = $company->name;
+		$weltec->location_id = $wellington->id;
+		$weltec->status=  $approved->name;
+		$weltec->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$weltec->save();
+		
+		# Het toevoegen van de organisaties: EPS
+		$copenhagenUni = new Organization;
+		$copenhagenUni->name = "Copenhagen University of Engineering";
+		$copenhagenUni->type = $school->name;
+		$copenhagenUni->location_id = $copenhagen->id;
+		$copenhagenUni->status=  $approved->name;
+		$copenhagenUni->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$copenhagenUni->save();
+		
+		$novia = new Organization;
+		$novia->name = "Novia University of Applied Sciences";
+		$novia->type = $school->name;
+		$novia->location_id = $vaasa->id;
+		$novia->status=  $approved->name;
+		$novia->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$novia->save();
+		
+		# Het toevoegen van de organisaties: Minor
+		$politecnica = new Organization;
+		$politecnica->name = "Universidad Politecnica de Valencia";
+		$politecnica->type = $school->name;
+		$politecnica->location_id = $valencia->id;
+		$politecnica->status=  $approved->name;
+		$politecnica->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$politecnica->save();
+		
+		$buskerud = new Organization;
+		$buskerud->name = "Noorwegen. Buskerud University";
+		$buskerud->type = $school->name;
+		$buskerud->location_id = $kongsberg->id;
+		$buskerud->status=  $approved->name;
+		$buskerud->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$buskerud->save();
+		
+		# Het toevoegen van de organisaties: Stage
+		$robotics = new Organization;
+		$robotics->name = "Australian Centre for Field Robotics";
+		$robotics->type = $company->name;
+		$robotics->location_id = $sydney->id;
+		$robotics->status=  $approved->name;
+		$robotics->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$robotics->save();
+		
+		$suralco = new Organization;
+		$suralco->name = "Suralco LLC";
+		$suralco->type = $company->name;
+		$suralco->location_id = $paramaribo->id;
+		$suralco->status=  $approved->name;
+		$suralco->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$suralco->save();*/
+/*-----------------------------------------------------------------*/		
+		# Het toevoegen van opleidingen
+		/*$ie = new Study;
+		$ie->name = "Industrial Engineering";
+		$ie->school_id = $avans->id;
+		$ie->save();
+		
+		$me = new Study;
+		$me->name = "Mechanical Engineering";
+		$me->school_id = $avans->id;
+		$me->save();
+
+		$ce = new Study;
+		$ce->name = "Computer Engineering";
+		$ce->school_id = $avans->id;
+		$ce->save();
+		
+		$cs = new Study;
+		$cs->name = "Computer Science";
+		$cs->school_id = $avans->id;
+		$cs->save();
+		
+		$ee = new Study;
+		$ee->name = "Electrical Engineering";
+		$ee->school_id = $avans->id;
+		$ee->save();
+		
+		$cmd = new Study;
+		$cmd->name = "Communication and Multimedia Design";
+		$cmd->school_id = $avans->id;
+		$cmd->save();*/
+/*-----------------------------------------------------------------*/			
+		# Het toevoegen van studenten: Afstuderen
+		/*$student1 = new Student;
+		$student1->firstname = "Donald";
+		$student1->surname = "Rutgers";
+		$student1->study_id = $ie->id; 
+		$student1->save();
+		
+		$student2 = new Student;	
+		$student2->firstname = "Jorick";
+		$student2->surname = "Dam";
+		$student2->study_id = $ie->id; 
+		$student2->save();
+		
+		$student3 = new Student;
+		$student3->firstname = "Arthur";
+		$student3->surname = "Kampschoer";
+		$student3->study_id = $me->id;
+		$student3->save();
+	
+		# Het toevoegen van studenten: EPS
+		$student4 = new Student;
+		$student4->firstname = "Bram";
+		$student4->surname = "Bosch";
+		$student4->study_id = $ce->id;
+		$student4->save();
+		
+		$student5 = new Student;
+		$student5->firstname = "Paul";
+		$student5->surname = "Claessens";
+		$student5->study_id = $ce->id;
+		$student5->save();
+		
+		$student6 = new Student;
+		$student6->firstname = "Rudy";
+		$student6->surname = "Chambon";
+		$student6->study_id = $cs->id;
+		$student6->save();
+		
+		$student7 = new Student;
+		$student7->firstname = "Rick";
+		$student7->insertion = "van";
+		$student7->surname = "Uden";
+		$student7->study_id = $ee->id;
+		$student7->save();
+		
+		# Het toevoegen van studenten: Minor
+		$student8 = new Student;
+		$student8->firstname = "Joey";
+		$student8->insertion = "van der";
+		$student8->surname = "Veeken";
+		$student8->study_id = $cmd->id;
+		$student8->save();
+		
+		$student9 = new Student;
+		$student9->firstname = "Dominique";
+		$student9->surname = "Lankheet";
+		$student9->study_id = $cmd->id;
+		$student9->save();
+		
+		$student10 = new Student;
+		$student10->firstname = "Paul";
+		$student10->surname = "Plantaz";
+		$student10->study_id = $cmd->id;
+		$student10->save();
+		
+		$student11 = new Student;
+		$student11->firstname = "Linda";
+		$student11->surname = "Janssen";
+		$student11->study_id = $cmd->id;
+		$student11->save();
+		
+		# Het toevoegen van studenten: Stage
+		$student12 = new Student;
+		$student12->firstname = "Luc";
+		$student12->insertion = "de";
+		$student12->surname = "Wolf";
+		$student12->study_id = $me->id;
+		$student12->save();
+		
+		$student13 = new Student;
+		$student13->firstname = "Lukas";
+		$student13->insertion = "van der";
+		$student13->surname = "Linden";
+		$student13->study_id = $me->id;
+		$student13->save();
+		
+		$student14 = new Student;
+		$student14->firstname = "Pepijn";
+		$student14->surname = "Veldhuizen";
+		$student14->study_id = $ie->id;
+		$student14->save();
+		
+		$student15 = new Student;
+		$student15->firstname = "Kevin";
+		$student15->surname = "Tai-Tin-Woei";
+		$student15->study_id = $ie->id;
+		$student15->save();*/
+/*-----------------------------------------------------------------*/			
+		# Het toevoegen van Activity: Afstuderen
+		/*$Activity1 = new Activity;
+		$Activity1->name = "Final thesis Kraft Foods";
+		$Activity1->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity1->type = $finalThesis->name;
+		$Activity1->activity_status = $closed->name;
+		$Activity1->organization_id = $kraft->id;
+		$Activity1->startdate = '2012-01-01';
+		$Activity1->enddate = '2013-01-01';
+		$Activity1->study_id = $ie->id;
+		$Activity1->status=  $approved->name;
+		$Activity1->save();
+		
+		$Activity2 = new Activity;
+		$Activity2->name = "Final thesis Weltec Centre for Smart Product";
+		$Activity2->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity2->type = $finalThesis->name;
+		$Activity2->activity_status = $closed->name;
+		$Activity2->organization_id = $weltec->id;
+		$Activity2->startdate = '2012-01-01';
+		$Activity2->enddate = '2013-01-01';
+		$Activity2->study_id = $me->id;
+		$Activity2->status=  $approved->name;
+		$Activity2->save();
+
+		# Het toevoegen van Activity: EPS
+		$Activity3 = new Activity;
+		$Activity3->name = "EPS Copenhagen University of Engineering";
+		$Activity3->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity3->type = $eps->name;
+		$Activity3->activity_status = $closed->name;
+		$Activity3->organization_id = $copenhagenUni->id;
+		$Activity3->startdate = '2012-01-01';
+		$Activity3->enddate = '2013-01-01';
+		$Activity3->study_id = $ce->id;
+		$Activity3->status=  $approved->name;
+		$Activity3->save();
+		
+		$Activity4 = new Activity;
+		$Activity4->name = "EPS Novia University of Applied Sciences";
+		$Activity4->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity4->type = $eps->name;
+		$Activity4->activity_status = $closed->name;
+		$Activity4->organization_id = $novia->id;
+		$Activity4->startdate = '2012-01-01';
+		$Activity4->enddate = '2013-01-01';
+		$Activity4->study_id = $cs->id;
+		$Activity4->status=  $approved->name;
+		$Activity4->save();
+		
+		# Het toevoegen van Activity: Minor
+		$Activity5 = new Activity;
+		$Activity5->name = "Minor Universidad Politecnica de Valencia";
+		$Activity5->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity5->type = $minor->name;
+		$Activity5->activity_status = $closed->name;
+		$Activity5->organization_id = $politecnica->id;
+		$Activity5->startdate = '2012-01-01';
+		$Activity5->enddate = '2013-01-01';
+		$Activity5->study_id = $cmd->id;
+		$Activity5->status=  $approved->name;
+		$Activity5->save();
+		
+		$Activity6 = new Activity;
+		$Activity6->name = "Minor Noorwegen. Buskerud University";
+		$Activity6->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity6->type = $minor->name;
+		$Activity6->activity_status = $closed->name;
+		$Activity6->organization_id = $buskerud->id;
+		$Activity6->startdate = '2012-01-01';
+		$Activity6->enddate = '2013-01-01';
+		$Activity6->study_id = $cmd->id;
+		$Activity6->status=  $approved->name;
+		$Activity6->save();
+		
+		$Activity7 = new Activity;
+		$Activity7->name = "Minor Copenhagen University of Engineering";
+		$Activity7->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity7->type = $minor->name;
+		$Activity7->activity_status = $closed->name;
+		$Activity7->organization_id = $copenhagenUni->id;
+		$Activity7->startdate = '2012-01-01';
+		$Activity7->enddate = '2013-01-01';
+		$Activity7->study_id = $cmd->id;
+		$Activity7->status=  $approved->name;
+		$Activity7->save();
+		
+		# Het toevoegen van Activity: Stage
+		$Activity8 = new Activity;
+		$Activity8->name = "Internship Australian Centre for Field Robotics";
+		$Activity8->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity8->type = $internship->name;
+		$Activity8->activity_status = $closed->name;
+		$Activity8->organization_id = $robotics->id;
+		$Activity8->startdate = '2012-01-01';
+		$Activity8->enddate = '2013-01-01';
+		$Activity8->study_id = $me->id;
+		$Activity8->status=  $approved->name;
+		$Activity8->save();
+		
+		$Activity9 = new Activity;
+		$Activity9->name = "Internship Suralco LLC";
+		$Activity9->description = "Lorem ipsum dolor sit amet. consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. nascetur ridiculus mus. Donec quam felis. ultricies nec. pellentesque eu. pretium quis. sem. Nulla consequat massa quis enim. Donec pede justo. fringilla vel. aliquet nec. vulputate eget. arcu. In enim justo. rhoncus ut. imperdiet a. venenatis vitae. justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula. porttitor eu. consequat vitae. eleifend ac. enim. Aliquam lorem ante. dapibus in. viverra quis. feugiat a. tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.";
+		$Activity9->type = $internship->name;
+		$Activity9->activity_status = $closed->name;
+		$Activity9->organization_id = $suralco->id;
+		$Activity9->startdate = '2012-01-01';
+		$Activity9->enddate = '2013-01-01';
+		$Activity9->study_id = $ie->id;
+		$Activity9->status=  $approved->name;
+		$Activity9->save();*/
+/*-----------------------------------------------------------------*/		
+		# Add experiences for final thesis'
+		/*$experience1 = new Experience;
+		$experience1->Activity_id=$Activity1->id;
+		$experience1->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience1->accepted=1;
+		$experience1->student_id=$student1->id;
+		$experience1->status=  $approved->name;
+		$experience1->save();
+		
+		$experience2 = new Experience;
+		$experience2->Activity_id=$Activity1->id;
+		$experience2->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience2->accepted=1;
+		$experience2->student_id=$student2->id;
+		$experience2->status=  $approved->name;
+		$experience2->save();
+		
+		$experience3 = new Experience;
+		$experience3->Activity_id=$Activity2->id;
+		$experience3->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience3->accepted=1;
+		$experience3->student_id=$student3->id;
+		$experience3->status=  $approved->name;
+		$experience3->save();
+		
+		# Add experiences for EPS
+		$experience4 = new Experience;
+		$experience4->Activity_id=$Activity3->id;
+		$experience4->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience4->accepted=1;
+		$experience4->student_id=$student4->id;
+		$experience4->status=  $approved->name;
+		$experience4->save();
+		
+		$experience5 = new Experience;
+		$experience5->Activity_id=$Activity3->id;
+		$experience5->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience5->accepted=1;
+		$experience5->student_id=$student5->id;
+		$experience5->status=  $approved->name;
+		$experience5->save();
+		
+		$experience6 = new Experience;
+		$experience6->Activity_id=$Activity4->id;
+		$experience6->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience6->accepted=1;
+		$experience6->student_id=$student6->id;
+		$experience6->status=  $approved->name;
+		$experience6->save();
+		
+		$experience7 = new Experience;
+		$experience7->Activity_id=$Activity3->id;
+		$experience7->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience7->accepted=1;
+		$experience7->student_id=$student7->id;
+		$experience7->status=  $approved->name;
+		$experience7->save();
+		
+		# Add experiences for minors
+		$experience8 = new Experience;
+		$experience8->Activity_id=$Activity5->id;
+		$experience8->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience8->accepted=1;
+		$experience8->student_id=$student8->id;
+		$experience8->status=  $approved->name;
+		$experience8->save();
+		
+		$experience9 = new Experience;
+		$experience9->Activity_id=$Activity5->id;
+		$experience9->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience9->accepted=1;
+		$experience9->student_id=$student9->id;
+		$experience9->status=  $approved->name;
+		$experience9->save();
+		
+		$experience10 = new Experience;
+		$experience10->Activity_id=$Activity6->id;
+		$experience10->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience10->accepted=1;
+		$experience10->student_id=$student10->id;
+		$experience10->status=  $approved->name;
+		$experience10->save();
+		
+		$experience11 = new Experience;
+		$experience11->Activity_id=$Activity7->id;
+		$experience11->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience11->accepted=1;
+		$experience11->student_id=$student11->id;
+		$experience11->status=  $approved->name;
+		$experience11->save();
+		
+		# Add experiences for internships
+		$experience12 = new Experience;
+		$experience12->Activity_id=$Activity8->id;
+		$experience12->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience12->accepted=1;
+		$experience12->student_id=$student12->id;
+		$experience12->status=  $approved->name;
+		$experience12->save();
+		
+		$experience13 = new Experience;
+		$experience13->Activity_id=$Activity8->id;
+		$experience13->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience13->accepted=1;
+		$experience13->student_id=$student13->id;
+		$experience13->status=  $approved->name;
+		$experience13->save();
+		
+		$experience14 = new Experience;
+		$experience14->Activity_id=$Activity9->id;
+		$experience14->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience14->accepted=1;
+		$experience14->student_id=$student14->id;
+		$experience14->status=  $approved->name;
+		$experience14->save();
+		
+		$experience15 = new Experience;
+		$experience15->Activity_id=$Activity9->id;
+		$experience15->description="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Fusce hendrerit sed magna ac luctus. Aliquam nisi metus. vulputate ut ultricies quis. vestibulum interdum sem. Etiam dui ante. tempor quis justo in. pharetra adipiscing tellus. Proin ullamcorper cursus vestibulum. Duis porta ligula ac tempus scelerisque. Morbi interdum fringilla enim nec placerat. Cras quis elit fringilla. pulvinar libero eget. dapibus tortor. Aliquam vitae consequat massa. Quisque euismod id nibh tempor iaculis. Praesent tempus lacus lobortis. dignissim velit eget. dapibus mauris. In sit amet sapien ultrices. commodo dui viverra. adipiscing massa. Etiam eget lacinia ligula. Cras hendrerit rhoncus mauris a vehicula. Aenean tempus purus iaculis porta molestie. ";
+		$experience15->accepted=1;
+		$experience15->student_id= $student15->id;
+		$experience15->status=  $approved->name;
+		$experience15->save();*/
+/*-----------------------------------------------------------------*/		
+		# Add admin user'
+		/*$user = new User;
+		$user->username = "Confusing Bucket";
+		$user->email = "confusingbucket07@gmail.com";
+		$user->google_token = "117306537575775047088";
+		$user->google_value = "4/eYVzta-VaSS90D8hmhxluOzLS7gU.4sC9XzBffS4SOl05ti8ZT3YRplBTjQI";
+		$user->save();
+
+		$admin = new Admin;
+		$admin->firstname = "Confusing";
+		$admin->surname = "Bucket";
+		$admin->admintype_id = $admintype->id;
+		$admin->save();
+
+		$userType = new Usertype;
+		$userType->user_id = $user->id;
+		$userType->admin_id = $admin->id;
+		$userType->save();	*/	
+
+		vullenNieuw();
+		return View::make('gevuld');	
+	}
+	
+	
 }
 ?>
