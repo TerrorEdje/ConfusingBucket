@@ -589,6 +589,167 @@ class DatabaseController extends BaseController {
 	
 	public function vullenNieuw()
 	{
+        $L0019 = new Location;
+		$L0019->country="France";
+		$L0019->city="Tarbes Cedex";
+		$L0019->streetname="avenue d'Azereix";
+		$L0019->number="47";
+		$L0019->zipcode="65016";
+		$L0019->latitude= -22,2075244;
+		$L0019->longitude= -49,6477946;
+		$L0019->save();
+		
+		$L0090O = new Organization;
+		$L0090O->name="Ecole Nationale d'Ingénieurs de Tarbes";
+		$L0090O->type="School";
+		$L0090O->description="Ecole Nationale d'Ingénieurs de Tarbes";
+		$L0090O->status="Approved";
+		$L0090O->location_id = $L0019->id;
+		$L0090O->save();
+        
+        $L0020 = new Location;
+		$L0020->country="France";
+		$L0020->city="Nantes Cedex";
+		$L0020->streetname="Rue du Maréchal Joffre";
+		$L0020->number="3";
+		$L0020->zipcode="34103";
+		$L0020->latitude= -22,2075244;
+		$L0020->longitude= -49,6477947;
+		$L0020->save();
+		
+		$L0020O = new Organization;
+		$L0020O->name="Institute Universitaire de Technolgie";
+		$L0020O->type="School";
+		$L0020O->description="Institute Universitaire de Technolgie";
+		$L0020O->status="Approved";
+		$L0020O->location_id = $L0020->id;
+		$L0020O->save();
+        
+        $L0021 = new Location;
+		$L0021->country="France";
+		$L0021->city="Nantes Cedex";
+		$L0021->streetname="Rue du Maréchal Joffre";
+		$L0021->number="3";
+		$L0021->zipcode="34103";
+		$L0021->latitude= -22,2075244;
+		$L0021->longitude= -49,6477948;
+		$L0021->save();
+		
+		$L0021O = new Organization;
+		$L0021O->name="IUT de Saint- Nazaire Institut Universitaire de Technologie";
+		$L0021O->type="School";
+		$L0021O->description="IUT de Saint- Nazaire Institut Universitaire de Technologie";
+		$L0021O->status="Approved";
+		$L0021O->location_id = $L0021->id;
+		$L0021O->save();
+        
+        $L0022 = new Location;
+		$L0022->country="France";
+		$L0022->city="LA ROCHELLE CEDEX";
+		$L0022->streetname="Avenue Albert Einstein";
+		$L0022->number="23";
+		$L0022->zipcode="17071";
+		$L0022->latitude= 55,6617719;
+		$L0022->longitude= 11,6216066;
+		$L0022->save();
+		
+		$L0022O = new Organization;
+		$L0022O->name="Université La Rochelle";
+		$L0022O->type="School";
+		$L0022O->description="Université La Rochelle";
+		$L0022O->status="Approved";
+		$L0022O->location_id = $L0022->id;
+		$L0022O->save();
+        
+        $L0023 = new Location;
+		$L0023->country="France";
+		$L0023->city="Le Mans cedex";
+		$L0023->streetname="Ave Olivier Messiaen";
+		$L0023->zipcode="72085";
+		$L0023->latitude= 48,016925;
+		$L0023->longitude= 0,159578;
+		$L0023->save();
+		
+		$L0023O = new Organization;
+		$L0023O->name="IIUT GEA Le Mans";
+		$L0023O->type="School";
+		$L0023O->description="IIUT GEA Le Mans";
+		$L0023O->status="Approved";
+		$L0023O->location_id = $L0023->id;
+		$L0023O->save();
+        
+        $L0024 = new Location;
+		$L0024->country="Germany";
+		$L0024->city="Eggenstein-Leopoldshafen";
+		$L0024->streetname="Hermann-von-Helmholz-Platz";
+		$L0024->number="1";
+		$L0024->zipcode="76344";
+		$L0024->latitude= 49,091741;
+		$L0024->longitude= 8,4283849;
+		$L0024->save();
+        
+		$L0024O = new Organization;
+		$L0024O->name="Karlruher Institut für Technologie";
+		$L0024O->type="School";
+		$L0024O->description="Karlruher Institut für Technologie";
+		$L0024O->status="Approved";
+		$L0024O->location_id = $L0024->id;
+		$L0024O->save();
+        
+        $L0025 = new Location;
+		$L0025->country="Germany";
+		$L0025->city="Berlin";
+		$L0025->streetname="Luxemburger Straße";
+		$L0025->number="10";
+		$L0025->zipcode="13353";
+		$L0025->latitude= 52,5411171;
+		$L0025->longitude= 13,3509304;
+		$L0025->save();
+		
+		$L0025O = new Organization;
+		$L0025O->name="Beuth Hochschule für technik Berlin";
+		$L0025O->type="School";
+		$L0025O->description="Beuth Hochschule für technik Berlin";
+		$L0025O->status="Approved";
+		$L0025O->location_id = $L0025->id;
+		$L0025O->save();
+        
+        $L0026 = new Location;
+		$L0026->country="Germany";
+		$L0026->city="Hamburn";
+		$L0026->streetname="Berliner Tor";
+		$L0026->number="5";
+		$L0026->zipcode="20099";
+		$L0026->latitude= 53,557079;
+		$L0026->longitude= 10,023018;
+		$L0026->save();
+        
+		$L0026O = new Organization;
+		$L0026O->name="Hochschule für Angewandte Wissenschaften Hamburg";
+		$L0026O->type="School";
+		$L0026O->description="Hochschule für Angewandte Wissenschaften Hamburg";
+		$L0026O->status="Approved";
+		$L0026O->location_id = $L0026->id;
+		$L0026O->save();
+        
+        $L0027 = new Location;
+		$L0027->country="Germany";
+		$L0027->city="Trier";
+		$L0027->streetname="Schneiderhof";
+		$L0027->number="1";
+		$L0027->zipcode="54293";
+		$L0027->latitude= 49,795724;
+		$L0027->longitude= 6,6790269;
+		$L0027->save();
+		
+		$L0027O = new Organization;
+		$L0027O->name="Fachhochschule Trier";
+		$L0027O->type="School";
+		$L0027O->description="Fachhochschule Trier";
+		$L0027O->status="Approved";
+		$L0027O->location_id = $L0027->id;
+		$L0027O->save();
+        
 		$L0028 = new Location;
 		$L0028->country="Germany";
 		$L0028->city="Fulda";
