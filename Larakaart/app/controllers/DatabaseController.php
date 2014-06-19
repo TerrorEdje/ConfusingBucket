@@ -599,13 +599,13 @@ class DatabaseController extends BaseController {
 		$L0019->longitude= -49,6477946;
 		$L0019->save();
 		
-		$L0090O = new Organization;
-		$L0090O->name="Ecole Nationale d'Ingénieurs de Tarbes";
-		$L0090O->type="School";
-		$L0090O->description="Ecole Nationale d'Ingénieurs de Tarbes";
-		$L0090O->status="Approved";
-		$L0090O->location_id = $L0019->id;
-		$L0090O->save();
+		$L0019O = new Organization;
+		$L0019O->name="Ecole Nationale d'Ingénieurs de Tarbes";
+		$L0019O->type="School";
+		$L0019O->description="Ecole Nationale d'Ingénieurs de Tarbes";
+		$L0019O->status="Approved";
+		$L0019O->location_id = $L0019->id;
+		$L0019O->save();
         
 		$L0011 = new Location;
 		$L0011->country="Finland";
@@ -1412,30 +1412,32 @@ class DatabaseController extends BaseController {
 		$S28->surname="Smits";
 		$S28->save();
 		
-		
-		
 		$A0001 = new Activity;
 		$A0001->name="EPS bij Oslo University College";
 		$A0001->description="EPS bij Oslo University College";
 		$A0001->type=$eps->name;
+		$A0001->organization_id = $L0045O->id;
 		$A0001->save();
 		
 		$A0002 = new Activity;
 		$A0002->name="EPS bij Novia University of Applied Sciences";
 		$A0002->description="EPS bij Novia University of Applied Sciences";
 		$A0002->type=$eps->name;
+		$A0002->organization_id = $L0011O->id;
 		$A0002->save();
 		
 		$A0003 = new Activity;
 		$A0003->name="EPS bij Universidad Polit&eacute;cnica de Valencia";
 		$A0003->description="EPS bij Universidad Polit&eacute;cnica de Valencia";
 		$A0003->type=$eps->name;
+		$A0003->organization_id = $L0052O->id;
 		$A0003->save();
 		
 		$A0004 = new Activity;
 		$A0004->name="EPS bij Ecole Nationale d&#39;Ing&eacute;nieurs de Tarbes";
 		$A0004->description="EPS bij Ecole Nationale d&#39;Ing&eacute;nieurs de Tarbes";
 		$A0004->type=$eps->name;
+		$A0004->organization_id = $L0019O->id;
 		$A0004->save();
 }
 ?>
