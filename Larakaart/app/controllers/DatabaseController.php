@@ -607,6 +607,24 @@ class DatabaseController extends BaseController {
 		$L0090O->location_id = $L0019->id;
 		$L0090O->save();
         
+		$L0011 = new Location;
+		$L0011->country="Finland";
+		$L0011->city="Sein&auml;joki";
+		$L0011->streetname="Keskuskatu";
+		$L0011->number="34";
+		$L0011->zipcode="60101";
+		$L0011->latitude= 61,92411;
+		$L0011->longitude= 25,748151;
+		$L0011->save();
+		
+		$L0011O = new Organization;
+		$L0011O->name="Sein&auml;joen Ammattikorkeakoulu (Sein&auml;joki University of Applied Sciences)";
+		$L0011O->type="School";
+		$L0011O->description="Sein&auml;joen Ammattikorkeakoulu (Sein&auml;joki University of Applied Sciences)";
+		$L0011O->status="Approved";
+		$L0011O->location_id = $L0011->id;
+		$L0011O->save();
+		
         $L0020 = new Location;
 		$L0020->country="France";
 		$L0020->city="Nantes Cedex";
